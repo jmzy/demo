@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>不规则导航</title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				var ul=$("#nav_ul"),
+					li=$(".nav_li"),
+					i=li.length,
+					n=i-1,
+					r=120;
+					
+				ul.click(function(){
+					$(this).toggleClass('active');
+					if($(this).hasClass('active')){
+						for(var a=0;a<i;a++){
+							li.eq(a).css({
+								'transition-delay':""+(50*a)+"ms",
+								'-webkit-transition-delay':""+(50*a)+"ms",
+								'-o-transition-delay':""+(50*a)+"ms",
+								'transform':"translate("+(r*Math.cos(90/n*a*(Math.PI/180)))+"px,"+(r*Math.sin(90/n*a*(Math.PI/180)))+"px",
+								'-webkit-transform':"translate("+(r*Math.cos(90/n*a*(Math.PI/180)))+"px,"+(r*Math.sin(90/n*a*(Math.PI/180)))+"px",
+								'-o-transform':"translate("+(r*Math.cos(90/n*a*(Math.PI/180)))+"px,"+(r*Math.sin(90/n*a*(Math.PI/180)))+"px",
+								'-ms-transform':"translate("+(r*Math.cos(90/n*a*(Math.PI/180)))+"px,"+(r*Math.sin(90/n*a*(Math.PI/180)))+"px"
+							});
+						}
+					}else{
+						li.removeAttr('style');
+					};
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="nav">
+			<ul id="nav_ul" data-open="收起" data-close="导航">
+				<li class="nav_li"><a href="javascript:void(0)">memu</a></li>
+				<li class="nav_li"><a href="javascript:void(0)">memu</a></li>
+				<li class="nav_li"><a href="javascript:void(0)">memu</a></li>
+				<li class="nav_li"><a href="javascript:void(0)">memu</a></li>
+				<li class="nav_li"><a href="javascript:void(0)">memu</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

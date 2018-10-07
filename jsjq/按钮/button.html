@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Button Style</title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style>
+			body{background:#494A5F;}
+			a{text-decoration:none;color:white;font-size:20pt;}
+			
+			#title{margin:0 auto;margin-top:80px;text-align:center;font-size:40px;color:salmon;}
+			.container{width:100%;}
+			.warp{width:1200px;margin:30px auto}
+			.warp p{text-align:center;font-size:30px;}
+			
+			/*btn1*/
+			.btn1{margin:20px;width:200px;height:60px;cursor:pointer;float:left;
+			  	transform-style:preserve-3d;-webkit-transform-style:preserve-3d;
+  				transition:0.5s;-webkit-transition:0.5s;position:relative;}
+			.btn1 span{width:100%;height:100%;line-height: 50px;box-sizing:border-box;
+				text-align:center;font-size:20pt;position:absolute;}
+			.btn1 .btn1-span1{color:#fff;
+			  	transform: translate3d(0,0,30px);-webkit-transform:translate3d(0, 0, 30px);}
+			.btn1 .btn1-span2{color:#fff;
+			  	transform:rotateX(90deg) translate3d(0,0,30px);
+			  	-webkit-transform: rotateX(90deg) translate3d(0,0,30px);}
+			.btn1:hover{transform: rotateX(-90deg)}  	
+			
+			.btn1-border1{border:5px solid #541388;}
+			.btn1-bg1{background:#541388;}
+			.btn1-border2{border:5px solid #D90368;}
+			.btn1-bg2{background:#D90368;}
+			.btn1-border3{border:5px solid #104547;}
+			.btn1-bg3{background:#104547;}
+			.btn1-border4{border:5px solid #4F000B;}
+			.btn1-bg4{background:#4F000B;}
+			.btn1-border5{border:5px solid #F28123;}
+			.btn1-bg5{background:#F28123;}
+			
+			/*btn2*/
+			.button2{margin:20px;width:200px;height:60px;cursor: pointer;float:left;
+		  		text-align:center;position:relative;border-radius:6px;overflow:hidden;}
+	  		.button2 #shape{stroke-width:10px;fill:transparent;stroke-dasharray:30 2;
+	  			stroke-dashoffset:-220;transition:0.5s all ease;}
+			.button2 a{position:absolute;top:0;left:0;width:200px;height:60px;display:block;
+				line-height:60px;text-align:center;}
+			.button2:hover #shape{stroke-width:8px;stroke-dasharray:50 0;
+				stroke-dashoffset:0;stroke:white}
+				
+			.btn2-stroke1{stroke:#541388;}
+			.btn2-stroke2{stroke:#D90368;}
+			.btn2-stroke3{stroke:#104547;}
+			.btn2-stroke4{stroke:#4F000B;}
+			.btn2-stroke5{stroke:#F28123;}
+			
+			/*btn3*/
+			/*btn3*/
+			.button3{float:left;margin:20px;width:194px;height:60px;line-height:60px;
+				-webkit-transition:all 0.2s linear 0s;transition: all 0.2s linear 0s;
+				text-align:center;cursor: pointer;border-radius:4px;
+				position:relative;}
+			.button3:before{width:30px;height:100%;background-color:rgba(255, 255, 255, 0.3);
+				content:'>';font-size:20pt;color:white;border-radius: 0 50% 50% 0;
+				position:absolute;top:0;left:0;
+			  	transform:scale(0, 1);-webkit-transform:scale(0, 1);
+				transition: all 0.2s linear 0s;-webkit-transition: all 0.2s linear 0s;
+				-webkit-transform-origin:left center;transform-origin: left center;	
+			  	/*display: flex;display:-webkit-box;display:-ms-flexbox;
+			  	-webkit-box-align: center;-ms-flex-align: center;align-items: center;
+			  	-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;*/
+			}
+			.button3:hover:before{transform: scale(1,1);-webkit-transform: scale(1,1);
+			  	text-indent: 0;}
+			  	
+		  	.btn3-border1{border:3px solid #541388;}
+		  	.btn3-border1:before{background:#541388;}
+			.btn3-border2{border:3px solid #D90368;}
+			.btn3-border2:before{background:#D90368;}
+			.btn3-border3{border:3px solid #104547;}
+			.btn3-border3:before{background:#104547;}
+			.btn3-border4{border:3px solid #4F000B;}
+			.btn3-border4:before{background:#4F000B;}
+			.btn3-border5{border:3px solid #F28123;}
+			.btn3-border5:before{background:#F28123;}
+		</style>
+		<script>
+			window.onload = function(){
+				console.log(window.innerWidth)
+			}
+		</script>
+	</head>
+	<body>
+		<h1 id="title">Button Style</h1>
+		<div id="container">
+			<div class="warp clearfix">
+				<p>#1</p>
+				<div>
+					<div class="btn1">
+						<a href="javascript:void(0)">
+							<span class="btn1-span1 btn1-border1">HELLO</span>
+							<span class="btn1-span2 btn1-border1 btn1-bg1">WORD</span>
+						</a>
+					</div>
+					<div class="btn1">
+						<a href="javascript:void(0)">
+							<span class="btn1-span1 btn1-border2">HELLO</span>
+							<span class="btn1-span2 btn1-border2 btn1-bg2">WORD</span>
+						</a>
+					</div>
+					<div class="btn1">
+						<a href="javascript:void(0)">
+							<span class="btn1-span1 btn1-border3">HELLO</span>
+							<span class="btn1-span2 btn1-border3 btn1-bg3">WORD</span>
+						</a>
+					</div>
+					<div class="btn1">
+						<a href="javascript:void(0)">
+							<span class="btn1-span1 btn1-border4">HELLO</span>
+							<span class="btn1-span2 btn1-border4 btn1-bg4">WORD</span>
+						</a>
+					</div>
+					<div class="btn1">
+						<a href="javascript:void(0)">
+							<span class="btn1-span1 btn1-border5">HELLO</span>
+							<span class="btn1-span2 btn1-border5 btn1-bg5">WORD</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="warp clearfix">
+				<p>#2</p>
+				<div class="button2">
+					<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+						<rect id="shape" class='btn2-stroke1' width="200" height='60'/>
+						<div>
+						  	<a href="javascript:viod(0)">
+						  		Button 2
+						  	</a>
+						</div>
+				  	</svg>
+				</div>
+				<div class="button2">
+					<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+						<rect id="shape" class='btn2-stroke2' width="200" height='60'/>
+						<div>
+						  	<a href="javascript:viod(0)">
+						  		Button 2
+						  	</a>
+						</div>
+				  	</svg>
+				</div>
+				<div class="button2">
+					<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+						<rect id="shape" class='btn2-stroke3' width="200" height='60'/>
+						<div>
+						  	<a href="javascript:viod(0)">
+						  		Button 2
+						  	</a>
+						</div>
+				  	</svg>
+				</div>
+				<div class="button2">
+					<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+						<rect id="shape" class='btn2-stroke4' width="200" height='60'/>
+						<div>
+						  	<a href="javascript:viod(0)">
+						  		Button 2
+						  	</a>
+						</div>
+				  	</svg>
+				</div>
+				<div class="button2">
+					<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+						<rect id="shape" class='btn2-stroke5' width="200" height='60'/>
+						<div>
+						  	<a href="javascript:viod(0)">
+						  		Button 2
+						  	</a>
+						</div>
+				  	</svg>
+				</div>
+			</div>
+			<div class="warp clearfix">
+				<p>#3</p>
+				<div class="button3 btn3-border1">
+					<a href="javascript:void(0)">Button 3</a>
+				</div>
+				<div class="button3 btn3-border2">
+					<a href="javascript:void(0)">Button 3</a>
+				</div>
+				<div class="button3 btn3-border3">
+					<a href="javascript:void(0)">Button 3</a>
+				</div>
+				<div class="button3 btn3-border4">
+					<a href="javascript:void(0)">Button 3</a>
+				</div>
+				<div class="button3 btn3-border5">
+					<a href="javascript:void(0)">Button 3</a>
+				</div>
+			</div>
+			<div class="warp clearfix">
+				<p>#4</p>
+			</div>
+			<div class="warp clearfix">
+				<p>#5</p>
+			</div>
+		</div>
+	</body>
+</html>

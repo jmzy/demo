@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>纵向导航</title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				for(var i=0;i<$('.secend_nav').length;i++){
+					$('.secend_nav').eq(i).addClass('nav' + (i+1));
+					if($('.secend_nav').eq(i).children('li').children('ul')){
+						$('.secend_nav').eq(i).children('li').children('ul').addClass('nav' + 2+(i+1));
+					};
+				};
+
+				$('.selected').click(function(){
+					for(var i=0;i<$('.secend_nav').length;i++){
+						console.log(1);
+						if($('.nav' + (i+1)).css('display') == 'none' && $('.nav2' +(i+1)).css('display') == 'block'){
+							$('.nav2' +(i+1)).css('display','none');
+							$('.nav2' +(i+1)).siblings('a').addClass('select');
+						}
+					}
+					if($(this).siblings('ul').css('display') == 'none'){
+						$(this).removeClass('select');
+						$(this).siblings('ul').slideDown(100);
+						
+						//查找this 父辈的兄弟里a元素、并且a旁边存在ul(3级)、再找到自己
+						$(this).parent('li').siblings('li').children('a').siblings('ul').siblings('a').addClass('select');
+						//在this已经添加好select和slideDown后把父辈其他的有子ul(下级导航)关起来
+						$(this).parent('li').siblings('li').children('ul').slideUp(100);
+					}else{
+						$(this).addClass('select');
+						$(this).siblings('ul').slideUp(100);
+					};
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="menu">
+			<ul>
+				<li><a href="javascript:void(0)" class="select selected">第一级</a>
+					<ul class="secend_nav">
+						<li><a href="javascript:void(0)">第二级</a></li>
+						<li><a href="javascript:void(0)" class="select selected">第二级</a>
+							<ul class="three_nav">
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">第二级</a></li>
+					</ul>
+				</li>
+				<li><a href="javascript:void(0)" class="select selected">第一级</a>
+					<ul class="secend_nav">
+						<li><a href="javascript:void(0)" class="select selected">第二级</a>
+							<ul class="three_nav">
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">第二级</a></li>
+						<li><a href="javascript:void(0)">第二级</a></li>
+					</ul>
+				</li>
+				<li><a href="javascript:void(0)" class="select selected">第一级</a>
+					<ul class="secend_nav">
+						<li><a href="javascript:void(0)">第二级</a></li>
+						<li><a href="javascript:void(0)">第二级</a></li>
+						<li><a href="javascript:void(0)" class="select selected">第二级</a>
+							<ul class="three_nav">
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)" class="select selected">第二级</a>
+							<ul class="three_nav">
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+								<li><a href="javascript:void(0)">第三级</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>按钮</title>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<style>
+			body{background: #494A5F;}
+			a{text-decoration:none;color:white;font-size:20pt;}
+			/*btn1*/
+			#button1{margin:20px;width:200px;height:60px;cursor:pointer;
+			  	transform-style: preserve-3d;-webkit-transform-style:preserve-3d;
+  				transition: 0.5s;-webkit-transition: 0.5s;
+  				position:relative;}
+			#button1 span{width: 100%;height:100%;line-height: 50px;
+			  	box-sizing: border-box;border:5px solid #fff;text-align: center;font-size:20pt;
+			  				  	position: absolute;}
+			.btn1-span1{color: #fff;
+			  	transform: translate3d(0, 0, 30px);
+			  	-webkit-transform: translate3d(0, 0, 30px);}
+			.btn1-span2{background:#fff;color: #494A5F;
+			  	transform: rotateX(90deg) translate3d(0, 0, 30px);
+			  	-webkit-transform: rotateX(90deg) translate3d(0, 0, 30px);}
+			#button1:hover{transform: rotateX(-90deg)}  	
+			  	
+			/*btn2*/  	
+		  	#button2{margin:20px;width:200px;height:60px;cursor: pointer;
+		  		text-align:center;position:relative;}
+	  		#shape{stroke-width:10px;fill:transparent;stroke:#009FFD;stroke-dasharray:30 2;
+	  			stroke-dashoffset:-220;transition:0.5s all ease;}
+			#button2 a{position:absolute;top:0;left:0;width:200px;height:60px;
+				line-height:60px;text-align:center;}
+			#button2:hover #shape{stroke-width:8px;stroke-dasharray:50 0;
+				stroke-dashoffset:0;stroke:white}
+				
+			/*btn3*/
+			#button3{margin:20px;width:200px;height:60px;line-height:60px;border:2px solid #fff;
+				-webkit-transition:all 0.2s linear 0s;transition: all 0.2s linear 0s;
+				text-align:center;cursor: pointer;
+				position:relative;}
+			#button3:before{width:30px;height:100%;background-color:rgba(255, 255, 255, 0.3);
+				content:'>';font-size:20pt;color:white;border-radius: 0 50% 50% 0;
+				position:absolute;top:0;left:0;
+			  	transform: scale(0, 1);-webkit-transform: scale(0, 1);
+				transition: all 0.2s linear 0s;-webkit-transition: all 0.2s linear 0s;
+				-webkit-transform-origin:left center;transform-origin: left center;	
+			  	/*display: flex;display:-webkit-box;display:-ms-flexbox;
+			  	-webkit-box-align: center;-ms-flex-align: center;align-items: center;
+			  	-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;*/
+			}
+			#button3:hover:before{transform: scale(1, 1);-webkit-transform: scale(1, 1);
+			  	text-indent: 0;}
+		</style>
+		<script>
+
+		</script>
+	</head>
+	<body>
+		<div id="button1">
+			<a href="javascript:void(0)">
+				<span class="btn1-span1">HELLO</span>
+				<span class="btn1-span2">WORD</span>
+			</a>
+		</div>
+		
+		<div id="button2">
+			<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+				<rect id="shape" width="200" height='60'/>
+				<div id="text">
+				  	<a href="javascript:viod(0)">
+				  		Button 2
+				  	</a>
+				</div>
+		  	</svg>
+		</div>
+		
+		<div id="button3">
+			<a href="javascript:void(0)">Button 3</a>
+		</div>
+		
+		<div id="button3">
+			<a href="javascript:void(0)">Button 3</a>
+		</div>
+		
+		<div id="button3">
+			<a href="javascript:void(0)">Button 3</a>
+		</div>
+	</body>
+</html>

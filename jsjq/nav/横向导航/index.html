@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>横向菜单导航</title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+			$(function(){			
+				$('.nav_li').hover(function(){
+					var dom = $(this).children('ul');
+					if(dom.css('display') == 'none'){
+						dom.removeClass('displayNone');
+					};
+				},function(){
+					$(this).children('ul').addClass('displayNone');
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<div id="menu">
+			<ul id="nav">
+				<li class="first_li left_border nav_li">
+					<a href="javascript:void(0)">首页</a>
+				</li>
+				<li class="first_li left_border nav_li">
+					<a href="javascript:void(0)">大分类</a>	
+					<ul class="classify displayNone">
+						<li>
+							<a href="javascript:void(0)">上装</a>
+							<a href="javascript:void(0)">短袖</a>
+							<a href="javascript:void(0)">长袖</a>
+							<a href="javascript:void(0)">外套</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">下装</a>
+							<a href="javascript:void(0)">短裤</a>
+							<a href="javascript:void(0)">7分裤</a>
+							<a href="javascript:void(0)">长裤</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">配饰</a>
+							<p>
+								腰带
+								<span><a href="javascript:void(0)">布带</a></span>
+								<span><a href="javascript:void(0)">皮带</a></span>
+							</p>
+							<p>
+								饰品
+								<span><a href="javascript:void(0)">耳环</a></span>
+								<span><a href="javascript:void(0)">手饰</a></span>
+								<span><a href="javascript:void(0)">衣饰</a></span>
+							</p>
+							<p>
+								其他
+								<span><a href="javascript:void(0)">手机套</a></span>
+								<span><a href="javascript:void(0)">钥匙扣</a></span>
+							</p>
+						</li>
+					</ul>
+				</li>
+				<li class="first_li left_border nav_li">
+					<a href="javascript:void(0)">上装(2级)</a>
+					<ul class="displayNone nav_ul" >
+						<li class="second_li bottom_border nav_li"><a href="javascript:void(0)">短袖</a></li>
+						<li class="second_li bottom_border nav_li"><a href="javascript:void(0)">长袖</a></li>
+						<li class="second_li bottom_border nav_li"><a href="javascript:void(0)">外套</a></li>
+					</ul>			
+				</li>
+				<li class="first_li left_border nav_li">
+					<a href="javascript:void(0)">下装(2级)</a>
+					<ul class="displayNone nav_ul" >
+						<li class="second_li bottom_border nav_li"><a href="javascript:void(0)">短裤</a></li>
+						<li class="second_li bottom_border nav_li"><a href="javascript:void(0)">7分库</a></li>
+						<li class="second_li bottom_border nav_li"><a href="javascript:void(0)">长裤</a></li>
+					</ul>
+				</li>
+				<li class="first_li left_border nav_li">
+					<a href="javascript:void(0)">配饰(3级)</a>
+					<ul class="displayNone nav_ul" >
+						<li class="second_li bottom_border second_nav nav_li">
+							<a href="javascript:void(0)">腰带</a>
+							<ul class="displayNone second_nav_ul nav_ul" >
+								<li class="bottom_border second_nav_li nav_li"><a href="javascript:void(0)">布带</a></li>
+								<li class="bottom_border second_nav_li nav_li"><a href="javascript:void(0)">皮带</a></li>
+							</ul>	
+						</li>
+					</ul>
+					<ul class="displayNone nav_ul" >
+						<li class="second_li bottom_border second_nav nav_li">
+							<a href="javascript:void(0)">饰品</a>
+							<ul class="displayNone second_nav_ul nav_ul" >
+								<li class="bottom_border second_nav_li nav_li"><a href="javascript:void(0)">耳环</a></li>
+								<li class="bottom_border second_nav_li nav_li"><a href="javascript:void(0)">手饰</a></li>
+								<li class="bottom_border second_nav_li nav_li"><a href="javascript:void(0)">衣饰</a></li>
+							</ul>	
+						</li>
+					</ul>
+					<ul class="displayNone nav_ul" >
+						<li class="second_li bottom_border second_nav nav_li">
+							<a href="javascript:void(0)">其他配饰</a>
+							<ul class="displayNone second_nav_ul nav_ul" >
+								<li class="bottom_border second_nav_li nav_li"><a href="javascript:void(0)">手机套</a></li>
+								<li class="bottom_border second_nav_li nav_li"><a href="javascript:void(0)">钥匙扣</a></li>
+							</ul>	
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

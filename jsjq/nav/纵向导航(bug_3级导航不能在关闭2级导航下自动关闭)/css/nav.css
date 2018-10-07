@@ -1,0 +1,14 @@
+.selected{background:url(../img/on.png) no-repeat 80px center;} 
+.select{background:url(../img/off.png) no-repeat 80px center;}
+
+#menu{width:100px;text-align:left;margin:30px 10px;}
+#menu>ul>li{background:mediumaquamarine;border-bottom:1px solid #f1f1f1;}
+#menu>ul>li>a{display:block;width:100px;height:25px;line-height:25px;color:black;
+	font-size:15px;font-weight:bold;}
+
+.secend_nav{display:none;}
+.secend_nav li{padding-left:5px;background:cadetblue;}
+.secend_nav li>a{display:block;width:100px;height:25px;line-height:25px;color:black;
+	font-size:13px;}
+	
+.three_nav{display:none;}

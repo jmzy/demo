@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>图片预加载</title>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<style>
+			body{}
+			ul{margin:100px;width:1600px;}
+			li{list-style:none;margin:10px;width:296px;height:300px;display:inline-block;}
+			a{text-decoration:none;}
+			img{width:300px;height:300px;}
+		</style>
+				
+		<script>
+			//loading.jpg 控制3-10kb内
+			
+//			//第1种方法
+//			//标签添加 onerror="imgErr(this)"
+			function imgErr(obj){
+				obj.src = 'img/loading.jpg'
+			};
+			
+			$(function(){
+				
+//				//第2仲方法  不能和第1种同时使用
+				$('img').on("error",function(){
+					$(this).attr("src",'img/loading.jpg');
+				});
+				
+				//第2种方法抗展      不成功
+//				$('img').error(function(){
+//					$(this).attr("src","img/loading.jpg")
+//				})
+				
+//				var imgs = $('img[src ]')
+
+				//按需加载
+				//1标签src默认为loading的图片
+				//2标签以 _src 放置需加载图片、并找到共多少个
+				var $imgs = $("img[_src]");
+				var len = $imgs.length;
+				//3绑定窗口的window。onsrcoll 和 windo.onload 事件
+				window.onload = window.onscroll = function(){
+					//4找到每张图片的在游览器的位置	//getEleTop()
+					//5根据滚动位置判断是否需要加载
+					//兼容
+					var cheight = window.innerHeight || document.documentElement.clientHeight;
+					var sTop = document.body.scrollTop || document.documentElement.scrollTop;
+					
+					//JQ 已兼容
+					//var cheight = $(window).height();
+					//var sTop = $(window).scrollTop();
+					
+					for(var i=0;i<len;i++){
+						if( (cheight + sTop) >= getEleTop($imgs[i])){
+							var _src = $imgs[i].getAttribute('_src');
+//							console.log(_src);
+							$imgs[i].src = _src;
+						}
+						
+					}
+					
+					
+//					$imgs.each(function(){  不能有each
+//						var _src = $(this).attr("_src");
+//						$(this).attr("src",_src);
+//					});
+				}
+
+				
+			});
+			
+			//封装方法、避免定位的图片
+			function getEleTop(el){
+				var y = el.offsetTop;
+//				var parent = el.offsetParent;
+				while((el = el.offsetParent)){
+					y += el.offsetTop; 
+//					parent = el.offsetParent;
+				};
+				return y;
+			}
+			
+//邝展
+//var $imgs = $("img");
+//var imgsArr = $imgs.get();//js对象  get()传值 0为第1个
+//var imgsArr = $imgs[0];//js对象  [0]必须传值、 0为第1个
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li><a href="javascript:void(0)"></a><img src="img/loadngg.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			<li><a href="javascript:void(0)"></a><img src="img/loading.jpg" onerror="imgErr(this)" _src="img/1.jpg" alt="" /></li>
+			
+		</ul>
+
+	</body>
+</html>

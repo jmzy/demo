@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Form Style</title>
+		<!--<link rel="stylesheet" type="text/css" href="css/public.css"/>-->
+		<style>
+			*{margin:0;padding:0;}
+			body{background:#494A5F;margin:0px;padding:0px;}
+			
+			#title{margin:0 auto;margin-top:80px;text-align:center;font-size:40px;color:salmon;}
+			#container{width:1200px;margin:0 auto}
+			.warp{margin:25px;width:548px;float:left}
+			.warp>p{margin-bottom:30px;text-align:center;font-size:30px;}
+			
+			#form1{margin:0 auto;padding:2%;width:380px;background:#fff;border-radius:10px;font-size:0px;
+				box-shadow:0 0 20px rgba(0,0,0,.8)}
+			#form1 p{border-bottom:1px solid #eee;font-size:20px;line-height:36px;color:#333333}
+			#form1 span{padding-left:5px;width:130px;line-height:30px;display:inline-block;font-size:15px;}
+			#form1 .textSpan{vertical-align: top}
+			#form1 input[type=text],input[type=password]{width:200px;}
+			#form1 textarea{width:202px;height:40px;overflow:hidden;resize:none;}
+			#form1 #check{display:inline-block;font-size:12px;}
+			#form1 #check input[type=checkbox]:nth-of-type(n+2){margin-left:5px;}
+			#form1 #form1Div{margin-top:20px;height:50px;background:#eee;border-top:1px solid #ddd;}
+			#form1 button{margin-right:10px;margin-top:10px;width:70px;height:30px;border:0;border-radius:5px;
+				box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);cursor:pointer;}
+			#form1 button:nth-of-type(1){height:40px;background:#0074cc;color:white;}
+			#form1 button:nth-of-type(1):hover{background:#003580}
+			#form1 button:nth-of-type(2):hover{background:#cccccc}
+
+			
+			@font-face {
+			  	font-family: 'iconfont';  /* project id 199260 */
+			  	src: url('//at.alicdn.com/t/font_zvq8le51qhncdi.eot');
+			  	src: url('//at.alicdn.com/t/font_zvq8le51qhncdi.eot?#iefix') format('embedded-opentype'),
+			  	url('//at.alicdn.com/t/font_zvq8le51qhncdi.woff') format('woff'),
+			  	url('//at.alicdn.com/t/font_zvq8le51qhncdi.ttf') format('truetype'),
+			  	url('//at.alicdn.com/t/font_zvq8le51qhncdi.svg#iconfont') format('svg');
+			}
+			.iconfont{
+			    font-family:"iconfont" !important;
+			    font-size:25px;
+			    color:#111;
+			    font-style:normal;
+			    -webkit-font-smoothing: antialiased;
+			    -webkit-text-stroke-width: 0.2px;
+			    -moz-osx-font-smoothing: grayscale;
+			}
+			
+			#form2{margin:50px auto;padding:2%;width:380px;background:#2d2d2d;text-align:center;color:white;
+				border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,.8);font-size:0;}
+			#form2>p:first-of-type{font-size:20px;line-height:36px;color:white;border-bottom:1px solid #181818;}
+			#form2>p:not(:first-of-type){position:relative;left:0}
+			#form2>p:nth-of-type(2){margin-top:30px;}
+			#form2>p>input{margin:8px;width:300px;height:23px;border-radius:15px;outline:0;text-indent:35px;}
+			#form2 i{position:absolute;top:10px;left:45px;z-index:1;}
+			#form2 #form2Div{margin-top:10px;font-size:10px;color:white;border-top:1px solid #181818;}
+			#form2 #form2Div p{margin:8px;}
+			#form2 #form2Div input{vertical-align:bottom;}
+			#form2 button{width:150px;height:30px;border-radius:8px;outline:0;}
+		</style>
+	</head>
+	<body>
+		<h1 id="title">Form Style</h1>
+		<div id="container">
+			<div class="warp">
+				<p>#1</p1>
+				<form id="form1" method="post">
+					<p>Sample Contact Form</p>
+					<span>Username</span><input type="text" name="uname"/>
+					<br/>
+					<span>Password</span><input type="password" name="upass"/>
+					<br/>
+					<span>Double Confim</span><input type="password" name="upass"/>
+					<br/>
+					<span>E-Mail</span><input type="text" name="upass"/>
+					<br/>
+					<span>Telphone</span><input type="text" name="upass"/>
+					<br/>
+					<span>sex</span>
+			        <select name="sex">
+			            <option value="" >sex</option>
+			            <option value="boy" >Boy</option>
+			            <option value="girl" >Girl</option>
+			        </select>
+			        <br />
+			        <span>like</span>
+	                <div id="check">
+	                	<input type="checkbox" name="like" value="Eat Food"/>Eat Food
+						<input type="checkbox" name="like" value="Sleep"/>Sleep
+						<input type="checkbox" name="like" value="Play Game"/>Play Game
+	                </div>
+					<br />
+					<span class="textSpan">Other Message</span>
+					<textarea name="umsg"></textarea>
+					<br/>
+					<div id="form1Div">
+						<button>Submit</button>
+						<button>Canel</button>
+					</div>
+				</form>
+			</div>
+			<div class="warp">
+				<p>#2</p1>
+				<form id="form2" method="post"">
+					<p>注册表单</p>
+					<p>
+						<i class="iconfont">&#xe6e1;</i>
+						<input icon='11111' type="text" />
+					</p>
+					<p>
+						<i class="iconfont">&#xe709;</i>
+						<input type="password" />
+					</p>
+					<p>
+						<i class="iconfont">&#xe70a;</i>
+						<input type="email" />
+					</p>
+					<p>
+						<i class="iconfont">&#xe70f;</i>
+						<input type="text" />
+					</p>
+					<div id="form2Div">
+						<p>
+							<input type="checkbox" />
+							<span>我同意注册、等等同意各种、等等同意各种、等等同意各种、</span>
+						</p>
+						<button>提交表单</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
