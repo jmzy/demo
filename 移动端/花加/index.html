@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<script>
+//			window.onload = function(){
+				var script = document.createElement('script');
+				document.body.appendChild(script);
+				var scriptE = document.getElementsByTagName('script')[0];
+
+				scriptE.src = "http://www.tzxmkj.cn/api/Address/Get?token=0&skip=100&take=0";
+//				console.log(scriptE.src);
+		
+//				document.body.removeChild(scriptE);
+//			}
+//		</script>
+		
+		<script>
+			window.onload = function(){
+				var script = document.createElement('script');
+				document.body.appendChild(script);
+				var scriptE = document.getElementsByTagName('script')[0];
+
+				scriptE.src = "http://www.tzxmkj.cn/api/Address/Get?token=0&skip=100&take=0";
+//				console.log(scriptE.src);
+		
+//				document.body.removeChild(scriptE);
+			}
+		    $.ajax({
+		        type:'get',
+		        url:scriptE.src,//这里是url
+		        success:function(body,heads,status){
+		            console.log(body.innerText);  //body就是内容了，也就是url网页中的内容
+		        }
+		    });
+		</script>
+	</body>
+</html>

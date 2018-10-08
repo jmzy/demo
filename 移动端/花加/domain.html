@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		    <iframe id="iFrm1" src= "http://www.tzxmkj.cn/api/Address/Gets?skip=0&take=100&type=0"></iframe>
+ 
+	    <script>
+	        window.domain = 'www.tzxmkj.cn';
+	        var ifrm1 = document.getElementById('iFrm1');
+	        iFrm1.onload = function(){
+	            console.log(ifrm1.contentWindow.document.getElementById('innerDiv').innerHTML);
+	        }
+		</script>
+	</body>
+</html>

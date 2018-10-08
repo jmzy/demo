@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8"/>
+	<title>select</title>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</html>
+<body>
+
+<select id='s'>
+	<option value="">请选择</option>
+    <option value="1">Volvo</option>
+  	<option value="2">Saab</option>
+  	<option value="3">Opel</option>
+  	<option value="4">Audi</option>
+</select>
+<button onclick='a()'>JS 提交</button>
+<button onclick='b()'>Jq 提交</button>
+<div>
+	<span>js 输出</span>
+	<span id="jsSpan"></span>
+	<p>
+		<span>js 输出option的index</span>
+		<span id='optionIndex_js'></span>
+	</p>
+</div>
+<div>
+	<span>js 输出</span>
+	<span id="jqSpan"></span>
+</div>
+<div style="margin-top:50px">
+	<iframe src="http://www.cnblogs.com/itdream/archive/2012/05/31/2528345.html" 
+		width="1080" height="300" border="0"></iframe>
+</div>
+
+<script>
+	var jsSpan = document.getElementById('jsSpan');
+	var optionIndex_js = document.getElementById('optionIndex_js');
+	function a(){
+		var select = document.getElementById('s');
+		var option = select.children;
+		var index = select.selectedIndex;
+		jsSpan.innerText= option[index].text;
+		optionIndex_js.innerText = index ;
+	}
+	
+	
+//	$('#jqSpan').text('');
+	function b(){
+		var options=$("#s option:selected")
+		$('#jqSpan').text(options.text());
+	}
+
+</script>
+</body>
+</html>
