@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>screen</title>
+    <style>
+        body{
+            position:relative;
+            overflow: hidden;
+            margin:0;padding:0;//不同客户端展现的不同
+        }
+        #testObj{
+            position:absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+<div id="div" style="width:1290px;height:100px;background:silver"></div>
+<div id="testObj" style="width:100px;height:100px;background:salmon"></div>
+
+<script type="text/javascript">
+    //screen
+
+//    console.log(window.screen.availWidth);//未知效果
+//    console.log(window.screen.availHeight);//未知效果
+//
+//    console.log(window.screen.width);//未知效果
+//    console.log(window.screen.height);//未知效果
+//
+//    console.log(window.screen.bufferDepth);
+//    console.log(window.screen.colorDepth);
+//    console.log(window.screen.deviceXDPI);
+//    console.log(window.screen.deviceYDPI);
+//    console.log(window.screen.fontSmoothingEnabled);
+//    console.log(window.screen.logicalXDPI);
+//    console.log(window.screen.logicalyDPI);
+//    console.log(window.screen.pixelDepth);
+//    console.log(window.screen.updateInteral);
+//
+//    //客户端宽度固定、高度会因为内容而改变、不包括margin值
+//
+//    console.log(document.body.clientWidth);//客户端可见宽度
+//    console.log(document.body.clientHeight);//客户端可见高度
+//
+//    //同clientWidth clientHeight 效果一样
+//    console.log(document.body.offsetWidth);
+//    console.log(document.body.offsetHeight);
+//
+//    console.log(document.body.scrollWidth);//会检测到媒体查询赋值的宽度
+//    console.log(document.body.scrollHeight);//获得效果跟clientHeight 和 offsetHeight一样
+//
+//    console.log(document.body.scrollTop);//未知效果
+//    console.log(document.body.scrollLeft);//未知效果
+//
+//    console.log(window.screenTop);//未知效果
+//    console.log(window.screenLeft);//未知效果
+//
+//    console.log(document.documentElement.scrollTop);//获得滚动条往下滚动的高度
+//    console.log(document.documentElement.scrollLeft);//获得滚动条往左滚动的长度
+//
+//    var obj = document.getElementById('div');
+//
+//    //div上左
+//    var divTop =  obj.clientTop + obj.offsetTop + document.body.clientTop;
+//    console.log(obj.clientTop + '--' + obj.offsetTop + '--' + document.body.clientTop);
+//    console.log(divTop);
+//
+//    var divLeft = obj.clientLeft + obj.offsetLeft + document.body.clientLeft;
+//    console.log(obj.clientLeft + '--' + obj.offsetLeft + '--' + document.body.clientLeft)
+//    console.log(divLeft);
+
+
+    //简单拖拽,有设置一个style
+
+//    var tObj = document.getElementById('testObj');
+//    tObj.onmousedown = function(e){
+//        var e = e || window.event;
+//            e.cancelBubble = true;//防止冒泡
+////        var pos = tObj.getBoundingClientRect();//跟offest 一个意思
+////        var mouseX = e.clientX - pos.left;
+////        var mouseY = e.clientY - pos.top;
+//
+//        var posL = tObj.offsetLeft;
+//        var posT = tObj.offsetTop;
+//        var mouseX = e.clientX - posL;
+//        var mouseY = e.clientY - posT;
+//        document.onmousemove = function(e){
+//            var e = e || window.event;
+//            oLeft = e.clientX - mouseX;
+//            oTop = e.clientY - mouseY;
+//            tObj.style.top = oTop +'px';
+//            tObj.style.left = oLeft  +'px';
+//
+//            //防止拖出去
+//            if (oLeft < 0){
+//                tObj.style.left = 0 + "px";
+//            };
+//            if (oLeft > document.documentElement.clientWidth - tObj.offsetWidth - document.documentElement.clientLeft) {
+//                tObj.style.left = document.documentElement.clientWidth - tObj.offsetWidth - document.documentElement.clientLeft + "px";
+//            }
+//            if (oTop<0) {
+//                tObj.style.top = 0 + "px";
+//            };
+//            if (oTop > document.documentElement.clientHeight - tObj.offsetHeight) {
+//                tObj.style.top = document.documentElement.clientHeight - tObj.offsetHeight + "px";
+//            }
+//        };
+//        this.onmouseup = function(e){
+//            document.onmousemove = null;
+//        }
+//    }
+
+    //跨游览器获取窗口在电脑的 X Y
+
+    function screenXY(){
+        var left = (typeof window.screenLeft == 'number')?
+                window.screenLeft : window.screenX;
+        var top = (typeof window.screenTop == 'number')?
+                window.screenTop : window.screenY;
+    };
+    screenXY();
+    var left = window.screenLeft;   //游览器的窗口在电脑的left
+    var top = window.screenTop;     //object Window????
+    console.log(left + "---" + top);
+    console.log(window.screenTop);  //能获得值??????
+
+
+
+</script>
+</body>
+</html>

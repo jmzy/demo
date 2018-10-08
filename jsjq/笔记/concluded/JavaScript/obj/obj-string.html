@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>String</title>
+</head>
+<body>
+<script type="text/javascript">
+    //indexof()
+
+//    str = "abcdefg";
+//    console.log(str.charAt(0));
+//    console.log(str);
+//    console.log(str.charAt(1));
+//    //不该边字符串的长度
+
+    //slice() 和 substr() 和 substring() 的区别
+
+//    var question = 'hello world';
+//
+//    //均一位参数测试
+//    console.log(question.slice(2));         //llo world
+//    console.log(question);  //hello world
+//    console.log(question.substr(2));        //llo world
+//    console.log(question);  //hello world
+//    console.log(question.substring(2));     //llo world
+//    console.log(question);  //hello world
+//    //---1个整数传参返回结果一样
+//    console.log(question.slice(-2));         //ld
+//    console.log(question);  //hello world
+//    console.log(question.substr(-2));        //ld
+//    console.log(question);  //hello world
+//    console.log(question.substring(-2));     //hello world
+//    console.log(question);  //hello world
+//    //str.slice(a); str.substr(a);返回结果为字符串从右往左两位
+//    //而 str.substring();则返回字符串本身
+//
+//    //均两位参数测试
+//    console.log(question.slice(4,7));       //o w
+//    console.log(question);  //hello world
+//    console.log(question.substr(4,7));      //o world
+//    console.log(question);  //hello world
+//    console.log(question.substring(4,7));   //o w
+//    console.log(question);  //hello world
+//    //第2位传参为正整数
+//    //str.slice(a,b); str.substring(a,b);
+//        //均为下标0起,由下标a到下标b截取的值
+//    //       str.substr(a,b); //与前两个方法有区别
+//        //获得结果为截取下标0起,由下标a起往后b位下标
+//
+//    console.log(question.slice(4,-3));       //o wo
+//    console.log(question);  //hello world
+//    console.log(question.substr(4,-3));      // (空)
+//    console.log(question);  //hello world
+//    console.log(question.substring(4,-3));   //hell
+//    console.log(question);  //hello world
+//    //第2位传参为负整数
+//    //question.slice(a,b);        获得为下标0起,由下标a起往后b位下标截取(下标0起,即-3为下标4)
+//    //  question.substr(a,b);       返回为空
+//    //  question.substring(a,b);    获得为下标0起,由下标a起往前b位下标截取(下标0起,即-3为下标4)
+
+    //遍历window的带ON开头的和其他的
+
+//    var arr = [];
+//    var oArr = [];
+//    for(var key in window){
+//        var str = key.toString();
+//        if( str.charAt(0).indexOf('o')>-1 && str.charAt(1).indexOf('n') >-1){
+//            arr.push(key);
+//        }else{
+//            oArr.push(key);
+//        }
+//    }
+//    for(var i=0;i<arr.length;i++){
+//        if(i<9){
+//            document.write('0' + (i+1) + "--" + arr[i] + '<br/>')
+//        }else{
+//            document.write(i+1 + "--" + arr[i] + '<br/>')
+//        }
+//    }
+////    console.log(i);
+//    for(var i=0;i<10;i++){
+//        document.write("-----------" + "<br/>");
+//    }
+////    console.log(i);
+//    for(var i=0;i<oArr.length;i++){
+//        if (i < 9) {
+//            document.write('0' + (i + 1) + "--" + oArr[i] + '<br/>')
+//        } else {
+//            document.write(i + 1 + "--" + oArr[i] + '<br/>')
+//        }
+//    }
+
+    //str 转 json
+
+//    var str = 'userID=1;userName=abc';
+//    var json = {};
+//    var arr = str.split(';');
+//    arr.forEach(function(val){
+//        var arr = val.trim().split('=');
+//        json[arr[0]] = arr[1];
+//    });
+//    arr.map(function(val){
+//        var arr = val.trim().split('=');
+//        json[arr[0]] = arr[1];
+//    });
+//    console.log(json);                  //{userID: "1", userName: "abc"}
+//    console.log(typeof json);           //object
+
+</script>
+</body>
+</html>

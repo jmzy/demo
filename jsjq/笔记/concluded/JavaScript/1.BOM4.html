@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOM节点类型</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                DOM节点类型
+            </h1>
+            <section>
+                <h5>
+                    DOM节点类型详解
+                </h5>
+                <pre>
+<table border="1px">
+    <tr>
+        <th>类型</th>
+        <th>值</th>
+        <th>说明</th>
+        <th><i class="color0">*</i>常用</th>
+    </tr>
+    <tr>
+        <td>ELEMENT_NODE</td>
+        <td>1</td>
+        <td>元素节点</td>
+        <td class="color0">*</td>
+    </tr>
+    <tr>
+        <td>ATTRIBUTE_NODE</td>
+        <td>2</td>
+        <td>属性节点</td>
+        <td class="color0">*</td>
+    </tr>
+    <tr>
+        <td>TEXT_NODE</td>
+        <td>3</td>
+        <td>文本节点</td>
+        <td class="color0">*</td>
+    </tr>
+    <tr>
+        <td>CDATA_SECTION_NODE</td>
+        <td>4</td>
+        <td>CDATA 区段</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ENTITY_REFERENCE_NODE</td>
+        <td>5</td>
+        <td>实体引用</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ENTITY_NODE</td>
+        <td>6</td>
+        <td>实体</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PROCESSING_<br/>INSTRUCTION_NODE</td>
+        <td>7</td>
+        <td>处理指令</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>COMMENT_NODE</td>
+        <td>*</td>
+        <td>注释节点</td>
+        <td class="color0">*</td>
+    </tr>
+    <tr>
+        <td>DOCUMENT_NODE</td>
+        <td>9</td>
+        <td>文档节点</td>
+        <td class="color0">*</td>
+    </tr>
+</table>
+额外参考:http://www.cnblogs.com/diyingyun/archive/2012/11/29/2794794.html
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    获得元素类型和元素名称
+                </h5>
+                <pre>
+&lt;div id="div" title="divTitle"&gt;
+    div下的内容
+    &lt;p&gt;P标签&lt;/p&gt;
+    &lt;span&gt;SPAN标签&lt;/span&gt;
+&lt;/div&gt;
+&lt;script&gt;
+var div = document.getElementById("div");
+//obj.nodeType 获得元素类型
+document.write(div.nodeType);//1
+//obj.nodeName 获得元素名称
+document.write(div.nodeName);//DIV
+
+//通过元素属性 获得元素类型和元素名称
+//getAttribute获得自定义内联属性和值
+document.write(div.getAttribute("title"));//divTitle
+document.write(div.getAttributeNode("title").nodeType + "<br/>");//2
+document.write(div.getAttributeNode("title").nodeName + "<br/>");//title
+
+//<i class="color0">★</i>获得文本节点和文档节点
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    获得同级元素、子元素、父元素、创建、复制、删除元素节点
+                </h5>
+                <pre>
+&lt;script&gt;
+var div = document.getElementById("div");
+var p = document.getElementById("p");
+//obj.parentNode 获得父元素节点
+console.log(p.parentNode);
+
+//obj.offsetParent 获得相对于定位的父元素(最近的)
+
+//children 获得所有子元素
+
+//firstElementChild和lastElementChild 获得元素的第1和最后1个元素节点
+//<i class="color0">★</i>IE9以上才能支持
+
+//previousElementSiblings 前1个元素节点 nextElementSiblings 后1个元素节点
+//<i class="color0">★</i>IE9以上才能支持
+
+//创建元素节点
+document.createElement("div");
+
+//创建文本节点
+document.createTextNode("Hello world!");
+
+//添加元素节点
+//obj.insertBefore(new,target) 添加到之前
+//obj.appendChild()  添加到最后
+
+//<i class="color0">★</i>若不清楚子类是否存在元素需要追加元素
+//用函数封装
+function insertAfterDom(parent,nowDom){
+    var childs = parent.children;
+    if(childs.length == 0){
+        parent.appentChild(nowDom);
+    }else{
+        parent.insertBefore(nowDom,childs[0]);
+    };
+};
+
+//复制节点 obj.cloneNode() <i class="color0">★</i>1定要带括号
+//<i class="color0">★</i>只能复制节点、节点的内容复制不了
+
+//<i class="color0">★</i>obj.cloneNode(true) 必须传参
+//能获取元素的内容和所有的子元素
+//<i class="color0">★</i>会把id也会复制、需要注意
+
+//删除元素节点 parentDom.removeChild(childDom)
+//自己删自己 childDom.parentNode.removeChild(childDOM)
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    获得元素的各种节点
+                </h5>
+                <pre>
+&lt;div id="div" title="divTitle"&gt;
+    div下的内容
+    &lt;p id="p"&gt;P标签&lt;/p&gt;
+    &lt;span&gt;SPAN标签&lt;/span&gt;
+&lt;/div&gt;
+&lt;script&gt;
+//获得元素下所有子节点 obj.childNodes
+document.write(div.childNodes.length);//5 获得所有子节点集合可以获得长度
+//标签与标签之间空白的也算1个节点
+//若闭合标签直接跟随下1个开始标签那就不存在空白的
+//&lt;/div&gt;&lt;p&gt;&lt;/p&gt;
+
+//获得文本节点的内容
+document.write(div.childNode.nodeValue + "<br/>");//div下的内容
+//nodeValue只能获得文本节点的内容和innerHTML和innerText
+
+//previousSiblings 前1个节点 nextSiblings 后1个节点
+//firstChild 和 lastChild是获得第1个和最后1个<i class="color0">★</i>节点、
+//包括空白符的节点
+&lt;script&gt;
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

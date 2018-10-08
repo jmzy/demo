@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="https://unpkg.com/vue"></script>
+<style>
+    li{list-style:none}
+    a{text-decoration:none}
+</style>
+<ul id="app-vue">
+    <li v-for="notNum in notNumArr" >
+        <a href="javascript:void(0)" >{{notNum}}</a>
+        <!--<span v-if="isNaN(notNum)">{{notNum}}</span>-->
+    </li>
+
+</ul>
+<script type="text/javascript">
+    var dataArr = [0,1,'abc代替2',3,4,5,'efg代替6',7],
+        notNumIndex = [],notNumKEY = [];
+
+    //3、建新数组存储原数组 notNumIndex下标减1 赋值notNumKey
+    notNumArr = dataArr.slice();
+
+    var myApp = new Vue({
+        el:'#app-vue',
+        data:{
+            dataArr:dataArr,
+            notNumArr:notNumArr
+        }
+    });
+    for(var i=0,arr=myApp.dataArr;i<arr.length;i++){
+        if(isNaN(arr[i])){
+            //1、找出非数字的下标和值
+            notNumIndex.push(i);
+            notNumKEY.push(arr[i]);
+        };
+    };
+    //2、删除对应下标
+    if(notNumIndex.length){
+        for(var i=notNumIndex.length-1;i>-1;i--){
+            //2、删除对应下标
+            arr.splice(notNumIndex[i],1);
+            //3、将原来下标notNumKEY 和 网上 的numKEY 合拼赋值给numKEY对应下标
+            notNumArr[notNumIndex[i]-1] =  notNumArr[notNumIndex[i]-1] +notNumArr[notNumIndex[i]];
+            notNumArr.splice(notNumIndex[i],1);
+        };
+    }
+
+</script>
+
+<script>
+
+        console.log(dataArr);
+        console.log(notNumArr);
+    //    console.log(notNumArr[0]);
+    //    console.log(notNumArr[1]);
+    //    console.log(notNumArr[2]);
+    //    console.log(notNumArr[3]);
+    //    console.log(notNumArr[4]);
+    //    console.log(notNumArr[5]);
+</script>
+</body>
+</html>

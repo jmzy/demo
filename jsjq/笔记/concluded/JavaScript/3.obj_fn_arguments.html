@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>函数中的参数</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                函数中的参数
+            </h1>
+            <section>
+                <h5>
+                    函数中的参数分为形参、实参、不定参数
+                </h5>
+                <p>
+                    形参：函数在定义的时候，在括号里写的变量名称之为形参<br/><br/>
+
+                    实参：函数在调用(执行)的时候，实际传入的参数，只要是数据类型都可以传入<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;补充：参数只要是数据类型都可以传入、6大数据类型都可以<br/><br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;<i class="color4">注：</i>实参和行参不需要11对应、按照需求来做<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;例：function s（a,b,c,d）{}<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;lert(s(1, 2))  //不需要11对应、按照需求来做<br/><br/>
+
+                    不定参数：<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;1、不定形参：在function函数参数中未定义行参，但调用时存在多个实参<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<i class="color4">★</i>若形参为number类型、可使用数组arguments获得、<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<i class="color4">例：</i><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;function a(){};<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;a(1,2,3,4,5,6,7,8,9);<br/><br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;一、获得行参第一位数值<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;函数体内<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(arguments[0]);<br/><br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;二、获得行参最后一位数值<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;函数体内<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(arguments[arguments.length-1]);<br/><br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;二、所有行参的总和(number类型)<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;函数体内<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b=0;<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(i = 0;i < argunents.length; i ++){<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b += arguments[i];};<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(b);<br/><br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;2、不定实参：★★★★★★待研究、类似json数组，当obj为json、<br/><br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;arguments补充：★★★★★待研究、<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、arguments对象的长度是由实参个数而不是形参个数决定的，<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;形参是函数内部重新开辟内存空间存储的变量，但是其与arguments对象<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内存空间并不重叠。对于arguments和值都存在的情况下，两者值是同步<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;的，但是针对其中一个无值的情况下，对于此无值的情形值不会得以同<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;步<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;2、其他参考<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;http://www.cnblogs.com/lwbqqyumidi/archive/2012/12/03/2799833.html<br/>
+                </p>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>

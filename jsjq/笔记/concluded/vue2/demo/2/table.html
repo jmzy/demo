@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE2 Table</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+    <style>
+        body{color:#888}
+        #first{
+            margin:50px auto;margin-bottom:10px;
+            width:500px;height:100px;background:#ddd;
+            border:1px solid #ddd;}
+        #left{float:left;width:250px;height:100px;}
+        #right{float:left;width:250px;height:100px;}
+
+        label{display:block;line-height:25px}
+        input:nth-of-type(1){margin-left:20px}
+        input[type=text]{text-indent:10px}
+        input.active{color:red}
+
+        table{margin:0 auto;border:1px solid #ddd}
+        table td{width:95px;text-align:center}
+
+        #right button{
+            margin:25px 25px 0 25px;
+            width:200px;height:50px;background:#b22;
+            font-size:18px;color:white;
+            border:0;outline:0;border-radius:10px;
+        }
+        #right p{
+            margin:0;margin-left:20px;padding:0;color:red;
+            animation: msg 2s;
+        }
+        @keyframes msg{
+            0%{text-indent:50px}
+            25%{text-indent:0px}
+            50%{text-indent:80px}
+            100%{text-indent:20px}
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div id="first">
+        <div id="left">
+            <label>姓名<input :class="{active:bool}" v-model="newList.name" type="text" placeholder="请输入名字"/></label>
+            <label>性别
+                <input v-model="newList.sex" type="radio" name="sex" value="男"/>男
+                <input v-model="newList.sex" type="radio" name="sex" value="女"/>女
+            </label>
+            <label>年龄<input :class="{active:bool}" v-model="newList.age" type="text" placeholder="请输入年龄"/></label>
+            <label>电话<input :class="{active:bool}" v-model="newList.phone" type="text" placeholder="请输入电话"/></label>
+        </div>
+        <div id="right">
+            <button style="cursor:pointer" @click="createNewList">提交</button>
+            <p v-text="msg"></p>
+        </div>
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>性别</td>
+                <td>电话</td>
+                <td>删除</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr v-for="item in list">
+                <td>{{item.name}}</td>
+                <td>{{item.age}}</td>
+                <td>{{item.sex}}</td>
+                <td>{{item.phone}}</td>
+                <td @click="deleteList(item)" style="cursor:pointer">x</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            list:[
+                {name:'张三', age: 18, sex: '男', phone: 13312345678},
+                {name:'李四', age: 20, sex: '女', phone: 12311111111},
+                {name:'王武', age: 25, sex: '女', phone: 13532563775},
+                {name:'陈六', age: 27, sex: '女', phone: 13612124124},
+                {name:'林七', age: 19, sex: '男', phone: 18023123121},
+                {name:'杨八', age: 22, sex: '男', phone: 18941241211}
+            ],
+            newList: {name:'', age: '', sex: '男', phone: ''},
+            bool: false,
+            msg: ''
+
+        },
+        methods: {
+            createNewList(){
+                if(this.newList.name == '' || this.newList.age ==''|| this.newList.age < 18 ||
+                        this.newList.sex == '' || this.newList.phone ==''){
+                    this.msg = '请输入正确的信息'
+                }else{
+                    this.list.unshift(this.newList)
+                    this.newList = {name:'', age: "", sex: '男', phone: ''}
+                    this.msg = ''
+                }
+
+                if(this.newList.name == ''){
+//                    this.newList.name = '请输入姓名'
+                    this.msg = '请输入姓名'
+                    this.bool = true
+                }
+
+                if(this.newList.age ==''){
+//                    this.newList.age = '请输入年龄'
+                    this.msg = '请输入年龄'
+                    this.bool = true
+                }else if(this.newList.age < 18){
+//                    this.newList.age = '年龄必须大于18少于120'
+                    this.msg = '年龄必须大于18少于120'
+                    this.bool = true
+                }else if(this.newList.age > 120){
+                    this.msg = '年龄必须大于18少于120'
+                    this.bool = true
+                }
+
+
+                if(this.newList.phone ==''){
+//                    this.newList.phone = '请输入电话'
+                    this.msg = '请输入电话'
+                    this.bool = true
+                }
+
+                this.bool = false
+            },
+            deleteList(index){
+                this.list.splice(index,1)
+            }
+        }
+    })
+</script>
+</body>
+</html>

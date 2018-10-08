@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>利用factory共享多个Controller中的数据</title>
+</head>
+<body>
+	<!--https://ke.qq.com/webcourse/index-out.html#course_id=168343&term_id=100196410&taid=1017774105334167&vid=c14149v0eew-->
+<div ng-app="app">
+    <div ng-controller="firstCtrl">
+        <input type="text" ng-cloak ng-model="a.msg"/>
+        <h1 ng-cloak>{{a.msg}}</h1>
+    </div>
+    <div ng-controller="nextCtrl">
+        <input type="text" ng-cloak ng-model="a.msg"/>
+        <h1 ng-cloak>{{a.msg}}</h1>
+    </div>
+</div>
+<script src="../../js/angular.min.js"></script>
+<script>
+    angular.module('app',[])
+    .factory('date',function(){//服务名称
+        return {
+            msg:"我来之factory",
+            T_ajax:function(callback){//第1种形式
+            	$http({
+            		mothod:'get',
+	            	url:'https://www.runoob.com/try/angularjs/data/sites.php'
+	            }).then(function(response){
+	            		callback(response)
+	            	},function(response){
+	            		console.log(response)
+	            	})
+        	},
+        	all:function(){//第2种形式
+        		return $http({url:'1/php'});
+        	}
+        }
+    })
+    .controller('firstCtrl',function($scope,date){
+        $scope.a = date;
+//      date.T_ajax(function(response){//第1种形式
+//      	$scope.b = response.date;
+//      })
+//		date.all().then(function(response){//第2种形式、建议使用这种方式
+//			$scope.c = response.data;
+//		})
+    })
+    .controller('nextCtrl',function($scope,date){
+        $scope.a = date;
+    })
+    
+    
+    
+    
+    .factory('test',function(){
+    	var obj = {
+    		all:function(){
+    			return $http({url:'1.php'}).them(function(response){
+    				return response.data;	
+    			})
+    		},
+    		find:function(id){//获取1条数据
+    			this.all().then(function(data){
+    				for(var i=0;i<data.length;i++){
+    					if(data[i].id == id){
+    						return data[i];
+    					}
+    				}
+    			})
+    		},
+    		data:[],
+    		flush:function(){//删除所有
+    			
+    		}
+    	}
+    	return obj;
+    })
+//  .controller('nextCtrl',function($scope,question){
+//  	question.find(1).then(function(data){
+//  		$scope.d = date;
+//  	})
+//  })
+</script>
+</body>
+</html>

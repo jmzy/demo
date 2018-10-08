@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>FN</title>
+    <!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>-->
+    <style>
+        div{: }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+//  //arguments-------------------
+//    function a(one,two,three){
+//        //arguments 该对象代表正在执行的函数和调用它的函数的参数
+//        console.log(a.arguments);               //函数体内、返回数组
+//
+////        console.log(this);                      //window
+//
+////        console.log(a.length);                  //获得函数实参长途，下标1起
+////        console.log(typeof a.length);           //number
+//
+//        return console.log('fn a ---' + one + two)
+//    }
+//    a(1,2);
+//    console.log(a.length);                      //获得函数实参长途，下标1起
+
+
+
+//    //arguments.callee 【这个函数】函数体内递归(再次调用正在执行的函数指针)
+//    function a(n){
+//        if(n<=1){
+//            return 1;
+//        }else{
+////            return n*arguments.callee(n-1);
+//            return n * a(n-2)
+//        }
+//    }
+//    console.log(a(3));
+
+//    //arguments.callee 严格模式下代替方法
+//    var a=(function f(n){
+//        if(n<=1){
+//            return 1;
+//        }else{
+//            return n*f(n-1);
+//        }
+//    });
+//    var b = a,
+//        a = null;
+//    console.log(b(3));
+
+
+
+
+//    //call--可替代函数体用调用使用(等于没用)
+//    function add(a,b){
+//        console.log(a+b);
+//    }
+//    function sub(a,b){
+//        console.log(a-b);
+//    }
+//    sub(5,3);           //2
+//    add.call(sub);      //NaN
+//    add.call(sub,3,1);  //4
+//    add(3,1);           //4
+
+//    //call 可将调用实名函数对象的构造器方法指向改变、但不会改变局内对象继承
+//    function oneFn(name){
+//        var name = 'oneFn name';
+//        this.name = 'one fn name';
+//        this.showName = function(){
+//            console.log(this.name);
+//            console.log(name);
+//        }
+//    }
+//    var one = new oneFn();
+//
+//    function twoFn(name){
+//        var name = 'oneFn name';
+//        this.name = 'two fn name'
+//    }
+//    var two = new twoFn();
+//
+//    var three = function(name){
+//        var name = 'three name';
+//        this.name = 'three fn name';
+//        this.showName = function(){
+//            console.log(this.name);
+//            console.log(name);
+//        }
+//    }
+//
+//    one.showName.call(twoFn,'two');     //twoFn         //oneFn name
+//    one.showName.call(two,'two');       //two fn name   //oneFn name
+////    three.showName.call(twoFn,'two');   //TypeError
+////    three.showName.call(two,'two');     //TypeError
+////    oneFn.showName.call(twoFn,'two');       //TypeError
+////    oneFn().showName.call(twoFn,'two');     //TypeError
+////    oneFn.showName().call(twoFn,'two');     //TypeError
+////    oneFn().showName().call(twoFn,'two');   //TypeError
+//    console.log('name---' + name);
+
+//    //call 在函数体内调用对象改变this的指向构造器、并将传参赋值跟调用对象传参
+//    function Animal(name){
+//        this.name = name;
+//        this.showName = function(){
+//            console.log(this.name);
+//        }
+//    }
+//
+//    function Cat(name){
+//        Animal.call(this, name);
+//    }
+//
+//    var cat = new Cat("Black Cat");
+//    cat.showName();
+
+
+
+
+//    //call 多重继承
+//    function a(num1,num2){
+////        console.log(arguments[0]);
+//        this.showSub = function(){
+//            console.log(num1 + num2);
+////            console.log(arguments[0]);
+//        }
+//    }
+//
+//    function b(num1,num2){
+//        this.showAdd = function(){
+//            console.log(num1-num2);
+//        }
+//    }
+//
+//    function Class(num1,num2){
+//        a.call(this,num1,num2);
+//        b.call(this,num1,num2);
+//    }
+//
+//    var fnA = new Class(5,3);
+//    var fnB = new Class(5,3);
+////    fnA.showSub();
+////    fnB.showSub();
+////    fnA.showAdd();
+////    fnA.showAdd();
+//    console.log(Class.__proto__);
+//    console.log(Class.prototype);
+//    console.log(fnA.__proto__);
+
+
+</script>
+</body>
+</html>

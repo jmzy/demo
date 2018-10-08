@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQ test DOM_CSS 1</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<style>
+			div{margin-top:20px;}
+			.a{width:100px;height:110px;background:black}
+			#b{width:100px;height:110px;background:black}
+			.c{width:100px;height:100px;background:red}
+		</style>
+		<div id="a"></div>
+		<div class="c"></div>
+		<div class="c"></div>
+		<div id="b"></div>
+		<script>
+			$(function(){
+				
+//			  	console.log($("#a").css("height"));
+			  	$('#a').addClass('a');
+//			  	console.log($("#a").css("height"));
+			  	
+			  	var id_a_attr = $("#a").css(['width','height']);
+			  	for( key in id_a_attr){
+//			  		console.log( id_a_attr[key] );//100px 110px
+			  	}
+			  	
+			  	$(".c").click(function() {
+				    $(this).css({
+				      	width: function(index, value) {
+				        	return parseFloat(value) * 2;//获得数值再进行计算
+				      	}, 
+				      	height: function(index, value) {
+				      		console.log(index);
+				        	return parseFloat(value) * 2;
+				      	}
+				    });
+				});
+				
+				//width/heihgt
+				$("#b").click(function(){
+					$(this).width(function(index,width){
+//				  		console.log(index);
+				    	return width+10;
+				  	});
+				  	$(this).height(function(index,height){
+//				  		console.log(index);
+				    	return height+10;
+				  	});
+				})
+			})
+		</script>
+		<p>Hello</p><p>2nd Paragraph</p>
+		<script>
+			$("p:first").text( "innerWidth:" + $(this).innerWidth() );
+			$("p:last").text( "innerHeight:" + $(this).innerHeight() );
+		</script>
+	</body>
+</html>

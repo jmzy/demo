@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>navigator</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //navigator
+
+//    //未知效果
+//    console.log('浏览器的次要版本' + navigator.appMinorVersion);
+//    console.log('当前浏览器的语言' + navigator.browserLanguage);
+//    console.log('浏览器系统的 CPU 等级' + navigator.cpuClass);
+//    console.log('操作系统使用的默认语言' + navigator.systemLanguage);
+//    console.log('操作系统的自然语言设置' + navigator.userLanguage);
+//
+//    console.log('浏览器代码名：' + navigator.appCodeName);
+//    console.log('操作平台：' + navigator.platform);
+//    //例 "Win32"、"MacPPC" "Linuxi586"
+//    console.log('Cookies 启用：' + navigator.cookieEnabled);//返回 bool
+//
+//    //有待深入研究
+//    console.log(navigator.pligins);
+//
+//    //比较重要的
+//    console.log('系统是否处于onLine状态' + navigator.onLine);//返回 bool
+//    console.log('浏览器：' + navigator.appName);//主要判断游览器
+//    console.log('浏览器版本：' + navigator.appVersion);
+//    //支持 navigator.appVersion 的浏览器
+//    //ie/edge/chrome/opera/firefox/safari
+//    console.log('浏览器的用户代理报头:' + navigator.userAgent);
+//    //这的首字符会大写
+
+    //检查浏览器版本
+
+//    document.onload = detectBrowser();
+//    function detectBrowser(){
+//        var browser = navigator.appName,
+//            version = parseFloat(navigator.appVersion),
+//            userAgent = navigator.userAgent.toLowerCase();
+//
+//        //判断游览器版本
+//        if( (  browser == "Netscape"                            //网景
+//            || browser == "Microsoft Internet Explorer")        //IE
+//            && ( version >= 5 )) {
+//            //游览器正常
+//        }else if(userAgent.index("msie") > -1){                 //判断IE版本
+//            var safariVersion = userAgent.match(/msie ([\d.]+)/)[1],
+//                    defaultVersion = "8.0";                     //判断IE8或以下
+//            if (safariVersion <= defaultVersion) {
+//                //ie 8或以下
+//            } else {
+//                //ie
+//            }
+//        }else{
+//            alert("您的浏览器需要升级了！")
+//        }
+//
+//        //判断移动端 android ios
+//        var isAndroid = userAgent.indexOf('Android') > -1
+//                     || userAgent.indexOf('Adr') > -1;
+//                                                                //android终端
+//        var isIos = !!userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+//                                                                //ios终端
+//        if(isAndroid){
+//            //android
+//        }else if(isIos){
+//            //ios
+//        }else{
+//            //window phone or other||
+//        }
+//    }
+//
+//    //通过上面代码认识 navigator appName appVersion uesrAgent
+//    //userAgent appName appVersion 区别
+//    console.log('浏览器：' + navigator.appName);                    //主要判断游览器
+//    console.log('浏览器的用户代理报头:' + navigator.userAgent);       //也可以判断游览器
+//    //这的首字符会大写
+//    console.log('浏览器版本：' + navigator.appVersion);              //版本主要是为了怕部分功能不能实现
+//    //支持 navigator.appVersion 的浏览器
+//    //ie/edge/chrome/opera/firefox/safari
+
+
+    //★★★★★★检测插件
+
+//    //检测非ie的
+//    function hasPlugin(name){
+//        name = name.toLowerCase();
+//        for(var i=0;i<navigator.plugins.length;i++){
+//            if(navigator.plugins[i].name.toLowerCase().indexOf(name) > -1){
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+//
+//    console.log(hasPlugin('flash'));
+//
+//    //检测ie的
+//    function hasIEPlugin(name){
+//        try{
+//            new ActiveXObject(name);
+//            return true;
+//        }catch(ex){
+//            return false;
+//        }
+//    };
+//    console.log(hasIEPlugin('ShockwaveFlash.ShockwaveFlash'));
+//
+//
+//    function detectPlugin(name){
+//        var borwser = navigator.appname;
+//        if(borwser == 'Microsoft Internet Explorer'){
+//            try{
+//                new ActiveXObject(name);
+//                return true;
+//            }catch(ex){
+//                return false;
+//            }
+//        }else{
+//            name = name.toLowerCase();
+//            for(var i=0;i<navigator.plugins.length;i++){
+//                if(navigator.plugins[i].name.toLowerCase().indexOf(name) > -1){
+//                    return true
+//                }
+//            }
+//            return false
+//        }
+//    }
+//
+//    console.log(detectPlugin('flash'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE2 Form</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+    <style>
+        #app{
+            margin: 50px auto;padding:15px;
+            width:500px;height:300px;
+            border: 1px solid #ddd;
+        }
+        div.container{
+            position: relative;
+        }
+        span.output{
+            position: absolute;;left:250px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <form>
+        <!--文本输入框-->
+        <div class="container">
+            <label>
+                姓名
+                <input type="text" v-model.lazy="name"/>
+            </label>
+            <span class="output">文本输入输出: {{name}}</span>
+        </div>
+        <hr/>
+        <!--单选框-->
+        <div class="container">
+            <label>
+                男
+                <input v-model="sex" value="male" type="radio"/>
+            </label>
+            <label>
+                女
+                <input v-model="sex" value="famale" type="radio"/>
+            </label>
+            <span class="output">单选输出: {{sex}}</span>
+        </div>
+        <hr/>
+
+        <!--多选框-->
+        <div class="container">
+            <label>
+                看书
+                <input v-model="hobby" value="lookboot" type="checkbox"/>
+            </label>
+            <label>
+                睡觉
+                <input v-model="hobby" value="sleep" type="checkbox"/>
+            </label>
+            <label>
+                打游戏
+                <input v-model="hobby" value="palygame" type="checkbox"/>
+            </label>
+            <span class="output">多选输出: {{hobby}}</span>
+        </div>
+        <hr/>
+
+        <!--单选select-->
+        <div class="container">
+            <div style="margin-bottom:20px">
+                <span>地点</span>
+                <select v-model="option">
+                    <option value="1">广州</option>
+                    <option value="2">深圳</option>
+                    <option value="3">上海</option>
+                </select>
+                <span class="output">单选select输出id: {{option}}</span>
+            </div>
+        </div>
+        <hr/>
+
+        <!--多选select-->
+        <div class="container">
+            <div style="margin-bottom:20px">
+                <span>地点</span>
+                <select v-model="option2" multiple>
+                    <option value="1">广州</option>
+                    <option value="2">深圳</option>
+                    <option value="3">上海</option>
+                    <option value="4">北京</option>
+                </select>
+                <span class="output">多选select输出id: {{option2}},<br/>按shift和ctrl复选</span>
+            </div>
+        </div>
+
+        <!--文本-->
+        <div class="container">
+            <textarea v-model="article"></textarea>
+            <span class="output">文本输出: {{article}}</span>
+        </div>
+    </form>
+</div>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            name: '',
+            sex: 'male',
+            hobby: ['lookboot'],
+            option: 1,
+            option2: [1,3],
+            article: '默认!!!!'
+
+        }
+    })
+</script>
+</body>
+</html>

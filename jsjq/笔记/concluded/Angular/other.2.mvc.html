@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>MVC详解</title>
+</head>
+<body>
+<div ng-app="app"><!-- ng-app="app" 模块变量 -->
+    <div ng-controller="firstCtrl">
+        <h1>{{msg}}</h1>
+        <h1 ng-bind="msg"></h1><!--效果1样、加载的时候不出现{{}} -->
+    </div>
+    <div ng-controller="nextCtrl">
+        <h1>{{msg}}</h1>
+    </div>
+    
+    <div ng-init="a = 'www.baidu.com'">
+		<p> 买买买拉 <a href="www.taobao.com" ng-href="{{a}}">{{a}}</a> </p>
+	</div>
+    
+</div>
+
+
+
+<script src="../../js/angular.min.js"></script>
+<script>
+    angular.module('app',[])
+    .controller('firstCtrl',function($scope){
+        $scope.msg = "hello angular";
+    })//这里不能用分号、用了会报错
+    .controller('nextCtrl',function($scope){
+        $scope.msg = "hello world";
+    });
+    //firstCtrl 和 nextCtrl 两个不同的作用域、同样的变量也不影响
+</script>
+
+
+
+<!--<div ng-app="app">-->
+    <!--<div ng-controller="MyCtrl">-->
+        <!--<input type="text" ng-model="msg"/>-->
+        <!--<h1 ng-clock class="ng-clock">{{reverse()}}</h1>&lt;!&ndash;函数立即调用()&ndash;&gt;-->
+    <!--</div>-->
+<!--</div>-->
+<!--<script src="../../js/angular.min.js"></script>-->
+<!--<script>-->
+    <!--angular.module('app',[])//app绑定元素块-->
+    <!--.controller('MyCtrl',function($scope){//consroller 绑定元素的 MyCtrl 、函数传参&scope为视图-->
+        <!--$scope.msg = "";//视图变量绑定-->
+        <!--$scope.reverse = function(){//视图变量绑定赋值匿名函数-->
+            <!--return $scope.msg.split("").reverse().join("");//实现输入反转-->
+        <!--};-->
+    <!--});-->
+<!--</script>-->
+
+
+
+
+
+<!--<div ng-app="app">-->
+    <!--<div ng-controller="MyCtrl">-->
+        <!--<input type="text" ng-model="user.uname"/>-->
+        <!--<input type="text" ng-model="user.pwd"/>-->
+        <!--<button ng-click="login()">登录</button>-->
+        <!--&lt;!&ndash; ng-click 点击事件&ndash;&gt;-->
+        <!--<div ng-show="errormsg.length>0" class="alert-box">{{errormsg}}</div>-->
+        <!--&lt;!&ndash; ng-show 条件若为真则show、、alert-box angular命令中的alert&ndash;&gt;-->
+    <!--</div>-->
+<!--</div>-->
+<!--<script src="../../js/angular.min.js"></script>-->
+<!--<script>-->
+    <!--angular.module('app',[])-->
+    <!--.controller('MyCtrl',function($scope){-->
+        <!--$scope.uesr = {uname:"",pwd:""};-->
+        <!--$scope.errormsg = "";-->
+        <!--$scope.login =function(){-->
+            <!--console.log($scope.user);//简单调试是否正确绑定-->
+            <!--if($scope.user.uname == "admin" && $scope.user.pwd == "123"){-->
+                <!--alert("登录成功")-->
+            <!--}else{-->
+                <!--$scope.errormsg = "用户名或密码错误";-->
+            <!--}-->
+        <!--};-->
+    <!--});-->
+<!--</script>-->
+</body>
+</html>

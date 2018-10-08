@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Angularjs - ui-route</title>
+		<script src="../../js/angular.min.js"></script>
+		<script src="https://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+	</head>
+	<body ng-app='app' ng-controller='ctrl'>
+		<!--<a href="#/home">首页</a>-->
+		<a href="" ui-sref='home'>首页</a>
+		<a href="#/list">列表页</a>
+		<a href="" ui-sref='test'>view</a>
+		<div ui-view></div>
+		<hr />
+		<button ng-click="go('test')">进入test</button>
+		<script>
+			var app = angular.module('app',['ui.router']);
+			app.config(function($stateProvider,$urlRouterProvider){
+			 	//默认路由
+			 	$urlRouterProvider.otherwise('');
+			 	//定义路由规则
+			 	$stateProvider
+				 		.state('dafault',{
+				 		url:'',
+				 		template:'<h1>1111</h1>'
+				 	})
+				 		.state('home',{
+				 		url:'/home',
+				 		template:'<h1>首页</h1>'
+				 	})
+				 		.state('list',{
+				 		url:'/list',
+				 		template:'<h1>列表页</h1>'
+				 	})
+				 		.state('test',{
+				 		url:'/test',
+				 		templateUrl:'view/5.test.html'
+				 	})
+			})
+			app.controller('ctrl',function($scope,$state){
+			 	$scope.go = function(url){//控制器实现跳转
+			 		$state.go(url);
+			 	}
+			})
+		</script>
+	</body>
+</html>

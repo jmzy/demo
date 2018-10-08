@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Javascript算术运算符</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                Javascript运算符
+            </h1>
+            <section>
+                <h5>
+                    JavaScript 算术运算符
+                    <i class="color0">参考W3school</i>
+                    <a href="http://www.w3school.com.cn/js/js_operators.asp" style="float:right">更详细请点击</a>
+                </h5>
+                <div>
+                    算术运算符用于执行变量与/或值之间的算术运算。<br/>
+                    给定 y=5，下面的表格解释了这些算术运算符：<br/><br/>
+                    <table border="1">
+                        <tr>
+                            <th>运算符</th>
+                            <th>描述</th>
+                            <th>例子</th>
+                            <th>结果</th>
+                        </tr>
+                        <tr>
+                            <td>+</td>
+                            <td>加</td>
+                            <td>x=y+2</td>
+                            <td>x=7</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>减</td>
+                            <td>x=y-2</td>
+                            <td>x=3</td>
+                        </tr>
+                        <tr>
+                            <td>*</td>
+                            <td>乘</td>
+                            <td>x=y*2</td>
+                            <td>x=10</td>
+                        </tr>
+                        <tr>
+                            <td>/</td>
+                            <td>除</td>
+                            <td>x=y/2</td>
+                            <td>x=2.5</td>
+                        </tr>
+                        <tr>
+                            <td>%</td>
+                            <td>求余数(保留整数)</td>
+                            <td>x=y%2</td>
+                            <td>x=1</td>
+                        </tr>
+                        <tr>
+                            <td>++</td>
+                            <td>累加</td>
+                            <td>x=++y</td>
+                            <td>x=6</td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>递减</td>
+                            <td>x=--y</td>
+                            <td>x=4</td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <i class="color4">★</i>运算符 + 用在字符串会优先以连接符出现<br/><br/>
+
+                    <i class="color4">例：</i><br/>
+                    &lt;script&gt;<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;a = 1;<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;b = "c":;<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;d = a + b;//1c<br/>
+                    &lt;/script&gt;<br/><br/>
+
+                    &lt;script&gt;<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;txt1="What a very";<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;txt2="nice day";<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;txt3=txt1+txt2;//What a verynice day<br/>
+                    &lt;/script&gt;<br/><br/>
+
+                    <i class="color4">数字与字符串相加，结果将成为字符串。</i><br/><br/>
+
+                    <i class="color4">++、--、递增和递减补充</i>
+                    ++a和a++在调用上是不同的<br/>
+                    ++a是先++再调用<br/>
+                    a++是先调用再++<br/>
+                </div>
+            </section>
+            <section>
+                <h5>
+                    JavaScript 赋值运算符
+                    <i class="color0">参考W3school</i>
+                	<a href="http://www.w3school.com.cn/js/js_operators.asp" style="float:right">更详细请点击</a>
+                </h5>
+                <div>
+                    赋值运算符用于给 JavaScript 变量赋值。<br/>
+                    给定 x=10 和 y=5，下面的表格解释了赋值运算符：<br/><br/>
+                    <table border="1">
+                        <tr>
+                            <th>运算符</th>
+                            <th>例子</th>
+                            <th>等价于</th>
+                            <th>结果</th>
+                        </tr>
+                        <tr>
+                            <td>=</td>
+                            <td>x=y</td>
+                            <td></td>
+                            <td>x=5</td>
+                        </tr>
+                        <tr>
+                            <td>+=</td>
+                            <td>x+=y</td>
+                            <td>x=x+y</td>
+                            <td>x=15</td>
+                        </tr>
+                        <tr>
+                            <td>-=</td>
+                            <td>x-=y</td>
+                            <td>x=x-y</td>
+                            <td>x=5</td>
+                        </tr>
+                        <tr>
+                            <td>*=</td>
+                            <td>x*=y</td>
+                            <td>x=x*y</td>
+                            <td>x=50</td>
+                        </tr>
+                        <tr>
+                            <td>/=</td>
+                            <td>x/=y</td>
+                            <td>x=x/y</td>
+                            <td>x=2</td>
+                        </tr>
+                        <tr>
+                            <td>%=</td>
+                            <td>x%=y</td>
+                            <td>x=x%y</td>
+                            <td>x=0</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <section>
+                <h5>
+                    比较运算符
+                    <i class="color0">参考W3school</i>
+                    <a href="http://www.w3school.com.cn/js/js_comparisons.asp"style="float:right">更详细请点击</a>
+                </h5>
+                <div>
+                    比较运算符在逻辑语句中使用，以测定变量或值是否相等。<br/>
+                    给定 x=5，下面的表格解释了比较运算符：<br/><br/>
+
+                    <table>
+                        <tr>
+                            <th>运算符</th>
+                            <th>描述</th>
+                            <th>例子</th>
+                        </tr>
+                        <tr>
+                            <td>==</td>
+                            <td>等于</td>
+                            <td>x==8 为 false</td>
+                        </tr>
+                        <tr>
+                            <td>===</td>
+                            <td>全等（值和类型）</td>
+                            <td>x===5 为 true；x==="5" 为 false</td>
+                        </tr>
+                        <tr>
+                            <td>!=</td>
+                            <td>不等于</td>
+                            <td>x!=8 为 true</td>
+                        </tr>
+                        <tr>
+                            <td>></td>
+                            <td>大于</td>
+                            <td>x>8 为 false</td>
+                        </tr>
+                        <tr>
+                            <td><</td>
+                            <td>小于</td>
+                            <td>x<8 为 true</td>
+                        </tr>
+                        <tr>
+                            <td>>=</td>
+                            <td>大于或等于</td>
+                            <td>x>=8 为 false</td>
+                        </tr>
+                        <tr>
+                            <td><=</td>
+                            <td>小于或等于</td>
+                            <td>x<=8 为 true</td>
+                        </tr>
+                    </table>
+                    <br/><br/>
+			                使用<br/>
+			                在条件语句中使用比较运算符对值进行比较，然后根据结果来采取行动：<br/>
+                    if(1 < 2) console.log(aaa);<br/>
+                </div>
+            </section>
+            <section>
+                <h5>
+                	<i class="color0">★</i>逻辑运算符
+                </h5>
+                <div>
+                </div>
+            </section>
+            <section>
+                <h5>
+                	<i class="color0">★</i>条件运算符
+                </h5>
+                <p>
+                	语法<br/>
+                    variablename=(condition)?value1:value2<br/>
+                </p>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>

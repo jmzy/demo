@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JQuery DOM CSS Attribute</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				JQuery DOM CSS Attribute
+            </h1>
+            <section>
+                <h5>
+					属性 --- 注意：高版本JQuery得明确基础的属性和独有属性
+                </h5>
+                <pre>
+获得属性
+<i class="color4">attr(name|pro|key,val|fn)</i>
+<i class="color4"> $('DOM')</i>.attr('class');//获得class的属性
+<i class="color4"> $('DOM')</i>.attr('attribute');//获得指定的attribute
+<i class="color4"> $('DOM')</i>.attr('class':'test1'});//修改class
+<i class="color4"> $('DOM')</i>.attr({'class':'class',test:'test1'});//修改多个属性
+<i class="color4"> $('DOM')</i>.attr('class',function(){//函数形式修改属性
+  return 'aaa';
+});
+
+获得独有属性/非特定属性(能给元素提供效果功能的就是特定属性)<i class="color0">★ </i>
+<i class="color4">prop(n|p|k,v|f)</i>
+<i class="color4"> $('DOM')</i>.prop('class');//获得class的属性
+<i class="color4"> $('DOM')</i>.prop('href');//获得固有属性
+<i class="color4"> $('DOM')</i>.prop("checked", true);//修改固有属性
+<i class="color0">★ --- 这个i不懂</i>
+<i class="color4"> $('DOM')</i>.prop("checked", function( i, val ){
+  return !val;
+});
+
+<i class="color4">removeAttr(name)</i>//取消属性
+<i class="color4">removeProp(name)</i>//删除固有属性
+                </pre>
+            </section>
+            <section>
+                <h5>
+					CSS 类
+                </h5>
+                <pre>
+<i class="color4"> $('DOM')</i>.addClass(class|fn)//增加class
+<i class="color4"> $('DOM')</i>.removeClass([class|fn])删除class
+<i class="color4"> $('DOM')</i>.toggleClass(class|fn[,sw])//增加class、删除class
+
+多个class以空格隔开<i class="color4"> $('DOM')</i>.addClass('cls1 cls2')
+
+函数事例
+<i class="color4"> $('DOM')</i>.addClass(function(){
+  return 'i-' + $(this).index();
+});
+console.log($('ul li:last').attr('class'))//i-2
+                </pre>
+            </section>
+            <section>
+                <h5>
+					HTML代码/文本/值
+                </h5>
+                <pre>
+DOM元素添加内容
+<i class="color4"> $('DOM')</i>.html([val|fn])
+<i class="color4"> $('DOM')</i>.text([val|fn])
+<i class="color4"> $('DOM')</i>.val([val|fn|arr])
+
+<i class="color4">html()</i>传参值字符串需加""、传参能使用html的标签、
+若不传参可获得对象的值和值内的标签
+<i class="color4"> $('DOM')</i>.eq(0).html(1111);
+<i class="color4"> $('DOM')</i>.eq(0).html("adsad");
+
+&lt;div id="a" class="b" &gt;111&lt;/div&gt;
+console.log($(".b").eq(0).html());//111
+
+&lt;div id="a" class="b"&gt;111&lt;p&gt;&lt;/p&gt;&lt;/div&gt;
+console.log($(".b").eq(0).html());//111&lt;p&gt;&lt;/p&gt;
+
+<i class="color4">test()</i>
+跟html的区别
+1、不能传入html的标签、若传入是html标签则无法解析、直接输出
+例：$("b").eq(0).text("<&lt;p&gt;&lt;/p&gt;");//&lt;p&gt;&lt;/p&gt;
+
+<i class="color4">★</i>2、如果获取对象为索引、html()获取的值是第1个元素的值
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

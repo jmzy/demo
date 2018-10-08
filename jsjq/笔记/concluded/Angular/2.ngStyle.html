@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../js/angular.min.js"></script>
+	</head>
+	<body ng-app="app" ng-controller="my">
+		颜色：<input type="text" ng-model="color"/>
+		大小：<input type="number" ng-model="size"/>
+		背景：<input type="text" ng-model="bg" />
+		<div ng-style="{border:'1px solid black',
+			color:color,fontSize:size + 'px',background:bg}">测试字体</div>
+	</body>
+	<script>
+		var app = angular.module('app',[]);  
+		app.controller('my',function($scope){})
+
+	</script>
+</html>

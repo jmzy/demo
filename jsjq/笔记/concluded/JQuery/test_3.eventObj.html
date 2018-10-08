@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery eventObj</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<p id="pId" class="pCls">11111</p>
+		
+		<div id="wrapper"> 
+			<a href="#" id="inner">click here!</a> 
+		</div> 
+
+		
+		<script>
+			$("p").click(function(event) {
+			    document.write( event.currentTarget === this ); // true  
+			});  
+			
+			
+			$('#wrapper').click(function(e) { 
+				console.log('#wrapper'); 
+				console.log(e.currentTarget); 
+				console.log(e.target); 
+			}); 
+			$('#inner').click(function(e) { 
+				console.log('#inner'); 
+				console.log(e.currentTarget); 
+				console.log(e.target); 
+			}); 
+
+		</script>
+	</body>
+</html>

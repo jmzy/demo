@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jquery修改指向</title>
+	</head>
+	<body>
+		<script>
+			//constructor 修改指向
+			var a = function(){
+//				this.constructor = a;						//修改指向
+			}
+			a.prototype.constructor = {};					//[被修改]指向
+//			a.prototype.constructor = a;					//修改指向
+//			a.prototype.constructor = function(){			//修改指向 对象封装方法return 修改
+//				return constructor=a
+//			}
+			
+			var b = new a();
+			console.log(b.constructor)
+
+//			//prototype 修改指向
+//			function a(){};
+//			a.prototype = {									//[默]被修改指向
+//				constructor: a,								//修改指向
+//				mas: 'hello world'
+//			}
+//			
+//			var b = new a();
+//			console.log(b.constructor);
+		</script>
+	</body>
+</html>

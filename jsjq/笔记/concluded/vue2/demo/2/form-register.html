@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE2 Form</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+    <style>
+        body{
+            margin:0;padding:0;
+            /*width:100%;height:100%;background:#ddd;*/
+        }
+
+        label{display:block;width:380px;border-radius:5px;border:1px solid #ddd}
+        label input{margin:0 auto;display:block;width:372px;height:40px;outline:0;text-indent:10px;border:0;outline:0;}
+        label:nth-of-type(1){margin-top:50px;}
+        label:nth-of-type(2){margin-top:15px;}
+
+        #popup-wrap{
+            width:100%;height:100%;background-color:rgba(0,0,0,.2);
+            border:1px solid transparent;
+
+        }
+        #popup-conteiner{
+            margin:100px auto;padding-bottom:15px;
+            width:480px;background:#fff;
+            border-radius:10px;box-shadow: 1px 1px 3px #888888;
+        }
+        #title{
+            height:60px;
+            border-bottom:1px solid #ddd
+        }
+        #title div{
+            padding-top:30px;
+            text-align: center;
+        }
+        #title span{
+            position:relative;
+            display:inline-block;
+            width:100px;
+            color:#ddd;font-size:15px;
+            transition: color .2s;
+        }
+        #title span::after{
+            position:absolute;left:40px;bottom:-11px;
+            display:none;content:'';
+            width:20px;height:2px;background:black;
+        }
+        #title span:hover{
+            color:black
+        }
+        #title span.active{
+            color:black
+        }
+        #title span.active::after{
+            display:block;
+        }
+        div .popup-form{
+            display:none;
+        }
+        #popup-conteiner div form{
+            margin:0 auto;;
+            width:380px;
+            color:rgba(0,0,0,.65);
+        }
+        #signin-wrap{
+            position:relative;margin:20px 0;
+            font-size:14px;
+        }
+        #signinBtn{
+            width:380px;height:40px;background: #4fc3f7;
+            outline:0;border:0;
+            font-size:15px;color:white;
+        }
+        #signin-wrap div{
+            position:absolute;right:0;top:0;
+        }
+        #signin-wrap div input{
+            width:15px;height:15px;
+            vertical-align: top;
+        }
+        #signinOther{
+            border:1px solid transparent;
+            margin:20px 0;
+        }
+        #signinOther span{
+            color:rgba(0,0,0,.65);
+        }
+        #signinOther div{
+            display:inline-block;
+            vertical-align: middle;
+        }
+        #signinOther div span{
+            float:left;display:block;margin:0 15px;
+            width:30px;height:30px;background:#ddd;
+            border-radius:50%
+        }
+
+
+        #validate>label{margin-top:0;width:280px;float:left}
+        #validate>label>input{width:276px}
+        #validate{margin-top:10px;width:382px;display:inline-block}
+        #validate div{
+            float:left
+            width:102px;height:44px;background:#4fc3f7;
+            border-radius:5px;overflow:hidden;
+        }
+        #validate button{
+            margin:0 auto;display:block;
+            width:102px;height:44px;background:#4fc3f7;
+            border:0;outline:0;font-size:13px;color:#fff;
+        }
+        #login label:nth-of-type(3){
+            margin-top:10px;
+        }
+        #login-wrap{
+            margin-top:20px;
+            height: 30px;
+            display: inline-block;
+        }
+        #login-wrap input{
+            width:15px;height:15px;background:#4fc3f7;
+        }
+        #login-wrap>input{
+            float: left;
+        }
+        #login-wrap p{
+            margin:0;float: left;
+            height:30px;line-height:18px;
+            text-indent:5px;font-size:12px;
+        }
+        #login-wrap p span{
+            font-size:15px;color:#4fc3f7;
+        }
+        #loginSubmit{
+            margin-bottom:20px;
+        }
+        #loginSubmit button{
+            width:380px;height:40px;background:#4fc3f7;
+            border:0;outline:0;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <popup></popup>
+</div>
+
+<template id="popup">
+    <div id="popup-wrap">
+        <div id="popup-conteiner">
+            <div id="title">
+                <div>
+                    <span :class="{active:bool}"  @click="toggle">登录万门</span>
+                    <span :class="{active:!bool}" @click="toggle">注册帐号</span>
+                </div>
+            </div>
+            <div id="signin" :class="{'popup-form':!bool}">
+                <form>
+                    <label><input v-model="signinName" type="text" placeholder="手机号/邮箱"/></label>
+                    <label><input v-model="signinPass" type="password" placeholder="密码"/></label>
+                    <div id="signin-wrap">
+                        <span>手机快捷登录</span>
+                        <div>
+                            <input type="checkbox" v-model="signinCheck"/>
+                            <span>记住我 |</span>
+                            <span style="cursor:pointer">忘记密码 ?</span>
+                        </div>
+                    </div>
+                    <button id="signinBtn">登录</button>
+                    <div id="signinOther">
+                        <span>其他登录方式</span>
+                        <div>
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <p style="color:red"></p>
+                </form>
+            </div>
+            <div id="login" :class="{'popup-form':bool}">
+                <form>
+                    <label><input type="text" placeholder="昵称"/></label>
+                    <label><input type="text" placeholder="手机号/邮箱" ace/></label>
+                    <div id="validate">
+                        <label><input type="text" placeholder="验证码"/></label>
+                        <div>
+                            <button>发送验证码</button>
+                        </div>
+                    </div>
+                    <label><input type="text" placeholder="8位以上数字加字母"/></label>
+                    <div id="login-wrap">
+                        <input type="checkbox"/>
+                        <p>我同意并遵<span>守万门协议</span></p>
+                    </div>
+                    <div id="loginSubmit">
+                        <button>创建你的大学</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    let popup = {
+        template: '#popup',
+        data:function(){
+            return{
+                bool: true,
+                signinCheck: false,
+                signinName: null,
+                signinPass: null,
+                segiinTips: ''
+            }
+        },
+        methods:{
+            toggle(){
+                this.bool = !this.bool
+            }
+        }
+    };
+
+    let app = new Vue({
+        el: '#app',
+        components:{
+            popup
+        }
+
+    })
+</script>
+</body>
+</html>

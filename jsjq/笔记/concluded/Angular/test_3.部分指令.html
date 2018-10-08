@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Angular常用指令</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                Angular常用指令
+            </h1>
+            <section>
+                <h5>
+                    ng-bind 和 ng-cloak
+                </h5>
+                <pre>
+写在 DOM 元素上、隐藏其加载的时候出现的{{}}(两个大括号)
+
+事例
+&lt;div ng-app="app"&gt;
+    &lt;div ng-controller="firstCtrl"&gt;
+        &lt;h1 ng-bind="1+2"&gt;&lt;/h1&gt;
+        &lt;h1 ng-cloak&gt;{{1+2}}&lt;/h1&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('app',[])
+    .controller('firstCtrl',function($scope){
+    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    ng-show & ng-hide 和 ng-if
+                </h5>
+                <pre>
+这3个命令作用都是判断其内容是否为 true 和 false
+ng-show 和 ng-if 内容为 true 其内容显示、false 隐藏
+ng-hide ture 隐藏、false 显示
+<i class="color4">★</i>ng-if 与 ng-show ng-hide 区别在于false会让其 HTML 消失
+
+事例
+&lt;div ng-app="appT"&gt;
+    &lt;div ng-controller="firstCtrl"&gt;
+        &lt;h1 ng-bind="1+2" ng-show="false"&gt;&lt;/h1&gt;<i class="color4">&lt;!-- HTML代码存在--&gt;</i>
+        &lt;h1 ng-cloak ng-hide="true"&gt;{{1+2}}&lt;/h1&gt;<i class="color4">&lt;!-- HTML代码存在--&gt;</i>
+        &lt;h1 ng-cloak ng-if="false"&gt;{{1+1}}&lt;/h1&gt;<i class="color4">&lt;!-- ngIf: false --&gt;</i>
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('appT',[])
+    .controller('firstCtrl',function($scope){
+    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    ng-src 和 ng-class
+                </h5>
+                <pre>
+引用图片的路径、在元素上编写、需要+{{}}
+
+事例
+&lt;div ng-app="appThree"&gt;
+    &lt;div ng-controller="firstCtrl"&gt;
+        &lt;img src="../../images/css/hack.png" ng-src="{{a.img}}"
+             ng-class="{'a':a.true}" /&gt;
+        &lt;!-- <i class="color4">★注意</i> 仅显示Angular ng-src的图片--&gt;
+        &lt;!--需引号指定class name ：true使用 false 不使用
+            或｛'a':a.true｝
+            <i class="color4">★若</i>不输入有误则会显示原src的图片
+        --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('appT',[])
+    .controller('firstCtrl',function($scope){
+        $scope.a ={
+            img:'../../images/3.3/1.jpg',
+            true:true
+        }
+    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    ng-checked 单选和复选框
+                </h5>
+                <pre>
+单选框事例
+
+&lt;div ng-app="appT"&gt;
+    &lt;div ng-controller="firstCtrl"&gt;
+        &lt;input type="radio" ng-checked="a.sex == 'm'" name="sex"/&gt;男
+        &lt;input type="radio" ng-checked="a.sex == 'g'" name="sex"/&gt;女
+        &lt;!-- ng-checked 值要注意是否是字符串 --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('appT',[])
+    .controller('firstCtrl',function($scope){
+        $scope.a ={
+            sex:'g'//注意是字符串
+        }
+    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    ng-selected 下拉框
+                </h5>
+                <pre>
+事例
+
+&lt;div ng-app="appT"&gt;
+&lt;div ng-controller="firstCtrl"&gt;
+课程：&lt;select&gt;
+    &lt;option value=""&gt; -- 请选择 --&lt;/option&gt;
+    &lt;option value="1" ng-selected="a.course == 1"&gt;HTML&lt;/option&gt;
+    &lt;option value="2" ng-selected="a.course == 2"&gt;CSS&lt;/option&gt;
+    &lt;option value="3" ng-selected="a.course == 3"&gt;JavaScript&lt;/option&gt;
+&lt;/select&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('appT',[])
+    .controller('firstCtrl',function($scope){
+        $scope.a ={
+            course:'3'
+        }
+    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+            <h5>
+
+            </h5>
+                <pre>
+
+
+
+
+
+
+                </pre>
+        </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

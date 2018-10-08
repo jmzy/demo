@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE2 slot</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+    <style>
+        .panel{
+            margin-bottom: 20px;
+            max-width: 300px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .panel> *{
+            padding: 10px;
+        }
+        .panel .top{
+            border-bottom: 1px solid #888;
+        }
+        .panel .content{
+            line-height:100px;
+            background: #ddd;
+        }
+        .panel .foot{
+            border-top: 1px solid #888;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <panel>
+        <div slot="top">top</div>
+        <div slot="content">content</div>
+        <div slot="foot">foot</div>
+    </panel>
+    <panel>
+        <div slot="top">title</div>
+        <div slot="content">content</div>
+        <div slot="foot">footer</div>
+    </panel>
+    <panel >
+        <div slot="top">title2</div>
+        <div slot="content">cotent2</div>
+        <div slot="foot">1</div>
+    </panel>
+</div>
+
+<template id="panel">
+    <div class="panel">
+        <div class="top"><slot name="top"></slot></div>
+        <div class="content"><slot name="content"></slot></div>
+        <div class="foot"><slot name="foot"></slot></div>
+    </div>
+</template>
+<script>
+    Vue.component('panel',{
+        template: '#panel'
+    })
+
+    let app = new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

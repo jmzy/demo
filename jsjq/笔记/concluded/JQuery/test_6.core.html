@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery core</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<ul id="ul" class="ul a">111</ul>
+		
+		<div id="div1">
+			2222
+		</div>
+		<script>
+			//.selector
+			$("#ul")
+			  	.append("<li>" + $("ul").selector + "</li>")
+			  	.append("<li id='li'’>" + $("ul li").selector + "</li>")
+			  	.append("<li>" + $("div#foo ul:not([class])").selector + "</li>");
+			
+//			console.log($(".a").selector);
+			
+			//context
+//			console.log($(".a").context);
+			
+			//。get()
+//			console.log($('#li'));
+//			console.log($('#li').get());
+			
+			//$.fn.extend
+			$.fn.extend({
+				clickDom:function(val){
+					alert('click dom --- ' + val)
+				}
+			})
+			$('#div1').click(function(){
+				$('#div1').clickDom($(this).attr('id'));
+			})
+			
+			$("div").data("blah");  // undefined
+			$("div").data("blah", "hello");  // blah设置为hello
+			console.log($("div").data("blah"));  // hello
+//			$("div").data("blah", 86);  // 设置为86
+//			$("div").data("blah");  //  86
+//			$("div").removeData("blah");  //移除blah
+//			$("div").data("blah");  // undefined
+		</script>
+	</body>
+</html>

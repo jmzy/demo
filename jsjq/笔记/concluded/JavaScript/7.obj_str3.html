@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>其他关于String的方法</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                其他关于String的方法
+            </h1>
+            <section>
+                <h5>
+                    其他关于String的方法
+                </h5>
+                <pre>
+fixed()			以打字机文本显示字符串。
+big()			用大号字体显示字符串。
+blink()			显示闪动字符串。
+bold()			使用粗体显示字符串。
+charCodeAt()		返回在指定的位置的字符的 Unicode 编码。
+fromCharCode()		从字符编码创建一个字符串。
+fontcolor()		使用指定的颜色来显示字符串。
+fontsize()		使用指定的尺寸来显示字符串。
+italics()		使用斜体显示字符串。
+link()			将字符串显示为链接。
+small()			使用小字号来显示字符串。
+strike()		使用删除线来显示字符串。
+sup()			把字符串显示为上标。
+sub()			把字符串显示为下标。
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    anchor()创建 HTML 锚。
+                </h5>
+                <pre>
+&lt;a name="myanchor"t&gt;Hello world!&lt;/at&gt;
+
+&lt;script&gt;
+var txt="Hello world!1111111"
+document.write(txt.anchor("myanchor"));
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    Unicode 编码
+                </h5>
+                <pre>
+//UNICODE 是目前用来解决 ASCII 码 256 个字符限制问题的一种比较流行的
+解决方案。大家知道，ASCII 字符集只有256个字符，用 0-255 之间的数字来
+表示。包括大小写字母、数字以及少数特殊字符；如标点符号、货币符号等。
+对于大多数拉丁语言来说，这些字符已经够用。但是，许多亚洲和东方语言所
+用的字符远远不止256个字符。有些超过千个。人们为了突破 ASCII 码字符数
+的限制，试图用一种简单的方法来针对超过256个字符的语言编写计算机程序。
+于是 UNICODE 应运而生。UNICODE 通过用双字节来表示一个字符，从而在更大
+范围内将数字代码映射到多种语言的字符集
+
+//charCodeAt() 方法可返回指定位置的字符的 Unicode编码
+//Unicode：英文中文都是占两个编码位置（双字节），现在的操作系统用的都
+是Unicode编码，所以这时中文就不用进行转换为单字节进行运行了，效率就提
+高了；最重要的一点是Unicode几乎支持所有的语言编码
+//str.charCodeAt(0)；//0开始计算第1个
+
+//fromCharCode() 可接受一个指定的 Unicode 值，然后返回一个字符串。
+//String.fromCharCode(72,69,76,76,79)
+console.log(String.fromCharCode(72,69,76,76,79));//HELLO
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    <i class="color0">★</i>待研究方法
+                </h5>
+                <pre>
+localeCompare()		用本地特定的顺序来比较两个字符串。
+//http://www.365mini.com/page/javascript-string-localecompare.htm
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    <i class="color0">★</i>待研究区别
+                </h5>
+                <pre>
+-toLowerCase()		把字符串转换为小写。
+-toUpperCase()		把字符串转换为大写。
+-toLocaleLowerCase()	把字符串转换为小写。
+-toLocaleUpperCase()	把字符串转换为大写。
+
+//indexOf()
+//lastIndexOf()
+
+//toString()
+//toLocaleString
+//3月21日，在美国，toLocaleString 可能会返回 "03/21/08 01:02:03"，而在
+欧洲，返回值则可能是 "21/03/08 01:02:03"，因为欧洲的惯例是将日期放在月
+份前面。
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

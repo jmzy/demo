@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>获得文件后缀</title>
+</head>
+<body>
+<script>
+    var str1 = '222.str';
+    var str2 = '22.jpg';
+    var str3 = '22.png';
+    var str4 = '2222222.css';
+    var str5 = '222222.vue';
+    var str6 = '2222.1122.vue';
+
+    function getExtName(str) {
+        let arr = str.split('.');
+        console.log(arr[arr.length-1]);
+
+//        let num;
+//        for(var i = 0; i < arr.length; i++) {
+//            num = i;
+//        }
+//        console.log(arr[num])
+    }
+
+    getExtName(str1);//str
+//    getExtName(str2);//jpg
+//    getExtName(str3);//png
+//    getExtName(str4);//css
+//    getExtName(str5);//vue
+//    getExtName(str6);//vue
+</script>
+</body>
+</html>

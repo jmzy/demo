@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+    <style>
+        ul{margin:5px;padding:0}
+        li{
+            margin-right:10px;float:left;list-style:none;
+            width:50px;height:20px;line-height:20px;border:1px solid silver;
+            text-align:center;
+        }
+        .active{background:#ddd}
+        .click{background:#ddd}
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="msg" value="msg"/>
+    <button @click="clickBtn">click</button>
+    <ul>
+        <li v-for="(item,index) in arr" :key="index" @click="clickLi(index)"
+            :class="{active:index==0?bool||bool2:false,click:i==index}">{{item}}</li>
+    </ul>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            msg: '',
+            arr: [],
+            bool: true,
+            i: null,
+            bool2: false
+        },
+        methods: {
+            clickBtn () {
+                this.arr.unshift(this.msg)
+                this.msg = ""
+                this.bool2 = true
+                this.i = null
+            },
+            clickLi (index) {
+                if(this.bool){
+                    this.bool = false
+                    this.bool2 = false
+                    this.i = index
+                }else{
+                    if (!(this.i) && this.i !== 0) {
+                        this.bool2 = false
+                    }
+                    this.i = index
+                }
+            }
+        },
+        watch: {
+
+        }
+    })
+</script>
+</body>
+</html>

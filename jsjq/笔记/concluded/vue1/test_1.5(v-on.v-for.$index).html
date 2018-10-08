@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Vue Test-05 v-model v-on:keyup.enter $index</title>
+</head>
+<body>
+    <style>
+        *{padding:0;margin:0}
+        ul{width:200px}
+        li{list-style:none;width:165px;border-bottom:1px solid black}
+    </style>
+    <script src="https://unpkg.com/vue"></script>
+    <div id="app-vue">
+        <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo()"/>
+        <ul>
+            <li v-for="todo in todos">
+                <span>{{todo.text}}</span>
+                <button v-on:click="removeTodo($index)">X</button>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        new Vue({
+            el:'#app-vue',
+            data:{
+                todos:[
+                    {text:111},
+                    {text:222},
+                    {text:333}
+                ],
+                newTodo:""
+            },
+            methods:{
+                removeTodo:function(index){
+                    this.todos.splice(index,1)
+                },
+                addTodo:function(){
+                    var text = this.newTodo.trim();
+                    if(text){
+                        this.todos.push({text:text});
+                        this.newTodo = '';
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

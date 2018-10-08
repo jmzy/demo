@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Vue Test-03 渲染列表</title>
+    <style>
+        li{list-style:none}
+    </style>
+</head>
+<body>
+    <script src="https://unpkg.com/vue"></script>
+    <div id="app-vue">
+        <ul>
+            <li v-for="todo in todos">{{todo.text}}</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        new Vue({
+            el:'#app-vue',
+            data:{
+                todos:[
+                    {text:'11111111111111'},
+                    {text:'22222222222222'},
+                    {text:'33333333333333'}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

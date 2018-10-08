@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE2</title>
+    <style>
+        body{font-size:15px}
+        i{font-style:normal;margin:0}
+        li{
+            position: relative;padding-left:5px
+            width:150px;height:20px;line-height:20px;
+            cursor:pointer;
+            font-size:13px;
+        }
+        span.anima{
+            position:absolute;left:120px;top:0;padding:0 15px;
+            height:40px;line-height:40px;
+            background:#8cf;border-radius:5px;
+            display: none;opacity:.8;
+            animation:spanDis .3s;
+            color:#fff;
+        }
+        @keyframes spanDis {
+            0%{transform:scale(1,1);}
+            20%{transform:scale(1.5,1);}
+            100%{transform:scale(1,1);}
+        }
+        li:hover span{display:block}
+    </style>
+</head>
+<body>
+<ul>
+    <ul id="ul" style="width:180px;display:inline-block">
+        <li onclick="aCli(this)" data-src="4.lifeCycle.html"><i style="color:red">快速上手</i><span></span></li>
+        <li onclick="aCli(this)" data-src="4.lifeCycle.html"><i style="color:red">项目</i><span></span></li>
+        <li onclick="aCli(this)" data-src="4.lifeCycle.html">通讯录<span></span></li>
+        <li onclick="aCli(this)" data-src="4.lifeCycle.html">仿酷狗<span></span></li>
+        <li data-src="4.lifeCycle.html"><i style="color:red">官网 API</i><span></span></li>
+        <li onclick="aCli(this)" data-src="customDirective.html">指令 <span class="anima">customDirective</span></li>
+        <li onclick="aCli(this)" data-src="data1.html">选项 / 数据 <span class="anima">data</span></li>
+        <li onclick="aCli(this)" data-src="lifeCycle-hook.html">选项 / 生命周期钩子 <span class="anima">lifeCycle-hook</span></li>
+        <li onclick="aCli(this)" data-src="lifeCycle.html">实例方法 / 生命周期 <span class="anima">lifeCycle-2</span></li>
+        <li onclick="aCli(this)" data-src="resource.html">选项 / 资源 <span class="anima">resource</span></li>
+        <li onclick="aCli(this)" data-src="components.html">内置的组件 <span class="anima">components</span></li>
+        <li onclick="aCli(this)" data-src="dom.html">选项 / DOM <span class="anima">DOM</span></li>
+        <li onclick="aCli(this)" data-src="api.html">全局 API <span class="anima">API-6</span></li>
+        <li onclick="aCli(this)" data-src="event.html">事件 <span class="anima" style="color:red">event</span></li>
+        <li onclick="aCli(this)" data-src="livingExampleData.html">数据 <span class="anima">data-3</span></li>
+        <li onclick="aCli(this)" data-src="specialAttributes.html">特殊属性 <span class="anima">specialAttributes-4</span></li>
+        <li onclick="aCli(this)" data-src="livingExampleAttributes.html">实例属性 <span class="anima">livingExampleAttributes</span></li>
+        <li onclick="aCli(this)" data-src="combination.html">组合 <span class="anima">combination-1</span></li>
+        <li onclick="aCli(this)" data-src="globalConfiguration.html">全局配置 <span class="anima">globalConfiguration</span></li>
+        <li onclick="aCli(this)" data-src="other.html">其他 <span class="anima">other-6</span></li>
+        <li onclick="aCli(this)" data-src="cli.html">脚手架 <span class="anima">cli</span></li>
+        <li onclick="aCli(this)" data-src="pack.html">打包 <span class="anima">pack</span></li>
+        <li data-src="4.lifeCycle.html"><i class="anima" style="color:red">DEMO</i><span></span></li>
+        <li onclick="aCli(this)" data-src="4.lifeCycle.html">表格 <span class="anima">form</span></li>
+        <li onclick="aCli(this)" data-src="4.lifeCycle.html">表单 <span class="anima">form</span></li>
+        <li onclick="aCli(this)" data-src="4.lifeCycle.html">路由 <span class="anima">router</span></li>
+        <li onclick="aCli(this)" data-src="4.lifeCycle.html">组件 <span class="anima">components</span></li>
+        <li onclick="aCli(this)" data-src="4.lifeCycle.html">资源 <span class="anima">resource</span></li>
+        <li onclick="aCli(this)" data-src="4.lifeCycle.html">插件 <span class="anima">axios</span></li>
+        <li onclick="aCli(this)" data-src="2/router.html">render<span></span></li>
+        <li onclick="aCli(this)" data-src="4.lifeCycle.html">extend<span></span></li>
+        <li onclick="aCli(this)" data-src="4.lifeCycle.html">vuex<span></span></li>
+    </ul>
+    <div style="width:650px;height:580px;display:inline-block;vertical-align:top">
+        <iframe id="ifr" style="width:650px;height:580px;">
+
+        </iframe>
+    </div>
+    <script>
+        function aCli(obj,e){
+            function id(id){return document.getElementById(id)}
+            let ifr = id('ifr');
+            let src = obj.getAttribute('data-src');
+            ifr.src= src;
+
+            e = event;
+            if(e.stopPropagation){
+                e.stopPropagation();
+            }else{e.cancelBubble = true;}
+        }
+    </script>
+</ul>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery DOM filter 2</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<div class="a">
+			<span>000</span>
+			<p>111</p>
+			<p>222</p>
+			<a href="javascript(0)">333</a>
+			<a href="javascript(0)">444</a>
+			<a href="javascript(0)">555</a>
+		</div>
+		
+		<div class="b">
+			<p>111</p>
+			<p>222</p>
+			<p>333</p>
+			<p>444</p>
+			<p>555</p>
+		</div>
+		
+		<!--.nextUntil()-->
+		<dl>
+			<dt id="term-1">term 1</dt>
+			<dd>definition 1-a</dd>
+			<dd>definition 1-b</dd>
+			<dd>definition 1-c</dd>
+			<dd>definition 1-d</dd>
+
+			<dt id="term-2">term 2</dt>
+			<dd>definition 2-a</dd>
+			<dd>definition 2-b</dd>
+			<dd>definition 2-c</dd>
+
+			<dt>term 4</dt>
+			<dd id="term-3">definition 3-a</dd>
+			<dd>definition 3-b</dd>
+		</dl>
+		
+		<!--.offsetParent()-->
+		<div style="width:70%;position:absolute">
+		    <div style="margin:10px;background-color:yellow">
+		    	<p id="p">点击下面的按钮可以设置本段落的最近的父（祖先）元素的背景色。</p>
+		    <div>
+		</div>
+
+		<button>点击这里</button>	
+		
+		<hr />
+		<!--.parents()-->
+		<div>
+			<p><span id="span">Hello</span></p>
+			<span>Hello Again</span>
+		</div>
+		<script>
+//			.childred()
+			$('.a').children().css('color','red');
+			$('.a').children('p').css('color','skyblue');
+			
+//			.closest()
+//			console.log($('p').closest('div'));
+
+//			.find()
+			var middleA = $('.a a:eq(1)');
+			$('.a').find(middleA).css('color','gold');
+			
+//			.next()
+			$('.a a:eq(1)').next().css('color','skyblue');
+			
+//			.prev()
+			$('.a a:eq(1)').prev().css('color','orange');
+			
+//			.nextAll() .prevAll()
+			$('.b p:eq(2)').nextAll().css('color','orange');
+			$('.b p:eq(2)').prevAll().css('color','orange');
+			
+//			sibling()
+			
+//			.nextUntil() //执行元素后同级元素或到指定元素、或到指定元素的指定子元素
+			$("#term-1").nextUntil().css("color", "green");
+			$("#term-1").nextUntil($("#term-3")).css("color", "red");
+			$('#term-2').nextUntil($("#term-3"),'dd:not(:last)').css('background-color', 'red');
+			
+//			.prevUntil()
+			
+//			.offsetParent() 
+			$("button").click(function(){
+			    $("#p").offsetParent().css("background-color","red");
+			});
+			
+//			.parents()
+			$("#span").parent().css('background-color', 'red');
+			
+		</script>
+	</body>
+</html>

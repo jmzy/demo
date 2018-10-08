@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JQuery 核心</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				JQuery 核心
+            </h1>
+            <section>
+                <h5>
+					jQuery 核心函数
+                </h5>
+                <pre>
+jQuery([sel,[context]]) //匹配元素 css规则
+
+jQuery(html,[ownerDoc])<sup>1.8*</sup> //匹配元素 html写法
+http://jquery.cuishifeng.cn/jQuery_html_ownerDocument.html
+
+jQuery(callback) //$(document).ready()的简写
+
+jQuery.holdReady(hold)<sup class="color0">3.2-</sup>
+                </pre>
+            </section>
+            <section>
+                <h5>
+					jQuery 对象访问
+                </h5>
+                <pre>
+$('DOM').each(callback) //对于每个匹配的元素所要执行的函数
+//场景可在 img 还没loading
+
+$('DOM').length //返回匹配对象的个数、1开始
+
+<i class="color0">★</i>$('DOM').selector //感觉没什么用
+
+<i class="color0">★</i>$context //表示不懂
+
+$('DOM').get([index]) //输入index匹配元素类数组$('DOM')[index]、0开始
+
+<i class="color0">★</i>$('DOM').index([selector|element])
+http://www.365mini.com/page/jquery-index.htm
+
+$('DOM').size()<sup class="color0">1.8-</sup> 1.8后用length代替
+//返回匹配对象的个数、1开始
+                </pre>
+            </section>
+            <section>
+                <h5>
+					数据缓存
+                </h5>
+                <pre>
+data([key],[value]) //增加数组到元素上、但在html上不显示
+removeData([name|list])<sup>1.7*</sup> //移除数据
+http://jquery.cuishifeng.cn/data.html
+
+$.data(ele,[key],[val])<sup class="color0">1.8-</sup>
+                </pre>
+            </section>
+            <section>
+                <h5>
+					队列控制
+                </h5>
+                <pre>
+<i class="color0">★</i>queue(e,[q]) //表示不懂
+<i class="color0">★</i>dequeue([queueName]) //表示不懂
+<i class="color0">★</i>clearQueue([queueName]) //表示不懂
+                </pre>
+            </section>
+            <section>
+                <h5>
+					插件机制
+                </h5>
+                <pre>
+jQuery.fn.extend(object) //为每一个实例添加一个实例方法
+
+$.extend([d],tgt,obj1,[objN]) 
+<i class="color4">$.extend(item)</i>
+//将obj合并到Jquery的全局对象中去、相当于为JQ全局对象添加了一个静态方法
+//多用在编写插件、本身也有一些重载原型
+
+<i class="color4">$.extend(target,obj)</i>//这方法主要用来合并
+//将所有的参数项都合并target中，并返回target、是这样就会破坏target的结构
+
+<i class="color4">$.extend({},obj1,[objN])</i>
+//这方法将所得的结果全部合并在{}中、并返回、而且还不会破坏原有的项的结构
+
+<i class="color4">$.extend(bool,{},obj1,[objN])</i>//Extend方法还有带bool型参数的重载
+//bool型参数为true表示深拷贝、为false时表示浅拷贝
+//http://blog.csdn.net/xuemoyao/article/details/19021659
+                </pre>
+            </section>
+            <section>
+            	<h5>
+            		多库共存
+            	</h5>
+            	<pre>
+jQuery.noConflict([ex]) //定义$ 
+例 var a = jQuery.noConflict()
+a('dom')
+http://www.365mini.com/page/jquery_noconflict.htm
+            	</pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

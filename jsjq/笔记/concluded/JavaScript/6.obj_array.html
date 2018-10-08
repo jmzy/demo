@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Array数据类型</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                Array数据类型
+            </h1>
+            <section>
+                <h5>
+                    定义数组
+                </h5>
+                <pre>
+&lt;script&gt;
+//定义数组
+var a = new Array(1,2,3,4,5);
+document.write((a.constructor === Array) + "&lt;br/&gt;");//true
+
+var b = [1,2,3,4,5];
+document.write((a.constructor === Array) + "&lt;br/&gt;");//true
+
+var c = new Array;
+c[0] = 1;
+c[1] = 2;
+c[2] = 3;
+
+document.write(b.constructor === Array);//true
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    遍历数组里的所有对象<i class="color4">★</i>josn也可以这样遍历
+                </h5>
+                <pre>
+&lt;script&gt;
+var a = [1,2,3,4,5];
+for (key in a){document.write(a[key])};//12345
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    获得指定数组里对象
+                </h5>
+                <pre>
+&lt;script&gt;
+var a = [1,2,3,4,5];
+document.write("<br/>" + a[1] + "--" + a[2] + "&lt;br/&gt;");//2--3
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    合并两个数组
+                </h5>
+                <pre>
+&lt;script&gt;
+var a = [1,2,3];
+var b = new Array("a","b","c");
+document.write(a.concat(b) + "&lt;br/&gt;");//1,2,3,a,b,c
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    数组增加元素
+                </h5>
+                <pre>
+&lt;script&gt;
+    //增加元素到第1个位置
+    //unshift()
+    var a = [1,2,3];
+    a.unshift("a");
+    document.write(a+ "&lt;br/&gt;");//a,1,2,3
+
+    //增加到元素最后
+    //push()
+    var a = [1,2,3];
+    document.write(a.push("a")+ "&lt;br/&gt;");//4
+    document.write(a+ "&lt;br/&gt;");//1,2,3,a
+    
+    //2.赋值length
+    var a = [1,2,3];
+    var b = a.length;
+    a[b] = "a";
+    document.write(a+ "&lt;br/&gt;");//1,2,3,a
+
+    //3.length
+    var a = [1,2,3];
+    a[a.length] = "a";
+    document.write(a+ "&lt;br/&gt;");//1,2,3,a
+
+    //4.concat()
+    var a = [1,2,3];
+    var b = a.concat(["a"]);
+    document.write(b+ "&lt;br/&gt;");//1,2,3,a
+
+    //在数组中间增加元素
+    var a = [1,2,3];
+    var b = a.splice(a.length / 2,0,"a");
+    document.write(a+ "&lt;br/&gt;");//1,a,2,3
+    <i class="color4">★</i>//数组中的元素为奇数、则会添加在/2 - 1 
+    
+    var a = [1,2,3,4];
+    var b = a.splice(a.length / 2,0,"a");
+    console.log(a);//1,2,a,3,4
+
+//参考于http://www.cnblogs.com/daysme/p/6273871.html
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    sort()对数组进行排序、字母和数字
+                </h5>
+                <pre>
+&lt;script&gt;
+var a = ["d","c","a","b"];
+document.write(a.sort());//a,b,c,d
+
+var b = ["2","1","3"];
+document.write(b.sort());//1,2,3
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+            		删除数组内容
+                </h5>
+                <pre>
+&lt;script&gt;
+//delete (但不能删除其长度)
+var a = [1,2,3];
+document.write((delete a[0])+ "&lt;br/&gt;");//ture //删除是否成功都会返回ture
+document.write(a.length + "&lt;br/&gt;");//3 //长度不变删除的只是内容、即为空
+document.write(a + "&lt;br/&gt;");//,2,3
+document.write(a[0] + "&lt;br/&gt;");//undefined
+
+//splice删除数组元素
+var arr = [1,2,3];
+console.log(arr.length);//3
+arr.splice(0,1);
+console.log(arr);//2,3
+console.log(arr.length);//2
+
+//splice方法在删除数组元素的同时,还可以新增入数组元素
+arr.splice(0,0,'a','b')//a,b两个元素就被加入数组arr了
+console.log(arr);//a,b,2,3
+
+//删除数组指定内容
+function removeArrayValue(arr,val){
+	for(var i=0;i&lt;arr.length;i++){
+		if(arr[i] == val){
+			arr.splice(i,1);//删除这1个内容
+			break;
+		};
+	};
+}
+var a = ["a",2,'c',3,'g'];
+var b = removeArrayValue(a,'c')
+console.log(a);//"a,2,3,g"
+
+//第2种方法
+function removeArrayValue(arr,val){
+	arr.splice(arr.indexOf(val),1);
+}
+var arr = ["a",2,'c',3,'g'];
+var val = removeArrayValue(arr,'c')
+console.log(arr);//"a,2,3,g"
+
+//给数组直接添加该方法、
+Array.prototype.removeArrayValue = function(var){
+	for(var i=0;i&lt;arr.length;i++){
+		if(arr[i] == val){
+			arr.splice(i,1);//删除这1个内容
+			break;
+		};
+	};
+}
+var a = ["a",2,'c',3,'g'];
+a.removeArrayValue('c');
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    shift()把数组的第一个元素从其中删除、并返回第一个元素的值
+                </h5>
+                <pre>
+&lt;script&gt;
+var a = [1,2,3];
+document.write(a.shift() + "&lt;br/&gt;");//1
+document.write(a.shift(2) + "&lt;br/&gt;");//1//传参并不起任何作用
+document.write(a + "&lt;br/&gt;");//3
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    pop() 把数组的最后一个元素从其中删除、并返回最后一个元素的值
+                </h5>
+                <pre>
+&lt;script&gt;
+var a = [1,2,3];
+document.write(a.pop() + "&lt;br/&gt;");//3
+document.write(a.pop(2) + "&lt;br/&gt;");//2//传参并不起任何作用
+document.write(a + "&lt;br/&gt;");//1
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    reverse() 方法用于颠倒数组中元素的顺序
+                </h5>
+                <pre>
+&lt;script&gt;
+var a = [1,2,3];
+document.write(a.reverse() + "&lt;br/&gt;");//3,2,1
+document.write(a + "&lt;br/&gt;");//3,2,1
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    slice() 抽出数组对应的数值
+                </h5>
+                <pre>
+&lt;script&gt;
+var a = [1,2,3,4,5,6,7];
+document.write(a.slice(1) + "&lt;br/&gt;");//2,3,4,5,6,7
+document.write(a.slice(2) + "&lt;br/&gt;");//3,4,5,6,7
+document.write(a + "&lt;br/&gt;");//1,2,3,4,5,6,7
+document.write(a.slice(1,3) + "&lt;br/&gt;");//2,3
+document.write(a.slice(2,5) + "&lt;br/&gt;");//3,4,5
+document.write(a + "&lt;br/&gt;");//1,2,3,4,5,6,7
+
+    //slice()抽出字符串对应的字符
+    //slice() 1个传参值为切割、两个传参值为保留第1和第2传参应之间的对象
+    //<i class="color4">★</i>这方法也对数组、返回对象string为string、Array为Array
+
+    var a = "123456789";
+    var b = a.slice(1);
+    var c = a.slice(1,5);
+    document.write(b + "&lt;br/&gt;");//23456789
+    document.write(c + "&lt;br/&gt;");//2345 //★从1开始
+    document.write(typeof b + "-" + typeof c + "&lt;br/&gt;");
+    //string-string
+
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    splice 数组中抽取/添加/替换数值
+                </h5>
+                <pre>
+&lt;script&gt;
+//最少为两个传参、第1个为开始位置、第2个传参为抽取数量
+var a = [1,2,3,4,5,6,7];
+document.write(a.splice(1,0) + "&lt;br/&gt;");// (空)//从0开始、
+document.write(a + "&lt;br/&gt;");//1,2,3,4,5,6,7
+document.write(a.splice(1,1) + "&lt;br/&gt;");//2、抽取1个
+document.write(a + "&lt;br/&gt;");//1,3,4,5,6,7
+document.write(a.splice(1,3) + "&lt;br/&gt;");//3，4，5、抽取3个
+document.write(a + "&lt;br/&gt;");//1,6,7
+
+var a = [1,2,3,4,5,6,7];
+//第3个参数可为添加/替换
+document.write(a.splice(1,3,"a") + "&lt;br/&gt;");//2,3,4、抽取3个
+document.write(a + "&lt;br/&gt;");//1,a,5,6,7
+
+var a = [1,2,3,4,5,6,7];
+//3个以上参数可为添加/替换
+document.write(a.splice(1,4,"a","b","c") + "&lt;br/&gt;");//2,3,4,5、抽取4个
+document.write(a + "&lt;br/&gt;");//1,a,b,c,6,7
+&lt;script&gt;
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

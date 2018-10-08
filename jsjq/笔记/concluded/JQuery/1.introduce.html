@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>初次接触JQuery</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                初次接触JQuery
+            </h1>
+            <section>
+                <h5>
+                	什么是JQuery
+                </h5>
+                <pre>
+query就是查询的意思、JQuery就是方便对页面的查询和控制
+JQuery是轻量的js库、压缩后不到100k
+JQuery兼容性强、兼容CSS3、各游览器
+
+JQuery API 中文文档说明的很全面
+
+JQuery官网 www.jquery.com( 有机会打不开 )
+其他下载：
+www.bootcdn.cn/jquery
+cdnjs.com/libraries/jquery
+                </pre>
+            </section>
+            <section>
+                <h5>
+                	JQuery的优势
+                </h5>
+                <pre>
+全球96%都在用JQuery ( https://w3techs.com ) 、引用最广
+微软把JQuery作为官方库
+
+JQuery兼容性强、兼容CSS3、各游览器、代码简洁
+获得DOM 
+原生 document.getELementById(id)
+JQ   $('#id')
+
+查看网站是否使用JQuery库、网页右键查看源代码、搜索 Ctrl+f
+                </pre>
+            </section>
+            <section>
+                <h5>
+                	版本的区别 
+                </h5>
+                <pre>
+1.版本1.0+ --支持IE678
+2.不考虑浏览器就可以用2.0+ 和 版本3.0+
+3.min.js和js区别在存在注释和压缩
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    引用方法
+                </h5>
+                <p>
+网络地址、复制在src上<br/>
+本地加载、src引用<br/><br/>
+
+<i class="color4">★</i>一般项目中应用都是引用CDN、因为比起在服务器加载、更快<br/><br/>
+
+额外、js和min.js基本是没什么区别
+                </p>
+            </section>
+            <section>
+                <h5>
+					起步
+                </h5>
+                <pre>
+$(document).ready(function(){ ... })
+#(function(){ ... }) 
+
+相等于 window.onload = function(){ ... }
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    认识$()
+                </h5>
+                <p>
+                    $()打起括号就是函数方法调用<br/><br/>
+                    函数传参标准1样、可以为字符串需要添加引号""、''<br/>
+                </p>
+            </section>
+            <section>
+                <h5>
+                    JQ方法获得DOM对象
+                </h5>
+                <p>
+&lt;div id="a" class="b" &gt;&lt;/div&gt;<br/>
+$("#id")、$(".className")、$("TagName")<br/>
+$("#a)、$(".b")、$("div")<br/><br/>
+
+同样querySelector获得的也可以<br/>
+$("input=[type='submit']");<br/>
+
+新浪潮中的前端框架
+DOM操作：JQuery/ExtJS(YUI独立出来的)/YUI
+结构化前端框架:AngularJS/Backnone.js/Ember.js
+                </p>
+            </section>
+            <section>
+                <h5>
+                    JS的<i class="color4">DOM</i>对象与jQuery对象的转换(JQ对象并不能使用JS方法、JS的对象也不能用在JQ上)
+                </h5>
+                <p>
+                    JS对象(DOM对象)转换成jQuery对象<br/>
+                    DOM对象--- $(js对象) === jQuery对象//<br/>
+                    例：<br/>
+                    1.$(this)<br/>
+                    2.var a = document.getElementById("a"); //DOM对象<br/>
+                    &nbsp;&nbsp;var $a = $(a); //jQuery 对象//+$来是方便知道这就是JQ并不是指定要+<br/><br/>
+
+                    jQuery对象转换成JS对象(DOM对象)<br/>
+                    jQuery对象 --- get(i)(索引<i class="color4">get()</i>)/ --- js对象<br/>
+                    例：<i class="color4">非索引也是get(o)</i>//get()[0]也可以、0只是表示索引值 <br/>
+                    &lt;div id="a"&gt;&lt;/div&gt;<br/>
+                    &lt;script&gt;<br/>
+                    &nbsp;&nbsp;var $a = $("#a");<br/>
+                    &nbsp;&nbsp;var  b= $a.get(0);<br/>
+                    &nbsp;&nbsp;b.innerHTML= "aaa";<br/>
+                    &lt;/script&gt;<br/>
+                </p>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>

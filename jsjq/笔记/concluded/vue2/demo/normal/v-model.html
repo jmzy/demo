@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE2 v-model</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+</head>
+<body>
+<pre>
+number 把获取的数据转换成number格式,(而不是原来的字符串)
+</pre>
+<div id="app">
+    <input type="text" v-model.lazy="msg"/>
+    <p>{{msg}}</p>
+    <input type="text" v-model.number="num"/>
+    <p>{{num}}</p>
+    <input type="text" v-model.number="trim"/>
+    <p>{{trim}}</p>
+</div>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            msg: 'message',
+            num: 1,
+            trim: 'aaa'
+        }
+    })
+</script>
+</body>
+</html>

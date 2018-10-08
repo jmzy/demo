@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JSON里的this和call和apply</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                JSON里的this和call和apply
+            </h1>
+            <section>
+                <h5>
+                    JSON里的this
+                </h5>
+                <pre>
+&lt;script&gt;
+var json = {
+    a:"a1",
+    b:"b1",
+    c:function(){
+        document.write("hallo world" + "&lt;br/&gt;");
+    },
+    d:function(){
+      document.write("a:" + json.a + "---" + "b:" + json.B +"&lt;br/&gt;")
+    },
+    e:function(){
+      document.write("a:" + this.a + "---" + "b:" + this.b +"&lt;br/&gt;")
+    },
+};
+
+json.c();//hallo world
+json.d();//a:a1---b:undefined // 区分大小写
+json.e();//a:a1---b:b1 //this指向向上最近的对象
+
+//this  指代套用当天方法的当前对象
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    JSON里的call和apply
+                </h5>
+                <pre>
+&lt;script&gt;
+//当call()和apply()只有1个传参
+var num = 10;
+function sum(){document.write(this.num + "&lt;br/&gt;")};
+var json ={
+    num:100,
+    sum:function(){sum();}
+};
+json.sum();//10
+
+//call() 只有1个传参
+var num = 10;
+function sum1(){document.write(this.num + "&lt;br/&gt;")};
+var json ={
+    num:100,
+    sum1:function(){sum1.call(json);}
+};
+json.sum1();//100
+//把sum里面的this指向改变为json
+//document.write(this.num)改变成document.write(json.num);
+
+//apply() 只有1个传参
+var num = 10;
+function sum2(){document.write(this.num + "&lt;br/&gt;")};
+var json ={
+    num:100,
+    sum2:function(){sum2.apply(json);}
+};
+json.sum2();//100
+
+//若调用函数有实参、并作运算
+//call()
+var num = 10;
+function sum3(a,b){document.write(this.num  + "-" + (a+b) + "&lt;br/&gt;")};
+var json ={
+    num:100,
+    sum3:function(){sum3.call(json,2,3);}
+};
+json.sum3();//100-5
+
+//apply()两个或更多传参以类数组形式
+var num = 10;
+function sum4(a,b){document.write(this.num  + "-" + (a+b) + "&lt;br/&gt;")};
+var json ={
+    num:100,
+    sum4:function(){sum4.apply(json);}
+};
+json.sum4();//100-NaN
+
+var num = 10;
+function sum5(a,b){document.write(this.num  + "-" + (a+b) + "&lt;br/&gt;")};
+var json ={
+    num:100,
+    sum5:function(){sum5.apply(json,[2，3]);}
+};
+json.sum5();//100-5
+&lt;script&gt;
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

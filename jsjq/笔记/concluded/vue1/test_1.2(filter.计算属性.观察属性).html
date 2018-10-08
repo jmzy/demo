@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Vue 自定义过滤器、计算属性</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue"></script>
+    <div id="app-vue">
+        <p>{{lowerCase | toUpper}}</p>
+        <p>{{capital | toLower}}</p>
+        <p>{{num | addDollar}}</p>
+        <p>{{num | addRMB}}</p>
+        <hr/>
+        <p>{{price}}人民币、可兑换{{priceDoller}}美元</p>
+        <hr/>
+        <p>{{price1}}円<span v-if="flag">、含税价格{{priceInTax}}円、折合人名币{{priceRMB}}元</span></p>
+        <button v-on:click="btnClick()">含税价格和折合人民币</button>
+        <button v-on:click="btn1Click(1000)">加1000円</button>
+        <button v-on:click="btn2click()">返回</button>
+    </div>
+    <script type="text/javascript">
+        var myVue = new Vue({
+            el:'#app-vue',
+            data:{
+                lowerCase:'lowerCase',
+                capital:'CAPITAL',
+                num:'123',
+                price:100,
+
+                price1:1000,
+                flag:false,
+                priceRMB:0
+            },
+            filters:{
+                toUpper:function(val){
+                    return val.toUpperCase();
+                },
+                toLower:function(val){
+                    return val.toLowerCase()
+                },
+                addDollar:function(val){
+                    return '＄'+ val
+                },
+                addRMB:function(val){
+                    return '￥'+ val
+                }
+            },
+            computed:{
+                priceDoller:function(){
+                    return (this.price * 0.1505).toFixed(2);
+                }
+            },
+            watch:{
+                price1:function(newVal,oldVal){
+//                    console.log(newVal,oldVal);
+                    this.priceInTax =  Math.round(this.price1 * 1.08);
+                    this.priceRMB = Math.round(this.priceInTax / 16.75);
+                }
+            },
+            methods:{
+                btnClick:function(){
+                    this.flag = true;
+                    this.priceInTax =  Math.round(this.price1 * 1.08);
+                    this.priceRMB = Math.round(this.priceInTax / 16.75);
+                },
+                btn1Click:function(newPrice){
+                    this.flag = true;
+                    this.price1 += newPrice;
+                },
+                btn2click:function(){
+                    this.flag = false;
+                    this.price1 =1000;
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

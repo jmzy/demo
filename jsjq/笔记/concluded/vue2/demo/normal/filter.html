@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE2 filterDemo</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{msg}}</p>
+    <p>filter {{msg | aaa}}</p>
+</div>
+<script>
+    Vue.filter('aaa', function(value){
+            return parseInt(value)
+        }
+    )
+    let app = new Vue({
+        el: '#app',
+        data: {
+            msg: '123afdsafdsfds',
+            a: this.$el
+        }
+    });
+
+
+    const a = '123afdsafdsfds';
+    console.log(parseFloat(a));
+</script>
+</body>
+</html>

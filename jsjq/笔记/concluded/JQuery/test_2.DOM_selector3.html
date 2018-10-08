@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div>
+			<p>p元素1</p>
+			<span>span元素2</span>
+			<p>p元素3</p>
+			<span>span元素4</span>
+			<p>p元素5</p>
+			<span>span元素6</span>
+		</div>
+		<hr />
+		<div>
+			<p>p元素1</p>
+			<span>span元素2</span>
+			<p>p元素3</p>
+			<span>span元素4</span>
+			<p>p元素5</p>
+			<span>span元素6</span>
+		</div>
+		
+		<script>
+			$(function(){
+				//匹配父级的第1个元素
+				//只匹配 第1个/最后1个 div里面的p标签、匹配第1个父级div里面的第1个元素
+//				$('div p:first').css('color','red');
+//				$('div span:first').css('color','red');
+//				$('div span:last').css('color','red');
+
+				//可以匹配两个div里面的第1个p元素
+//				$('div p:first-child').css('color','blue');
+//				$('div span:last-child').css('color','blue');
+				//并没有效果、匹配父级的第1个元素并不是span
+//				$('div span:first-child').css('color','blue');
+
+				//可以匹配两个div、匹配父级div里的第1个span元素
+//				$('div p:first-of-type').css('color','red');
+//				$('div span:first-of-type').css('color','red');
+//				$('div p:last-of-type').css('color','red');
+
+				//必须匹配span在元素的位置
+//				$('div span:nth-child(4)').css('color','red');
+//				$('div span:nth-child(odd)').css('color','red');
+//				$('div span:nth-child(even)').css('color','red');
+
+				//parent内的span数组、1开始计算
+//				$('div span:nth-of-type(2)').css('color','red');
+				
+//				$('div span:nth-last-child(even)').css('color','red');
+
+
+//				$('div span:nth-last-of-type(odd)').css('color','red');
+//				$('div span:nth-last-of-type(even)').css('color','red');
+				
+			})
+		</script>
+	</body>
+</html>

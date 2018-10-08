@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>PHP 构造器</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				PHP 构造器
+            </h1>
+            <section>
+                <h5>
+
+                </h5>
+                <pre>
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+					函数类名 __constriuct
+                </h5>
+                <pre>
+class a{
+ function __construct(参数){//构造方法
+  echo 'a';
+ }
+}
+$a = new a();//输出a
+ //PHP4 里面的构造方法命名为类名、即class a ....function a(对应)
+ //1个类中可以用两种形式的构造方法、均被采用、
+ //当两种形式同时存在、调用__construct、
+ //构造方法没有返回值
+ //析构函数不解释参数、由系统调用
+                </pre>
+            </section>
+            <section>
+                <h5>
+					析构函数
+                </h5>
+                <pre>
+class Person{
+ public $name;
+ function __construct($name){
+  $this->name = $name;
+ }
+ function __destruct(){
+  echo $this->name.'销毁资源<br/>';
+ }
+}
+$t1 = new Person('张三丰');
+$t1 = new Person('张二丰');
+$t1 = new Person('张一 丰');
+
+//析构函数会自动调用;
+//折扣函数主要用于销毁资源
+//析构函数调用顺序似乎先创建的对象后被销毁
+//当程序(进程结束)退出时调用析构函数
+//当一个对象成为垃圾对象的时候、该对象的析构函数也会被调用
+//垃圾变量(没有任何变量使用)需要销毁
+//一旦一个对象成为垃圾对象、析构函数立即调用
+//1个类只有1个析构方法
+                </pre>
+            </section>
+            <section>
+                <h5>
+					静态变量(类变量)和静态方法(类方法)
+                </h5>
+                <pre>
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+					全局对象
+                </h5>
+                <pre>
+$a = 1;
+function test(){
+	global $a;
+	$a = 10;
+};
+test();
+echo $a;//90
+//没有global $a = 1;
+                </pre>
+            </section>
+            <section>
+            	<h5>
+            		类内定义静态变量
+            	</h5>
+            	<pre>
+class newClass{
+ public $name;
+ public static $nums = 0;//定义并初始化静态变量
+ function __construct($name){
+  $this->name = $name;
+ };
+ public function join(){
+  self::$nums +=1;//使用静态变量
+  echo $this->name.'<br/>';
+ };
+};
+//静态变量可以定义在类和函数里
+//类内定义必需 static(修饰符) $变量名词
+//访问静态变量
+//类里面访问
+//self::$静态变量名(建议、跟this1个道理)
+//类名::$静态变量名
+//类外反问
+//类名::$静态变量名
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		类里的构造函数和$this和静态变量在调用的关系
+            	</h5>
+            	<pre>
+class Person{
+ public static $a = 10;
+ public function __construct(){
+  $this->a = 1;
+ };
+};
+echo Person::$a;//10
+//这里并没有调用构造函数
+
+$b = new Person();
+echo Person::$a;//报错
+//这才调用了类的构造函数但没有公共的$a
+//$this 不能调用静态函数
+            	</pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

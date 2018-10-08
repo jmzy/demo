@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>PHP 函数 funtiocn</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				PHP 函数 funtiocn
+            </h1>
+            <section>
+                <h5>
+					function_exists(fn) 检查函数是否存在
+                </h5>
+                <pre>
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+					函数体内 对 函数体外对象更改
+                </h5>
+                <pre>
+$a = 'aaaaa';
+function change(){
+	return $a = 'bbb';
+}
+change();
+echo $a.'&lt;br/&gt;';//aaaaa
+	
+//--------------------
+$a = change();	//bbb
+echo $a.'&lt;br/&gt;';
+
+//--------------------
+$b = 'bbb1';
+function changeB(){
+	global $b;
+	return $b = 'aaa';
+};
+changeB();
+echo $b.'&lt;br/&gt;';
+                </pre>
+            </section>
+            <section>
+                <h5>
+					unset 卸载变量
+                </h5>
+                <pre>
+可对1个块、作用域里卸载变量
+unset($obj)
+
+$c = 'ccc';
+function changeC(){
+	global $c;
+	$c = 'ddddd';
+	unset($c);
+	$c = 'ddd2';
+};
+changeC();
+echo $c.'&lt;br/&gt;';
+                </pre>
+            </section>
+            <section>
+                <h5>
+					static
+                </h5>
+                <pre>
+1.是在所有对函数调用中共享
+2.只有在第一次调用的时候赋值
+                </pre>
+            </section>
+            <section>
+                <h5>
+					& 按值(赋值)参数传递和按址(传内存)传递参数
+                </h5>
+                <pre>
+function a($name){
+	$name = $name.'和b';
+	echo $name.'在写代码'."&lt;br/&gt;";
+};
+$name = 'a';
+a($name);
+echo $name."&lt;br/&gt;";
+
+function b(&$name){
+	$name = $name.'和b';
+};
+$name = 'a';
+b($name);
+echo $name."&lt;br/&gt;";
+                </pre>
+            </section>
+            <section>
+            	<h5>
+            		func_get_args() 以数组形式返回所有传参
+            		&lt;br/&gt;
+            		func_num_args() 获得传参的总数量
+            		&lt;br/&gt;
+            		func_get_arg(number) 获得对应的传参(以0开始数)	
+            	</h5>
+            	<pre>
+function func(){
+	print_r(func_get_args());
+};
+func('a','b','c','d','f');
+//Array ( [0] => a [1] => b [2] => c [3] => d [4] => f )
+
+function funcT(){
+	$arr = func_get_args();
+	foreach($arr as $key=>$value){
+		echo "字母".($key+1)."、字母是{$value}&lt;br/&gt;";
+	};
+	echo '1共'.func_num_args().'个'.'&lt;br/&gt;';
+	echo '第3位字母是'.func_get_arg(2).'&lt;br/&gt;';
+};
+funcT('a','b','c','d','f');
+/*
+字母1、字母是a
+字母2、字母是b
+字母3、字母是c
+字母4、字母是d
+字母5、字母是f
+1共5个
+第3位字母是c
+ */
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		可以在变量后加()、系统会查找与变量值同名的函数去执行
+            	</h5>
+            	<pre>
+echo '<br/>';
+$c = 'show_date';
+function show_date(){
+	echo date('Y-m-d');
+};
+$c();//2017-06-13
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		递归调用、在函数体内、调用本函数(调用自己)
+            		<br/>
+            		加上一个停止调用的条件、否则会陷入死循环的调用
+            	</h5>
+            	<pre>
+function jc($i){
+	if($i>1){//条件 避免死循环
+		$s = $i * jc($i-1);
+	}else{
+		$s = $i;
+	}
+	return $s;
+};
+echo jc(3);
+
+跟js的factorial() 差不多1个意思
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		内部函数、函数体内定义函数
+            	</h5>
+            	<pre>
+            		
+            	</pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

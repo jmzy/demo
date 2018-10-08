@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery DOM filter</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<!--.hasClass()-->
+		<div id="a1" class="a b"></div>
+		<!--.filter()-->
+		<div id="filter">
+			<p>Hello</p>
+			<p class="a">Hello Again</p>
+			<p class="selected">And Again</p>
+			<p><i>and Again 2</i></p>
+		</div>
+		<!--.is()-->
+		<form>
+			同意<input type="checkbox" /><br/>
+			<input type="text" />
+		</form>
+		
+		<ul>
+		  	<li><strong>list</strong> item 1 - one strong tag</li>
+		  	<li>
+		  		<strong>list</strong>
+		  		item 
+		  		<strong>2</strong> 
+		  		- two 
+		  		<span>strong tags</span>
+		  	</li>
+		  	<li>list item 3</li>
+		  	<li>list item 3</li>
+		  	<li>list item 3</li>
+		</ul>
+		<!--.map()-->
+		<p id="p"><b>Values: </b></p>
+		<form id="form">
+		  <input type="text" name="name" value="John"/>
+		  <input type="text" name="password" value="password"/>
+		  <input type="text" name="url" value="http://ejohn.org/"/>
+		</form>
+		
+		<p id="pp"><span>$('#pp')</span></p>
+		<p id="ppp"><strong>$('#ppp')</strong></p>
+		
+		<!--.not()-->
+		<p class="a b">11111</p>
+		<p class="a b">22222</p>
+		
+		<!--.slice()-->
+		<p class="c">111</p>
+		<p class="c">222</p>
+		<p class="c">333</p>
+		<p class="c">444</p>
+		<p class="c">555</p>
+		<script>
+//			.hasClass()
+//			console.log($('#a1').hasClass('a'));
+//			console.log($('#a1').hasClass('a','b'));
+
+//			.filter()
+			$("#filter p").filter(".selected").css('color','skyblue');
+			$("#filter p").filter(".a, :first").css('color','red');//可筛选多个
+			$("#filter p").filter(function(){
+				return $("i", this).length == '1';//指定元素、this该元素/父元素
+				//0代表不包含、1表示包含、字符串和数字都可以
+			}).css('color','gold');
+			
+//			.is()
+//			console.log($("input[type='checkbox']").parent().is("form"));//true
+			$("li").click(function() {
+				var $li = $(this),
+				    isWithTwo = $li.is(function() {//赋值this含有两个
+				    return $('strong', this).length === 2;
+				});
+				if ( isWithTwo ) {
+				    $li.css("background-color", "green");
+				} else {
+				    $li.css("background-color", "red");
+				}
+			});
+			
+//			.map()
+			$("#p").append( $("#form input").map(function(){
+			   	return $(this).val();
+			}).get().join(", ") );
+			
+//			.has()
+			$('#pp').has('span').css('color','red');
+			$('#ppp').has('strong').css('color','skyblue');
+			
+//			.not()
+			$('p.a').not($('p.b')[0]).css('color','red');
+			
+//			.slice()
+			$('p.c').slice(0,2).css('color','skyblue');
+		</script>
+	</body>
+</html>

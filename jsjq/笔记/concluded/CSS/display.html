@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>display</title>
+</head>
+<body>
+<!--display:list-item-->
+<!--还可以使用list-style-->
+<span style="display:list-item;list-style: square inside">aaaa</span>
+<span style="display:list-item;">bbbb</span>
+<span style="list-style: square inside">这个就不能用list-style</span>
+<span style="display:list-item;list-style: square inside">dddd</span>
+
+<!--display:inherit-->
+<span>
+    父span
+    <div style="display:inherit">
+        div
+    </div>
+</span>
+
+
+
+<script type="text/javascript">
+//    none	        此元素不会被显示。
+//    block	        此元素将显示为块级元素，此元素前后会带有换行符。
+//    inline	    默认。此元素会被显示为内联元素，元素前后没有换行符。
+//    inline-block	行内块元素。（CSS2.1 新增的值）
+//    list-item	    此元素会作为列表显示。单独使用会将元素变成块元素
+//    inherit	    规定应该从父元素继承 display 属性的值。
+//    run-in	    此元素会根据上下文作为块级元素或内联元素显示。
+      //★兼容问题现在还未普及,放弃研究,可以用 vertical-align 替代
+      //参考:http://www.zhangxinxu.com/wordpress/2012/03/tip-css-multiline-display/
+      //    https://q.cnblogs.com/q/67758/
+      //    https://css-tricks.com/run-in/
+
+
+//table这的抛砖引玉吧,今天特懒,留着记录吧
+//参考
+//http://www.zhangxinxu.com/wordpress/2010/10/%E6%88%91%E6%89%80%E7%9F%A5%E9%81%93%E7%9A%84%E5%87%A0%E7%A7%8Ddisplaytable-cell%E7%9A%84%E5%BA%94%E7%94%A8/
+//http://www.jianshu.com/p/700ede25d0bc
+//https://www.cnblogs.com/guoyong-feng/p/6076058.html
+
+
+//    table	        此元素会作为块级表格来显示（类似 <table>），表格前后带有换行符。
+//    inline-table	        此元素会作为内联表格来显示（类似 <table>），表格前后没有换行符。
+//    table-row-group	    此元素会作为一个或多个行的分组来显示（类似 <tbody>）。
+//    table-header-group	此元素会作为一个或多个行的分组来显示（类似 <thead>）。
+//    table-footer-group	此元素会作为一个或多个行的分组来显示（类似 <tfoot>）。
+//    table-row	            此元素会作为一个表格行显示（类似 <tr>）。
+//    table-column-group	此元素会作为一个或多个列的分组来显示（类似 <colgroup>）。
+//    table-column	        此元素会作为一个单元格列显示（类似 <col>）
+//    table-cell	        此元素会作为一个表格单元格显示（类似 <td> 和 <th>）
+//    table-caption	        此元素会作为一个表格标题显示（类似 <caption>）
+
+
+    //顺便补充list-style
+    //有4个属性值
+    //list-style-type	    //参考http://www.runoob.com/cssref/pr-list-style-type.html
+    //list-style-position   //inside outside(默认)
+    //list-style-image      //可用url(" ")传址
+    //inherit               //ie8及+
+</script>
+</body>
+</html>

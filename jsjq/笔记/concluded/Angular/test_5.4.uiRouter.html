@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>定义子View</title>
+		<script src="../../js/angular.min.js"></script>
+		<script src="https://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+	</head>
+	<body ng-app='app'>
+		<div ui-view></div>
+		<script>
+			var app = angular.module('app',['ui.router']);
+			app.config(function($stateProvider,$urlRouterProvider){
+				$urlRouterProvider.otherwise('home');
+				$stateProvider
+					.state('home',{
+						url:'/home',
+						templateUrl:'view/5.4.html',
+					})
+					.state('home.news',{//第1种方式
+						url:'/news',
+						template:'<h1>新闻</h1>',
+					})
+					.state('game',{
+						url:'/game',
+						parent:'home',//第2种方式
+						template:'<h1>游戏</h1>'
+					})
+					.state('login',{
+						url:'/login',
+						template:'<h1>登录</h1>'
+					})
+			})
+		</script>
+	</body>
+</html>

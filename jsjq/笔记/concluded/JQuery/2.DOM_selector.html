@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JQuery的选择器</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				JQuery的选择器
+            </h1>
+            <section>
+                <h5>
+					基本选择器
+                </h5>
+                <pre>
+匹配所有元素    $('*')
+获取ID        $('#id')
+获取元素       $('div')
+获取class      $('.class')
+  <i class="color0">★</i>注意：相同元素下、可指定选择起带clss
+  同元素中带指定class  $('ele.class')
+多元素获取      $('ele,ele')
+
+事例
+&lt;div id='a'&gt;div/ID:a&lt;/div&gt;
+&lt;h3&gt;H3元素&lt;/h5&gt;
+&lt;h5 class="h5"&gt;H5元素/class：h5&lt;/h5&gt;
+&lt;h5&gt;&lt;span&gt;H5 下子元素 span&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;P元素&lt;/p&gt;
+&lt;h2&gt;H2元素&lt;/h2&gt;
+&lt;h5 class="newh5"&gt;H5/class:new&lt;/h5&gt;
+
+&lt;script&gt;
+	$(function(){
+		$('*').css('margin','20px');//所有元素
+		$('#a').css('color','red');
+		$('h3').css('color','lightyellow');
+		$('.h5').css('color','blue');
+		$('h5 span').css('color','green');
+		$('p,h2').css('color','skyblue');//多个元素以，分隔
+		$('h5.newh5').css('color','red');//ele.class
+	})
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					属性选择器
+                </h5>
+                <pre>
+[attribute] 	
+[attribute=value]
+[attribute!=value]<i class="color0">★</i>注意：谨慎使用
+
+attribute value属性值。引号在大多数情况下是可选的。但在遇到诸如属性值
+包含"]"时，用以避免冲突。
+
+&lt;div a='b'&gt;DIV元素/a:b&lt;/div&gt;
+&lt;div a='c'&gt;DIV元素/a:c&lt;/div&gt;
+&lt;div b='a'&gt;DIV元素/b:a&lt;/div&gt;
+&lt;h1 c='a'&gt;h1元素/c:a&lt;/h1&gt;
+&lt;h1 c='b'&gt;h1元素/c:b&lt;/h1&gt;
+&lt;h1 c='c'&gt;h1元素/c:c&lt;/h1&gt;
+&lt;h1 d='a'&gt;h1元素/c:c&lt;/h1&gt;
+&lt;h1&gt;h1元素/不含自定义元素&lt;/h1&gt;
+&lt;script&gt;
+	$(function(){
+		$('[a]').css('color','red');
+		$('[a=c]').css('color','darkgoldenrod');
+		$('[b=a]').css('color','blue');
+		$('h1[c!="a"]').css('color','red');
+	  //注意使用这个！、会把所有的元素不包含都定属性、使用加上元素
+	})
+&lt;/script&gt;
+
+[attribute^=value] ^=value 以value开始的元素&lt;br /&gt;
+[attribute$=value] $=value 以value结尾的元素&lt;br /&gt;
+[attribute*=value] *=value 包含含有value的元素&lt;br /&gt;
+[attrSel1][attrSel2][attrSelN] 多个自定义元素
+                </pre>
+            </section>
+            <section>
+                <h5>
+					层级选择器
+                </h5>
+                <pre>
+ancestor descendant 元素下所有相同属性
+parent > child  元素下子辈属性、不包括子辈以下
+prev + next 相邻的两个元素、对第2个元素操作
+prev ~ siblings 同辈的 siblings 元素
+
+&lt;div id="divA"&gt;
+	&lt;p&gt;p元素&lt;/p&gt;
+	&lt;p&gt;p元素&lt;/p&gt;
+	&lt;div id="divB"&gt;
+		&lt;p&gt;p元素&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;div id="divC"&gt;
+	&lt;p&gt;p元素&lt;/p&gt;
+	&lt;p&gt;p元素&lt;/p&gt;
+	&lt;div id="divD"&gt;
+		&lt;p&gt;p元素&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;div id="divE"&gt;
+	&lt;p&gt;p元素&lt;/p&gt;
+	&lt;h3&gt;h3元素&lt;/h3&gt;
+	&lt;div id="divF"&gt;
+		&lt;p&gt;p元素&lt;/p&gt;
+		&lt;h3&gt;h3元素&lt;/h3&gt;
+	&lt;/div&gt;
+	&lt;h3&gt;h3元素&lt;/h3&gt;
+	&lt;p&gt;p元素&lt;/p&gt;
+	&lt;h3&gt;h3元素&lt;/h3&gt;
+	&lt;h3&gt;h3元素&lt;/h3&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;div id="divG"&gt;
+	&lt;p&gt;p元素&lt;/p&gt;
+	&lt;div id="divH"&gt;
+		&lt;p&gt;p元素&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div id="divI"&gt;
+		&lt;h3&gt;h3元素&lt;/h3&gt;
+	&lt;/div&gt;
+	&lt;h3&gt;h3元素&lt;/h3&gt;
+&lt;/div&gt;
+&lt;script&gt;
+	$(function(){
+		$('#divA p').css('color','red');
+		$('#divC&gt;p').css('color','red');
+		$('#divE p+h3').css('color','red');
+		$('#divH~h3').css('color','red');
+		$('#divI~h3').css('color','red');
+	})
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					子元素
+                </h5>
+                <pre>
+ancestor descendant 元素下所有相同属性
+parent > child  元素下子辈属性、不包括子辈以下
+                	
+<i class="color0">必须第1个元素为 son元素</i>
+<i class="color4">parent son</i>:first-child //匹配 <i class="color0">第1个parent元素</i> 里面的第1个 son元素 
+<i class="color4">parent son</i>:last-child //匹配 <i class="color0">最后1个parent元素</i> 里面的最后1个 son元素
+<i class="color0">若多个和 parent相同的元素也只能匹配 第1个/最后1个 son 元素</i>
+
+<i class="color4">parent son</i>:first-of-type 1.9+ //匹配 parent元素 里的 第1个son 元素
+<i class="color4">parent son</i>:last-of-type 1.9+ //匹配 parent元素 里的 最后1个son 元素
+<i class="color0">多个和 parent相同的元素匹配多个里的 第1个/最后1个 son 元素</i>
+
+nth数组由1开始计算
+<i class="color4">parent son</i>:nth-child
+//可对多个想通parent操作、<i class="color0">指定 son元素 要在parent相应位置</i>
+<i class="color4">parent son</i>:nth-child(even)//对 parent元素 的 son元素的偶数
+//<i class="color0">若son是梅花间竹、则为全部</i>
+<i class="color4">parent son</i>:nth-child(odd)//对 parent元素 的 son元素的基数
+//<i class="color0">若son是梅花间竹、则为没效果</i>
+
+<i class="color4">parent son</i>:nth-of-type() 1.9+ //对相同的parent元素内的son元素操作
+
+<i class="color4">parent son</i>:nth-last-child() 1.9+//对相同的parent元素内的son元素操作
+//<i class="color0">若son是梅花间竹、odd没效果、even可以</i>
+
+<i class="color4">parent son</i>:nth-last-of-type() 1.9+//对相同的parent元素内的son元素操作
+//<i class="color0">//不需要匹配相应的son</i>
+
+<i class="color4">parent son</i>:only-child//该parent只有1个son元素操作
+//<i class="color0">若parent元素下有除son元素其他的元素不能生效</i>
+
+<i class="color4">parent son</i>:only-of-type 1.9+
+//<i class="color0">若parent元素下有除son元素能生效</i>
+                </pre>
+            </section>
+            <section>
+                <h5>
+
+                </h5>
+                <pre>
+
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+
+    </div>
+</div>
+</body>
+</html>
+

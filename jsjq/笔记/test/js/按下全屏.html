@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>按下全屏</title>
+</head>
+<body>
+<html>
+<body>
+<script type="text/javascript">
+
+	function noNumbers(e)
+	{
+		var keynum;
+		var keychar;
+
+		keynum = window.event ? e.keyCode : e.which;
+		keychar = String.fromCharCode(keynum);
+		alert(keynum+':'+keychar);
+	}
+
+</script>
+<input type="button" onclick="noNumbers(e,123)" value="click"/>
+</body>
+</html>
+</body>
+</html>

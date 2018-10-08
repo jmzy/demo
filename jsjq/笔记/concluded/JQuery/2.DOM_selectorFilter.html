@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JQuery 选择器里的筛选器</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				JQuery 选择器里的筛选器
+            </h1>
+            <section>
+                <h5>
+					基本筛选器
+                </h5>
+                <pre>
+$('DOM<i class="color4">:first</i>')//数组同辈元素第1个
+$('DOM<i class="color4">:last</i>')//数组同辈元素最后1个
+
+$('DOM<i class="color4">:not(selector)</i>')//数组同辈元素不包含其中的元素
+
+$('DOM<i class="color4">:even</i>')//数组同辈元素的偶数
+$('DOM<i class="color4">:odd</i>')//数组同辈元素的基数个
+
+数组值由0开始
+$('DOM<i class="color4">:eq(index)</i>')//数组同辈元素的指定索引值
+$('DOM<i class="color4">:gt(index)</i>')//数组同辈元素中的大于指定索引值
+$('DOM<i class="color4">:lt(index)</i>')//数组同辈元素中的小于指定索引值
+
+$('DOM<i class="color4">:header</i>')//选择所有标题元素（h1 - h6）
+<i class="color0">★</i>$('DOM<i class="color4">:animated</i>')//加上动画
+<i class="color0">★</i>$('DOM<i class="color4">:focus</i>')//获得焦点
+
+<i class="color0">★</i>$('DOM<i class="color4">:lang</i>')<sup>1.9+</sup>//选择由文档URI的格式化识别码表示的目标元素。
+$(<i class="color4">:root</i>')<sup>1.9+</sup>//选择该文档的根元素
+<i class="color0">★</i>$('<i class="color4">:target</i>')<sup>1.9+</sup><i class="color0">//这个有疑问</i>
+                </pre>
+            </section>
+            <section>
+            	<h5>
+            		<i class="color0">★</i>$('DOM<i class="color4">:animated</i>')//加上动画<br />
+            		<i class="color0">出之 W3School</i>
+                    <a href="http://www.w3school.com.cn/jquery/selector_animated.asp" style="float:right">更详细</a>
+            	</h5>
+            	<pre>
+选择指定语言的所有元素。
+:lang选择器,匹配有一个语言值等于所提供的语言代码，或以提供的语言代码开始，
+后面马上跟一个“ - ”的元素。例如，选择器$("div:lang(en)")将匹配
+&lt;div lang="en"&gt; and &lt;div lang="en-us"&gt;（和他们的后代&lt;div&gt;），
+但不包括&lt;div lang="fr"&gt;
+对于HTML元素，语言值由lang属性决定，也可能由来自meta元素或HTTP头信息决定。
+这种用法的进一步讨论可以在 W3C CSS规范中找到。
+            		
+&lt;script type="text/javascript"&gt; 
+$(document).ready(function(){
+  function aniDiv(){
+    $(".box").animate({width:300},"slow");
+    $(".box").animate({width:100},"slow",aniDiv);
+  }
+  aniDiv();
+  $(".btn1").click(function(){
+    $(":animated").css("background-color","blue");
+  });
+});
+&lt;/script&gt;
+&lt;style&gt; 
+	div{background:#98bf21;height:40px;width:100px;
+          position:relative;margin-bottom:5px;}
+&lt;/style&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class="box"&gt;&lt;/div&gt;
+&lt;div class="box"&gt;&lt;/div&gt;
+&lt;button class="btn1"&gt;Mark animated element&lt;/button&gt;
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		<i class="color0">★</i>$('DOM<i class="color4">:focus</i>')//获得焦点<br />
+            		<i class="color0">出之 RUNOOB.COM</i>
+                    <a href="http://www.runoob.com/jquery/event-focus.html" style="float:right">更详细</a>
+            	</h5>
+            	<pre>
+&lt;script&gt;
+  $(function(){
+    $("input").focus(function(){
+      $("span").css("display","inline").fadeOut(2000);
+    });
+  });
+&lt;/script&gt;
+&lt;style&gt;
+  span{display:none}
+&lt;/style&gt;
+
+&lt;input type="text"&gt;
+&lt;span&gt;请输入你的电话号码?&lt;/span&gt;
+&lt;p&gt;点击输入框获取焦点。&lt;/p&gt;
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		<i class="color0">★</i>$('DOM<i class="color4">:lang</i>')<sup>1.9+</sup>//选择由文档URI的格式化识别码表示的目标元素。<br />
+            		//相当于兹定于属性
+            		<i class="color0">出之 RUNOOB.COM</i>
+                    <a href="http://www.runoob.com/jquery/jq-sel-lang.html" style="float:right">更详细</a>
+               </h5>
+            	<pre>
+&lt;script&gt;
+$(document).ready(function(){
+  $("p:lang(it)").css("background-color","yellow");
+});
+&lt;/script&gt;
+&lt;p&gt;我住在意大利。&lt;/p&gt;
+&lt;p lang="it"&gt;Ciao bella!&lt;/p&gt;
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		<i class="color0">★</i><i class="color4">event.target</i>//显示哪个 DOM 元素触发了事件：<br />
+            		<i class="color0">出之 W3School</i>
+                    <a href="http://www.w3school.com.cn/jquery/event_target.asp" style="float:right">更详细</a>
+            	</h5>
+            	<pre>
+&lt;script type="text/javascript"&gt;
+$(function(){
+  $("p, button, h1, h2").click(function(event){
+    $("div").html("点击事件由一个 " + event.target.nodeName +
+     " 元素触发");
+  });
+});
+&lt;/script&gt;
+&lt;h1&gt;这是一个标题&lt;/h1&gt;
+&lt;h2&gt;这是另一个标题&lt;/h2&gt;
+&lt;p&gt;这是一个段落&lt;/p&gt;
+&lt;button&gt;这是一个按钮&lt;/button&gt;
+&lt;p&gt;标题、段落和按钮元素定义了一个点击事件。如果您触发了事件，
+    下面的 div 会显示出哪个元素触发了该事件。&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+            	</pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

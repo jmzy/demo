@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var hello = 'hello world';
+
+    var reg11 = new RegExp('o','g');    //全局
+    var reg12 = new RegExp('O','ig');   //忽略大小写并全局
+
+    var reg21 = /o/;                    //o
+    var reg22 = /O/;                    //null 区分大小写
+    var reg23 = /o/g;                   //o,o 全局
+    var reg24 = /O/i;                   //o 忽略大小写
+    var reg25 = /O/ig;                  //o,o 忽略大小写并全局
+
+
+    document.write(hello.match(reg11) + '<br/>');
+    document.write(hello.match(reg12) + '<br/>');
+    document.write('<hr/>');
+    document.write(hello.match(reg21) + '<br/>');
+    document.write(hello.match(reg22) + '<br/>');
+    document.write(hello.match(reg23) + '<br/>');
+    document.write(hello.match(reg24) + '<br/>');
+    document.write(hello.match(reg25) + '<br/>');
+    document.write('<hr/>');
+
+    //question 存在返回true、不存在返回false
+    console.log(reg11.test(hello));                 //true
+    console.log(reg11.test('hey man'));             //false
+
+    //exec 存在返回字符串、不存在返回null
+    console.log(reg11.exec(hello));                 //["o", index: 4, input: "hello world"]
+    document.write(reg11.exec(hello) + '<br/>');    //o
+    console.log(reg11.exec('hey man'));             //null
+
+    //compile 方法用于改变 RegExp
+    console.log(reg11.test(hello));                 //true
+    reg11.compile('a');
+    console.log(reg11.test(hello));                 //false
+
+
+    //转义符
+    //  \S非空字符
+    //  \s空字符
+    //  \D非数字
+    //  \d数字0-9 匹配字符串含有数字
+    //  \w字符    匹配任何字类字符,包括下划线
+    //  \W非字符
+    //   .任意字符 var patt = /./;
+    //  \.转义符.
+    //  \t制表符   匹配存在tab
+    //  \n换行符
+    //  \b独立
+    var str = " ab cd";
+    var reg = /\bcd\b/;
+    console.log(reg.test(str));                     //true
+
+    var str2 = " ab cd";
+    var reg2 = /\bd\b/;
+    console.log(reg2.test(str2));                   //false
+
+
+
+    function getClassName(cName,obj){
+        obj=obj||document;
+        if(document.getElementsByClassName){
+            return document.getElementsByClassName(cName);
+        }else{
+            var allE=obj.getElementsByTagName("*");
+            var arr=[];
+            var reg=new RegExp("\\b"+cName+"\\b");
+            for(var i=0;i< allE.length;i++){
+                if(reg.test(allE[i].className)){
+                    arr.push(allE[i]);
+                    break;
+                }
+            }
+            return arr;
+        }
+    }
+</script>
+</body>
+</html>

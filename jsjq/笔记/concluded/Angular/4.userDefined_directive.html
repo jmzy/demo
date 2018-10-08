@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS 自定义指令</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				AngularJS 自定义指令
+            </h1>
+            <section>
+                <h5>
+					directive 函数来添加自定义的指令
+                </h5>
+                <pre>
+除了 AngularJS 内置的指令外，我们还可以创建自定义指令。
+你可以通过以下方式来调用指令：
+元素名、属性、类名、注释
+                </pre>
+            </section>
+            <section>
+                <h5>
+					自定义指令-自定义元素标签
+                </h5>
+                <pre>
+简单事例
+&lt;body ng-app="app"&gt;
+	&lt;helloangular&gt;&lt;/helloangular&gt;
+	&lt;hello-angular&gt;&lt;/hello-angular&gt;
+	&lt;helloangular&gt;&lt;/helloangular&gt;
+		&lt;!--自定义指令可重复使用--&gt;
+	&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+	&lt;script&gt;
+		angular.module("app",[])
+		.directive("helloAngular",function(){
+			//自定义标签出现驼峰使用它时需要以 - 分割
+			return {
+				template:"&lt;h3&gt;自定义指令1&lt;/h3&gt;"
+			};
+		})//angular不需要在中间加分号；会报错
+		.directive("helloangular",function(){
+			return {
+				template:"&lt;h3&gt;自定义指令2&lt;/h3&gt;"
+			};
+		})
+	&lt;/script&gt;
+&lt;/body&gt;
+
+<i class='color0'>★注意：</i>自定义指令名称不能重复是使用
+&lt;body ng-app="app"&gt;
+	&lt;helloangular&gt;&lt;/helloangular&gt;
+	&lt;helloangular&gt;&lt;/helloangular&gt;
+	
+	&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+	&lt;script&gt;
+		angular.module("app",[])
+		.directive("helloangular",function(){
+			return {
+				template:"&lt;h3&gt;自定义指令2&lt;/h3&gt;"
+			};
+		})
+	    <i class='color0'>★</i>.directive("helloangular",function(){
+			//自定义指令不能重复定义同1名称
+			//报错、不能重复使用同该定义名称
+			return {
+				template:"&lt;h3&gt;自定义指令3&lt;/h3&gt;"
+			};
+		})
+	&lt;/script&gt;
+&lt;/body"&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					自定义指令-自定子元素标签
+                </h5>
+                <pre>
+&lt;body ng-app="app"&gt;
+	&lt;div helloangular&gt;&lt;/div&gt;
+	&lt;!--div&gt;h3--&gt;
+	&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+	&lt;script&gt;
+		angular.module("app",[])
+		.directive("helloangular",function(){
+			return {
+				template:"&lt;h3&gt;自定义指令2&lt;/h3&gt;"
+			};
+		})
+
+	&lt;/script&gt;
+&lt;/body&gt;
+
+<i class='color4'>★</i>多个自属性可以用ng-repeat 指令
+事例1
+&lt;ul data-ng-app="" 
+  data-ng-init="names=['Apple','Banana','Cat']"&gt;
+  &lt;li data-ng-repeat="a in names"&gt;{{ a }}&lt;/li&gt;
+&lt;/ul&gt;
+
+事例2
+&lt;style&gt;
+    *{margin:0;padding:0}
+    ul{width:auto;margin-top:20px;}
+    li{list-style:none;width:300px;height:20px;
+    	border:1px solid #f1f1f1;display:block}
+&lt;/style&gt;
+&lt;div ng-app="app" &gt;
+    &lt;p&gt;地址管理&lt;/p&gt;
+    &lt;ul ng-controller="address"&gt;
+        &lt;li ng-repeat="a in list"&gt; 
+            &lt;h5 ng-cloak&gt;{{$index + 1 + "--" + a.address}}&lt;/h5&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('app',[])
+    .controller('address',function($scope){
+        $scope.list = [
+            {id:1,address:"荔湾区荔湾路100号"},
+            {id:2,address:"佛山市大沥区"},
+            {id:3,address:'海珠区赤岗1号'},
+            {id:4,address:"天河区正佳广场1楼"},
+            {id:5,address:'增城区新开发'}
+        ]
+    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+            	<h5>
+            		自定义类名
+            	</h5>
+            	<pre>
+&lt;div ng-app="app" class="a"&gt;&lt;/div&gt;
+&lt;!--div&gt;h3--&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+	angular.module('app',[])
+    .directive('a',function(){
+    	return{
+    		restrict:'C',//一定要大写
+    		template:"&lt;h3&gt;自定义指令&lt;/h3&gt;"
+    	};
+    })
+&lt;/script&gt;
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		自定义注释转换元素
+            	</h5>
+            	<pre>
+&lt;body ng-app="app"&gt;
+	&lt;!-- directive:a --&gt;//前后必须空格
+	&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+	angular.module('app',[])
+	.directive('a',function(){
+		return{
+			restrict:"M",//必须设置 restrict 的值为 "M" 
+				//才能通过注释来调用指令
+			replace:'a',//必须设置  replace 的值为 true 或
+				//字符串任意
+			template:"&lt;h3&gt;自定义指令&lt;/h3&gt;"
+		};
+	})
+&lt;/script&gt;
+&lt;/body&gt;
+            	</pre>
+            </section>
+        	<section>
+            	<h5>
+            		return
+            	</h5>
+            	<pre>
+内置机制、返回定义名方法
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		replace 替换
+            	</h5>
+            	<pre>
+template里的值为新的元素标签
+需要配置replace、值为true
+顾名思义就是替换
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		restrict 限制、生成指令在页面的表现形式
+            	</h5>
+            	<pre>
+E 元素--Element
+A 属性--Attribute
+C 类名--Class
+M 备注--Mark
+
+C和M 不建议使用
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		template 模版
+            	</h5>
+            	<pre>
+顾名思义、定义模版
+模版内也可以使用 AngularJS 指令
+            	</pre>
+            </section>
+            <span></span>
+        </section>
+        <section>
+            	<h5>
+            		templateURL 模版路径
+            	</h5>
+            	<pre>
+顾名思义、定义模版的路径
+            	</pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

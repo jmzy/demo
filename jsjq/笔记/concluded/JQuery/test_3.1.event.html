@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery event 1</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<button id="btn1">按钮1</button>&nbsp;&nbsp;<span class="span1">span ele/class:span1</span><br /><br />
+		<button id="btn2">按钮2</button>&nbsp;&nbsp;<span class="span2">span ele/class:span2</span><br /><br />
+		<button id="btn3">按钮3</button>&nbsp;&nbsp;<span class="span3">span ele/class:span3</span><br /><br />
+		<button id="btn4">按钮4</button>&nbsp;&nbsp;<span class="span4" style="color:red">span ele/class:span4</span><br /><br />
+		<button id="btn5">按钮5</button>&nbsp;&nbsp;<span class="span5">span ele/class:span5</span><br /><br />
+		
+		<script>
+			$(function(){
+//				btn1 简单的点击事件
+				$('#btn1').on('click',function(){
+					$('.span1').text('按钮1 被点击');
+				})
+				
+//				btn2  多个事件绑定
+				$('#btn2').on('click mousemove',function(){
+					$('.span2').text('按钮2 被点击/被鼠标触碰');
+				}).on('mouseleave',function(){
+					$('.span2').text('按钮2 鼠标移出');
+				});
+				
+//				btn3 on时间的json
+				$('#btn3').on('mousemove',{spanText:'按钮3 被鼠标触碰'},function(e){
+					$('.span3').text(e.data.spanText)
+				}).on('mouseleave',{spanText:'按钮3 鼠标移出'},function(e){
+					$('.span3').text(e.data.spanText)
+				});
+				
+//				var aText = '按钮3 被点击';
+//				$('#btn3').on('click','.span3',{'spanText1':aText},function(e){
+//					$(this).text(e.data.spanText1);
+//				});
+
+				var newtext="这是新文本" 
+				$("#btn4").on("click","$('.span4')",{"mytext":newtext},function(e){ 
+//					$('.span4').text(e.data.mytext); 
+					console.log(1);
+				}) 
+				
+				
+//				btn4
+				function span5(event){
+					var spanText = event.data.test;
+					$('.span5').text('按钮5 被点击：' + spanText + '次');
+				}
+				$('#btn5').on('click',{
+					test:1
+				},span5);
+
+			})
+		</script>
+	</body>
+</html>

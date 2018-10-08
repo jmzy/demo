@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h3 class="ye">new soul</h3>
+<h3 class="ye">new soul</h3>
+<h3 class="ye">new soul</h3>
+<h3 class="ye">new soul</h3>
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.js"></script>
+<script type="text/javascript">
+    jQuery.fn.myPlugin = function(e){
+        e = $.extend({
+                    html: "no messages",
+                    css: {
+                        "color": "red",
+                        "font-size":"14px"
+                    }},e);
+        return $(this).css({"color": e.css.color}).html(e.html);
+    }
+
+    $(".ye").myPlugin();
+//    $('.ye').myPlugin({html:"So easy,yes?",css:{"color":"green","font-size":"20px"}});
+</script>
+</body>
+
+
+<!--<body>-->
+
+
+
+
+
+<!--<script type="text/javascript">-->
+    <!--a = 123.1234567890123456789012345678901234567890;//123-->
+    <!--b = "da123d";//NaN-->
+    <!--c = "3-2a";//3-->
+    <!--d = "3-2-a";//3-->
+    <!--e = "2-1-2";//3-->
+    <!--f = "6/3a";//6-->
+    <!--g = "6/3-1";//6-->
+    <!--h = "6/3-a";//6-->
+
+<!--//    console.log(a.toFixed(21));//NaN-->
+<!--//    console.log(parseFloat("123.45adf"));//123.45-->
+<!--//    console.log(parseFloat("123.45.67"));//123.45-->
+<!--//    console.log(parseFloat("-123.4.56"));//-123.4-->
+<!--//    console.log(parseFloat(" -12.34.5"));//-12.3-->
+<!--//    console.log(parseFloat("  -12.1234567890123456789"));//-12.1234567890123456保留小数点最多16位-->
+<!--//    console.log(parseInt("  -12.1234567890123456789"));//-->
+<!--//    console.log(parseFloat("  -1 2345"));//-->
+<!--//    console.log(parseFloat(g));//-->
+<!--//    console.log(parseFloat(h));//-->
+
+
+    <!--console.log(Math.floor(a));//NaN-->
+    <!--console.log(parseInt("-1.22"));//NaN-->
+<!--</script>-->
+
+
+
+
+
+
+
+
+<!--</body>-->
+</html>

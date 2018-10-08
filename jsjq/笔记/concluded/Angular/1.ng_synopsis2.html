@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS 简介2</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				AngularJS 简介2
+            </h1>
+            <section>
+            	<h5>
+            		AngularJS的4大核心特性
+            	</h5>
+            	<pre>
+MVC、模块化、指令系统、双向数据绑定
+
+1.MVC Model-Controller-View 由Trygve Reenskaug 1979年
+  第一次正式提出MVC模式
+  Model 数据模型 、 
+  View 视图层 负责展示 、 
+  Controller 业务逻辑和控制逻辑
+
+2.模块化
+  angular。module 定义一个模块化
+  .controller() 定义控制器的内容
+
+3.指令系统
+  ng-app、自定义标签、...
+  
+4.双向数据绑定、指令和自定义指令、语义化标签事例
+&lt;div ng-app="app"&gt;
+    &lt;div ng-controller="firstCtrl"&gt;
+        &lt;input type="text" ng-model="msg"/&gt;
+        &lt;h1 ng-cloak&gt;{{msg}}&lt;/h1&gt;
+		&lt;hello&gt;111&lt;/hello&gt;
+    &lt;/div&gt;
+    &lt;hello&gt;&lt;/hello&gt;
+&lt;/div&gt;
+&lt;script src="js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('app',[])
+    .controller('firstCtrl',function($scope){
+        $scope.msg = "first AngularJS调试"
+    })
+    .directive('hello',function(){
+		return {
+			template:'&lt;div&gt;hello Angular&lt;/div&gt;',
+		}
+	})
+&lt;/script&gt;
+            	</pre>
+            </section>
+            <section>
+                <h5>
+					Controller使用过程中的注意点
+                </h5>
+                <pre>
+1.不要复用Controller，一个控制器正常只负责一小块视图
+  允许存在子Controller、子Controller是可以继承父Controller的一些命令
+2.不要在Controller中操作DOM，这不是控制器的职责
+  <i class="color0">操作DOM速度是非常低、会让浏览器重绘、重新布局</i>
+3.不要在Controller里面做数据格式化，ng有很好用的表单控件
+4.不要在Controller里面做数据过滤操作，ng有$filter服务
+5.一般来说，<i class="color0">Controller是不会互相调用的</i>，控制器之间的交互会通过事件进行
+                </pre>
+            </section>
+            <section>
+            	<h5>
+            		神奇的$scope
+            	</h5>
+            	<pre>
+AngularJS 的 MVC 是借助于$scope实现的
+全部借助于作用域实现的
+
+神奇的$scope
+1.是一个POJO（Plain Old JavaScript Object）
+2.有一些工具方法 $swatch()/$apply()
+3.是表达式的执行环境（或者叫作用域）
+4.是一个树形结构、与 DOM 标签平行
+5.子 $scope 对象会继承父 $scope 上的<i class='color0'>属性和方法</i>
+6.每个 Angular 应用只有一个根 $scope 对象(一般位于ng-app上)
+7.$scope 可以传播事件、类似 DOM 事件 、可以向上也可以向下
+8.$scope 不仅是 MVC 的基础、也是实现双向数据绑定的基础
+9.可以用 anguar.element($0).scope()进行调试
+
+$scope 的生命周期
+Creation  --  Watcher registration  --  Model mutation  --
+Mutation observation  -- Scope destruction
+            	</pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

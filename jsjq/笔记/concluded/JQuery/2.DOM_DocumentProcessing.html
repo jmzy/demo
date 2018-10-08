@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JQuery 文档处理</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				JQuery 文档处理
+            </h1>
+            <section>
+                <h5>
+					内部插入
+                </h5>
+                <pre>
+<i class="color4">$('DOM').</i>append(content|fn) //匹配元素DOM追加内容或者/元素
+<i class="color4">$('DOM').</i>prepend(content|fn) //匹配元素DOM前增加内容或者/元素
+  //<i class="color0">★注意</i>不能追加已有DOM、得像innerHTML的写法写元素
+  //<i class="color0">★注意</i>对同1页面的DOM操作只会把该DOM更换位置
+  
+
+<i class="color4">$('DOM').</i>appendTo(content) //匹配元素DOM追加到元素后
+<i class="color4">$('DOM').</i>prependTo(content) //匹配元素DOM增加到元素前
+                </pre>
+            </section>
+            <section>
+                <h5>
+					外部插入
+                </h5>
+                <pre>
+<i class="color4">$('DOM').</i>after(content|fn) //匹配元素DOM追加到元素后
+<i class="color4">$('DOM').</i>before(content|fn) //匹配元素DOM增加到元素前
+<i class="color4">$('DOM').</i>insertAfter(content) //匹配元素移到指定元素之前
+<i class="color4">$('DOM').</i>insertBefore(content) //匹配元素移到指定元素之后
+                </pre>
+            </section>
+            <section>
+                <h5>
+					包裹
+                </h5>
+                <pre>
+<i class="color4">$('DOM').</i>wrap(html|ele|fn) //包裹匹配元素DOM的HTML、ELE、FN
+<i class="color4">$('DOM').</i>unwrap() //匹配元素DOM移除父元素、紧父元素
+
+<i class="color4">★注意使用</i>
+<i class="color4">$('DOM').</i>wrapAll(html|ele) 
+  //所有匹配元素DOM包裹在指定元素里
+  //若第1个匹配元素DOM有父元素、则全部包裹父元素下
+  
+<i class="color4">$('DOM').</i>wrapInner(html|ele|fn) //匹配元素DOM的内容增加元素包裹
+                </pre>
+            </section>
+            <section>
+                <h5>
+					替换
+                </h5>
+                <pre>
+<i class="color4">$('DOM').</i>replaceWith(content|fn)
+  //匹配元素DOM替换内容|元素、内容&元素
+<i class="color0">★</i>//若替换元素存在、将删除原来的元素把替换元素覆盖匹配元素
+
+<i class="color4">$('DOM').</i>replaceAll(selector) //用匹配的元素替换掉所有指定元素
+                </pre>
+            </section>
+            <section>
+                <h5>
+					删除
+                </h5>
+                <pre>
+<i class="color4">$('DOM').</i>empty() //匹配元素DOM保留、内容、子元素全部清空
+<i class="color4">$('DOM').</i>remove([expr]) 
+  //匹配元素DOM内容、子元素全部清空
+  //匹配元素类删除指定该元素类的class或ID
+<i class="color4">$('DOM').</i>detach([expr])
+<i class="color0">★</i>官网是这样写的、实测不是 ?????
+  //不会把匹配的元素从jQ对象中删除，因而可以在将来再使用这些匹配的元素
+  //与remove()不同的是，所有绑定的事件、附加的数据等都会保留下来。
+                </pre>
+            </section>
+            <section>
+            	<h5>
+            		复制
+            	</h5>
+            	<pre>
+<i class="color4">$('DOM').</i>clone([Even[,deepEven]]) //克隆匹配元素
+  //1.一个布尔值（true 或者 false）指示事件处理函数是否会被复制。
+  //2:一个布尔值，指示是否对事件处理程序和克隆的元素的所有子元素的数据
+  //应该被复制。
+            	</pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

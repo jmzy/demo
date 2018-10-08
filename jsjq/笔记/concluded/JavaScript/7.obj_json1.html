@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JS json类型</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                JS json类型
+            </h1>
+            <section>
+                <h5>
+                    创建JSON对象
+                </h5>
+                <pre>
+&lt;script&gt;
+var json = new Object();
+
+var json1 = {
+    a:1,
+    b:"abc",
+    c:function(){document.write(1)}
+};//对象的属性可以拥有赋值和方法
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    遍历JSON对象里的属性  for(key in json){ }
+                </h5>
+                <pre>
+&lt;script&gt;
+for(key in json1){
+document.write(json1[key]+ "&lt;br/&gt;")};
+//1
+//abc
+//function (){document.write(1)}
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    调用JSON对象指定属性  json.key || json["key"]
+                </h5>
+                <pre>
+&lt;script&gt;
+var json1 = {
+    a:1,
+    b:"abc",
+    c:function(){document.write(1)}
+};
+
+document.write(json1.a + "&lt;br/&gt;");//1
+document.write(json1.b + "&lt;br/&gt;");//abc
+
+//若对象的属性含有特殊符号
+//书写对象+上引号
+var json1 = {
+    "a.a":function(){document.write(222)}
+};
+
+(json1["a.a"])();//222 //调用以[""]书写
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    调用JSON对象属性里的方法 (json.key)()
+                </h5>
+                <pre>
+&lt;script&gt;
+var json1 = {
+    a:1,
+    b:"abc",
+    c:function(){document.write(1)}
+};
+
+(json1.c)();//1
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    检查属性是否存在Json对象
+                </h5>
+                <pre>
+&lt;script&gt;
+//hasOwnProperty() 有是true 没有是false
+var json1 = {
+    a:1,
+    b:"abc",
+    c:function(){document.write(1)}
+};
+document.write("&lt;br/&gt;" + json1.hasOwnProperty("a") + "&lt;br/&gt;");//true
+document.write(json1.hasOwnProperty("d") + "&lt;br/&gt;");//false
+
+//检测属性是否存在对象 in 结果返回有是true 没有是false
+document.write(("a" in json1) + "&lt;br/&gt;");//true
+document.write(("aa" in json1) + "&lt;br/&gt;");//false
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    将json对象改编成string对象
+                </h5>
+                <pre>
+&lt;script&gt;
+//1.stringify
+var json1 = {
+    a:1,
+    b:"abc",
+    c:function(){document.write(1)}
+}
+var str = JSON.stringify(json1);
+document.write( str + "&lt;br/&gt;");//{"a":1,"b":"abc"}
+//function函数的是stringify转换不了
+document.write( typeof str + "&lt;br/&gt;");//string
+
+//2.遍历json里的key和value、赋值成变量
+var str1 = "";
+for(key in json1){
+str1 += key + " " + json1[key] + " ";
+};
+document.write( str1 + "&lt;br/&gt;");
+//a 1 b abc c function (){document.write(1)}
+document.write( typeof str1 + "&lt;br/&gt;");//string
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    将string对象改编成json对象
+                </h5>
+                <pre>
+&lt;script&gt;
+var str3 = "{\'name\':\'a\',\'age\':10}";
+//1.parse()<i class="color0">★</i><i class="color0">★</i>
+var str2 = JSON.parse(str3);
+
+document.write(typeof str2 + "&lt;br/&gt;");//object
+document.write((JSON.stringify(str2))+ "&lt;br/&gt;");
+//{"name":"a","age":10}
+                    
+//2.eval();
+var str2 = eval("("+ str +")");
+document.write( typeof str2 + "&lt;br/&gt;");//object
+document.write((JSON.stringify(str2))+ "&lt;br/&gt;");
+//{"name":"a","age":10}
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    多个JSON对象合并
+                </h5>
+                <pre>
+&lt;script&gt;
+var json1 ={
+    a:"a1",
+    b:"b1"
+};
+var json2 = {
+    c:"c1",
+    d:"d1"
+};
+
+function mix(target,source){
+    var len = arguments.length;
+    if(len == 1){
+        return target
+    }else{
+        var i = 1;
+        while(source = arguments[i++]){
+	    for(var key in source){
+<i class="color0">★</i><i class="color0">★</i><i class="color0">★</i><i class="color0">★</i><i class="color0">★</i><i class="color0">★</i><i class="color0">★</i><i class="color0">★</i><i class="color0">★</i>target[key] = source[key];
+            };
+        };
+        return target;
+    }
+}
+
+var json3 = mix(json1,json2);
+document.write(JSON.stringify(json3));
+//{"a":"a1","b":"b1","c":"c1","d":"d1"}
+&lt;script&gt;
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

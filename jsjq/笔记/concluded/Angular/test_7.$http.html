@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>test $http</title>
+		<script src="../../js/angular.min.js"></script>
+	</head>
+	<body ng-app='app' ng-controller='ctrl'>
+		<div ng-repeat='x in datas'>
+			<p>{{ x.Name + ', ' + x.Country }}</p>
+		</div>
+		<script>
+			var app = angular.module('app',[]);
+			app.controller('ctrl',function($scope,$http){
+//				$http({
+//					mothod:'get',
+//					url:'https://www.runoob.com/try/angularjs/data/sites.php',
+//					cache:true,//同请求的文件只请求1次
+//				}).then(function(response){//成功执行
+//					console.log(response)
+//					$scope.data = response.sites;
+//				},function(response){//请求失败
+//					console.log(response)
+//				});
+
+
+			})
+
+
+		</script>
+	</body>
+</html>

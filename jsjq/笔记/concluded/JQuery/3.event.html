@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JQuery 事件</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				JQuery 事件
+            </h1>
+            <section>
+                <h5>
+					页面载入
+                </h5>
+                <pre>
+<i class="color4">$('DOM').</i>ready(fn) //当DOM载入就绪可以查询及操纵时绑定一个要执行的函数。
+//http://jquery.cuishifeng.cn/ready.html
+                </pre>
+            </section>
+            <section>
+                <h5>
+					事件处理
+                </h5>
+                <pre>
+<i class="color4">$('DOM').</i>on(eve,[sel],[data],fn)<sup>1.7+ </sup>
+//指定元素DOM绑定一个或多个事件的事件处理函数
+<i class="color4">$('DOM').</i>off(eve,[sel],[fn])<sup>1.7+ </sup> // 移除on上绑定的时间、data不在函数中
+<i class="color4">$('DOM').</i>bind(type,[data],fn)<sup>3.0-</sup><i class="color4">jQuery 3.0中已弃用、用 on()代替</i>
+//跟on差不多、没深究
+<i class="color4">$('DOM').</i>one(type,[data],fn) //指定对象为类、对同辈同类每个元素进行操作
+
+
+<i class="color4">$('DOM').</i>trigger(type,[data]) 
+//与.select() 配合使用、select触发1次、click会触发3次
+//这个函数也会导致浏览器同名的默认行为的执行。比如，如果用trigger()
+  触发一个'submit'，则同样会导致浏览器提交表单。如果要阻止这种默认行为，
+  应返回false
+<i class="color4">$('DOM').</i>triggerHandler(type, [data])
+//与 trigger()区别、 trigger() 触发事件的默认行为（比如表单提交）
+//www.runoob.com/try/try.php?filename=tryjquery_event_triggerhandler
+
+<i class="color4">$('DOM').</i>unbind(t,[d|f])3.0- //<i class="color4">jQuery 3.0中已弃用此方法、 off()代替</i>
+//大约意为清除DOM事件
+                </pre>
+            </section>
+            <section>
+                <h5>
+					事件委派  
+                </h5>
+                <pre>
+live(type,[data],fn)<sup>1.7-</sup>
+die(type,[fn])<sup>1.7-</sup>
+delegate(s,[t],[d],fn)<sup>3.0-</sup>
+undelegate([s,[t],fn])<sup>3.0-</sup>
+                </pre>
+            </section>
+            <section>
+                <h5>
+					事件切换
+                </h5>
+                <pre>
+hover([over,]out) //移入元素
+toggle([spe],[eas],[fn])1.9* //无参数下、对表格切换显示/隐藏
+  //可选的 speed 参数规定隐藏/显示的速度，
+  //可以取以下值："slow"、"fast" 或毫秒。
+                </pre>
+            </section>
+            <section>
+                <h5>
+					事件
+                </h5>
+                <pre>
+blur([[data],fn]) //当元素失去焦点时触发
+focusout([data],fn) //元素失去焦点时触发
+focusout事件跟blur事件区别
+focusout可以在父元素上检测子元素失去焦点的情况
+
+error([[data],fn]) //当元素遇到错误（没有正确载入）时触发
+change([[data],fn]) //元素的值发生改变时触发
+click([[data],fn]) //点击
+dblclick([[data],fn]) //双击
+
+focus([[data],fn]) //当元素获得焦点时触发
+鼠标点击或者键盘上的TAB导航触发、这将触发所有绑定的focus函数
+<i class="color0">注意</i>某些对象不支持focus方法。
+focusin([data],fn) //当元素获得焦点时触发
+focusin事件跟focus事件区别、可以在父元素上检测子元素获取焦点的情况
+
+select([[data],fn]) //文本类型选中
+submit([[data],fn]) //提交
+unload([[data],fn]) //在当用户离开页面时
+//http://jquery.cuishifeng.cn/unload.html
+                </pre>
+            </section>
+            <section>
+            	<h5>
+            		按键事件
+            	</h5>
+            	<pre>
+keydown([[data],fn]) //按下键
+  在文档元素上进行设置、则无论元素是否获得焦点、该事件都会发生
+keypress([[data],fn]) //按下、触发顺序是 keydown、keypress、keyup
+  与 keydown 事件不同，每插入一个字符，就会发生 keypress 事件
+  如果在文档元素上进行设置，则无论元素是否获得焦点，该事件都会发生
+keyup([[data],fn]) //松开键
+  如果在文档元素上进行设置，则无论元素是否获得焦点，该事件都会发生
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		鼠标事件
+            	</h5>
+            	<pre>
+mousedown([[data],fn]) //鼠标按下
+与 click 事件不同，mousedown 事件仅需要按键被按下，而不需要松开即可发生
+
+mouseover([[data],fn]) //当鼠标指针位于元素上方时
+mouseout([[data],fn])  //当鼠标指针从元素上移开时
+  mouseout 大多数时候会与mouseover 事件一起使用
+
+mouseenter([[data],fn]) //当鼠标指针穿过元素时触发
+  <i class="color0">★</i>与 mouseover不同、只有在鼠标指针穿过被选元素时，才会触发 mouseenter
+  如果鼠标指针穿过任何子元素，同样会触发 mouseover 事件
+mouseleave([[data],fn])//当鼠标指针离开元素时
+  <i class="color0">★</i>与 mouseout不同，只有在鼠标指针离开被选元素时，才会触发 mouseleave 
+  如果鼠标指针离开任何子元素，同样会触发 mouseout 事件。
+  mouseenter 大多数时候会与mouseleave 事件一起使用
+
+mousemove([[data],fn]) //鼠标移动在元素上
+  mousemove事件处理函数会被传递一个变量——事件对象
+   其.clientX 和 .clientY 属性代表鼠标的坐标
+   
+mouseup([[data],fn]) //当在元素上放松鼠标按钮时
+  与 click，mouseup 仅需要放松按钮
+  当鼠标指针位于元素上方时，放松鼠标按钮就会触发该事件
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		BOM 事件
+            	</h5>
+            	<pre>
+resize([[data],fn]) //当调整浏览器窗口的大小时
+scroll([[data],fn]) //当用户滚动指定的元素时
+            	</pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

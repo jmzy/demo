@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>React.JS 入门</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				React 数据驱动
+            </h1>
+            <section>
+                <h5>
+					双向绑定
+                </h5>
+                <pre>
+组件JS
+import React from 'react';
+const person = (props) => {
+  return (
+    &lt;div&gt;
+      &lt;p onClick={props.myClick}&gt;商品:{props.name}; &lt;/p&gt;
+      &lt;input onChange={props.myChange} type="text" defaultValue={props.name}/&gt;
+    &lt;/div&gt;
+  )
+}
+export default person;
+
+App.js
+import React, { Component } from 'react';
+import './App.css';
+import Person from './dataDrivenDemo/Person';
+
+class App extends Component {
+  state = {
+    persons: [
+      {name:'apple'}
+    ],
+    otherState:'anything'
+  } 
+
+  myChange = (event) => {
+    this.setState({
+      persons: [
+        {name:event.target.value}
+      ],
+    })
+  }
+
+  render() {
+    return (
+      &lt;div className="App"&gt;
+        &lt;Person myChange={this.myChange} name={this.state.persons[0].name}/&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default App;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					条件判断(普通的if else)
+                </h5>
+                <pre>
+class App extends Component {
+  state = {
+    persons: [
+      {name:'apple'}
+    ],
+    personShow:false
+  } 
+
+  myChange = (event) =&gt; {
+    this.setState({
+      persons: [
+        {name:event.target.value}
+      ],
+    })
+  }
+
+  togglePerson = () => {
+    const toggle = this.state.personShow;
+    this.setState({
+      personShow:!toggle
+    })
+  }
+
+  render() {
+    return (
+      &lt;div className="App"&gt;
+        &lt;h3&gt;hello world&lt;/h3&gt;
+        &lt;button onClick={this.togglePerson}&gt;切换&lt;/button&gt;
+        {
+          this.state.personShow?
+          &lt;Person myChange={this.myChange} name={this.state.persons[0].name}/&gt;
+          :null
+        }
+      &lt;/div&gt;
+    );
+  }
+}
+                </pre>
+            </section>
+            <section>
+                <h5>
+
+                </h5>
+                <pre>
+
+
+
+
+
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+
+                </h5>
+                <pre>
+
+
+
+
+
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+
+                </h5>
+                <pre>
+
+
+
+
+
+
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

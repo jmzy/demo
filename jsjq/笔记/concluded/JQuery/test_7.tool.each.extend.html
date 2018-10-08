@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery tool</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		
+		<script>
+			
+			//$.each
+			var arr = [1,'a',2,'b',3];
+//			$.each(arr,function(idx,val){
+//				console.log(idx+1 + '--' + val);
+//			})
+			
+//			for(var i=0;i<arr.length;i++){
+//				console.log(i+1 + '--' + arr[i])
+//			}
+			
+//			for(i in arr){
+//				console.log(Number(i)+1 + '--' + arr[i])
+//			}
+			
+			var json = [
+			    {"id":"1","tagName":"apple"},
+			    {"id":"2","tagName":"orange"},
+			    {"id":"3","tagName":"banana"},
+			    {"id":"4","tagName":"watermelon"},
+			    {"id":"5","tagName":"pineapple"}
+			];
+			 
+			$.each(json, function(idx, obj) {
+			    console.log(idx+1 + '--' +obj.tagName);
+			});
+			
+//			for(var i=0;i<json.length;i++){
+//				console.log(i+1 + '--' + json[i].tagName)
+//			}
+
+//			for(i in json){
+//				console.log(Number(i)+1 + '--' +json[i].tagName);
+//			}
+
+	//$.extend([d],tgt,obj1,[objN])
+	//$.extend(tgt,obj1,[objN])
+			var str1 = 'abcdefg';
+			var str2 = 'a1b2c3';
+			$.extend(str1,str2);//对字符串不起作用
+//			console.log(str1);//abcdefg'
+//			console.log(str2);//'a1b2c3'
+			
+			var fn1 = function(){alert(1)};
+			var fn2 = function(){alert(2)};
+			$.extend(fn1,fn2);//对函数不起作用
+//			console.log(fn1);//function (){alert(1)}
+//			console.log(fn2);//function (){alert(2)}
+			
+			var arr1 = ['a',1,'b',2,'c'];
+			var arr2 = ['a','b','c'];
+			$.extend(arr1,arr2);
+			//$.extend 方法把数组 obj1 的对象复制覆盖到 target上 
+//			console.log(arr1);//a,b,c,2,c
+//			console.log(arr2);//a,b,c
+			
+			var json1 = {a:1,b:2,c:3};
+			var json2 = {a:'b',c:'d'};
+			$.extend(json1,json2);//$.extend 方法把数组 json2 的对象复制覆盖到 target上 
+//			console.log(JSON.stringify(json1));//{"a":"b","b":2,"c":"d"}
+//			console.log(JSON.stringify(json2));//{"a":"b","c":"d"}
+		
+			var object1 = {
+				apple: 0,
+				banana: {weight: 52, price: 100},
+				cherry: 97
+			};
+			var object2 = {
+				banana: {price: 200},
+				durian: 100
+			};
+			/* object2 合并到 object1 中 */
+			$.extend(object1, object2);
+//			console.log(JSON.stringify(object1))
+		
+	//$.extend({},obj1,[objN])
+			var json1 = {a:1,b:2,c:3};
+			var json2 = {a:'b',c:'d'};
+			var result = $.extend({},json1,json2);
+//			console.log(JSON.stringify(result));//"{"a":"b","b":2,"c":"d"}"
+
+	//$.extend(bool,{},obj1,[objN])
+			var json1 = {a:1,b:2,address:{provice:'河南',city:'郑州'}};
+			var json2 = {a:'b',address:{city:'北京'}};
+			var result1 = $.extend(true,{},json1,json2);
+			var result2 = $.extend(false,{},json1,json2);
+//			console.log(JSON.stringify(result1));
+			//"{"a":"b","b":2,"address":{"provice":"河南","city":"北京"}}"
+//			console.log(JSON.stringify(result2));
+			//"{"a":"b","b":2,"address":{"city":"北京"}}"
+			
+	//2.4 $.extend(item)//相当于为Jquery类添加了新的方法
+			$.extend({
+				SayHello:function(value){
+							console.log('hello '+value);
+						}
+			})
+//			$.SayHello('world');
+		</script>
+	</body>
+</html>

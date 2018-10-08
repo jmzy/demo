@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE2 v-on</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+    <style>
+        form{margin-top: 10px}
+    </style>
+</head>
+<body>
+<pre>
+单个事件 v-on:event 或 @event
+多个事件 v-on={}
+
+修饰符：
+.stop - 调用 event.stopPropagation()。
+.prevent - 调用 event.preventDefault()。
+.capture - 添加事件侦听器时使用 capture 模式。
+.self - 只当事件是从侦听器绑定的元素本身触发时才触发回调。
+.{keyCode | keyAlias} - 只当事件是从特定键触发时才触发回调。
+.native - 监听组件根元素的原生事件。
+.once - 只触发一次回调。
+.left - (2.2.0) 只当点击鼠标左键时触发。
+.right - (2.2.0) 只当点击鼠标右键时触发。
+.middle - (2.2.0) 只当点击鼠标中键时触发。
+.passive - (2.3.0) 以 { passive: true } 模式添加侦听器
+
+注意:
+    1.传入事件$event需要对事件进行相对应的操作
+    2.form若绑定事件keyup会全局触发
+</pre>
+<div id="app">
+    <button v-on:click="onClick" @dblclick="onDblclick"
+            v-on="{mouseenter: onEnter, mouseleave: onLeave}">btn</button>
+    <form @keyup.enter="formEnter" @submit.prevent="onSubmit">
+        <input type="text"/>
+        <!--<button @click.prevent($event)="btnClick">btn</button>-->
+        <!--<button type="submit" @click.prevent="btnSubmit">submit</button>-->
+    </form>
+</div>
+<script>
+    let app = new Vue({
+        el: '#app',
+        methods: {
+            onClick: function(){
+                console.log('click')
+            },
+            onDblclick: function(){
+              console.log('dbclick')
+            },
+            onEnter: function(){
+                console.log('mouseenter')
+            },
+            onLeave: function(){
+                console.log('mouseleave')
+            },
+            onSubmit: function(){
+                console.log('submit')
+            },
+            btnClick: function(e){
+                console.log(e);
+                e.preventDefault();
+                console.log('btnClick')
+            },
+            btnSubmit: function(){
+                console.log('btnSubmit')
+            },
+            formEnter: function(){
+                console.log('enter')
+            }
+        }
+    })
+</script>
+</body>
+</html>

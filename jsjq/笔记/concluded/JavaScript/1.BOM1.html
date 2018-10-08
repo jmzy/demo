@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Javascript简单入门</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                Javascript简单入门
+            </h1>
+            <section>
+                <h5>
+                    获取DOM元素
+                    <i class="color0">菜鸟教程是这样写的</i>
+                    <a href="http://www.runoob.com/jsref/dom-obj-document.html" style="float:right">更详细</a>
+                </h5>
+                <p>
+                    DOM元素：<br/>
+                    &nbsp;&nbsp;DOM全称是document object model(文档对象模型)<br/>
+                    DOM是用来干什么的呢?<br/>
+                    &nbsp;&nbsp;假设把文档看成一个单独的对象，DOM就是如何用HTML或者XML对这个对象<br/>
+                    &nbsp;&nbsp;进行操作和控制的标准。<br/><br/>
+
+                    例子：<br/>
+                    &lt;div&nbsp;id="div"&nbsp;class="box"&gt;&lt;/div&gt;<br/>
+                    &lt;div&gt;111&lt;/div&gt;<br/>
+                    &lt;div&nbsp;class="box"&gt;<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;222<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;333&lt;/ul&gt;<br/>
+                    &lt;/div&gt;<br/><br/>
+
+                    获取DOM元素方法：<br/>
+                    &nbsp;&nbsp;1:通过ID名字 获取元素 getElementById()<br/>
+                    &nbsp;&nbsp;var box = document.getElementById("#div");<br/><br/>
+
+                    &nbsp;&nbsp;2:通过元素名称 获取元素 getElementsByTagName()<br/>
+                    &nbsp;&nbsp;var boxs = document.getElementsByTagName("div");//拿到的是集合<br/>
+                    &nbsp;&nbsp;boxs[2].innerHTML = "我是第二个元素";<br/><br/>
+
+                    &nbsp;&nbsp;3:通过class类名 获取元素 getElementsByClassName()  IE9+<br/>
+                    &nbsp;&nbsp;var dom = document.getElementsByClassName("box");//拿到的也是集合<br/><br/>
+
+                    新增的方式：<br/>
+                    <i class="color0">★</i>1:document.querySelector("#div");  IE8+、神奇的获取方式<br/>
+                    &nbsp;&nbsp;var box = document.querySelector("#div");<br/>
+                    <i class="color0">★</i>var box = document.querySelector(".box ul");<br/><br/>
+
+                    <i class="color0">★</i>2:document.querySelectorAll(".dom"); IE8+、索引类型<br/>
+                    &nbsp;&nbsp;var div = document.querySelectorAll("div");<br/>
+                    &nbsp;&nbsp;var dom = document.querySelectorAll(".box");<br/>
+                </p>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>

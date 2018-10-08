@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JQuery 事件对象</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				JQuery 事件对象
+            </h1>
+            <section>
+                <h5>
+					事件对象
+                </h5>
+                <pre>
+eve.currentTarget //指向事件所绑定的元素
+eve.target //指向事件发生时的元素
+参考于:http://www.jb51.net/article/32931.htm
+
+eve.data //差不多index()
+//http://code.ziqiangxuetang.com/try/tryjquery_event_data/
+
+eve.type //返回 事件类型
+eve.which //键盘和鼠标事件、哪个键或按钮
+//http://www.jb51.net/article/28495.htm
+//http://blog.sina.com.cn/s/blog_64589b110101bsqe.html
+
+eve.result //属性包含由被指定事件触发的事件处理程序返回的值
+//return的 http://code.ziqiangxuetang.com/try/tryjquery_event_result/
+
+eve.pageX //显示鼠标指针的位置X
+eve.pageY //显示鼠标指针的位置Y
+//http://www.w3school.com.cn/tiy/t.asp?f=jquery_event_pagex_pagey
+
+eve.stopPropagation() //组织冒泡
+eve.isPropagationStopped()
+//根据事件对象中是否调用过 event.stopPropagation() 方法来返回一个布尔值。
+
+
+eve.stopImmediatePropagation()
+
+eve.delegateTarget1.7+
+eve.isDefaultPrevented()
+eve.isImmediatePropag...()
+
+eve.namespace
+
+eve.preventDefault()
+eve.relatedTarget
+
+
+eve.timeStamp
+
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

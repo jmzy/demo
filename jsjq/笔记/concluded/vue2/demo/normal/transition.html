@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE2 transition</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+    <style>
+        #div{
+            margin-top: 10px;
+            width: 100px;
+            height: 100px;
+            background: #dddddd;
+        }
+        
+        .fade-enter-active, .fade-leave-active{
+            transition: 1s all ease;
+        }
+        .fade-enter, .fade-leave-to{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="btn" @click="sign = !sign"/>
+    <transition name="fade">
+        <div id="div" v-show="sign"></div>
+    </transition>
+    <p>
+        载入动画 name-enter / name-enter-active   <br/>
+        正常显示             <br/>
+        移除动画  name-leave(跟正常显示状态一样) / name-leave-active   <br/>
+    </p>
+
+    <p>监听路由变化 watch 进行animation</p>
+    <p>animation.css plugin</p>
+</div>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            sign: true
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Javascript的Date日期</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                Javascript的Date日期
+            </h1>
+            <section>
+                <h5>
+                    Date日期的介绍
+                </h5>
+                <p>
+                    Date() 是object数据类型，是JavaScript内置的一个对象。<br/>
+                    var date = new  Date();<br/><br/>
+
+                    设置日期：<br/>
+                    var  date = new Date("2017/01/01 20:30:00");<br/>
+                    var  date = new Date("2017,01,01 20:30:30");<br/>
+                    var  date = new Date("2017 01 01 20:30:30");<br/>
+                    <i class="color0">★</i>//间隔必须得带间隔、可用各种符号<br/>
+                    <i class="color0">★</i>//不能 new Date("20170101203030");//会自动换成毫秒数<br/>
+                </p>
+            </section>
+            <section>
+                <h5>
+                    时间转换成字符串
+                </h5>
+                <pre>
+toString() 把 Date 对象转换为字符串。
+toTimeString() 把 Date 对象的时间部分转换为字符串。
+toDateString() 把 Date 对象的日期部分转换为字符串。
+
+toLocaleString() 把 Date 对象转换为 本地时间 字符串。
+toLocaleTimeString() 把 Date 对象的 时间部分 转换为字符串。
+toLocaleDateString() 把 Date 对象的日期部分转换为字符
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    获取具体时间
+                </h5>
+                <p>
+                    date.getFullYear()  获取年份 2016<br/>
+                    date.getMonth()  获取月份 0-11//需要正确的得+1<br/>
+                    date.getDate()		获取日期 0-31<br/>
+                    date.getDay()		获取星期 0-6//0是周日<br/>
+                    date.getHours()		获取小时 0-23<br/>
+                    date.getMinutes()	获取分钟 0-59<br/>
+                    date.getSeconds()	获取秒数 0-59<br/>
+                    date.getMilliseconds()	获取千分之一秒为单位的秒数 0-999<br/>
+                    date.getTime()		返回1970/01/01至今的千分之一毫秒<br/>
+                </p>
+            </section>
+            <section>
+                <h5>
+                    设置具体时间：
+                </h5>
+                <p>
+                    date.setFullYear()	设置年份 2016<br/>
+                    date.setMonth()		设置月份 0-11<br/>
+                    date.setDate()		设置日期 0-31<br/>
+                    date.setDay()		设置星期 0-6<br/>
+                    date.setHours()		设置小时 0-23<br/>
+                    date.setMinutes()	设置分钟 0-59<br/>
+                    date.setSeconds()	设置秒数 0-59<br/>
+                    date.setMilliseconds()	设置千分之一秒为单位的秒数 0-999<br/>
+                    date.setTime()		设置1970/01/01至今的千分之一毫秒<br/>
+                </p>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>

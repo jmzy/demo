@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery源码 protype 跳出</title>
+	</head>
+	<body>
+		<button onclick="cli().b()">btn</button>
+		<script>
+			var cli = function(){
+//				alert('cli');
+				return new cli.prototype.init()
+			}
+			cli.prototype.init = function(){
+//				this.a;
+//				this.b;
+			};
+			cli.prototype.a = function(){alert(1)};
+			cli.prototype.b = function(){alert(2)};
+			cli.prototype.init.prototype = cli.prototype;
+			//利用对象的原型被原形里初始化对象原型赋值,实现对象执行后使用子原形对象执行
+		</script>		
+	</body>
+</html>

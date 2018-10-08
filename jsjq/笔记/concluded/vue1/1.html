@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE 入门</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                VUE 入门
+            </h1>
+            <section>
+                <h5>
+                    VUE 简介
+                </h5>
+                <pre>
+VUE.JS 是前端框架、用语构建Web应用程序
+学习 VUE.JS 需要具备HTML、CSS、JavaScript
+选择 Vue.JS 因为它轻（16kb）、速度快（不用安装环境、引入就可以）
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    VUE 简单视图绑定控制 Demo、数据及方法
+                </h5>
+                <pre>
+&lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;<i class="color4">//先引入</i>
+&lt;div id="vue-app"&gt;<i class="color4">//匹配控制el命名</i>
+    &lt;h5&gt;{{a}}&lt;/h5&gt;<i class="color4">//hello word1</i>
+    &lt;h5&gt;{{b("hello word3")}}&lt;/h5&gt;
+                    <i class="color4">//hello word3---hello word2---hello word1</i>
+    &lt;h5&gt;{{d()}}&lt;/h5&gt;
+<i class="color4">//hello nothing---function boundFn(a) { var l = arguments.length;
+    return l ? l > 1 ? fn.apply(ctx, arguments) :
+    fn.call(ctx, a) : fn.call(ctx) }</i>
+    &lt;h5&gt;{{d('word4')}}&lt;/h5&gt;<i class="color4">//hello word4---hello word1</i>
+&lt;/div&gt;
+&lt;script src="1_app.js"&gt;&lt;/script&gt;<i class="color4">//视图加载后再调用</i>
+
+JS
+new Vue({
+    el:"#vue-app",<i class="color4">//匹配视图容器对应的ID</i>
+    data:{<i class="color4">//需要传递的对象、json存储对象或方法</i>
+        a:'hello word1',
+        b:function(c){
+            return c + "---" + "hello word2" + "---" + this.a;
+                    <i class="color4">//this指data里的KEY</i>
+        }
+    },
+    methods:{
+        testThis:'test this',
+        d:function(c){
+            if(c){
+                return 'hello ' + c + "---" + this.a;
+                    <i class="color4">//this指data里的KEY</i>
+            }else{
+                return 'hello nothing'+ "---" + <i class="color0">this.testThis;</i>
+                    <i class="color4">//包括写错对象名也不会报错</i>
+            }
+        }
+    }
+});
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    Vue 数据绑定 v-bind: Demo
+                </h5>
+                <pre>
+&lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
+&lt;div id="vue-app"&gt;
+    &lt;input type="text" v-bind:value="website"/&gt;
+    &lt;br/&gt;
+    &lt;a v-bind:href="website"&gt;百度&lt;/a&gt;<i class="color4">//绑定在属性上</i>
+    &lt;br/&gt;
+    &lt;input type="text" :value="website"/&gt;<i class="color4">//简写、单独冒号</i>
+    &lt;br/&gt;
+    &lt;p v-html="tag"&gt;&lt;/p&gt;<i class="color4">//百度</i>
+    &lt;p v-text="tag"&gt;&lt;/p&gt;<i class="color4">//&lt;a href="website"&gt;百度&lt;/a&gt;</i>
+    &lt;hr style="border:1px solid red"/&gt;
+    &lt;!--&lt;input type="text" v-bind:value="testTag"/&gt;--&gt;<i class="color0">//报错</i>
+&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;
+    new Vue({
+        el:'#vue-app',
+        data:{
+            website:'http://www.baidu.com',
+            tag:'&lt;a href="website"&gt;百度&lt;/a&gt;'
+        },
+        content:{
+            testTag:'&lt;a href="website"&gt百度&lt;/a&gt'<i class="color0">//报错、只能在data里</i>
+        }
+    });
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    Vue 渲染列表 v-for Demo
+                </h5>
+                <pre>
+&lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
+&lt;div id="app-vue"&gt;
+    &lt;ul&gt;
+        &lt;li v-for="todo in todos"&gt;
+            {{todo.text}}<i class="color4">//命名和 KEY</i>
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    new Vue({
+        el:'#app-vue',
+        data:{
+            todos:[
+                {text:'11111111111111'},
+                {text:'22222222222222'},
+                {text:'33333333333333'}
+            ]
+        }
+    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    Vue 事件 v-on:Event Demo
+                </h5>
+                <pre>
+&lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
+&lt;div id="app-vue"&gt;
+    &lt;p&gt;{{msg}}&lt;/p&gt;
+    &lt;button v-on:click="reverseMsg"&gt;反转&lt;/button&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    new Vue({
+        el:'#app-vue',
+        data:{
+            msg:'hello word'
+        },
+        methods:{
+            reverseMsg:function(){
+                this.msg = this.msg.split('').reverse().join('')
+            }
+        }
+    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    Vue v-model v-on:keyup.enter $index Demo
+                </h5>
+                <pre>
+&lt;style&gt;
+    *{padding:0;margin:0}
+    ul{width:200px}
+    li{list-style:none;width:165px;border-bottom:1px solid black}
+&lt;/style&gt;
+&lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
+&lt;div id="app-vue"&gt;
+    &lt;input type="text" v-model="newTodo" v-on:keyup.enter="addTodo()"/&gt;
+    &lt;ul&gt;
+        &lt;li v-for="todo in todos"&gt;
+            &lt;span&gt;{{todo.text}}&lt;/span&gt;
+            &lt;button v-on:click="removeTodo($index)"&gt;X&lt;/button&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    new Vue({
+        el:'#app-vue',
+        data:{
+            todos:[
+                {text:111},
+                {text:222},
+                {text:333}
+            ],
+            newTodo:""
+        },
+        methods:{
+            removeTodo:function(index){
+                this.todos.splice(index,1)
+            },
+            addTodo:function(){
+                var text = this.newTodo.trim();
+                if(text){
+                    this.todos.push({text:text});
+                    this.newTodo = '';
+                }
+            }
+        }
+    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    VUE 多视图共享数据 Demo
+                </h5>
+                <pre>
+&lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
+&lt;div id="app-vue"&gt;
+    {{text}}
+    &lt;p v-if="greeting"&gt;if 为 true&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="app-vue2"&gt;
+    {{text}}
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    var example = {
+        text:'hello word'
+    };
+    var one = new Vue({
+        el:'#app-vue',
+        data:{
+            text:example.text,
+            greeting:true
+        }
+    });
+    var two = new Vue({
+        el:'#app-vue2',
+        data:example
+    });
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    Vue data传入全局对象 Demo
+                </h5>
+                <pre>
+&lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
+&lt;div id="app-vue"&gt;
+    &lt;p&gt;{{data.b}}&lt;/p&gt;&lt;!--//2--&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    var data = {b:1};
+    var vm = new Vue({
+        el:'#app-vue',
+        data:{
+            data:data
+        }
+    })
+
+//    var a = {
+//        b:1
+//    };
+//    var vm = new Vue({
+//        el:'#app-vue',
+//        data:{
+//            data:a
+//        }
+//    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

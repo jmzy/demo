@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery DOM DocumentProcessing 1</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<!--.append() .prepend() .appendTo() .prependTo()-->
+		<p id="p1">1111111111</p>
+		<p id="p2"><b>aaa</b><span>bbb</span></p>
+		<hr />
+		<!--.before() .after()-->
+		<p id="p3">I would like to say: </p><b class="foo">Hello</b>
+		<hr />
+		<!--.insertBefore() .insertAfter()-->
+		<div id="div">Hello</div>
+		<p id="p4">I would like to say: </p>
+		<hr />
+		<p id="p6">I would like to say: </p>
+		<div id="div1">Hello</div>
+		<hr />
+		<p id="p7">.warp()</p>
+		<hr />
+		<div class="container">
+		  	<p class="inner">Hello</p>
+		  	<p class="inner">Goodbye</p>
+		</div>
+		<hr />
+		<div>
+			<div>
+				<p class="p8">.unwarp()</p>
+				<p class="p8">.unwarp()</p>
+				<p class="p8">.unwarp()</p>
+			</div>
+		</div>
+		<script>
+//			.append()
+//			$('#p1').append('22222');		
+//			$('#p1').append('<span>333</span>');		
+			
+//			.prepend()
+//			$('#p1').prepend('0000');
+//			$('#p1').prepend('<span>-----</span>');
+		
+//			.appendTo()  .prependTo()
+//			$('<div>222</div>').appendTo('#p1');
+//			$('<div>222</div>').prependTo('#p1');
+//			$('<b>--- Hello World! ---</b>').prependTo($('#p2 span'));
+			
+//			.before()
+//			$("p").before( $(".foo") );//获得指定元素增加到匹配元素前
+//			$("p").after( $(".foo") );//获得指定元素增加到匹配元素后
+
+//			.insertBefore() .insertAfter()
+//			$("#p4").insertBefore("#div");//匹配元素移到指定元素之前
+//			$("#div1").insertBefore("#p5");//匹配元素移到指定元素之后
+			
+//			.wrap()
+			$("#p7").wrap("<span></span>");
+			
+			$("#p7").wrap("<div class='wrap'></div>");
+
+			$('.inner').wrap(function() {
+			  	return '<div class="' + $(this).text() + '" />';
+			});
+			
+//			.unwarp()
+			$('.p8').unwrap();
+
+		</script>
+	</body>
+</html>

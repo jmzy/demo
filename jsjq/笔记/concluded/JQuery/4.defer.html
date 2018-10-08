@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JQuery 延迟对象</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				JQuery 延迟对象
+            </h1>
+            <section>
+                <h5>
+					延迟对象
+                </h5>
+                <pre>
+def.done(d,[d]) 
+http://www.runoob.com/try/try.php?filename=tryjquery_deferred_done
+def.fail(failCallbacks)//当延迟失败时调用一个函数或者数组函数
+
+def.reject(args) //拒绝延迟对象，并根据给定的参数调用任何失败的回调函数
+def.rejectWith(c,[a])
+//拒绝延迟的对象，并根据给定的上下文和参数调用任何失败的回调函数
+
+def.resolve(args)//解决递延对象，并根据给定的参数调用任何完成的回调函数
+def.resolveWith(c,[a])
+//解决递延对象，并根据给定的上下文和参数调用任何完成的回调函数
+
+def.then(d[,f][,p])<sup>1.8*</sup>//添加处理程序被调用时，递延对象得到解决或者拒绝
+
+def.promise([ty],[ta])
+//返回一个 Promise 对象用来观察当某种类型的所有行动绑定到集合
+//排队与否还是已经完成
+def.always(al,[al])
+//当递延对象是解决或拒绝时被调用添加处理程序
+def.notify(args)<sup>1.7+</sup>
+//调用一个给定args的递延对象上的进行中的回调 （progressCallbacks）
+def.notifyWith(c,[a])<sup>1.7+</sup>
+//去掉字符串起始和结尾的空格
+def.progress(proCal)<sup>1.7+</sup> 
+//当Deferred对象时生成进度通知时添加被访问处理程序
+def.state()<sup>1.7+</sup>
+//确定一个Deferred对象的当前状态
+
+def.isRejected()<sup class="color0">1.7-</sup>
+def.isResolved()<sup class="color0">1.7-</sup>
+def.pipe([d],[f],[p])<sup class="color0">1.8-</sup>
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

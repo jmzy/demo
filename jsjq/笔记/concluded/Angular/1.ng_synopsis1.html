@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS简介</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                AngularJS简介
+            </h1>
+            <section>
+                <h5>
+                    AngularJS是什么
+                    <i class="color0"><出处 百度百科></i>
+                    <a href="http://baike.baidu.com/link?url=w_IGgFh4UsQrhj4WQsqpwQP8jQxCKb9i11p3INhXQih48ztdjDlSChoJBpVHTKG1OlmaeOVYUG6FP3dXUEC5htKV1YWaUbPv6UMIBdASY-i" class="color4" style="float:right">更详细</a>
+                </h5>
+                <p>
+简单来说就是1款比较好的前端框架
+<br/><br/>               	
+AngularJS  诞生于2009年，由Misko Hevery 等人创建，后为Google所收购。是一款优秀的 前端JS框架,它可通过 &lt;script&gt; 标签添加到 HTML 页面，已经被用于Google的多款产品当中。AngularJS有着诸多特性，
+                </p>
+            </section>
+            <section>
+                <h5>
+					Angularjs核心
+                </h5>
+                <pre>
+MVC 用 控制器C 操作 模型M 控制 视图C
+MVC为Model-Controller-View 
+  (由Trygve Reenskaug 1979年第一次正式提出MVC模式)
+Model 数据模型 、 
+View 视图层 负责展示 、 
+Controller 业务逻辑和控制逻辑
+
+自动化双向数据绑定
+在视图里定制模型(标签)、就可以直接在视图任何地方使用、不要操作任何JS函数
+
+语义化标签
+在视图里定制模型(标签)、亦可以自己封装命名
+
+模块化、依赖注入等等
+                </pre>
+            </section>
+            <section>
+                <h5>
+                	开发准备 和 简单的事例 
+                </h5>
+                <pre>
+引入angular.js文件、使用ng-app指令声明AngularJS管理边界
+&lt;script src="<i class="color4">引入的地址</i>"&gt;&lt;/script&gt;
+
+简单的 AngularJS 事例
+&lt;div ng-app="app"&gt;
+    &lt;div ng-controller="firstCtrl"&gt;
+        &lt;input type="text" ng-model="msg"/&gt;
+        &lt;h1 ng-cloak&gt;{{msg}}&lt;/h1&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('app',[])
+    .controller('firstCtrl',function($scope){
+        $scope.msg = "first AngularJS调试"
+    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    AngularJS 有什么好的优点与缺点  (参考于 Gavin13140 博客)
+                    <a href="http://blog.csdn.net/u012125579/article/details/52744093" class="color4" style="float:right">Gavin13140 博客连接</a>
+                </h5>
+                <pre>
+<i class='color7'>优点</i>
+
+<i class="color4">AngularJS是一套完整的框架</i>，angular有自带的数据绑定、render渲染、
+angularUI库,过滤器,directive(模板),服务q(defer),http，inject(依赖注入),
+factory,provider……，等等一系列工具，基本上只要你在做web开发用过的东西
+，它都有一个。但是这些东西React自身都没有。
+
+Angularjs的架构清晰，分工明确，扩展性良好，model，view，controller谁在
+什么时候做什么事情说的很清楚，angular能够让程序员真正专注于业务逻辑，而
+且因为对html侵入不大，非常易于和designer协作。整个框架充满了DI的思路，
+耦合性非常低，对象都是被inject的，也就是说每个对象都可以轻易被替换而不
+影响其他对象。
+
+Angular生产效率高，单向数据流什么的想法非常好，但是写起来太麻烦！我只想
+变更个很简单的数据还要经过action、dispatcher、reduce、view四步，angular
+里一行代码就搞定的事情在react里却如此麻烦
+
+<i class='color7'>缺点</i>
+
+性能
+双向数据绑定是一把双刃剑。随着组件增加，项目越来越复杂，双向数据绑定带来
+性能问题。
+双向数据绑定是如何影响性能的？在JavaScript（ES5）中，并没有实现当变量或
+对象改变时发出通知的功能，Angular的实现方法被叫做“Dirty-checking（脏检
+查机制）”，通过跟踪数据的改变再动态更新用户界面（UI）。
+在Angular的作用域中任何操作的执行都会引发Dirty-checking，随着绑定数量的
+增加性能就会越低。
+Angular 2.0推翻重做使得目前不宜采用此框架
+Angular 1.x版本其实是个比较旧的东西了，现在看来有些理念过时了，比如依赖
+注入、自己独特的模块化，这些东西其实在ES6下已经很好地被解决了。
+Angular的2.0几乎是一个推翻重做的框架，估计不会有1.X的upgrade方案。所以如
+果现在新开始的项目采用Angular的话，会是一个很尴尬的时机。同样，如此大的改
+动似乎也反面印证了1.X并不是那么好。
+
+学习成本高
+使用Angular需要学习大量的概念，包括但不限于：
+模块、控制器、指令、作用域、模板、链式函数、过滤器、依赖注入
+
+<i class="color0">★</i>优点就是让你知道为什么而学习、缺点是
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

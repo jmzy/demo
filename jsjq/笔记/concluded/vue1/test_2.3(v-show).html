@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>v-show</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        #div{width:100px;height:100px;background:red}
+    </style>
+    <div id="app-vue3">
+        <div id="div" v-show="bool"></div>
+        <button @click="btn3Click">隐藏/显示</button>
+    </div>
+    <script type="text/javascript">
+        var myApp3 = new Vue({
+            el:'#app-vue3',
+            data:{
+                bool:true
+            },
+            methods:{
+                btn3Click:function(){
+                    this.bool = !this.bool
+                }
+            }
+        })
+    </script>
+</body>
+</html>

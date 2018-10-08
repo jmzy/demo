@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS 事件指令</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				AngularJS 事件指令
+            </h1>
+            <section>
+                <h5>
+					什么是 AngularJS 事件指令<i class="color0"><出处 W3school></i>
+                    <a href="http://www.w3school.com.cn/js/js_events.asp" class="color4" style="float:right">更详细</a>
+                </h5>
+                <pre>
+使我们有能力创建动态页面。事件是可以被 JavaScript 侦测到的行为
+
+网页中的每个元素都可以产生某些可以触发 JavaScript 函数的事件。例如，
+我们可以在用户点击某按钮时产生一个 ng-Click 事件来触发某个函数。事件
+在 HTML 页面中定义。
+
+<i class="color4">★</i>指令不会覆盖元素的原生 javascript 事件, 事件触发时，
+AngularJS 表达式与 javascript 原生的事件将都会执行。
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-click 定义元素被点击时的行为<br/>
+					ng-dblclick 规定双击事件的行为
+                </h5>
+                <pre>
+ng-click
+&lt;button ng-click="a = a + 1" ng-init="a=0"&gt;click&lt;/button&gt;
+&lt;span ng-cloak class="ng-cloak"&gt;按钮被点击了 {{a}} 次。&lt;/span&gt;
+
+ng-dblclick
+&lt;button ng-dblclick="a = a + 1" ng-init="a=0"&gt;click&lt;/button&gt;
+&lt;span ng-cloak class="ng-cloak"&gt;按钮被双击了 {{a}} 次。&lt;/span&gt;
+
+ng-click 延伸、封装toggle
+&lt;div ng-app="myApp" ng-controller="ctrl"&gt;
+  &lt;button ng-click="toggle()"&gt;隐藏/显示&lt;/button&gt;
+  &lt;p ng-show="myVar"&gt;
+    名: &lt;input type=text ng-model="user.firstName"&gt;&lt;br&gt;
+    姓: &lt;input type=text ng-model="user.lastName"&gt;&lt;br&gt;&lt;br&gt;
+    姓名: {{user.firstName + " " + user.lastName}}
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+var app = angular.module('myApp', []);
+app.controller('ctrl', function($scope) {
+  $scope.user = {
+    firstName: "a",
+	lastName: "b"
+  };
+  $scope.myVar = true;
+  $scope.toggle = function() {
+	$scope.myVar = !$scope.myVar;
+  };
+});
+&lt;/script&gt;
+<i class="color4">★</i>把myVar值引用在ng-show上
+                </pre>
+            </section>
+            <section>
+                <h5>
+                	ng-focus  规定元素获得焦点事件的行为<br/>
+					ng-blur  规定元素失去焦点事件的行为<br/>
+					ng-change	规定在内容改变时要执行的表达式
+                </h5>
+                <pre>
+&lt;input type="text" ng-focus="a = a + 1" ng-blur="b = b + 1" 
+	   ng-init="a=0;b=0;c=0" ng-change="c=c+1" ng-model="myM"/&gt;
+&lt;h3&gt;获得焦点{{a}}次&lt;/h3&gt;
+&lt;h3&gt;失去焦点{{b}}次&lt;/h3&gt;
+&lt;h3&gt;文本被修改{{c}}次&lt;/h3&gt;
+
+<i class="color4">★</i>ng-change 指令需要搭配 ng-model 指令使用
+
+思考?https://zhidao.baidu.com/question/372991114145634484.html
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-keydown   规定按下按键事件的行为<br/>
+					ng-keypress  规定按下按键事件的行为<br/>
+					ng-keyup  规定松开按键事件的行为
+                </h5>
+                <pre>
+&lt;input ng-init="a=0;b=0;c=0" 
+	   ng-keydown="a= a+1" ng-keypress="b=b+1" ng-keyup="c=c+1"/&gt;
+&lt;h3&gt;{{a}}&lt;/h3&gt;
+&lt;h3&gt;{{b}}&lt;/h3&gt;
+&lt;h3&gt;{{c}}&lt;/h3&gt;
+
+<i class="color4">★</i>按键敲击的事件顺序:Keydown、Keypress、Keyup
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-mousedown	规定按下鼠标按键时的行为<br/>
+					ng-mouseup	        规定当在元素上松开鼠标按钮时的行为
+                </h5>
+                <pre>
+&lt;button ng-mousedown="a=a+1" ng-mouseup="b=b+1" 
+  ng-init="a=0;b=0"&gt;点我!&lt;/button&gt;
+&lt;h3&gt;{{a}}&lt;/h3&gt;
+&lt;h3&gt;{{b}}&lt;/h3&gt;
+
+<i class="color4">★</i>鼠标点击执行的顺序:Mousedown、Mouseup、Click
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-mouseenter	规定鼠标指针穿过元素时的行为<br/>
+					ng-mouseleave	规定鼠标指针离开元素时的行为
+                </h5>
+                <pre>
+&lt;button ng-mouseenter="a=a+1" ng-mouseleave="b=b+1" 
+  ng-init="a=0;b=0"&gt;鼠标穿过/移开!&lt;/button&gt;
+&lt;h3&gt;{{a}}&lt;/h3&gt;
+&lt;h3&gt;{{b}}&lt;/h3&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-mousemove	规定鼠标指针在指定的元素中移动时的行为<br/>
+					ng-mouseover	规定鼠标指针位于元素上方时的行为
+                </h5>
+                <pre>
+&lt;button ng-mousemove="a=a+1" ng-mouseover="b=b+1" 
+  ng-init="a=0;b=0"&gt;在我这移动鼠标!&lt;/button&gt;
+&lt;h3&gt;鼠标在button内移动共 {{a}} 次&lt;/h3&gt;
+&lt;h3&gt;鼠标共移入button {{b}}次&lt;/h3&gt;
+
+<i class="color0">★</i>为什么没有mouseout的命令
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-copy 规定拷贝事件的行为<br/>
+					ng-cut 规定剪切事件的行为<br/>
+					ng-paste 规定粘贴事件的行为<i class="color0"><出处 菜鸟教程></i>
+                    <a href="http://www.runoob.com/angularjs/angularjs-reference.html" class="color4" style="float:right">更详细</a>
+                </h5>
+                <pre>
+<i class="color0">★</i>思考? 使用场景?
+
+&lt;div ng-app=""&gt;
+ &lt;input ng-copy="count = count + 1" 
+ ng-init="count=0" value="拷贝这个文本" /&gt;
+  &lt;p&gt;文本被拷贝 {{count}} 次。&lt;/p&gt;
+ &lt;input ng-cut="count = count + 1" 
+  ng-init="count=0" value="剪切这个文本" /&gt;
+ &lt;input ng-paste="count = count + 1" 
+  ng-init="count=0" value="粘贴文本到这!" /&gt;
+&lt;/div&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					$watch 监听
+                </h5>
+                <pre>
+&lt;body ng-app='app' ng-controller='myCtrl'&gt;
+	&lt;input type="text" ng-model='text.test'/&gt;
+	&lt;span&gt;{{error}}&lt;/span&gt;
+	&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+	&lt;script&gt;
+		var app = angular.module('app',[]);
+		app.controller('myCtrl',function($scope){
+		  $scope.text = {'test':'测试'};
+		  $scope.$watch('text',function(n,o){
+		  //监听对象、监听新的和旧的数据
+		    $scope.error = n.test.length&gt;5?'不能超过5个字':'';
+		  },true);
+		})
+	&lt;/script&gt;
+&lt;/body&gt;
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

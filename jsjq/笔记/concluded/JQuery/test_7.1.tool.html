@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery tool1</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<div id="div1">
+			<p id="p1">111</p>
+		</div>
+		<script>
+		$(function(){
+//	$.contains()
+			var div1 = document.getElementById('div1');
+			var p1 = document.getElementById('p1');
+			console.log( 
+//					$.contains($('#div1'),$('#p1'))
+				//？？？？？？false
+//				$.contains(div1,p1)//true
+			);
+			
+//	$.type()
+//			jQuery.type(true) 			=== "boolean"
+//			jQuery.type(3) 				=== "number"
+//			jQuery.type("question") 		=== "string"
+//			jQuery.type(function(){}) 	=== "function"
+//			jQuery.type([]) 			=== "array"
+//			jQuery.type(new Date())		=== "date"
+//			jQuery.type(/question/) 		=== "regexp"
+			
+//	$.isNumber()
+//			$.isNumeric("-10");  // true
+//			$.isNumeric(16);     // true
+//			$.isNumeric(0xFF);   // true
+//			$.isNumeric("0xFF"); // true
+//			$.isNumeric("8e5");  // true (exponential notation string)
+//			$.isNumeric(3.1415); // true
+//			$.isNumeric(+10);    // true
+//			$.isNumeric(0144);   // true (octal integer literal)
+//			$.isNumeric("");     // false
+//			$.isNumeric({});     // false (empty object)
+//			$.isNumeric(NaN);    // false
+//			$.isNumeric(null);   // false
+//			$.isNumeric(true);   // false
+//			$.isNumeric(Infinity); // false
+//			$.isNumeric(undefined); // false
+		})
+		</script>
+	</body>
+</html>

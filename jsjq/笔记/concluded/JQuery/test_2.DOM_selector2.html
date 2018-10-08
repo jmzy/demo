@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+		<style>
+			hr{height:1px;border:0;border-top:1px dashed red;}
+		</style>
+	</head>
+	<body>
+		<div id="divA">
+			<p>p元素</p>
+			<p>p元素</p>
+			<div id="divB">
+				<p>p元素</p>
+			</div>
+		</div>
+		<hr />
+		<div id="divC">
+			<p>p元素</p>
+			<p>p元素</p>
+			<div id="divD">
+				<p>p元素</p>
+			</div>
+		</div>
+		<hr />
+		<div id="divE">
+			<p>p元素</p>
+			<h3>h3元素</h3>
+			<div id="divF">
+				<p>p元素</p>
+				<h3>h3元素</h3>
+			</div>
+			<h3>h3元素</h3>
+			<p>p元素</p>
+			<h3>h3元素</h3>
+			<h3>h3元素</h3>
+		</div>
+		<hr />
+		<div id="divG">
+			<p>p元素</p>
+			<div id="divH">
+				<p>p元素</p>
+			</div>
+			<div id="divI">
+				<h3>h3元素</h3>
+			</div>
+			<h3>h3元素</h3>
+		</div>
+		<script>
+			$(function(){
+				$('#divA p').css('color','red');
+				$('#divC>p').css('color','red');
+				$('#divE p+h3').css('color','red');
+				$('#divH~h3').css('color','red');
+				$('#divI~h3').css('color','red');
+			})
+		</script>
+	</body>
+</html>

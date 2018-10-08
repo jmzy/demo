@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-app='app' ng-controller='myCtrl'>
+		监听文本框<input type="text" ng-model='text.test' placeholder="不能超过5个字"/>
+		<span ng-bind='error'></span>
+		<hr />
+		搜索<input type="text" ng-model='search'/>
+		<br /><br />
+		<table border="1" width='600'>
+				<tr>
+					<td>
+						id
+					</td>
+					<td>
+						name
+					</td>
+					<td>
+						age
+					</td>
+					<td>
+						address
+					</td>
+				</tr>
+				<tr ng-repeat="a in a">
+					<td>{{a.id}}</td>
+					<td>{{a.name}}</td>
+					<td>{{a.age}}</td>
+					<td>{{a.address}}</td>
+				</tr>
+			</table>
+		
+		<script src="../../js/angular.min.js"></script>
+		<script>
+			var app = angular.module('app',[]);
+			app.controller('myCtrl',function($scope,$filter){
+				$scope.text = {'test':' '};
+				$scope.$watch('text',function(n,o){
+					//监听对象、监听新的和旧的数据
+					$scope.error = n.test.length>5?'不能超过5个字':'';
+				},true);
+				
+				$scope.list = [
+		            {id:1,name:'a',age:10,address:"荔湾区荔湾路100号"},
+		            {id:2,name:'b',age:20,address:"佛山市大沥区"},
+		            {id:3,name:'c',age:30,address:'海珠区赤岗1号'},
+		            {id:4,name:'d',age:40,address:"天河区正佳广场1楼"},
+		            {id:5,name:'e',age:50,address:'增城区新开发'}
+		        ];
+		        $scope.a = $scope.list;
+		        $scope.$watch('search',function(n,o){
+		        	$scope.a = $filter('filter')($scope.list,n);
+		        })
+			})
+		</script>
+	</body>
+</html>

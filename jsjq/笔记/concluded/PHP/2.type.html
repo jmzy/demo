@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>PHP 类型</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				PHP 类型
+            </h1>
+            <section>
+                <h5>
+					变量的类型
+                </h5>
+                <pre>
+变量的类型是由存储值来决定的
+
+系统命名不强制大小写
+getType()检查变量类型
+setType()设置变量类型-- 作用于原来变量
+is_int()检查是否整数型
+is_float()检查是否浮点型
+is_object()//检测是否对象
+is_null()//检查是否控制
+is_resource()//检查是否资源类型
+is_bool()//检查是否boolean
+unset()删除变量
+                </pre>
+            </section>
+            <section>
+                <h5>
+					标量类型
+                </h5>
+                <pre>
+-- 标量类型 
+---- Boolean 类型 //ture false
+    <i class="color0">//false：false、0、0.0、空字符串、字符串0、null、空数组</i>
+    //对象检测是否为真 var_dump((bool)$obj);
+---- Integer 整型 //最大值 2147483547
+---- Float 浮点型 //包含小数部分
+---- String字符串 
+	<i class="color4">//没有限制字节、1个中文2个字节</i>
+    <i class="color0">//单双引号</i>
+    <i class="color4">//单双引号有区别、单引号执行效率优于双引号</i>
+    <i class="color4">//单引号体内可以使用转义符的符号、双引号不可以</i>
+    $str2 = '百度\'一下\'你就知道';
+    $str3 = "百度\'一下\'你就知道";
+    $str4 = "百度'一下'你就知道";
+    echo $str2;//百度'一下'你就知道
+    echo '&lt;br/&gt;';
+    echo $str3;//百度\'一下\'你就知道
+    echo '&lt;br/&gt;';
+    echo $str4;//百度'一下'你就知道
+    echo '&lt;br/&gt;';
+    echo '&lt;br/&gt;';
+	
+    <i class="color4">//双引号体内可以放变量</i>
+    $str5 = 'baidu$str3';
+    $str6 = "baidu$str3";
+    echo $str5;//baidu$str3
+    echo '&lt;br/&gt;';
+    echo $str6;//baidu百度\'一下\'你就知道
+//  $str7 = "bai$str3du" ;//报错
+    $str8 = "bai($str3)du" ;
+//  echo $str7;
+    echo '&lt;br/&gt;';
+    
+    <i class="color4">//括号起来就可以输出、注意{}和()</i>
+    echo $str8;//bai(百度\'一下\'你就知道)du
+    $str9 = "bai{$str3}du" ;
+    echo $str9;//bai百度\'一下\'你就知道du
+    echo '&lt;br/&gt;';
+    
+    <i class="color4">//原样输出</i>
+    $str10 = "bai\$str3du" ;
+    echo $str10;//bai$str3du
+    echo '&lt;br/&gt;';
+	    
+    <i class="color0">//定界符</i>
+    $nStr = '百度 -- baidu.com';
+    $Delimiter = &lt;&lt;&lt;h1
+    &lt;h1 style='width:250px;color:#ccc;border:1px solid skyblue;'&gt;
+        Delimiter test&lt;/h1&gt;	
+    &lt;span style='color:black'&gt;$nStr&lt;/span&gt;	
+h1;//这里1定要顶格、并不能写注释
+    echo $Delimiter;//&lt;h1&gt;Delimiter test&lt;/h1&gt;	
+	
+---- Resource资源类型
+-- Callback回调类型
+                </pre>
+            </section>
+            <section>
+                <h5>
+					符合类型
+                </h5>
+                <pre>
+数组(array)
+    <i class="color4">//数组定义和提取</i>
+    $url = array('baidu','taobao','tengxun');
+    echo $url[0].'&lt;br/&gt;';
+    echo $url[1].'&lt;br/&gt;';
+    echo $url[2].'&lt;br/&gt;';
+    
+    <i class="color4">//遍历数组</i>
+    $huluwa = array('大葫芦娃','2葫芦娃',
+        '3葫芦娃','4葫芦娃','5葫芦娃','6葫芦娃','7葫芦娃');
+    if( is_array($huluwa) ){
+        foreach($huluwa as $key => $value){
+        echo 'no.'.$key.'--- 名字 ---'.$value.'&lt;br/&gt;';
+        }
+    }
+//no.1名字2葫芦娃
+//no.2名字3葫芦娃
+//no.3名字4葫芦娃
+//no.4名字5葫芦娃
+//no.5名字6葫芦娃
+//no.6名字7葫芦娃
+对象(object)
+	<i class="color4">//数组定义和提取</i>
+    class a{
+        public $url1 = 'baidu.com';
+        function say(){
+        echo '&lt;br/&gt;hello world';
+        }
+    }
+    $obj = new a();
+    echo $obj->url1;//baidu.com
+    echo $obj->say();//hello world
+                </pre>
+            </section>
+            <section>
+                <h5>
+					其他类型
+                </h5>
+                <pre>
+资源(resource)
+资源是保存外部数据的类型
+
+NULL
+表示1个变量值为空、或者不存在
+var_dump(a);//null
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

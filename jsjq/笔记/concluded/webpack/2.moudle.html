@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Webpack module</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/Classroom.css"/>
+    <script src="../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				ESM (EcmaScript Module) 一个文件一个模块
+            </h1>
+            <section>
+                <h5>
+					Webpack 支持
+                </h5>
+                <pre>
+ES modules(推荐) [主流]
+CommonJS [主流]
+AMD (RequireJS)
+                </pre>
+            </section>
+            <section>
+                <h5>
+					import
+                </h5>
+                <pre>                	
+// Default exports and named exports 多个方法引入
+import theDefault, { named1, named2 } from 'src/mylib';
+import theDefault form 'src/mylib';
+import { named1, named2 } form 'src/mylib';
+
+// Renaming: import named1 as myNamed1 别名
+import { named1 as myNamed1, named2 } from 'src/mylib';
+
+// Importing the module as an object 引用所有的方法
+// (with one property per named export)
+import * as mylib from 'src/mylib';
+
+// Only load the module, don`t import anything 只引用不实用接口
+import 'src/mylib'
+                </pre>
+            </section>
+            <section>
+                <h5>
+					export 
+                </h5>
+                <pre>
+
+
+
+
+
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+					CSS 模块化
+                </h5>
+                <pre>
+CSS 设计模式
+OOCSS, SMACSS, Atomic CSS, MCSS, AMCSS, 
+BEM(Block[header, container, menu, checkbox, input], 
+    Element[menu item, list item, checkbox caption, head title], 
+    Modifier[状态, disabled, highlighted, checked, fixed, size big, color yellow])
+
+CSS Modules
+                </pre>
+            </section>
+            <section>
+                <h5>
+                	环境准备
+                </h5>
+                <pre>
+命令行工具
+Node + Npm
+Webpack
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

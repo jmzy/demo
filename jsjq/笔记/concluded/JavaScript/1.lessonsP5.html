@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>关于Javascript变量</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>Javascript变量</h1>
+            <section>
+                <h5>
+                    什么是Javascript变量
+                    <i class="color0">W3school这么举例的</i>
+                    <a href="http://www.w3school.com.cn/js/js_variables.asp" style="float:right">更详细</a>
+                </h5>
+                <p>
+                    变量是存储信息的容器<br/><br/>
+
+                    x=2<br/>
+                    y=3<br/>
+                    z=x+y<br/><br/>
+                    在代数中，使用字母（比如 x）来保存值（比如 2）。<br/>
+                    通过上面的表达式 z=x+y，能够计算出 z 的值为 5。<br/>
+                    在 JavaScript 中，这些字母被称为变量。<br/>
+                    <i class="color4">提示：</i>可以把变量看做存储数据的容器。<br/><br/>
+
+                    与代数一样，JavaScript 变量可用于存放值<br/>
+                    &nbsp;&nbsp;（比如 x=2）和表达式（比如 z=x+y）。<br/>
+                    变量可以使用短名称（比如 x 和 y），<br/>
+                    &nbsp;&nbsp;也可以使用描述性更好的名称（比如 age, sum, totalvolume）<br/>
+                </p>
+            </section>
+            <section>
+                <h5>
+                    变量的书写注意事项
+                </h5>
+                <p>
+                    1：变量名必须要用 英文字母，数字，$, _  (大小写一定要区分)<br/>
+                    2: 唯独不能用数字开头。英文字母 $ _<br/>
+                    3: 不能使用关键字，或者保留字 充当变量名
+                    <a href="http://www.itxueyuan.org/view/6627.html"style="float:right">关键字和保留字汇总</a><br/>
+                    4: 一次可以声明多个变量，用逗号隔开<br/>
+                    &nbsp;&nbsp;&nbsp;<i class="color4">例：</i>var a = 1,b = 2, c = 3;<br/>
+                    5: <i class="color0">★</i>定义变量，可以不赋值。<br/>
+                    6：如果名字重复，后边会覆盖前边的变量值（注意作用域的问题）。<br/>
+                    7：不写var，直接变量名赋值，也可以。不建议这么写。<br/>
+                </p>
+            </section>
+            <section>
+                <h5>
+                    重复变量名、后面的会覆盖前面的变量值<br/>
+                </h5>
+                <p>
+                    var a = 1;<br/>
+                    a = 2;这样也会覆盖变量值<br/><br/>
+
+                    var abc;<br/>
+                    abc =  "111";//覆盖1次<br/>
+                    function mk(){<br/>
+                    window.abc = "222";<br/>
+                    };<br/>
+                    mk();调用后增加全局变量、同样的变量名再次覆盖<br/>
+                </p>
+            </section>
+            <section>
+                <h5>
+                    关于var（1定是小写的）
+                </h5>
+                <p>
+                    var是声明一个变量<br/>
+                    在js中不声明而直接给一个变量赋值也是可以的，但这样的变量默认是全局的<br/>
+                    声明了var就是对该局域内使用<br/>
+                    使用：var 标识符  =  字面值<br/>
+                </p>
+            </section>
+            <section>
+                <h5>
+                    变量的最大取值
+                </h5>
+                <p>
+                    没什么好说的、就当作1下吧 <a href="https://zhidao.baidu.com/question/426735613156994892.html?qbl=relate_question_2&word=js%B1%E4%C1%BF%CC%AB%B6%E0">百度知道</a>
+                </p>
+            </section>
+            <section>
+                <h5>
+                    <i class="color0">★</i>关于变量使用中文
+                </h5>
+                <p>
+                    软件开发应该是国际化程度非常高的一个职业，相对于约定成俗的编程习惯，中文在此谈不上有任何优势，而且根本没这个必要。
+                    <i class="color0">这段抄的、别的百度见吧</i>
+                </p>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>

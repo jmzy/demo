@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>map 和 forEach</title>
+</head>
+<body>
+<script type="text/javascript">
+    //参考:http://blog.csdn.net/boysky0015/article/details/72983766
+    //作者;boysky0015
+
+    //相同点：
+
+    //.只能遍历数组
+    //.都是循环遍历数组中的每一项和调用数组本身
+    //.匿名函数中的this都是指向window
+    //.ie6-8都不支持
+
+    //不同点:
+
+    //默认返回对象不同
+    //map返回调用对象本身,forEach默认不返回
+
+
+    //forEach
+    //语法array.forEach(function(currentValue, index, arr), thisValue)
+//    这里的 thisValue 是什么鬼,求大神告知
+
+//    //按菜鸟教程说
+//    //可选。传递给函数的值一般用 "this" 值。
+//    //如果这个参数为空， "undefined" 会传递给 "this" 值
+//
+//    //按这么说 undefined 会传给this(window)
+//    //测试了 windowd 对象里面也没有
+//    var arr = [1,2,3,4,5];
+//    arr.forEach(function(currentValue,index,arr){
+//        console.log(currentValue + '---' + index + '---' + arr);
+//        //1---0---1,2,3,4,5
+//        //2---1---1,2,3,4,5
+//        //3---2---1,2,3,4,5
+//        //4---3---1,2,3,4,5
+//        //5---4---1,2,3,4,5
+//    });
+//    console.log(arr);     //原数组对象值不变
+//    for(key in window){
+//        key.indexOf('un')>-1?console.log(key):false;
+//    };
+//
+//    //传参也不执行
+//    var arr = [1,2,3,4,5],newArr = [];
+//    arr.forEach(function(currentValue,index,arr){
+//
+//    },function(){alert(1)}); //不执行
+
+    //map
+    //语法array.map(function(currentValue,index,arr), thisValue)
+    //这里的 thisValue 是什么鬼,求大神告知
+
+//    //这就很奇怪了,怎么效果都是1样的
+//    var arr = [1,2,3,4,5];
+//    arr.map(function(currentValue,index,arr){
+//        console.log(currentValue + '---' + index + '---' + arr);
+//        //1---0---1,2,3,4,5
+//        //2---1---1,2,3,4,5
+//        //3---2---1,2,3,4,5
+//        //4---3---1,2,3,4,5
+//        //5---4---1,2,3,4,5
+//    });
+//    console.log(arr);     //原数组对象值不变
+
+
+    //forEach 和 map 的区别
+
+//    var arr = [1,2,3,4,5];
+//    var newArr = arr.forEach(function(currentValue,index,arr){
+//       return currentValue += 2;
+//    });
+//    console.log(arr);       //[1, 2, 3, 4, 5]
+//    console.log(newArr);    //undefined
+//
+//    var arr = [1,2,3,4,5];
+//    var newArr = arr.map(function(currentValue,index,arr){
+//        return currentValue += 2;
+//    });
+//    console.log(arr);       //[1, 2, 3, 4, 5]
+//    console.log(newArr);    //[3, 4, 5, 6, 7]
+//
+//    //forEach reurn的方法
+//    var arr = [1,2,3,4,5],newArr =[];
+//    arr.forEach(function(currentValue,index,arr){
+//        return newArr.push(currentValue += 2);
+//    });
+//    console.log(arr);       //[1, 2, 3, 4, 5]
+//    console.log(newArr);    //undefined
+//
+//    //map 有的时候还是挺方便的
+//    var arr = [1,4,9];
+//    var newArr = arr.map(Math.sqrt);
+//    console.log(newArr)     //[1, 2, 3]
+
+    //ie 6-8 不兼容,原型添加
+
+//    //forEach
+//
+//    var arr = [1,2,3,4,5];
+//    Array.prototype.add_forEach = function add_forEach(val,i){
+//        for(var i=0;i<this.length;i++){
+//            val.call(window,this[i],i,this);
+//        }
+//    };
+//    arr.add_forEach(function(val,i,thisArr){
+//        console.log(val + '--' + i + '--' + thisArr)
+//    });
+//
+//    //map
+//    var arr = [1,2,3,4,5];
+//    Array.prototype.add_map = function add_map(val,i,thisArr){
+//        var newAry = [];
+//        for(var i=0;i<this.length;i++){
+//            if(typeof val === 'function') {
+//                val.call(window,this[i],i,this);
+//                newAry[newAry.length] = val;
+//            }
+//        };
+//        return newAry;
+//    };
+//    arr.add_map(function(val,i,thisArr){
+//        console.log(val + '--' + i + '--' + thisArr + this);
+//    })
+
+
+
+</script>
+</body>
+</html>

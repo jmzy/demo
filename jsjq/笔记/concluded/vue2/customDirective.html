@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE2 指令</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                VUE2 指令(一共就13个指令,非常简单)
+            </h1>
+            <section>
+                <h5>
+                    v-text 和 v-html
+                </h5>
+                <pre>
+v-text
+作用跟{{}}效果一样
+&lt;p v-text="msg"&gt;&lt;/p&gt;
+&lt;p&gt;{{msg}}&lt;/p&gt;
+data:{
+    msg: 'test v-text',
+}
+
+v-html
+尽量不要使用,原因https://cn.vuejs.org/v2/api/#v-html
+&lt;div v-html="html"&gt;&lt;/div&gt;
+data:{
+    html: '&lt;div style="margin:15px auto;width:100px;height:50px;background:#f60"&gt;&lt;/div&gt;'
+}
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    v-pre
+                </h5>
+                <pre>
+没搞懂
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    v-show 和 v-if 和 v-else 和 v-else-if
+                </h5>
+                <pre>
+跟vue1是一样的,
+不符合条件:
+v-show会保留元素,内联样式添加display:none
+v-if不加载不符合条件的元素
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    v-for
+                </h5>
+                <pre>
+根据判断的条件编列数据,最好匹配:key使用
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    v-bind
+                </h5>
+                <pre>
+看官网吧
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    v-model
+                </h5>
+                <pre>
+demo
+
+修饰符：
+
+.lazy - 取代 input 监听 change 事件
+.number - 输入字符串转为数字
+.trim - 输入首尾空格过滤
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    v-on
+                </h5>
+                <pre>
+demo
+
+修饰符：
+
+.stop - 调用 event.stopPropagation()。
+.prevent - 调用 event.preventDefault()。
+.capture - 添加事件侦听器时使用 capture 模式。
+.self - 只当事件是从侦听器绑定的元素本身触发时才触发回调。
+.{keyCode | keyAlias} - 只当事件是从特定键触发时才触发回调。
+.native - 监听组件根元素的原生事件。
+.once - 只触发一次回调。
+.left - (2.2.0) 只当点击鼠标左键时触发。
+.right - (2.2.0) 只当点击鼠标右键时触发。
+.middle - (2.2.0) 只当点击鼠标中键时触发。
+.passive - (2.3.0) 以 { passive: true } 模式添加侦听器
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    v-cloak
+                </h5>
+                <pre>
+配合使用(css)
+[v-cloak] {
+  display: none;
+}
+作用在页面加载成功后再展示该元素
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    v-once
+                </h5>
+                <pre>
+只渲染元素和组件一次
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

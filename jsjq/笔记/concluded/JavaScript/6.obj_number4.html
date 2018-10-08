@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数值相关的方法</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                数值相关的方法
+            </h1>
+            <section>
+                <h5>
+                    数值相关的方法
+                </h5>
+                <pre>
+仅对数值、若obj不确定是否数值可对其先返回数值
+
+toFixed()方法、
+NumberObj.toFiexd();()里可以不传值、传参值为取保留小数点后的位数
+例：var a = -1.288;
+      b = -1.1234567890123456789012345678901234567890;
+
+console.log(a.toFixed(2));//1.29四舍五入的取值
+console.log(a.toFixed(21));//报错、传参只能在0-20之间
+
+Math.random() 函数返回的值 大于等于0.0小于1.0
+
+Math.abs(number) 获得正数含小数点后、最多保留14喂小数点、四舍五入
+
+Math.ceil(number) 获得向上取整、若小数点后有数值、
+            正数四舍五入取后+1、负数为不变
+
+Math.floor(number) 获得向下取整、若小数点后有数值、
+            不遵守四舍五入、正数不变、负数-1
+
+Math.round(number) 获得四舍五入取整
+
+Math.min(多个参数) 获得参数内最少的数值
+Math.max(多个参数) 最大
+
+-胡思乱想1下、Math.min()参数为都个数组、并为含josn对象可有机会用到调用上
+
+-其他数字方法http://www.w3school.com.cn/jsref/jsref_obj_math.asp
+
+额外补充：Math.PI 圆周率 eval（） 计算数值内容
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>1 demo</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+    <style>
+        i{font-style:normal;margin:10px;display:block;color:red;background:#8cf}
+        p{line-height:30px;margin:5px 0;padding:0}
+        div{margin:10px;width:300px;height:80px;
+            border:1px solid transparent;border-radius:8px;text-align:center}
+        .wrap{background:#ddd;width:320px;height:230px;}
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="wrap">
+        <i>v-text v-html</i>
+        <div style="background:#aaa">
+            <p v-text="msg"></p>
+            <p>{{msg}}</p>
+        </div>
+        <div style="background:#aaa;">
+            <span v-html="html"></span>
+        </div>
+    </div>
+
+    <div class="wrap" style="height:140px">
+        <i>v-pre</i>
+        <div style="background:#888" v-pre>{{ this will not be compiled }}</div>
+    </div>
+
+    <div class="wrap">
+        <i>vv-show v-if v-else v-else-if 条件判断</i>
+        <div style="background:#f88">
+            <span v-show="show==1">1</span>
+            <span v-show="show==2">2</span>
+        </div>
+        <div style="background:#f88">
+            <span v-if="vif==1">1</span>
+            <span v-else-if="vif==2">2</span>
+            <span v-else="vif==3">3</span>
+        </div>
+    </div>
+
+    <div class="wrap" style="height:140px">
+        <i>v-for 遍历</i>
+        <div style="background:#fbd">
+            <div><span v-for="item in fors">{{item}}</span></div>
+        </div>
+    </div>
+
+    <div class="wrap" style="height:140px">
+        <i>v-model</i>
+        <div>
+            <input type="text" v-model="vmodel"/>
+            <p>{{vmodel}}</p>
+        </div>
+    </div>
+
+    <div class="wrap" style="height:280px">
+        <i>v-model跟 v-bing绑定的区别</i>
+        <div style="background:#ff8">
+            <input type="text" v-model="von"/>
+            <input type="text" :value="von"/>
+            <p>{{von}}</p>
+        </div>
+        <div style="background:#ff8">
+            <input type="text" :value="von2"/>
+            <p>{{von2}}</p>
+        </div>
+        <pre style="text-align: left;padding-left:10px">
+v-model 跟 v-bing 的区别
+v-model 双向绑定,视图控制数据,数据控制视图
+v-bing  单行绑定,视图不能控制[并不能修改]数据
+        </pre>
+    </div>
+
+    <div class="wrap" style="height:140px" v-cloak>
+        <i>v-clock</i>
+        {{ msg }}
+    </div>
+
+    <div class="wrap" style="height:140px">
+        <i>v-once</i>
+        <input type="text" v-model="once"/>
+        <p v-once>{{once}}</p>
+        <p >{{once}}</p>
+    </div>
+</div>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            msg: 'test v-text',
+            html: '<div style="margin:15px auto;width:100px;height:50px;background:#f60"></div>',
+            show: 1,
+            vif: 3,
+            fors: [
+                '第1  ',
+                '第2  ',
+                '第3  ',
+                '第4  ',
+                '第5  ',
+                '第6  ',
+                '第7  '
+            ],
+            vmodel: 'v-model',
+            von: 'von',
+            von2: 'von2',
+            once: 'once'
+        }
+    })
+</script>
+</body>
+</html>

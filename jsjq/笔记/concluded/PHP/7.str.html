@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>PHP 字符串</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				PHP 字符串
+            </h1>
+            <section>
+                <h5>
+					定义字符串
+                </h5>
+                <pre>
+定义字符串3种方法
+1、''  单引号 不可以解析变量、不能识别转义符
+2、""  双引号 可以解析变量、转义符
+          <i class="color0">★</i>变量后含有有字母或者中文需+{}/[]()会显示符号
+3、<<< 定界符 都可以解析、识别
+	
+检测对象的类型 var_dump()
+
+字符串输出 
+echo 输出1个或多个字符串
+ echo 'abcbcd';
+ echo 'abc','bcd';
+ $a = 'abcbcd';
+ echo $a;
+ echo $a.'abc';
+ 
+print 输入字符串
+print $a;//不可以输出多个变量
+echo和print区别在于echo优于print
+
+只要针对数值
+printf('字符串和规则',str1[,str2...]) 格式化输入字符串
+第1参数可以输入字符串和规则/字符串中间插入规则
+printf('aaa %.1f aaa',num);
+
+若1个数值需要引用多次需使用双引号、指定对象%1 条件\$.1f
+printf('aaa %1\$.1f aaa %1\$.2f aaa',num);
+
+若需要输入多过str元素需定制多个规则并使用双引号
+printf('aaa %.1f aaa %.1f aaa',num1,num2);
+
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+					字符串处理函数
+                </h5>
+                <pre>
+字符串截取
+substr(str,num[,num1]) 对字符串进行指定数量的截取、第1个字符为1
+ 两为参数、反向截取-(负数)
+ 三位参数、将截取的再次截取
+
+字符串查找
+strchr(str,'需要查找的字符串') 别名strstr
+ 若存在返回查找字符串<i cite="color4">到结尾的字符</i>
+ 若不存在返回空、var_dump()后为bool(false)
+ 默认区分大小写
+strisstr() 跟strchr()作用1样、不区分大小写查找
+
+strrchr(str1，str2) 查找1个字符串在另1个字符串中最后出现
+ 查找成功(存在)返回该字符串<i cite="color4">到结尾的字符</i>
+ 查找不成功(不存在)返回空
+       
+strpos(str,'字符串[str1]') 查找1个字符串在领1个字符串中第1次出现的位置
+ 匹配成功返回在在对象字符串中的索引值、以1开始
+ 匹配不成功返回空
+ 匹配成功var_dump()返回int、匹配不成功返回bool
+stripos((str,'字符串[str1]') 从后面查找
+
+strtok(str,'拆分的符号字符串') 通过字符串把主字符串进行拆分成数组
+ 匹配成功查到返回拆分的符号/字符串往前的字符、不会全拆分
+ 再次调用返回拆分的符号/字符串后的再次匹配、不包含第1次拆分的字符串
+ 可以通过循环输出if()、
+ 注意若需要判断0的情况 需要在循环中 !==  false 判断类型
+
+把字符串中的截取为变量
+parse_str(str)
+
+把字符串按指定指定大写拆分
+chunk_split(str,num,['拆分的标识'])
+------------------------------------------------------1
+对空格的处理
+strlen() 获得字符串长度
+trim()  对字符串左右空格删除
+ltrim() 对字符串左部空格删除
+rtrim() 对字符串右部空格删除
+
+对字符串大小写的处理
+strtolower() 将字符串转换成小写
+strtoupper() 讲字符串转换成大写
+ucfirst()  首字母大写
+ucwords()  单词首字母大写
+
+字符串填充函数
+str_pad(str,newLength，content,direction)  
+ newLength:<i class="color0">★</i>当新填充的字符串长度少于原来的将不执行
+ direction:
+  STR_PAD_BOTH 左右两侧进行填充、如果填充为奇数、右侧多填
+  STR_PAD_LEFT  左侧填充
+  STR_PAD_RIGHT 右侧填充
+
+字符串反转函数
+strrev()
+
+md5加密
+md5()
+
+格式化金额字符串函数
+number_format(str,'小数位数','小数点','千位分隔符')
+
+字符串拆分成数组
+explode(
+ '用语在哪个字符串中技能型拆分'，'拆分的字符串'，['返回数组元素的数目'])
+
+把数组元素组合成字符串
+implode('连接字符串','数组')
+------------------------------------------------3
+字符串替换函数
+str_replace('需要替换的字符串','替换后的字符串',
+ str,['变量(输入为替换的次数)'])
+ 需要替换和替换后的字符串可以用数组形式
+ 也可以对数组进行替换
+str_ireplace() 作用跟 str_replace() 1样、但不区分大小写
+
+字符串比较函数、区分大小写
+strcmp(str1,str2) 如果相等返回0、如何str1 > str2 返回1、小于返回-1;
+strcasecmp() 不区分大小写、字符串比较
+ <i class="color0">★</i>注意字符串的‘10’ 是小于 ‘2’
+strnatcmp(str1,str2) 比较对象为字符串内的含数字、以自然数值比较
+strncmp(str1,str2,num) 指定位数比较
+ num为比较字符串中的第几个数值
+ 
+比较字符串的相似度
+similar_text(str1,str2,[相似度的百分比对象]) 返回int
+ [相似度的百分比对象]会返回小数12位
+ 
+替换字符串中的字符
+strtr(str1,'需要替换的字符串','替换后的字符串')
+ 可以以数组形式替换
+
+字符串统计函数
+substr_count(str,'需要统计出现次数的字符串'
+ ,'int(查找的位置)','int(查找多少个)') 返回int
+ 4个参数、查找成功返回查找多少个或者最大查找的数量
+--------------------------------------------------4
+解析URL
+parse_url(obj,[attr]) 解析URL、返回其组成部分
+ attr 
+ PHP_URL_SCHEME
+ PHP_URL_HOST
+ PHP_URL_PATH
+ PHP_URL_QUERY
+ 
+url编码、处理非英文、特殊字符参数
+urlencode(str) 在任何游览器都可以解析、所有url的内容
+urldecode() 解码(已编码的)内容
+
+htmlentities(str,[转换的规则],[]) 将字符串转化为HTML源码
+ 转换的规则、默认 ENT_COMPAT (只转换双引号)
+  ENT_QUOTES(转换单双引号) ENT_NOQUOTES(不转换任何引号)
+
+htmlspecialchars()存在中文与htmlentities区别解析不会乱码(看浏览器吧)
+ 避免在提交输入script标签内容
+htmlspecialchars_decode() 把转换后的内容还原回来
+ 将转换为HTML内容的转换为字符串
+---------------------------------------------------5 mysql
+提交表单默认会出现转义符、
+如果因为网络环境没有开启、在php文件 ini magic_quotes_gpc = On(开启)
+addslashes() 预定义字符串前添加反斜杠
+stripslashes() 把转义字符串前的反斜杠删除
+get_magic_quotes_gpc()获得PHP.INI中是否开启自动转义
+ 判断 
+ if(!get_magic_quotes_gpc()){
+ 	$uname = addslashes($_GET['uname']);
+ }else{
+ 	$uname = $_GET['uname'];
+ }
+---------------------------------------------------6 mysql
+get_magin_quotes_runtime() 获得外部文件及数据库资料时是否进行转义
+set_magin_quotes_runtime() 设置获得是否进行转义
+strip_tags(obj,[保留的标签]) 去处HTML XML php的标签
+                </pre>
+            </section>
+            <section>
+                <h5>
+
+                </h5>
+                <pre>
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+
+                </h5>
+                <pre>
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+
+                </h5>
+                <pre>
+
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

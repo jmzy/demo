@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			hr{height:1px;border:0;border-top:1px dashed red;}
+		</style>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id='a'>div元素/ID:a</div>
+		<h3>H3元素</h5>
+		<h5 class="h5">H5元素/class：h5</h5>
+		<h5><span>H5 下子元素 span</span></h5>
+		<p>P元素</p>
+		<h2>H2元素</h2>
+		<h5 class="newh5">H5元素/class:new</h5>
+		
+		<script>
+			$(function(){
+				$('*').css('margin','20px');//所有元素
+				$('#a').css('color','red');
+				$('h3').css('color','darkgoldenrod');
+				$('.h5').css('color','blue');
+				$('h5 span').css('color','green');
+				$('p,h2').css('color','skyblue');//多个元素以，分隔
+				$('h5.newh5').css('color','red');
+			})
+		</script>
+		<hr />
+		
+		
+		
+		attribute value属性值。引号在大多数情况下是可选的。但在遇到诸如属性值包含"]"时，用以避免冲突。
+		<div a='b'>DIV元素/a:b</div>
+		<div a='c'>DIV元素/a:c</div>
+		<div b='a'>DIV元素/b:a</div>
+		<h1 c='a'>h1元素/c:a</h1>
+		<h1 c='b'>h1元素/c:b</h1>
+		<h1 c='c'>h1元素/c:c</h1>
+		<h1 d='a'>h1元素/c:c</h1>
+		<h1>h1元素/不含自定义元素</h1>
+		<script>
+			$(function(){
+				$('[a]').css('color','red');
+				$('[a=c]').css('color','darkgoldenrod');
+				$('[b=a]').css('color','blue');
+				$('h1[c!="a"]').css('color','red');
+				//注意使用这个！、会把所有的元素不包含都定属性、使用加上元素
+			})
+		</script>
+		[attribute^=value] ^=value 以value开始的元素<br />
+		[attribute$=value] $=value 以value结尾的元素<br />
+		[attribute*=value] *=value 包含value的元素<br />
+		[attrSel1][attrSel2][attrSelN] 多个自定义元素
+		
+		<hr />
+		
+	</body>
+</html>

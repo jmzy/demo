@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS Servies与指令的使用</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                Servies与指令的使用
+            </h1>
+            <section>
+                <h5>
+                    自定义Services
+                </h5>
+                <pre>
+自定义service服务 value变量 constant factory service <i class="color0">★</i>provider等等
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    Services的使用、定义value变量
+                </h5>
+                <pre>
+(1)定义value值、value名和value值
+(2)注入变量名（value名）为controller传参
+(3)绑定$scope
+<i class="color4">★</i>注意变量值是可变
+
+变量value事例
+&lt;div ng-app="app"&gt;
+    &lt;div ng-controller="MyCtrl"&gt;
+        &lt;h1 ng-clock class="ng-clock"&gt;{{realname}}&lt;/h1&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('app',[])
+    .value('realname','abc')//angular 的变量 value 可改变
+    .value('realname','111')
+    .controller("MyCtrl",function($scope,realname){//注入变量、为实参
+        $scope.msg = "hello world";
+        $scope.realname = realname;//绑定、111重复变量改变成
+    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    定义constant常量
+                </h5>
+                <pre>
+(1)定义constant、constant名和constant值
+(2)注入变量名（constant名）为controller传参
+(3)绑定$scope
+<i class="color4">★</i>注意变量值是可变
+&lt;div ng-app="appS"&gt;
+    &lt;div ng-controller="secendCtrl"&gt;
+        &lt;h1 ng-cloak class="ng-cloak" &gt;{{http}}&lt;/h1&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('appS',[])
+    .constant('http',"www.baidu.com")//angular 的常量 constant
+    .constant('http','www.taobao.com')
+    .controller("secendCtrl",function($scope,http){//注入
+        $scope.http = http;//绑定 ★ 不可更改
+    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    factory和service的创建和使用与区别
+                </h5>
+                <pre>
+factory的事例
+(1)定义factory、key 和 value 值
+(2)注入变量名（key）为controller传参
+(3)绑定$scope
+<i class="color4">★</i>若返回return 为外部函数、
+    其原理和 service相同、service还简化
+&lt;div ng-app="appThree"&gt;
+    &lt;div ng-controller="thirdCtrl"&gt;
+        &lt;h1 ng-cloak class="ng-cloak"&gt;{{date.msg}}&lt;/h1&gt;
+        &lt;h1 ng-cloak class="ng-cloak"&gt;{{dateT.msg}}&lt;/h1&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('appThree',[])
+    .factory("date",function(){//声明
+        return {
+            msg:"hello world",
+            setMsg:function(){
+                this.msg = "hey man";
+            }
+        }
+    })
+    .factory("dateT",function(){
+        return new fn();//外置函数 实名匿名各种
+        // 外置函数和service就1个道理
+    })
+    .controller("thirdCtrl",function($scope,date,dateT){//注入controller
+        $scope.date = date;//进行调用
+        date.setMsg();
+        $scope.dateT = dateT;
+    })
+    function fn(){
+        this.msg = "hey girl";
+    }
+&lt;/script&gt;
+
+service的事例
+(1)定义service、key 和 value 值
+(2)注入变量名（key）为controller传参
+(3)绑定$scope
+<i class="color4">★</i>赋值key键名和直接意义相同、
+&lt;div ng-app="appFour"&gt;
+    &lt;div ng-controller="fourthCtrl"&gt;
+        &lt;h1 ng-cloak &gt;{{username.getName()}}&lt;/h1&gt;
+        &lt;h1 ng-cloak &gt;{{uName}}&lt;/h1&gt;
+        //赋值和直接使用意义相同
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('appFour',[])
+    .service('username',function(){
+        this.firstname = "藤原";
+        this.lastname = "拓海";
+        this.getName = function(){
+            return this.firstname + this.lastname;
+        };
+    })
+    .controller('fourthCtrl',function($scope,username){
+        $scope.username = username;
+        $scope.uName = username.getName();//定义key来获取
+    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <span></span>
+        </section>
+
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

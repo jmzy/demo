@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>对象中的数值获取方法</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                对象中的数值获取方法
+            </h1>
+            <section>
+                <h5>
+                    对象中的数值获取方法
+                </h5>
+                <p>
+                    仅对数值、若obj不确定是否数值可对其先返回数值<br/><br/>
+
+                    1、parseInt(string,radix)<i class="color4">可以获得负数值</i><br/><br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;string必需。要被解析的字符串。<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<i class="color4">例：</i>a = "123adf";<br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(parseInt(a) + "---a");//123<br/><br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(parseInt("dda123"));//NaN<i class="color4">第1位必须是数字、否则NaN</i><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(parseInt("0.123"));//0<i class="color4">取整数、小数点后不取</i><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(parseInt("-1"));//0<i class="color4">-1</i><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(parseInt("    -1"));//0<i class="color4">忽略空格</i><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(parseInt("    -1   231"));//1<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="color4">忽略空格、若数值前后均有空格、取第1次的空格值</i><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(parseInt("3+2a"));//3<i class="color4">运算符不作运算、也不做连接</i><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(parseInt("3-2-a"));//3<i class="color4">-、/、*、%...都不行</i><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(parseInt("2-1-2"));//2<i class="color4">全数字也不行</i><br/><br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;radix可选<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<i class="color4">★这里不懂</i><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;★parseInt(obj,x)<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;可以传两个值、obj若是字符需""、x为进制<br/><br/>
+
+                    2、parseFloat(string)<i class="color4">可以获得负数并小数点</i><br/><br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;string必需。要被解析的字符串<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<i class="color4">例：</i>a = "123adf";<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a = "123.45adf";parseFloat(a);//123.45<br/><br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(parseFloat("a123"));//NaN<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(parseFloat("123.45adf"));//123.45<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(parseFloat("123.45.67"));//123.45<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="color4">可保留小数点后的位数、紧保留1次</i><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(parseFloat(" -12.34.5"));//-12.34<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(parseFloat("  -12.1234567890123456789"));<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="color4">//-12.1234567890123456★仅可以保留小数点后16位小数、</i><br/><br/>
+
+                    3、number(obj)<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;a ="100";console.log(number(a));/100<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;number()转换数值、仅对obj为纯数字、若obj喊符号、字母则为NAN<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;boolean类型特殊转换<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;a = trun;//1; a = flase;//0 a = null;//0<br/><br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;<i class="color4">例：</i>console.log(Number(new Boolean(true)));//1<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(Number(new Boolean(false);));//0<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(Number(null));//0<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(Number("-999 888"));//-999<i class="color4">空格前正确数值</i><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(Number(" -999 888"));//-999<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="color4">可保留小数点后的位数、紧保留1次</i><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(Number("1+1"));//NaN<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<i class="color4">运算符不作运算、也不做连接</i><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(Number("1-1"));//NaN<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(Number("a1"));//NaN<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<i class="color4">字母在前后都是NaN</i><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(Number("1a"));//NaN<br/><br/>
+
+                    4、<i class="color4">★</i>强制转换<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;a = "134345";console.log(a*1);//134345<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<i class="color4">★</i>含符号、字母等就不能转换了<br/><br/>
+                </p>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

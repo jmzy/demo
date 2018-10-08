@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>React 组件</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				组件
+            </h1>
+            <section>
+                <h5>
+					定义组件/定义虚拟DOM
+                </h5>
+                <pre>
+组件引入:
+当前对象是react 组件js页面必须引入react import React from 'react';
+
+例子.
+1.定义虚拟DOM对象 const object 
+2.对象公开 export dafult object
+3.接收对象 APP.js页面接收 import Object (自定义引入对象首字母必须大写) from './object/Object';
+4.rander导入对象 &lt;Object /&gt;或者&lt;Object&gt;&lt;/Object&gt;
+
+形成组件而不是直接在rander定义的好处是可以多次使用
+
+组件首字母必须大写,可封闭式标签和带后缀标签
+                </pre>
+            </section>
+            <section>
+                <h5>
+					组件下的子标签
+                </h5>
+                <pre>
+例子.
+1.定义虚拟DOM对象 const object 传参   	
+2.标签包裹传参对象方法props.children
+
+组件JS页面
+const person = ( props) => {
+  return (
+	&lt;div&gt;
+	  &lt;p&gt;大家好!!{props.name}+数字+{props.count}&lt;/p&gt;
+	  &lt;p&gt;{props.children}&lt;/p&gt;
+	&lt;/div&gt;
+  )
+}
+
+App.js页面
+&lt;Person name="aaa" count="5"/&gt;
+&lt;Person name="bbb" count="2"/&gt;
+&lt;Person name="ccc" count="3"&gt;子标签内容&lt;/Person&gt;//第2种方法
+                </pre>
+            </section>
+            <section>
+                <h5>
+					组件通信(属性传值)/使用state
+                </h5>
+                <pre>
+例子一
+1.定义虚拟DOM对象 const object 传参   	
+2.对象传参的方法(props.name)对应App.JS页面定义的组件属性(name="aaa")
+可进行多个属性传值通信
+
+
+组件JS页面
+const person = (props) =&gt; {
+  return (
+	&lt;div&gt;
+	  &lt;p&gt;大家好!!{props.name}+数字+{props.count}&lt;/p&gt;
+	  &lt;p&gt;{props.children}&lt;/p&gt;
+	&lt;/div&gt;
+  )
+}
+
+App.js页面
+class App extends Component {
+  render() {
+    return (
+      &lt;div className="App"&gt;
+        &lt;h1&gt;HELLO WORD!&lt;/h1&gt;
+        &lt;Person name="aaa" count="5"/&gt;
+        &lt;Person name="bbb" count="2"/&gt;
+        &lt;Person name="ccc" count="3"&gt;子标签内容&lt;/Person&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+例子二、使用state
+1.APP.js添加state传入参数
+2.render标签下属性以{}形式输入state值
+class App extends Component {
+  state = {
+    persons: [
+      {name:'aaa',count:111},
+      {name:'bbb',count:222},
+      {name:'ccc',count:333}
+    ],
+    otherState:'anything'
+  } 
+
+  render() {
+    return (
+      &lt;div className="App"&gt;
+        &lt;h1&gt;HELLO WORD!&lt;/h1&gt;
+        &lt;Person name={this.state.persons[0].name} count={this.state.persons[0].count}/&gt;
+        &lt;Person name={this.state.persons[1].name} count={this.state.persons[1].count}/&gt;
+        &lt;Person name={this.state.persons[2].name} count={this.state.persons[2].count}&gt;子标签内容&lt;/Person&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+                </pre>
+            </section>
+            <section>
+                <h5>
+					组件定义组件事件/使用state
+                </h5>
+                <pre>
+例子一
+1.定义方法在类内class里
+2.组件标签事件{}包裹,this指向是class
+                	
+class App extends Component {
+  switchNameHandler = () =&gt; {
+    console.log(11111)
+    //this.setState({})  //更改state内的值
+  }
+
+  render() {
+    return (
+      &lt;div className="App"&gt;
+        &lt;button onClick={this.switchNameHandler}&gt;按钮&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+例子二/在对应组件下定义事件/demo2
+1.state定义初始值
+2.定义方法传参变量
+3.组件定义方法,直接传参
+4.方法下更建议使用bind绑定
+
+  state = {
+    persons: [
+      {name:'aaa',count:111},
+      {name:'bbb',count:222},
+      {name:'ccc',count:333}
+    ],
+    otherState:'anything'
+  } 
+
+  switchNameHandler = ( newData ) => {
+    this.setState({
+      persons: [
+        {name:newData,count:111},
+        {name:'更改后bbb',count:222},
+        {name:'更改后ccc',count:333}
+      ]
+    })
+  }
+
+  render() {
+    return (
+      &lt;div className="App"&gt;
+        &lt;h1&gt;HELLO WORD!&lt;/h1&gt;
+        {/* &lt;button onClick={() =&gt; this.switchNameHandler("2次更改")}&gt;按钮&lt;/button&gt; */}
+        &lt;button onClick={this.switchNameHandler.bind(this,"2次更改")}&gt;按钮&lt;/button&gt;
+        &lt;Person name={this.state.persons[0].name} count={this.state.persons[0].count}/&gt;
+        &lt;Person name={this.state.persons[1].name} count={this.state.persons[1].count}/&gt;
+        &lt;Person name={this.state.persons[2].name} count={this.state.persons[2].count}&gt;子标签内容&lt;/Person&gt;
+      &lt;/div&gt;
+    );
+  }
+
+例子三、使用state
+注意更改state是用setState,没在setState内更改的就不影响
+
+class App extends Component {
+  state = {
+    persons: [
+      {name:'aaa',count:111},
+      {name:'bbb',count:222},
+      {name:'ccc',count:333}
+    ],
+    otherState:'anything'
+  } 
+
+  switchNameHandler = () =&gt; {
+    // console.log(11111)
+    this.setState({
+      persons: [
+        {name:'更改后aaa',count:111},
+        {name:'更改后bbb',count:222},
+        {name:'更改后ccc',count:333}
+      ]
+    })
+  }
+
+  render() {
+    return (
+      &lt;div className="App"&gt;
+        &lt;h1&gt;HELLO WORD!&lt;/h1&gt;
+        &lt;button onClick={this.switchNameHandler}&gt;按钮&lt;/button&gt;
+        &lt;Person name={this.state.persons[0].name} count={this.state.persons[0].count}/&gt;
+        &lt;Person name={this.state.persons[1].name} count={this.state.persons[1].count}/&gt;
+        &lt;Person name={this.state.persons[2].name} count={this.state.persons[2].count}&gt;子标签内容&lt;/Person&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+
+例子四、定义公共事件,指定标签触发事件/demo3 person2
+1,组件JS页面定义公共事件
+2.App.js定义组件对应事件名,触发事件
+                </pre>
+            </section>
+            <section>
+                <h5>
+					组件定义组件事件/使用state
+                </h5>
+                <pre>
+                	
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

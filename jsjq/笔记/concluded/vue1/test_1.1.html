@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Vue TEST-02</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue"></script>
+    <div id="vue-app">
+        <h5>{{a}}</h5>
+        <h5>{{b("hello word3")}}</h5>
+        <h5>{{d()}}</h5>
+        <h5>{{d('word4')}}</h5>
+    </div>
+    <script type="text/javascript">
+        new Vue({
+            el:"#vue-app",              //匹配视图容器对应的ID
+            data:{                      //需要传递的对象、json存储对象或方法
+                a:'hello word1',
+                b:function(c){
+                    return c + "---" + "hello word2" + "---" + this.a
+                },
+            },
+            methods:{
+                testThis:'test this',
+                d:function(c){
+                    if(c){
+                        return 'hello ' + c + "---" + this.a;
+                    }else{
+                        return 'hello nothing'+ "---" +this.testThis;
+                    }
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

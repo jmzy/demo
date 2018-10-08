@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>$stateParams</title>
+		<script src="../../js/angular.min.js"></script>
+		<script src="https://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+	</head>
+	<body ng-app='app'>
+		<div ui-view></div>
+
+		<script>
+			var app = angular.module('app',['ui.router']);
+			app.config(function($stateProvider,$urlRouterProvider){
+				$urlRouterProvider.otherwise('home');
+				$stateProvider
+					.state('home',{
+						url:'/home',
+						templateUrl:'view/5.3.home.html',
+						controller:'ctrl'
+					})
+					.state('user',{
+						url:'/user/{id}',
+						template:'<h1>name:{{user.name}}</h1>',
+						controller:'ctrl'
+					})
+			})
+			app.controller('ctrl',function($scope,$stateParams){
+				$scope.user = [
+					{id:1,name:'name1111111111'},
+					{id:2,name:'name2222222222'}
+				];
+				var id = $stateParams.id;//当前遍历
+				if(id){
+					for(var i=0;i<$scope.user.length;i++){
+						if(id == $scope.user[i].id){
+							$scope.user = $scope.user[i];
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1介绍
+1-1,git是什么
+git 是一种版本控制器
+团队开发时,管理代码用的软件
+
+1-2,安装
+//http://www.wmzhe.com/soft-38802.html 双击一直next
+
+1-2,自爆家门,让开源世界认识你
+开源教主 Richard Matthew Stallman 江湖名号 RMS
+
+打开 Git Bash --自报家门
+$ git config --global user.name "Name"
+$ git config --global user.email "email@example.com"
+
+2,基本增删改查
+2-1,开始搜索git 打开 Git Bash
+
+2-2,创建仓库,代码管理需要建立代码仓库(本地)
+$ cd 到你的本地地址
+$ mkdir aaa                                 //创建新目录 (dir可查看文档 ls可查看有什么)
+$ cd aaa                                    //进入到你的目录上
+$ git init                                  //初始化仓库(这个千万不能动)
+
+2-3,(查)
+$ git status                                //状态
+//nothing added to commit but untracked files present (use "git add" to track)
+//untracked files 还没有追踪/没有加上
+
+$ git commit -m 'modify'                    //我的日志
+//On branch master
+//nothing to commit, working tree clean
+
+2-4,(增)
+git add xx.txt                              //
+git add .                                   //(文件多. )当前目录下全部文件
+
+再次查看status $ git status 成功会标识 new file:xx.txt
+//new file:   yumingr/index.txt             //new file
+
+git commit -m "init"
+//[master (root-commit) 1683f95] init
+//1 file changed, 1 insertion(+)            //成功增加
+//create mode 100644 yumingr/index.txt
+
+再次查看status
+//On branch master
+//nothing to commit, working tree clean     //没有需要提交了
+
+增加新文件
+除了本地添加文件,也要在git添加
+git commit -m 'add xxx.php'                 //添加
+
+$ git commit -m 'add xxx.xxx'               //也可以添加
+
+2-5,(改)
+//(改)直接在本地文件打开修改就可以              //(改)
+
+
+2-6,(删)
+$ git rm xxx.php                            //删除
+$ git commit -m 'del xxx.php'
+
+3同步,远程服务器同步
+3-1,gitee码云 注册各种
+
+3-2,推上服务器
+1创建新项目
+2个人主页--找到项目--找地址
+$ git push 地址 master(分支)
+
+3-3,配置地址简写
+$ git remote add 简写别名 地址
+
+$ git status
+$ git add .
+$ git commit -m '简写别名'
+
+$ git push 简写别名 master
+
+4团队合作,项目成员管理
+4-1,设置/添加项目成员
+选择项目--管理--项目成员管理
+开发者(意会)--观察者(只读)--报告者(意会,哇哈哈)
+
+开发者--项目成员--搜索添加--设置用户权限
+
+4-2,克隆一份
+$ git clone 地址
+克隆后--cd进入--查看 $ git status --$ git .--$ git commit -m "xxx"
+推去分服务器 $ git push
+
+4-3,拉数据
+$ git pull 别名 分支
+
+5.git分布式特点
+本地就可以有所有的版本信息和日志
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

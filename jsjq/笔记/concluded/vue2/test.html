@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            position: relative;
+            width:100px;height:30px;line-height:30px;
+            background:#ddd;cursor:pointer;
+            border-radius:5px;
+            font-size:13px;text-align:center;
+        }
+        span{
+            position:absolute;left:80px;top:5px;
+            width:100px;height:20px;line-height:20px;
+            background:#f88;
+            border-radius:5px;
+            display: none;opacity:.8;
+            animation:spanDis .3s
+
+        }
+        @keyframes spanDis {
+            0%{transform:scale(1,1);}
+            20%{transform:scale(1.5,1);}
+            100%{transform:scale(1,1);}
+
+        }
+        div:hover span{display:block}
+
+    </style>
+</head>
+<body>
+<div>
+    aaaaaaaa
+    <span>111111</span>
+</div>
+</body>
+</html>

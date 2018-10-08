@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<script>
+    var json1 = {name:"a",age:"18"};
+    var json2 = {name:"b",sex:"man",address:"GuangZhou"};
+    var json3 = {name:"c",age:"19",qq:"123"};
+
+    //json对象少可以用for in、key是键、value是值
+
+    for(var key in json2){
+        json1[key] = json2[key];
+    };
+    for(var key in json3){
+        json1[key] = json3[key];
+    };
+    console.log(json1);//Object、address: "GuangZhou"age: "19"name: "c"qq: "123"sex: "man"__proto__: Object
+    console.log(JSON.stringify(json1));//{"name":"c","age":"19","sex":"man","address":"GuangZhou","qq":"123"}
+
+    //函数封装
+    function mix(target,source){
+        var len = arguments.length;
+        if(len == 1){
+            return target;
+        }else{
+            var i = 1;
+            while(source = arguments[i++]){
+                for(var key in source){
+                    target[key] = source[key];
+                }
+            }return target;
+        };
+    };
+
+    mix(json1,json2,json3);
+    console.log(json1);
+    console.log(JSON.stringify(json1));
+
+</script>
+
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+            	对象混入
+            </h1>
+            <section>
+                <h5>
+					arguments 函数类数组未定义传参
+                </h5>
+                <pre>
+function fn(){
+  	alert(arguments.length);
+}
+fn(1,2,3);//alert(3);
+                </pre>
+            </section>
+            <section>
+                <h5>
+					arguments.callee 向上函数
+                </h5>
+                <pre>
+function create() {
+   return function(n) {
+      if (n <= 1){return 1};
+      return n * arguments.callee(n - 1);
+      //只return了1次、条件满足后就终止函数
+      //argumets.callee以为是向上函数，()再次执行
+   };
+}
+
+var result = create()(5);
+alert(result)// returns 120 (5 * 4 * 3 * 2 * 1)
+                </pre>
+            </section>
+            <ssection>
+            <h5>
+                实现多个对象,属性或者方法共用
+            </h5>
+            <pre>
+&lt;script&gt;
+var json1 = {name:"a",age:"18"};
+var json2 = {name:"b",sex:"man",address:"GuangZhou"};
+var json3 = {name:"c",age:"19",qq:"123"};
+
+//json对象少可以用for in、key是键、value是值
+
+for(var key in json2){
+    json1[key] = json2[key];
+};
+for(var key in json3){
+    json1[key] = json3[key];
+};
+console.log(json1);
+//Object、address: "GuangZhou"age: "19"name: "c"qq: "123"sex: "man"
+//__proto__: Object
+console.log(JSON.stringify(json1));
+//{"name":"c","age":"19","sex":"man","address":"GuangZhou","qq":"123"}
+
+//封装函数
+function mix(target,source){
+    var len = arguments.length;
+    if(len == 1){
+        return target;
+    }else{
+        var i = 1;
+        while(source = arguments[i++]){
+            for(var key in source){
+                target[key] = source[key];
+            }
+        }return target;
+    };
+};
+
+mix(json1,json2,json3);
+console.log(json1);
+console.log(JSON.stringify(json1));
+&lt;/script&gt;
+	            </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

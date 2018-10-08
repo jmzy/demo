@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>多视图中子视图嵌套</title>
+		<script src="../../js/angular.min.js"></script>
+		<script src="https://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+	</head>
+	<body ng-app='app'>
+		<div ui-view=''></div>
+		<div ui-view='content'></div>
+		<script>
+			var app = angular.module('app',['ui.router']);
+			app.config(function($stateProvider,$urlRouterProvider){
+				$urlRouterProvider.otherwise('/home');
+				$stateProvider
+					.state('home',{
+						url:'/home',
+						views:{
+							'@':{
+								templateUrl:'view/6.home.html'
+							},
+							'content':{
+								template:'<h1>登录成功</h1>'
+							}
+						}
+					})
+					.state('home.video',{
+						url:'/video',
+						views:{
+							'son@home':{
+								templateUrl:'view/6.video.html'
+							},
+							'content@':{
+								template:''
+							}
+						}
+					})
+			})
+		</script>
+	</body>
+</html>

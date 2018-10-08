@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Vue 自定义过滤器、计算属性</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        /*span{color:salmon}*/
+    </style>
+    <div id="app-vue">
+        <p>{{price}}新加坡币、含税价格{{priceInTax}}新加坡币、折合人名币{{priceRMB}}元</p>
+        <button @click="btn(2000)">把含税价格为2000</button>
+    </div>
+    <script type="text/javascript">
+        var myVue = new Vue({
+            el:'#app-vue',
+            data:{
+                price:1000
+            },
+            computed:{
+                priceInTax:{
+                    get:function(){
+                        return (this.price * 1.08).toFixed(0)
+                    },
+                    set:function(val){
+                        this.price = (val / 1.08).toFixed(2)
+                    }
+                },
+                priceRMB:function(){
+                    return Math.round(this.priceInTax/16.75)
+                }
+            },
+            methods:{
+                btn:function(newPrice){
+                    this.priceInTax = newPrice
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

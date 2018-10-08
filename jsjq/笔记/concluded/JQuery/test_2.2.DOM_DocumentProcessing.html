@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery DOM DocumentProcessing 2</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<p><span class="span">.wrapAll</span></p>
+		<p><i><span class="span">.wrapAll</span></i></p>
+		<span class="span">.wrapAll</span>
+		<i><span class="span">.wrapAll</span></i>
+		<hr />
+		<p class="p1">.wrapInner</p>
+		<p class="p1">.wrapInner</p>
+		<p class="p1">.wrapInner</p>
+		<hr />
+		<p class="p2">.wrapInner</p>
+		<p class="p2">.wrapInner</p>
+		<p class="p2">.wrapInner</p>
+		<hr />
+		<div class="container1">
+		  	<div class="inner1">Hello</div>
+		  	<div class="inner1">Goodbye</div>
+		</div>
+		<hr />
+		<p class="p3">.replaceWith()</p>
+		<p class="p3">.replaceWith()</p>
+		<hr />
+		<p class="p4 a1">.replaceWith()1</p>
+		<p class="p4 a1">.replaceWith()1</p>
+		<p class="p4 a2">.replaceWith()2</p>
+		<hr />
+		<p class="p5">.replaceAll()</p>
+		<p class="p5">.replaceAll()</p>
+		<hr />
+		<div class="a3">
+			<p><span>111</span></p>
+			<p><span>222</span></p>
+			<p><span>333</span></p>
+		</div>
+		<hr />
+		<div class="a4">
+			<p><span>111</span></p>
+			<p><span>222</span></p>
+			<p><span>333</span></p>
+		</div>
+		<p class="hello">Hello</p> how are <p>you?</p>
+		<hr />
+		<p class="hello2">Hello</p> how are <p>you?</p>
+		<hr />
+		<p class="hello3">Hello<b>!</b></p> how are <p>you?</p>
+		<script>
+//			.wrapAll()
+			$('.span').wrapAll('<div></div>');
+			
+//			.wrapInneRangeException()
+			$('.p1').wrapInner('<b></b>');
+			$('.p2').wrapInner(document.createElement("b"));
+			
+			$('.inner1').wrapInner(function() {
+			  	return '<div class="' + $(this).text() + '" />';
+			});
+			
+//			.replaceWith()
+			$('.p3').replaceWith('111');
+			$('.p3').replaceWith('<span>replaceWith</span>');
+			$('.a2').replaceWith($('a1'));
+			
+//			.replaceAll()
+			$("<span>Paragraph. </span>").replaceAll($('.p5'));
+			
+//			.empty()
+			$('.a3 p').empty();
+			
+//			.remove()
+			$('.a4 p').remove();
+			$("p").remove(".hello");
+			
+//			.detach()
+			$('p').detach('.hello2');
+			
+//			.clone()
+			$('.hello3').clone().appendTo('.hello3 b');
+		</script>
+	</body>
+</html>

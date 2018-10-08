@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>初识Javascript</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                初识Javascript
+            </h1>
+            <section>
+                <h5>
+                    什么是Javascript
+                    <i class="color0">百科是这么写的</i>
+                    <a href="http://baike.baidu.com/link?url=xEJU67TBB9jGai-kg6e1jOwKAzkCwuB3OU6h4Gy10WQYFg9KS5eZEvUcpMvWkYIWrKZF38MV6I-N_uCwbEEMwH9wVxFZKnzmKUdf6JxIJ0q" class="color4" style="float:right">更详细</a>
+                </h5>
+                <p>
+                    &nbsp;&nbsp;JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。<br/>
+                    &nbsp;&nbsp;为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。<br/>
+                    &nbsp;&nbsp;在1995年时，由Netscape公司的Brendan&nbsp;Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。<br/>
+                </p>
+            </section>
+            <section>
+                <h5>
+                    组成部分
+                </h5>
+                <p>
+                    &nbsp;&nbsp;<i class="color0">★</i>ECMAScript，描述了该语言的语法和基本对象。<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;JS的基础部分&nbsp;var&nbsp;字符串&nbsp;数组&nbsp;对象&nbsp;循环<br/><br/>
+                    &nbsp;&nbsp;文档对象模型（DOM），描述处理网页内容的方法和接口。<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;文档结构DOM&nbsp;控制，操作DOM节点，进行样式，内容的改变<br/><br/>
+                    &nbsp;&nbsp;浏览器对象模型（BOM），描述与浏览器进行交互的方法和接口。<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;浏览器操作&nbsp;改变浏览器窗口（响应式），改变路径<br/><br/>
+                    &nbsp;&nbsp;AJAX<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;实现数据的异步操作
+                </p>
+            </section>
+            <section>
+                <h5>
+                    JavaScript和jquery的区
+                </h5>
+                <p>
+                    &nbsp;&nbsp;JS：所有代码都原生，自己去写，去调用<br/>
+                    &nbsp;&nbsp;JQ：JS的代码封装，给我们提供了对应的接口，方法、等于设置了快捷键<br/>
+                </p>
+            </section>
+                    <section>
+            <h5>
+                Javascript的引用和调用
+            </h5>
+            <p>
+                引用方法：<i id="o-2t1"></i><i class="color7">绝对地址和相对地址</i><br/>
+                &nbsp;&nbsp;<i class="color0">★</i>引用外部Js代码最好先进行简单测试alert(1)或console.log;<br/>
+                &nbsp;&nbsp;&nbsp;以保证正确引用<br/>
+                &nbsp;&nbsp;&nbsp;alert(1);//浏览器上弹窗<br/>
+                &nbsp;&nbsp;&nbsp;console.log(1);// console控制台输出<br/>
+                &nbsp;&nbsp;<i class="color0">★</i>注意引用方式与CSS的不同<br/><br/>
+                直接调用：<i id="o-2t2"></i><br/>
+            </p>
+            <script>
+                var one_b1 = "<i class='color7'>连接地址</i>";
+                var one_b2 = "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='color7'>调用的js代码</i><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                var one_b3 =  "<i class='color7'>★</i>";
+                document.getElementById("o-2t1").innerHTML = "&lt;script&nbsp;src='"+ one_b1 + "'&gt;&lt;/script&gt;";
+                document.getElementById("o-2t2").innerHTML = "&lt;script&nbsp;type='text/javascript'&gt;" + one_b3 + one_b2 + "&lt;/script&gt;";
+            </script>
+        </section>
+        <section>
+            <h5>
+                Javascript严谨书写
+            </h5>
+            <p>
+                <i class="color0">★</i>1：所有英文字母，是区分大小写的。<br/>
+                <i class="color0">★</i>2：每写完一句代码，用分号结束。<br/>
+                <i class="color0">★</i>3：驼峰式书写。<br/>
+                &nbsp;&nbsp;4：所有的代码都要在英文状态下，半角状态下去编写。<br/>
+                &nbsp;&nbsp;5：书写的规范。<br/>
+            </p>
+        </section>
+        <section>
+            <h5>
+                Javascript注释
+            </h5>
+            <p>
+                &nbsp;单行注释  // 我是单行注释<br/>
+                &nbsp;多行注释  /*...*/
+            </p>
+        </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>

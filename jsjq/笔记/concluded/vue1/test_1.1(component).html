@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <style>
+        li{list-style:none}
+    </style>
+    <script src="https://unpkg.com/vue"></script>
+    <div id="app-vue">
+        <ul>
+            <game-item v-for="item in games" v-bind:game="item"></game-item>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        Vue.component('game-item',{
+            props:['game'],
+            template:'<li>{{game.title}}</li>'
+        });
+        var myVue = new Vue({
+            el:'#app-vue',
+            data:{
+                games:[
+                    {title:111},
+                    {title:222},
+                    {title:333}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

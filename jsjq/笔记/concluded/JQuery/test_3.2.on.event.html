@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset=" utf-8">
+	<meta name="author" content="http://www.jb51.net/" /> 
+	<title>脚本之家 .on()语法结构2</title> 
+	<style type="text/css"> 
+		div{ 
+		  width:160px; 
+		  height:160px; 
+		  border:1px solid green; 
+		  font-size:12px; 
+		  text-align: center;
+		  line-height: 160px;;
+		} 
+	</style> 
+	<script src="../../js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript"> 
+	$(document).ready(function(){ 
+		var newtext="这是新文本" 
+		$("div").on({click:function(e){ 
+			$(this).text(e.data.mytext); 
+		}},{"mytext":newtext}) 
+	}) 
+	</script> 
+</head> 
+<body> 
+  <div>原来内容</div> 
+</body> 
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>PHP 数组</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				PHP 数组
+            </h1>
+            <section>
+                <h5>
+					什么是数组
+                </h5>
+                <pre>
+在1个变量中、存储1个或多个值、每1个元素都有访问ID(索引值)
+数组中的值可以存放任意类型
+数组中的值为true、遍历为1、false、0、
+数组中的值为null不显示、但也占着位置
+                </pre>
+            </section>
+            <section>
+                <h5>
+					定义数组 和 提取数组值/遍历数组 、获得数组长度(数组里元素的数量)
+                </h5>
+                <pre>
+定义数组
+1.直接赋值创建
+ $arr1 = array('a','b','c');
+ echo '26个字母、第1个是'.$arr1[0].'第2个是'.$arr1[1].'第3个是'.$arr1[2];
+
+2.$arr2[0] = 'a';
+ echo $arr2[0];
+ var_dump($arr2);
+
+遍历数组 
+for($i=0;$i<3;$i++){
+	echo $i.'--'.$arr1[$i].'&lt;br/&gt;';
+};
+
+获得数组长度
+echo count($arr1).'&lt;br/&gt;';//3
+
+3.指定下标
+ $arr3['a'] = 'a';
+ $arr3['b'] = 'b';
+ 
+ 遍历/获得的跟js json 差不多
+ $arr3['a'] = 'a';
+ $arr3['b'] = 'b';
+ foreach($arr3 as $key=>$val){
+   echo $key.'='.$val.'&lt;br/&gt;';
+ };
+ ★注意foreach遍历不需要从0开始
+ 
+4.数组是可以动态增长、键值可以跳跃、 
+                </pre>
+            </section>
+            <section>
+                <h5>
+					数组求总和 和 数组平均值
+                </h5>
+                <pre>
+$arr4 = array(1,2,3,4,5,2,34,50);
+$allNum = null;
+for($i=0;$i&lt;count($arr4);$i++){
+	$allNum += $arr4[$i];
+};
+echo $allNum.'&lt;br/&gt;';//101
+echo $allNum/count($arr4).'&lt;br/&gt;';//12.625
+echo count($arr4).'&lt;br/&gt;';//8
+                </pre>
+            </section>
+            <section>
+                <h5>
+					数组下标[键值]
+                </h5>
+                <pre>
+1.指定下标起始值
+$arr5 = array(5=>'e','f','g');
+echo count($arr5).'&lt;br/&gt;';
+echo $arr5[5].'&lt;br/&gt;';//3
+//	echo $arr5[3].'&lt;br/&gt;';// Undefined 
+echo $arr5[6].'&lt;br/&gt;';//f
+echo $arr5[7].'&lt;br/&gt;';//g
+
+2.bool和null('' "")作为下标
+$arr6[true]= 1;
+$arr6[false]= 0;
+$arr6[null]= 'a';
+echo count($arr6).'&lt;br/&gt;';//3
+echo $arr6[0].'&lt;br/&gt;';//0
+echo $arr6[1].'&lt;br/&gt;';//1
+echo $arr6[''].'&lt;br/&gt;';//a
+echo $arr6[""].'&lt;br/&gt;';//a
+$arr6[5] = 'e';
+echo count($arr6).'&lt;br/&gt;';//3
+echo $arr6[5].'&lt;br/&gt;';//3
+
+3.下标为浮点数、浮点数小标会并列在整数下标内、并不影响下标数量
+$arr6[5.1] = 'e.1';
+echo count($arr6).'&lt;br/&gt;';//4
+echo $arr6[5.1].'&lt;br/&gt;';//e.1
+foreach($arr6 as $key=>$val){
+	echo $key.'---'.$val.'&lt;br/&gt;';
+};//1--1 //0--0 //---a //5---e.1
+echo $arr6[5].'&lt;br/&gt;';//e.1
+echo $arr6[5.1].'&lt;br/&gt;';//e.1
+如果没有给数组指定key、则取当前最大的整数索引值、而新的键名讲是该值+1
+
+4.键值若是字符串、需带引号、(新版本可能不能调用)
+ 若不带引号、有可能出现键值是常量
+ const a = 'aa';
+ $arr[a] = 1;
+ echo $arr[a];//报错
+                </pre>
+            </section>
+           	<section>
+                <h5>
+					字符串拆分转换数组
+                </h5>
+                <pre>
+$str = 'a b c d e f';
+$arr8 = explode(' ',$str);
+print_r($arr8);
+//Array ( [0] => a [1] => b [2] => c [3] => d [4] => e [5] => f )
+                </pre>
+            </section>
+           	<section>
+                <h5>
+					删除数组内容 unset($arr[num])
+                </h5>
+                <pre>
+删除数组中的元素、unset($arr[num])
+删除后索引值不会自动排队
+                </pre>
+            </section>
+            <section>
+                <h5>
+					数组运算符
+                </h5>
+                <pre>
+$arr1 +   $arr2  联合  $arr1 和 $arr2的联合、
+ 存在相同的键不会覆盖arr1的值
+$arr1 ==  $arr2  相等  具有相同的键/值返回true
+$arr1 === $arr2  全等  具有相同的键/值/顺序返回true
+$arr1 !=  $arr2  不等  若不等于返回true
+$arr1 <>  $arr2  不等  若不等于返回true
+$arr1 !== $arr2  不全等  不全等于返回true
+                </pre>
+            </section>
+            <section>
+            	<h5>
+            		在ajax没有提交的情况下、变量会报错
+            		<br/>
+            		关闭notice级别的提示
+            	</h5>
+            	<pre>
+1.在变量前+@(非致命错误继续运行)
+
+在php.ini文件中改动error_reporting
+改为error_reporting = E_ALL  &  ~E_NOTICE
+如果你不恩那个操作php.ini文件、你可以用
+
+在你想进制notice错误提示的页面中加入下面的代码
+/* Report all errors except E_NOTICE*/
+error_reporting(E_ALL ^ E_NOTICE);
+
+            	</pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+<script>
+	//冒泡排序法
+//	var arr = [5,2,6,3,1,4];
+//	for(var i=0;i<arr.length-1;i++){
+//	for(var i=0;i<arr.length;i++){
+//		for(var j=0;j<arr.length;j++){
+//			if(arr[j] > arr[j+1]){
+//				var temp = arr[j];
+//				arr[j] = arr[j+1];
+//				arr[j+1] = temp;
+//			}
+//		}
+//	}
+//	console.log(arr);
+
+	//选择排序法 selectSort
+//	var arr = [5,2,6,3,1,4];
+//	for(var i=0;i<arr.length-1;i++){
+//	for(var i=0;i<arr.length;i++){
+//		var minVal = arr[i];
+//		var minIndex = i;
+//		for(var j=i+1;j<arr.length;j++){
+//			if(minVal > arr[j]){
+//				minVal = arr[j];
+//				minIndex = j;
+//			}
+//		}
+//		var temp = arr[i];
+//		arr[i] = arr[minIndex];
+//		arr[minIndex] = temp;
+//		console.log(minVal) 
+//	}
+//	console.log(arr);
+	
+	//插入排序法 insertSort
+//	var arr = [5,2,6,3,1,4];
+//	for(var i=1;i<arr.length;i++){
+//		var insertVal = arr[i];
+//		var insertIndex = i - 1;
+//		while(insertIndex >= 0 && insertVal < arr[insertIndex]){
+//			arr[insertIndex + 1] = arr[insertIndex]
+//			insertIndex--;
+//		}
+//		arr[insertIndex + 1] = insertVal;
+//	}
+//	console.log(arr) 
+	
+	//研究 linux 内核
+	//研究 算法
+	//研究 网络技术
+	//研究 数据库
+	
+	//数组查找
+//	var arr = [5,2,6,3,1,4];
+//	function searchArr(arr,findVal){
+//		var flag = false;
+//		for(var i=0;i<arr.length;i++){
+//			if(findVal == arr[i]){
+//				flag = true;
+//				console.log('找到的下标为' + i)
+//			}
+//		}
+//		if(!flag){
+//			console.log('找不到')
+//		}
+//	}
+//	searchArr(arr,2);
+
+	//二分查找、前提必须数组已经序列化
+</script>
+</body>
+</html>
+

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>AngularJS Directive 自定义指令</title>
+	</head>
+	<!--
+	<body ng-app="app">
+		<helloangular></helloangular>
+		<hello-angular></hello-angular>
+		<helloangular></helloangular>
+			<!--自定义指令可重复使用-->
+			
+		<!--<script src="../../js/angular.min.js"></script>
+		<script>
+			angular.module("app",[])
+			.directive("helloAngular",function(){
+				//自定义标签出现驼峰使用它时需要以 - 分割
+				return {
+					template:"<h3>自定义指令1</h3>"
+				};
+			})//angular不需要在中间加分号；会报错
+			.directive("helloangular",function(){
+				return {
+					template:"<h3>自定义指令2</h3>"
+				};
+			})
+		</script>
+	</body>
+	-----------------------------------------------------------
+	-->
+	
+	
+	<!--
+	<body ng-app="app">
+		<helloangular></helloangular>
+		<helloangular></helloangular>
+		
+		<script src="../../js/angular.min.js"></script>
+		<script>
+			angular.module("app",[])
+			.directive("helloangular",function(){
+				return {
+					template:"<h3>自定义指令2</h3>"
+				};
+			})
+			.directive("helloangular",function(){
+				//自定义指令不能重复定义同1名称
+				//报错、不能重复使用同该定义名称
+				return {
+					template:"<h3>自定义指令3</h3>"
+				};
+			})
+		</script>
+	</body>
+	----------------------------------------------------------
+	-->
+	
+
+	<!--
+	<body ng-app="app">
+		<div helloangular></div>
+		<!--div>h3-->
+	<!--<script src="../../js/angular.min.js"></script>
+		<script>
+			angular.module("app",[])
+			.directive("helloangular",function(){
+				return {
+					template:"<h3>自定义指令2</h3>"
+				};
+			})
+
+		</script>
+	</body>
+	----------------------------------------------------------
+	-->
+	
+	
+	<!--事例1
+	<ul data-ng-app="" 
+	  data-ng-init="names=['Apple','Banana','Cat']">
+	  <li data-ng-repeat="a in names">{{ a }}</li>
+	</ul>
+	
+	事例2
+	<style>
+	    *{margin:0;padding:0}
+	    ul{width:auto;margin-top:20px;}
+	    li{list-style:none;width:300px;height:20px;border:1px solid #f1f1f1;display:block}
+	</style>
+	<div ng-app="app" >
+	    <p>地址管理</p>
+	    <ul ng-controller="address">
+	        <li ng-repeat="a in list"> 
+	            <h5 ng-cloak>{{$index + 1 + "--" + a.address}}</h5>
+	        </li>
+	    </ul>
+	</div>
+	<script src="../../js/angular.min.js"></script>
+	<script>
+	    angular.module('app',[])
+	    .controller('address',function($scope){
+	        $scope.list = [
+	            {id:1,address:"荔湾区荔湾路100号"},
+	            {id:2,address:"佛山市大沥区"},
+	            {id:3,address:'海珠区赤岗1号'},
+	            {id:4,address:"天河区正佳广场1楼"},
+	            {id:5,address:'增城区新开发'}
+	        ]
+	    })
+	</script>
+	---------------------------------------------------------
+	-->
+	
+	<!--
+	<div ng-app="app" class="a"></div>
+	<!--div>h3-->
+	<!--
+	<script src="../../js/angular.min.js"></script>
+	<script>
+		angular.module('app',[])
+	    .directive('a',function(){
+	    	return{
+	    		restrict:'C',//一定要大写
+	    		template:"<h3>自定义指令</h3>"
+	    	};
+	    })
+	</script>
+	---------------------------------------------------------
+	-->
+	
+	<!--
+	<body ng-app="app">
+		<!-- directive:a -->
+	<!--
+		<script src="../../js/angular.min.js"></script>
+		<script>
+			angular.module('app',[])
+			.directive('a',function(){
+				return{
+					restrict:"M",//必须设置 restrict 的值为 "M" 
+						//才能通过注释来调用指令
+					replace:'a',//必须设置 replace 的值为 true 或
+						//字符串任意
+					template:"<h3>自定义指令</h3>"
+				};
+			})
+		</script>
+	</body>
+	---------------------------------------------------------
+	-->
+	
+	<div ng-app="app">
+		{{1+2}}
+	  <h3 ng-controller="firstCtrl">
+		{{1+2}}
+	  </h3>
+	</div>
+	
+	<script src="../../js/angular.min.js"></script>
+
+</html>

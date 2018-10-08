@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JQuery DOM CSS</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				JQuery DOM CSS
+            </h1>
+            <section>
+                <h5>
+					CSS
+                </h5>
+                <pre>
+<i class="color4">DOM.css(name|pro|[,val|fn])<sup>1.9*</sup></i>
+
+1.name 
+--- 单独只有name(attr)即获得该的值
+--- 多个name(attr)获得值为JSON值、
+
+&lt;style&gt;
+.a{width:100px;height:100px;background:black}
+&lt;/style&gt;
+&lt;div id="a"&gt;&lt;/div&gt;
+&lt;script&gt;
+  $(function(){
+  	<i class="color4">//单个attr值</i>
+  	console.log($("#a").css("height"));<i class="color4">//0</i>
+  	$('#a').addClass('a');
+  	console.log($("#a").css("height"));<i class="color4">//100px</i>
+  	<i class="color4">//多个attr值</i>
+  	var id_a_attr = $("#a").css(['width','height']);
+  	for( key in id_a_attr){
+  	  onsole.log( id_a_attr[key] );<i class="color4">//100px 110px</i>
+  	}
+  })
+&lt;/script&gt;
+
+2.properties <i class="color0">★ --- 这个不懂</i>
+
+3.添加单个或多个属性
+&lt;div id="b"&gt;&lt;/div&gt;
+
+单个属性需包括attr跟着,attr值
+$("#b").css(background,"black");//跟Dom.style.attr是1样的
+
+多个属性更改许以JSON对象表达、key最好加上引号""
+$("#b").css({"background":"black",color:"white"});
+
+★直接写数字也是可以的、不建议这么写
+$("#b").css({width:300,height:200,background:"skyblue"})
+
+4.fn <i class="color0">★ --- 这里面的index不懂</i>
+&lt;style&gt;
+  .c{width:100px;height:100px;background:red;margin-top:20px;}
+&lt;/style&gt;
+&lt;div class="c"&gt;&lt;/div&gt;
+&lt;div class="c"&gt;&lt;/div&gt;
+&lt;script&gt;
+  $(function(){
+	$(".c").click(function() {
+	  $(this).css({
+		width: function(index, value) {
+		  console.log(index);
+		  //<i class="color0">★ --- 这index怎么都是0 、typeof是number</i> 
+		  return parseFloat(value) * 2;
+		  <i class="color0">//获得数值再进行计算、每次点击后运行</i>
+		}, 
+		height: function(index, value) {
+		  return parseFloat(value) * 2;
+		}
+	  });
+	});
+  })
+&lt;/script&gt;
+
+
+<i class="color4">jQuery.cssHooks</i>
+<i class="color0">★ --- 这个不懂</i> http://jquery.cuishifeng.cn/jQuery.cssHooks.html
+                </pre>
+            </section>
+            <section>
+                <h5>
+					位置
+                </h5>
+                <pre>
+<i class="color4">offset([coordinates])</i>
+$('DOM').offset() = {top:x,left:y}
+$('DOM').offset().left = marginLeft;
+$('DOM').offset().top = marginTop;
+$('DOM').offset({ left: 30, top: 20});
+ //元素position赋值relative、并修改了left和top值、<i class="color0">注意父级</i>
+$("p:last").offset($(this))返回JSON<i class="color0">★ --- 这个不懂</i>
+
+<i class="color4">position()</i>
+$('DOM').position() = {top:x,left:y}
+$('DOM').position().left = marginLeft;
+$('DOM').position().top = marginTop;
+$('DOM').position({ left: 10, top: 20});//没效果
+
+console.log($("div:last").position(1));//返回JSON {top:x,left:y}
+console.log($("div:last").position('a'));//返回JSON {top:x,left:y}
+console.log($("div:last").position(true));//返回JSON {top:x,left:y}
+
+<i class="color0">★ --- 这个传值不懂</i>
+获取匹配元素相对滚动条左侧/顶部的偏移。
+此方法对可见和隐藏元素均有效。
+<i class="color4">scrollLeft([val])</i>
+<i class="color4">scrollTop([val])</i>
+$('DOM').scrollTop() = 获取匹配元素相对滚动条左侧/顶部的偏移。
+$('DOM').scrollLeft()
+
+$('DOM').scrollTop(3000)<i class="color0">★ ---</i>
+                </pre>
+            </section>
+            <section>
+                <h5>
+					尺寸
+                </h5>
+                <pre>
+<i class="color4">width([val|fn])</i>
+<i class="color4">height([val|fn])</i>
+
+&lt;style&gt;
+  .c{width:100px;height:100px;background:red;margin-top:20px;}
+&lt;/style&gt;
+&lt;div id="a"&gt;&lt;/div&gt;
+
+1.DOM.width();获得宽度、DOM.height();获得高度
+console.log($('#a').height());//100px
+
+2.DOM.width('x');DOM.height('x');改变width/height值
+$('#a').width('110px');
+
+<i class="color0">★ --- index</i>
+3.参数function(index,height)
+$("#a").click(function(){
+  $("this").width(function(index,width){
+    console.log(index);<i class="color0">//这也是个迷</i>
+    return width+10;
+  });
+  $("this").height(function(index,height){
+    console.log(index);<i class="color0">//这也是个迷</i>
+    return height+10;
+  });
+});
+
+<i class="color4">innerWidth()</i>返回窗口的文档显示区的宽度。
+<i class="color4">innerHeight()</i>返回窗口的文档显示区的高度。
+
+参考于http://www.365mini.com/page/jquery-outerwidth.htm
+<i class="color4">outerWidth([options])</i>
+<i class="color4">outerHeight([soptions])</i>
+
+outerWidth() = width + padding + border;
+outerWidth(true) = width + padding + border + margin;
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

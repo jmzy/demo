@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../js/angular.min.js"></script>
+		<style type="text/css">
+			.dashed{height:1px;border:none;border-top:1px dashed #0066CC}
+			.solid{height:1px;border:none;border-top:2px solid red}
+		</style>
+	</head>
+	<body ng-app="app">
+		<div ng-controller='myCtrl'>
+
+			{{filter|currency}} <!-- $12,345.13 -->
+			<!-- 货币转换、默认千位，(逗号)分割、只带两个小数点、默认四舍五入-->
+			<hr class="dashed"/>
+			{{filter|currency:'@'}} <!-- @12,345.13 -->
+			<!-- 可更换最前的符号、其他不变 -->
+			<hr class="dashed"/>
+			{{filter|currency:'￥':3}} <!-- ￥12,345.126 -->
+			<!-- 对小数点位可以控制位数、亦四舍五入 -->
+			<hr class="dashed" />
+			{{filter1|currency:'￥':3}} <!-- ￥12,345.126 -->
+			<!-- 数字和字符串结果1样 -->
+			<hr class="solid"/>
+			{{filter|number}} <!-- 12,345.126  -->
+			<br />
+			{{filter1|number}} <!-- 12,345.126 -->
+			<!-- 默认千位，(逗号)分割、只带3个小数点、默认四舍五入 -->
+			<hr class="dashed"/>
+			{{filter1|number:2}} <!-- 12,345.13 -->
+			<!-- 默认千位，(逗号)分割、默认四舍五入、可控制小数位数 -->
+			<hr class="solid" />
+			{{filter2|lowercase}} <!-- baidu  -->
+			<!--切换小写-->
+			<br />
+			{{filter2|uppercase}} <!-- BAIDU -->
+			<!--切换大写-->
+			<hr class="solid" />
+			{{str|limitTo:2}} <!-- 百度  -->
+			<br />
+			{{str|limitTo:-2}} <!-- 知道  -->
+			<!-- 对字符串截取、负数值为倒截取 -->
+			<br />
+			{{str.slice(0,5)}} <!-- 百度一下你 -->
+			<!--js原生方法-->
+			<hr class="dashed" />
+			多数据合并只能使用js原生<br />
+			只用ng调用过滤器会报错<br />
+			ng和原生1起写不报错但实现不了效果<br />
+			<br />
+			{{str.slice(0,5)+filter1|number}} <!-- 无效果 -->
+			<!--{{filter|number+filter1|number}} 报错-->
+			{{str.slice(0,5) + "+" + str.slice(5,8)}} <!-- 百度一下你+就知道  -->
+			<hr class="solid" />
+			{{time|date:'yy年MM月dd日 HH:mm:ss'}}<br/> <!-- 17年04月03日 22:30:50 -->
+			{{time|date:'yyyy年mm月dd日  hh时MM分SS秒 星期EEEE'}}<br/> <!-- 2017年30月03日 10时04分SS秒 -->
+			{{time|date:'yy年 hh:mm h:mma'}} <!-- 7年 -->
+			<!--大小写莫名、小写稳妥、yy|yyyy使用、可自加字符、根据需要提取
+				月份大写MM、小时大写是24小时、小写是12小时制
+				hh:mm形式是24小时制、h:mma--12小时制 带a显示PM/AM
+			-->
+			<hr class="solid" />
+			{{data|orderBy:'id'}}<br/><!-- 定制条件、默认false(升序)、true(降序) -->
+			<!--[{"id":1,"title":"百度"},{"id":2,"title":"淘宝"},{"id":3,"title":"腾讯"}]-->
+			{{data|orderBy:'id':true}}<br/>
+			<!--[{"id":3,"title":"腾讯"},{"id":2,"title":"淘宝"},{"id":1,"title":"百度"}]-->
+			<hr class="solid" />
+			{{data|filter:1}}<!-- [{"id":1,"click":100,"title":"百度"}] -->
+			<br />
+			{{data|filter:'title'}}<!-- [] 空-->
+			<!-- 匹配注意对应是否字符串、返回带[] -->
+			<hr class='solid'/>
+			{{data1}}
+			<br />
+			<button ng-click='orberBy()'>触发</button>
+			<hr class="solid" />
+			{{data1}}
+			<br />
+			<button ng-click="orberBy2('id')">升降序</button>
+			<hr class="solid" />
+			<table border="1" width='600'>
+				<tr>
+					<td ng-click='listOrberBy("id")'>
+						id
+						<span style='color:red' ng-if='status.id == false'>升</span>
+						<span style='color:red' ng-if='status.id == true'>降</span>
+					</td>
+					<td ng-click='listOrberBy("name")'>
+						name
+						<span style='color:red' ng-if='status.id == false'>升</span>
+						<span style='color:red' ng-if='status.id == true'>降</span>
+					</td>
+					<td ng-click='listOrberBy("age")'>
+						age
+						<span style='color:red' ng-if='status.id == false'>升</span>
+						<span style='color:red' ng-if='status.id == true'>降</span>
+					</td>
+					<td ng-click='listOrberBy("address")'>
+						address
+						<span style='color:red' ng-if='status.id == false'>升</span>
+						<span style='color:red' ng-if='status.id == true'>降</span>
+					</td>
+				</tr>
+				<tr ng-repeat="a in list">
+					<td>{{a.id}}</td>
+					<td>{{a.name}}</td>
+					<td>{{a.age}}</td>
+					<td>{{a.address|changeAddress:2}}</td>
+				</tr>
+			</table>
+			<hr class="solid" />
+        </li>
+		</div>
+		<script>
+			var app = angular.module('app',[])
+			app.controller('myCtrl',function($scope,$filter){
+				$scope.filter = 12345.1255;
+				$scope.filter1 = "12345.12567";
+				$scope.filter2 = "BAIDU";
+				$scope.str = "百度一下你就知道";
+				$scope.time = new Date().getTime();
+				$scope.data = [
+						{id:1,title:"百度"},
+						{id:2,title:"淘宝"},
+						{id:3,title:"腾讯"},
+					];
+				//封装orberBy toggle
+				$scope.data1 = [
+					{id:1,title:"百度"},
+					{id:2,title:"淘宝"},
+					{id:3,title:"腾讯"},
+					];
+				$scope.a = true;
+				var b = $scope.data1;
+				$scope.orberBy = function(){
+					$scope.a = !$scope.a;
+					if($scope.a){
+						$scope.data1 = b;
+					}else{
+						$scope.data1 = $filter('filter')($scope.data1,1);
+					}
+				};
+				$scope.orberBy2 = function(id){
+					if($scope.qq == undefined){$scope.qq=false};
+					$scope.qq = !$scope.qq;
+					$scope.data1 = $filter('orderBy')($scope.data1,id,$scope.qq);
+				};
+				//综合指令、过滤器、封装$filter、orberBy、toggle升降序
+				$scope.list = [
+		            {id:1,name:'a',age:10,address:"荔湾区荔湾路100号"},
+		            {id:2,name:'b',age:20,address:"佛山市大沥区"},
+		            {id:3,name:'c',age:30,address:'海珠区赤岗1号'},
+		            {id:4,name:'d',age:40,address:"天河区正佳广场1楼"},
+		            {id:5,name:'e',age:50,address:'增城区新开发'}
+		        ];
+		        $scope.status = {id:false,name:false,age:false,address:false}
+		        $scope.listOrberBy = function(field){
+		        	$scope.status[field] = !$scope.status[field]
+					$scope.list = $filter('orderBy')($scope.list,field,$scope.status[field]);
+		        };
+			})
+	        //自定义filter
+	       	app.filter('changeAddress',function(){
+	       		return function(address,len){
+	       			len = len?len:0;
+	       			//len === len?len:len=0;
+	       			return address.substr(0,0+len) +  new String('***');
+	       		}
+	       	})
+		</script>
+	</body>
+</html>

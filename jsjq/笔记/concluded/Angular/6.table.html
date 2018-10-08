@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>AngularJS表格测试</title>
+		<style>
+			form{margin:50px auto;width:300px}
+			input{padding-left:10px}
+			textarea{resize:none;margin-top:10px;display:block}
+			input[]
+		</style>
+		<script src="../../js/angular.min.js"></script>
+		<script>
+			angular.module('app',[])
+			.controller('myForm',function($scope){
+				$scope.pStyle = {'margin':0,'padding':0};
+				$scope.labelStyle = {'width':'80px','display':'inline-block'};
+				$scope.a = false;
+				$scope.toggle = function(){
+					$scope.a = !$scope.a;
+				};
+				$scope.reset = function(){
+					return $scope.user = null;
+				};
+				$scope.submit = function(){
+					var save;
+					$scope.save = angular.copy($scope.user);
+					return false;
+				}
+			})
+			.directive('compare',function(){
+				var o = {};
+				o.strict = "AE";
+				o.scope = {
+					orgText : '=compare'
+				}
+				o.link = function(sco,ele,att,con){
+					con.$validator.compare = function(v){
+						return v == sco.orgText;
+					}
+					sco.$watch('orgText',function(){
+						con.$validate();
+					})
+				}
+				o.requie = "ngModel";
+				
+				return o;
+			})
+			
+//			var cont = 0;
+//			for(var i in angular){
+//				cont++;
+//				if(angular.isFunction(angular[i])){
+//					console.log(cont + "--" + i + "--" + angular[i])
+//					}
+//			}
+		</script>
+	</head>
+	<body>
+		<div ng-app="app">
+			<form name="myForm" ng-controller='myForm' action="">
+				<fieldset>
+					<legend>AngularJS表格测试</legend>
+					<p ng-style='pStyle'>
+						<label ng-style='labelStyle'>用户名：</label>
+						<input ng-model="user.name" type="text" placeholder="请输入用户名" />
+					</p>
+					<p ng-style='pStyle'>
+						<label ng-style='labelStyle'>密码：</label>
+						<input ng-model="user.passa" type="password" placeholder="请输入密码" />
+					</p>
+					<p ng-style='pStyle'>
+						<label ng-style='labelStyle'>确认密码：</label>
+						<input ng-model="user.passb" compare="user.passa"
+							type="password" placeholder="请确认密码" />
+					</p>
+					<p ng-style='pStyle'>
+						<label ng-style='labelStyle'>性别：</label>
+						<input type="radio" name='sex' />男
+						<input type="radio" name='sex' />女
+					</p>
+					<p ng-style='pStyle'>
+						<label ng-style='labelStyle'>学习课程：</label>
+						<select style='width:155px'>
+							<option>--------- 请选择 ---------</option>
+							<option>Html</option>
+							<option>CSS</option>
+							<option>JavaScript</option>
+						</select>
+					</p>
+					<div>
+						<p ng-click="toggle()" style="margin-top:20px;">
+						点击更多 --↓
+						</p>
+						<p ng-style='pStyle' ng-show='a'>
+							<label ng-style='labelStyle'>日常爱好：</label>
+							<input type="checkbox" />游戏
+							<input type="checkbox" />打球
+							<input type="checkbox" />睡觉
+						</p>
+						<textarea ng-show='a' placeholder='备注' cols="30" rows="5"></textarea>
+					</div>
+					<input type="button" value='重置' ng-click="reset()"/>
+					<input type="button" value='提交' ng-click="submit()" onclick='submit()'/>
+				</fieldset>
+				<div>
+				<p ng-style='pStyle'>用户名：{{save.name}}</p>
+				<p ng-style='pStyle'>密码：{{save.password}}</p>
+				<p ng-style='pStyle'>性别：{{save.sex}}</p>
+				<p ng-style='pStyle'>学习课程：{{user.sex}}</p>
+				<p ng-style='pStyle'>日常爱好：{{user.sex}}</p>
+				<p ng-style='pStyle'>备注：{{user.sex}}</p>
+				</div>
+			</form>
+		</div>
+
+		
+	</body>
+</html>

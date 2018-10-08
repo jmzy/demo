@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Number类型</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                Number类型
+            </h1>
+            <section>
+                <h5>
+                    数值的创建
+                </h5>
+                <p>
+                    创建数值：<br/>
+                    var a = 10;<br/>
+                    var  a = Number(11);//效果都是创建数值<br/><br/>
+
+                    &lt;script&gt;<br/>
+                    &nbsp;&nbsp;var a = 10;<br/>
+                    &nbsp;&nbsp;var b = Number(11);<br/>
+                    &nbsp;&nbsp;console.log(a + "==" + b);//10==11<br/>
+                    &lt;/script&gt;
+                </p>
+            </section>
+            <section>
+                <h5>
+                    额外知识<i class="color4">浮点数出现的细微之差</i>
+                </h5>
+                <p>
+                    注意：	浮点数出现的细微之差<br/>
+                    0.1 + 0.2  !=  0.3     false<br/>
+
+                    &lt;script&gt;<br/>
+                    &nbsp;&nbsp;var a = 0.1;<br/>
+                    &nbsp;&nbsp;var b = 0.2;<br/>
+                    &nbsp;&nbsp;console.log(a + b == 0.3);//flase<br/>
+                    &nbsp;&nbsp;console.log(a + b);//0.30000000000000004<br/>
+                    &lt;/script&gt;<br/><br/>
+
+                    还有 10/3、1/3、<br/><br/>
+
+                    这样是没问题的<br/>
+                    &lt;script&gt;<br/>
+                    &nbsp;&nbsp;var a = 0.01;<br/>
+                    &nbsp;&nbsp;var b = 0.02;<br/>
+                    &nbsp;&nbsp;console.log(a + b == 0.03);//true<br/>
+                    &nbsp;&nbsp;console.log(a + b);//0.03<br/>
+                    &lt;/script&gt;
+                </p>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+
+</body>
+</html>
+

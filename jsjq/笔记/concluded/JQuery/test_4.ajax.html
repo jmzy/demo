@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery ajax 1</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+		<style>
+			#div1{width: 200px;height:200px;background: skyblue;
+				border:1px solid gold;text-align: center;line-height: 200px;}
+		</style>
+	</head>
+	<body>
+		<button id="btn1">按钮1</button>
+		<button id="btn2">按钮2</button>
+		<button id="btn3">按钮3</button>
+		<button id="btn4">按钮4</button>
+		<div id="div1"></div>
+		<script>
+
+			$(function(){
+				//提取信息 本地提取
+				$('#btn1').click(function(){
+					$.ajax({
+						url:'text_4.1.ajax.txt',
+						success:function(result){
+							$('#div1').text(result);
+						}
+					})
+				});
+
+				//提取js文件并运行
+				$('#btn2').click(function(){
+					$.ajax({
+						type: "GET",
+						url: "text_4.2.ajax.js",
+						dataType: "script"
+					})
+				});
+				
+				//500 Internal Server Error
+				//保存数据到服务器，成功时显示信息
+				$('#btn3').click(function(){
+					$.ajax({
+						type: "POST",
+						url:'text_4.3.ajax.php',
+						data:'name = name & password = 123',
+						success:function(msg){
+							alert('data saved' + msg);
+						}
+					})
+				});
+				
+				//装入一个 HTML 网页最新版本
+				//★注意：再次点击也会再次增加
+				$('#btn4').click(function(){
+					$.ajax({
+						url:'text_4.4.ajax.html',
+						cache:true,
+						success:function(html){
+							$('#div1').append(html);
+						}
+					})
+				});
+				
+				//同步加载数据。发送请求时锁住浏览器。需要锁定用户交互操作时使用同步方式。
+				var html = $.ajax({
+				  	url: "some.php",
+				  	async: false
+				 }).responseText;
+			})
+		</script>
+	</body>
+</html>

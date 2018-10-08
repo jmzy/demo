@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html np-app="app">
+	<head lang="en">
+	    <meta charset="UTF-8">
+	    <title>AngularJS 验证表单</title>
+	    <style>
+	        h2{text-align:center}
+	        form{font-size:13px;}
+	        label{word-spacing:9px;}
+	        input[type=text],input[type=password]{width:70%}
+	        input[type=file]{margin:10px}
+	        input[type=radio]{margin-left:-10px}
+	        select{width:150px;height:20px;}
+	        input[type=submit]{width:100%;margin:10px 0}
+	        p{margin:0;padding:0}
+	
+	        #all{width:300px;margin:8% auto}
+	        #img{vertical-align:middle;margin:10px 0}
+	        button{margin:10px auto;width:80px;display:block}
+	        #img img{width:50px;height:50px;margin-left:30px;border-radius:50%}
+	    </style>
+	</head>
+	<body>
+		<div id="all" ng-controller="myForm">
+		    <h2>AngularJS 验证表单</h2>
+		    <form action="">
+		        <fieldset>
+		            <legend>注册表</legend>
+		            <div>
+		                <label>用户名&nbsp;：</label><input type="text" placeholder="  请输入用户名"/><br/><br/>
+		                <label>密&nbsp;码&nbsp;：</label><input type="password" placeholder="  密&nbsp;&nbsp;&nbsp;码"/><br/><br/>
+		                <label>确认密码：</label><input type="password" placeholder="  确认密码"/><br/><br/>
+		                <label>性&nbsp;别：<label>
+		                <input type="radio" name="sex"/>男
+		                <input type="radio" name="sex"/>女<br/><br/>
+		                	学习课程：
+		                <select name="course" id="">
+		                    <option value="0"> -- 请选择 -- </option>
+		                    <option value="1">HTML</option>
+		                    <option value="2">CSS</option>
+		                    <option value="3">JavaScript</option>
+		                </select>
+		            </div>
+		        </fieldset>
+		        <fieldset>
+		            <legend>其他</legend>
+		            兴趣爱好
+		            <input type="checkbox"/>打球
+		            <input type="checkbox"/>游戏
+		            <input type="checkbox"/>码代码
+		        </fieldset>
+		        <input type="submit" value="提交"/>
+		    </form>
+		    <div ng-show="false">
+		    	<p>用户名：{{1+2}}</p>
+		    	<p>密码：</p>
+		    	<p>性别：</p>
+		    	<p>学习课程：</p>
+		    	<p>兴趣爱好：</p>
+		    </div>
+		</div>
+		<script src="../../js/angular.min.js"></script>
+		<script>
+			angular.module('app',[])
+			.controller('myForm',function($scope){
+				
+			})
+		</script>
+	</body>
+</html>

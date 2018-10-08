@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE2 mixins</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+    <style>
+        button{margin-top:20px}
+    </style>
+</head>
+<body>
+<div id="app">
+    <popup1></popup1>
+    <popup2></popup2>
+</div>
+<script>
+    let base = {
+        data: function(){
+            return {
+                visible: false,
+            }
+        },
+        methods: {
+            show: function(){
+                this.visible = true
+            },
+            hide: function(){
+                this.visible = false
+            },
+            toggle: function(){
+                this.visible = !this.visible
+            }
+        }
+    }
+
+    Vue.component('popup1',{
+        template: `
+            <div>
+                <button @mouseenter="show" @mouseleave="hide">mouseenter</button>
+                <div v-if="visible">
+                    <p>mouse title</p>
+                    <p>mouseenter bbbbbbbbbbbbb</p>
+                </div>
+            </div>
+        `,
+        mixins: [base]
+
+    });
+
+    Vue.component('popup2',{
+        template: `
+            <div>
+                <button @click="toggle">显示/隐藏</button>
+                <div v-if="visible">
+                    <p>click title</p>
+                    <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                </div>
+            </div>
+        `,
+        mixins: [base],
+        data: function(){
+            return {
+                visible: true
+            }
+        }
+    });
+
+    let app = new Vue({
+        el: '#app'
+
+    })
+
+
+
+</script>
+</body>
+</html>

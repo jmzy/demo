@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>函数的callback</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				函数的callback
+            </h1>
+            <section>
+                <h5>
+					callback 回调函数
+					<i class="color0"><出处 脚本之家 junjie ></i>
+                    <a href="http://www.jb51.net/article/62258.htm" class="color4" style="float:right">更详细</a>
+                </h5>
+                </h5>
+                <pre>
+ 你到一个商店买东西，刚好你要的东西没有货，于是你在店员那里留下了你的
+ 电话，过了几天店里有货了，店员就打了你的电话，然后你接到电话后就到店
+ 里去取了货。在这个例子里，你的电话号码就叫回调函数，你把电话留给店员
+ 就叫登记回调函数，店里后来有货了叫做触发了回调关联的事件，店员给你打
+ 电话叫做调用回调函数，你到店里去取货叫做响应回调事件
+ 
+ 函数A作为参数(函数引用)传递到另一个函数B中，并且这个函数B执行函数A。
+ 我们就说函数A叫做回调函数。如果没有名称(函数表达式)，就叫做匿名回调
+ 函数。
+ 实际上，也就是把函数作为参数传递。
+ 
+ 事例
+ function add_callback(p1, p2 ,callback) {
+     var my_number = p1 + p2;
+     callback(my_number);
+}
+
+add_callback(5, 10, function(num){
+     console.log("call " + num);
+});
+
+callback是函数A类数组最后的参数，以函数(新函数)调用并可获得函数A的传参
+                </pre>
+            </section>
+            <section>
+                <h5>
+
+                </h5>
+                <pre>
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+
+                </h5>
+                <pre>
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+
+                </h5>
+                <pre>
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+
+                </h5>
+                <pre>
+
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+<script>
+
+</script>
+</body>
+</html>
+

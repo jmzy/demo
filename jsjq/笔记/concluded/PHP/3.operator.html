@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>PHP 运算符</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				PHP 运算符
+            </h1>
+            <section>
+                <h5>
+					PHP 运算符
+                </h5>
+                <pre>
+-- 运算符优先级
+
+-- 算术运算符
+  +加  -减  *乘  /除  %求余
+
+-- 赋值运算符
+=    把右边值赋值给左边的变量
+
+-- 比较运算符
+  >大于  <小于  >=大于等于  <=小于等于 
+  ==等于  !=(<>)不等于  !==(不全等于) ==等于 ===全等于
+
+-- 递增/递减运算符
+  ++ -- (+= 1; -= 1);
+
+-- 禁止显示警告信息<i class="color0">★有疑问</i>
+@    函数、变量、常量前来进制显示错误的警告信息、
+     不可以放在条件结构语句中 if、while、foreach
+     一般来说放在有返回值的
+
+-- 三元表达式
+表达式1?(表达式1为true执行)表达式2:(表达式1为false执行)表达式3;
+
+-- 字符串/数组运算符
+-- 类型运算符
+-- 错误控制和执行运算符
+                </pre>
+            </section>
+            <section>
+                <h5>
+                	-- 逻辑运算符
+                </h5>
+                <pre>
+  逻辑与 and或$$ 
+  逻辑或 or或|| 左右两变表达式有1个为true 返回 true
+  逻辑非 not或者! 当为真时返回假、当会假时返回真
+ 逻辑异或 xor 当左右表达式有1个为 true 返回真、其他情况均为返回false
+ 例 true xor true 返回false
+                </pre>
+            </section>
+            <section>
+                <h5>
+					-- 位逻辑算符
+                </h5>
+                <pre>
+1.& 按位与 当左右两边的数：同位都为1、返回是1、否则为0
+2.| 按位或 当左右两边的数：同位都为0时候、返回0、否则为1
+3.^ 按位异或 当左右两边的数：只有当同位不同时候、返回1、否则为0 <i class="color0">★</i>
+4.~ 按位非  降为中的1变成0、0变成1
+- 位移运算符
+5.<< 左移 将左边数的二进制位左移右边数指定数量的位、左边空位补0
+6.>> 右移 将右边数的二进制位左移右边数指定数量的位、右边空位补0
+                </pre>
+            </section>
+            <section>
+                <h5>
+					连接运算符
+                </h5>
+                <pre>
+.    连接两个参数生成新的字符串
+.=   连接运算符、把右边的值、追加到左边变量
+                </pre>
+            </section>
+            <section>
+                <h5>
+					运算符的短路
+                </h5>
+                <pre>
+||逻辑或  与   $$ 逻辑 会存在短路
+$a = 1;
+$a == 1 || $b = 2;//第2个表达式是1个赋值表达式、生成$b
+//第1个表达式为真、后面不会执行会短路
+//echo $b;//不执行
+echo "$b =".$b;//$b =  ;//反正会报错
+
+
+|按位或  与  $按位与  不存在短路
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>关于String的1些方法</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                关于String的1些方法
+            </h1>
+            <section>
+                <h5>
+                    获得字符串最后1个字符
+                </h5>
+                <pre>
+&lt;script&gt;
+1、console.log(str.charAt(str.length-1));
+
+2、substr方法
+console.log(str.substr(str.length-1,1));
+
+3、String对象下的split方法
+var a = str.split("");//split()用于把一个字符串分割成字符串数组
+document.write(a[a.length-1]);
+
+4、正则表达式处理
+var s = "nasofj;n234n41;v";
+alert("String: "+s+"--"+"LastOne: ";
++s.replace(/^(.*[n])*.*(.|n)$/g, "$2"));
+<i class="color0">★</i>-----//这个正则没看懂
+&lt;script&gt;
+
+//参考来源于：http://www.jb51.net/article/57383.htm
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    //Array转换成string
+                </h5>
+                <pre>
+&lt;script&gt;
+//1.
+var a = new Array(0,1,2,3,4);
+var b = a.join("-");
+console.log(b);//0-1-2-3-4
+document.write(typeof b);//string
+
+//2.
+var a = new Array(0,1,2,3,4);
+var b = a.toString();
+var c = new Array(0,1,2,3,4).toString();
+console.log(b);//0,1,2,3,4
+console.log(new Array(c);//0,1,2,3,4
+document.write(typeof b);//string
+document.write(typeof c);//string
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                   string转换成Array、<i class="color4">★</i>是否用数组方法就可以直接把string转Array
+                </h5>
+                <pre>
+&lt;script&gt;
+var a = "123456789";
+b = a.split(",");
+console.log(b + "--" + a.length + "--" + b.length + "--" +typeof(b));
+//123456789--9--1--object
+
+document.write(b.constructor === Array);
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    json转换成字符串
+                </h5>
+                <pre>
+&lt;script&gt;
+var a = {"name":"a","sex":"girl","age":"18"};
+var b = '{"name":"b","sex":"女","age":"19"}';
+document.write(typeof a + "<br/>");//object //json对象
+document.write(typeof b + "<br/>");//string
+
+var c = JSON.stringify(a);
+document.write(typeof c);//string
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    string对象转化成json对象
+                </h5>
+                <pre>
+&lt;script&gt;
+var d = JSON.parse(b);
+document.write(typeof d);//stringobject
+document.write(d + "<br/>");//stringobject[object Object]
+document.write(JSON.stringify(d)+ "<br/>");//{"name":"b","sex":"女","age":"19"}
+
+var e = eval("("+b+")");
+document.write(typeof e + "<br/>");//object
+document.write(JSON.stringify(e)+ "<br/>");//{"name":"b","sex":"女","age":"19"}
+&lt;script&gt;
+
+参考于：http://blog.csdn.net/yali1990515/article/details/47658099
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

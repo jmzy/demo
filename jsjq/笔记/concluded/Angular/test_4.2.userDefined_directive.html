@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2 user defined Directive</title>
+		<script src="../../../app/lib/angular.min.js"></script>
+		<style>
+
+		</style>
+	</head>
+	<body ng-app='app' ng-controller='ctrl'>
+		<hello></hello>
+		<hi></hi>
+		<hr />
+		<input type="text"  ng-model='color'/>
+		<color></color>
+		<script>
+			var app = angular.module('app',[]);
+			app.directive('hello',function(){
+				return{
+					template:'<h1 style="color:red">this is hello element</h1>'
+				}
+			})
+			app.directive('hi',function(){
+				return{
+					template:'<h1 style="color:green">this is hi element</h1>',
+					replate:false
+				}
+			})
+			//----------------------------------------------------------
+			app.directive('color',function(){
+				return{
+					template:function(ele,attr){
+						
+					}
+				}
+			})
+			app.controller('ctrl',function($scope){
+				
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>合拼数组</title>
+    <style>
+        label{width:100px;display:inline-block}
+        input[type=text]{width:300px}
+        button{width:80px;margin:5px 10px}
+        button:nth-of-type(1){margin-left:100px}
+
+        #content{width: 820px;margin:50px auto}
+        h3{margin-bottom: 30px}
+        #content>div{display:inline-block}
+        #left{width:450px;}
+        #right{width:350px;vertical-align:top}
+        textarea{font-size:19px;}
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h3>记录1下、就有某一天、看不开、查域名觉的很麻烦写了这个合拼数组出来</h3>
+        <div id="left">
+            <button id="sub">提交</button>
+            <button id="remove">清空</button>
+            <div id="div">
+                <label for="arr1">合拼字符1：</label><input type="text" name="arr1" placeholder="数组以, (半)或者 (空格隔开)"/>
+            </div>
+        </div>
+        <div id="right">
+            <textarea id="txt" name="txt" cols="48" rows="12" placeholder="结果"></textarea>
+        </div>
+    </div>
+
+    <script>
+        var divDom = document.getElementById('div'),
+            sub = document.getElementById('sub'),
+            remove = document.getElementById('remove'),
+            add = document.getElementById('add'),
+            txtDom = document.getElementById('txt');
+
+        for(var i=2;i<11;i++){
+            var brDom = document.createElement('br'),
+                labelDom = document.createElement('label'),
+                inputDom = document.createElement('input');
+            labelDom.setAttribute('for','arr' + i);
+            labelDom.innerText = '合拼字符' + i + '：';
+            inputDom.setAttribute('name','arr' + i);
+            inputDom.setAttribute('type','text');
+            inputDom.setAttribute('placeholder','数组以, (半)或者 (空格隔开)');
+            divDom.appendChild(brDom);
+            divDom.appendChild(labelDom);
+            divDom.appendChild(inputDom);
+        }
+
+        remove.onclick = function(){
+            for(var i=0;i<inputDom.length;i++){
+                inputDom[i].value = ''
+            };
+            txtDom.value = '';
+        };
+
+
+        var a = [1, 2, 3, 6, 8],
+                b = ['me','wei', 'free', 'to'],
+                c = ['n', 'm'];
+        var arr = [a,b,c];
+
+        var result = [];
+
+        //把数组的内容合并到1个数组里
+//        var newAll = [];
+//        arr.map(function(val,index,arrThis){
+//            val.map(function(val,o){
+//                newAll.push(val);
+//            });
+//        });
+
+        var newAll = a.concat(b,c);
+
+        for(var i = 0;i<newAll.length-1;i++){
+            for(var o = 1;o <newAll.length;o++){
+                result.push(newAll[i].toString() + newAll[o])
+            }
+        }
+        txtDom.innerHTML = result.join('\n');
+
+
+
+
+
+//    最近遇到1个问题
+//    多维数组组合、并顺序调转、想不到思路
+//
+//    场景、关键词组合
+//    arr1 = [1,2];
+//    arr2 = ['a','b'];
+//    arr3 = ['一','二'];
+//    ...
+//    想到达的效果是
+//    var arrAll = [
+//        //二维循环组合
+//        [1,'a'],[1,'b'],[1,'一'],[1,'二'],
+//        [2,'a'],[2,'b'],[2,'一'],[2,'二'],
+//        ['a',1],['a',2],['a','一'],['a','二'],
+//        ['b',1],['b',2],['b','一'],['b','二'],
+//        ['一',1],['一',2],['一','a'],['一','b'],
+//        ['二',1],['二',2],['二','a'],['二','b'],
+//
+//        //三维循环组合 顺
+//        [1,'a','一'],[1,'b','二'],[1,'一','a'],[1,'二','b'],
+//        [2,'a','一'],[2,'b','二'],[2,'一','a'],[2,'二','b'],
+//        ['a',1,'一'],['a',2,'一'],['a','一',1],['a','二',1],
+//        ['b',1,'一'],['b',2,'一'],['b','一',1],['b','二',1],
+//        ['一',1,'a'],['一',2,'a'],['一','b',1],['一','b',2],
+//        ['二',1,'a'],['二',2,'a'],'二','a',1],['二','b',2],
+//
+//        //三维循环组合 带自组内组合
+//        [1,2,'a'],[1,2,'b'],[1,2,'一'],[1,2,'二'],
+//        [2,1,'a'],[2,1,'b'],[2,1,'一'],[2,1,'二'],
+//        ['a','b',1],['a','b',2],['a','b','一'],['a','b','二'],
+//        ['b','a',1],['b','a',2],['b','a','一'],['b','a','二'],
+//        ['一','二',1],['一','二',2],['一','二','a'],['一','二','b'],
+//        ['二','一',1],['二','一',2],['二','一','a'],['二','一','b'],
+//    ]
+//
+//    另外数组是变量、意思数组可能不止3个、主要是变化这怎么写
+
+    </script>
+</body>
+</html>

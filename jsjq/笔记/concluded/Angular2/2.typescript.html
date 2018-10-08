@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>typeScript 入门</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+typeScript 入门
+            </h1>
+            <section>
+                <h5>
+					typeScript 是什么鬼
+					<i class="color0"><出之百度百科></i>
+                    <a href="https://baike.baidu.com/item/typescript/4314718?fr=aladdin" class="color4" style="float:right">更详细</a>
+                </h5>
+                <pre>
+TypeScript是一种由微软开发的自由和开源的编程语言。它是JavaScript的一个超
+集，而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。安德
+斯·海尔斯伯格，C#的首席架构师，已工作于TypeScript的开发。2012年十月份，
+微软发布了首个公开版本的TypeScript，2013年6月19日，在经历了一个预览版之
+后微软正式发布了正式版TypeScript 0.9，向未来的TypeScript 1.0版迈进
+了很大一步。
+
+typeScript 是 JavaScript的超级、遵循ES6
+                </pre>
+            </section>
+            <section>
+                <h5>
+					关于 typeScript 的环境安装
+					<i class="color0"><出之官网></i>
+                    <a href="https://tslang.cn/docs/handbook/typescript-in-5-minutes.html" class="color4" style="float:right">更详细</a>
+                </h5>
+                <pre>
+使用 compiler(编译器)
+使用在线 compiler 开发
+使用本地 compiler 开发
+
+环境安装其中之一方法
+在 node 环境下安装
+1.npm install -g typescript
+2.执行tsc -v确认版本号 (有返回版本号则成功安装)
+3.编译 ts 代码为  js 代码
+  建ts文件输入代码后、在node环境下运行 tsc name.ts、则自动转换成js文件
+                </pre>
+            </section>
+            <section>
+                <h5>
+					TypeScript 的优势
+                </h5>
+                <pre>
+支持 ES6 规范
+强大的 IDE 支持
+便利重构规则
+                </pre>
+            </section>
+            <section>
+                <h5>
+					typeScript 的类型注解
+                </h5>
+                <pre>
+TypeScript里的类型注解是一种轻量级的为函数或变量添加约束的方式
+类型直接不能直接转换
+person:string 则不能为非字符串对象 
+
+function greeter(person: string) {
+    return "Hello, " + person;
+}
+
+var user = [0, 1, 2];
+document.body.innerHTML = greeter(user);
+
+重新编译，你会看到产生了一个错误。
+greeter.ts(7,26): error TS2345: Argument of type 'number[]' is not
+assignable to parameter of type 'string'.
+                </pre>
+            </section>
+            <section>
+                <h5>
+					接口
+                </h5>
+                <pre>
+看官网吧、没理顺搞不懂真正意义就不写了
+                </pre>
+            </section>
+             <section>
+                <h5>
+					类
+                </h5>
+                <pre>
+看官网吧
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

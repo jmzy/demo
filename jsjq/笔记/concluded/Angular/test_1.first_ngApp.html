@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> First AngularJS</title>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <script src="../../js/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="app">
+	<form>
+		<fieldset>
+			AngularJS 双向绑定
+			<br/><br/>
+			<div ng-controller="firstCtrl">
+			    <input type="text" ng-model="msg"/>
+			    <div ng-cloak>{{msg}}</div>
+			    <br/>
+				<hello>111</hello>
+		</fieldset>
+		<br/>
+		<!--<fieldset>
+			AngularJS 自定义标签
+    		<hello></hello>
+	    </fieldset>
+	    <br/>
+	    <fieldset>
+	    	JQuery实现双向绑定<br/>
+		    <input id="ip" type="text" />
+		    <div id='div'></div>
+		</fieldset>-->
+    </form>
+</div>
+
+<script>
+    angular.module('app',[])
+    .controller('firstCtrl',function($scope){
+        $scope.msg = "AngularJS调试"
+    })
+	.directive('hello',function(){
+		return {
+			restrict:'E',//默认是A
+			template:'<div>hello Angular、自定义标签</div>',
+			replace:true//默认true 、<i class='color0'>false也不影响</i>
+		}
+	})
+
+</script>
+
+
+</body>
+</html>

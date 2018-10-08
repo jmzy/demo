@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<style>
+    .clear:after{clear:both;content:'';display: block}
+    #main{width:400px;height:400px;}
+    .second{margin-top:10px;width:400px;height:200px;background:silver}
+    .second input{margin:0 auto;display:block}
+    .second .content{margin:10px;width:180px;height:150px;background:red;float:left}
+</style>
+<div id="main">
+    <span>str =</span>
+    <span id="str" contenteditable="true">"hello world" </span>
+    <div class="clear"></div>
+    <div class="second">
+        <input type="text" placeholder="只能写1个数字"/>
+        <div class="content"></div>
+        <div class="content"></div>
+    </div>
+    <div class="second">
+        <input type="text" placeholder="写两个数字以空格隔开"/>
+        <div class="content"></div>
+        <div class="content"></div>
+    </div>
+</div>
+<script>
+    function dom(id){
+        return document.getElementById(id);
+    };
+    function cla(cla){
+        return document.getElementsByClassName(cla)
+    }
+    var str = dom("str").innerText.trim();
+    str = str.indexOf("\"") > -1 ? str.replace("\"","").replace("\"",""):str ;
+    cla('content')[0].innerText = 11;
+
+</script>
+
+
+
+</body>
+</html>

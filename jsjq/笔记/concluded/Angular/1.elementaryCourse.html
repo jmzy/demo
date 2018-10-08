@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS 简单入门</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				AngularJS 起步、代码简单分析
+            </h1>
+            <section>
+                <h5>
+					简单实例
+                </h5>
+                <pre>
+&lt;div ng-app="myApp" ng-controller="myCtrl"&gt;
+  &lt;h1&gt;{{msg}}&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope){
+  $scope.msg = "hello AngularJS";
+});
+&lt;/script&gt;
+                </pre>
+            </section>
+			<section>
+            	<h5>
+            		<i class="color0">★</i>关于ng-app
+            	</h5>
+            	<pre>
+ng-app 是声明angular app模块的是的开始
+ng-app 的绑定会影响你的根在哪里
+  可以绑在html body 或者 div...上 、绑定后、其根就在html...
+
+<i class="color0">★</i>1个页面绑定两个ng-app 
+<i class="color0">★</i>2个页面绑定同1个ng-app 
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		关于Angular.module(参考于 破浪 博客)
+                    <a href="http://www.cnblogs.com/whitewolf/p/angular-module-declare-and-get.html" class="color4" style="float:right">原文出处</a>
+                </h5>
+            	<pre>
+module是angular代码的入口，首先需要声明module，然后才能定义
+angular中的其他组件元素，如controller、service、filter、directive、
+config代码块、run代码块等。
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		<i class="color0">★</i>关于.controller
+            	</h5>
+            	<pre>
+controller是一个javascript函数/类，用于操作作用域中，各个对象的初始状态
+以及相应的行为
+
+对元素使用 ng-controller 指令则该元素为了绑定的作用范围，
+
+事例
+&lt;div ng-app="app"&gt;
+  &lt;h3 ng-controller="firstCtrl"&gt;
+	{{1+2}}
+  &lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  angular.module('app',[])
+  .controller('firstCtrl',function($scope){
+  })
+&lt;/script&gt;
+
+对&lt;h3&gt;元素使用 ng-controller 指令、控制器为firstCtrl、则该区域都为
+firstCtrl的作用范围、因此输入angularJS命令{{ }} 就可以执行
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		关于$scope 和 {{ }} 取值表达式	
+            		<i class="color0">出处 菜鸟教程</i>
+                    <a href="http://www.runoob.com/angularjs/angularjs-scopes.html" class="color4" style="float:right">更详细</a>
+               	</h5>
+            	<pre>
+$scope(作用域) 是应用在 HTML (视图) 和 JavaScript (控制器)之间的纽带。
+
+如何使用 $scope 和 {{}} 简单事例
+&lt;div ng-app="myApp" ng-controller="myCtrl"&gt;
+  &lt;h1&gt;{{msg}}&lt;/h1&gt;· // {{ 表达式 }}
+&lt;/div&gt;
+
+&lt;script&gt;
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+  $scope.msg = "hello AngularJS";
+});
+&lt;/script&gt;
+
+AngularJS 表达式写在双大括号内：{{ 内容 }}。
+<i class='color0'>非对象字符串要+双引号之类的</i>
+            	</pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

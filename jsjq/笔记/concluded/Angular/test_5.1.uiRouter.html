@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Angularjs - ui-route</title>
+		<script src="../../js/angular.min.js"></script>
+		<script src="https://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+	</head>
+	<body ng-app='app' ng-controller='ctrl'>
+		{{1+1}}
+		<div ui-view></div>
+		<script>
+			 var app = angular.module('app',['ui.router']);
+			 app.config(function($stateProvider,$urlRouterProvider){
+			 	//默认路由
+			 	$urlRouterProvider.otherwise('/a');
+			 	//定义路由规则
+			 	$stateProvider.state('dafault',{
+			 		url:'/a',
+			 		template:'<h1>test</h1>'
+			 	})
+			 })
+			 app.controller('ctrl',function($scope){
+			 	
+			 })
+		</script>
+	</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>window</title>
+</head>
+<body>
+<script>
+//    //定时器 setInterval() setTimeout() clearInterval()
+
+//    //单次定时器即执行
+//
+//    setInterval(console.log(1),1000);               //执行1次
+//    //setInterval("console.log(2)",1000);             //注意使用,执行多次
+////------------------------------------
+//
+//    var a =  function(){
+//        console.log(1);
+//    };
+//
+//    setInterval(a(),1000);                          //执行1次
+//
+////------------------------------------
+//
+//    setTimeout(console.log(1),1000);                //执行1次
+//
+////------------------------------------
+//    setInterval(console.log(1),1000,function(){
+//        console.log(2)
+//    });                                             //报错
+//    //注意。要调用为对象定义的方法时，必须在专家模式中使用第二种语法格式。
+////------------------------------------
+//    //单次延迟定时器
+//    var a = 0;
+//    var b = setTimeout(function(){
+//        a++;
+//        console.log(a);                             //赋值隔等待时间执行
+//    },1000);
+//
+// ------------------------------------
+//    //多次执行和clearInterval 清除定时器
+//    var a = 0;
+//    var b = setInterval(function(){
+//        a++;
+//        console.log(a);
+//        if(a == 5){clearInterval(b)}                //clearInterval
+//    },1000);                                        //执行多次
+//
+//------------------------------------
+//    //setTimeout多次执行方法
+//    var num = 0,result = 10;
+//    function addNum(){
+//        num++;
+//        console.log(num);
+//        if(num < result){
+//            setTimeout(addNum,500);
+//        }else{
+//            alert("stop")
+//        }
+//    }
+//    setTimeout(addNum,500);
+//------------------------------------
+//
+//    function show(str){                             //arguments
+//        console.log(str)
+//    }
+//
+//    setInterval(show,1000,111);                     //arguments
+//
+//------------------------------------
+//    //实现不了
+//    var obj = new Object();
+//    console.log(obj.__proto__);
+//
+//    obj.interval = function(){
+//        console.log(1)
+//    };
+//    setInterval(obj,'interval',1000);
+//
+//------------------------------------
+//
+//    倒计时
+//
+//    var num = 10;
+//    var setTime = setInterval(function(){
+//        num--;
+//        console.log(num);
+//        if(num == 0 ) clearInterval(setTime);
+//    },1000)
+//
+//    console.log(screen);
+
+    //遍历window的事件
+
+//    var arr = [];
+//    for(var key in window){
+//        var str = key.toString();
+//        if( str.charAt(0).indexOf('o')>-1 && str.charAt(1).indexOf('n') >-1){
+//            arr.push(key);
+//        }
+//    }
+//    for(var i=0;i<arr.length;i++){
+//        if(i<9){
+//            document.write('0' + (i+1) + "--" + arr[i] + '<br/>')
+//        }else{
+//            document.write(i+1 + "--" + arr[i] + '<br/>')
+//        }
+//    }
+//
+//
+//    var arr = [];
+//    for(var key in window){
+//        arr.push(key);
+//    }
+//    console.log(arr.length);
+//    for(var i=0;i<arr.length;i++){
+//        console.log(arr[i])
+//    }
+
+    //delete
+
+//    var a  = 1;
+//    console.log(window.a);
+//    var b = window.c;
+//    console.log(b);
+//    var c = window.a;
+//    console.log(c);
+//    var d = window.b?window.b:1;
+//    console.log(d);
+//    console.log(delete a);
+//    console.log(a);
+//    console.log(delete window.d);
+//    console.log(window.d);
+//    window.e = 1;
+//    console.log(delete window.e);
+//    //console.log(e);//报错
+
+    //instanceof
+
+
+    //moveTO() moveBy()
+    //移动window的位置 两个参数 X Y 均被禁用,低版本游览器有机会可用
+
+//    //且只能对win最外层的对象
+//    // window.moveTO(x,y);
+//    // window.moveBy(x,y);
+//    window.moveTo(200,100);
+//    window.moveBy(200,100);
+//
+//    //调整窗口大小 两个参数 X Y 均被禁用,低版本游览器有机会可用
+//    window.resizeTo(500,500);
+//    window.resizeBy(500,500);
+
+    //window窗口大小
+
+//    console.log(window.outerWidth + '--' + window.outerHeight);//只读的整数，声明了整个窗口的XY
+//    //IE 不支持此属性，且没有提供替代的属性。
+//    var width  = window.innerWidth;
+//    var height = window.innerHeight;
+//    console.log("window.inner--" + width+ '--' + height);
+//    console.log('-------------');
+//    var width  = document.documentElement.clientWidth;
+//    var height = document.documentElement.clientHeight;
+//    console.log("document.documentElement.client--" + width + '--' + height);
+//    console.log('-------------');
+//    var width  = document.body.clientWidth;
+//    var height = document.body.clientHeight;
+//    console.log("document.body.client--" + width + '--' + height);
+//    console.log('-------------');
+//    console.log(document.compatMode);//兼容模式是否开启
+//                                     //开启CSS1Compat 否backCompat
+
+    //获得window的大小,主要因为在移动设备IE游览器上有区别
+
+//    //错误师范
+//    var h = window.innerHeight ||
+//            document.documentElement.clientHeight ||
+//            document.body.clientHeight;
+//    var w = window.innerWidth ||
+//            document.documentElement.clientWidth ||
+//            document.body.clientWidth;
+//
+//    //移动IE游览器不支持inner client
+//    //可以通过document.documentElement.client获得
+//    //compatMode判断兼容模式是否开启
+//    function windowClientXY(){
+//        var pageWidth  = window.innerWidth;
+//        var pageHeight = window.innerHeight;
+//        if(typeof pageWidth != 'number'){
+//            if(document.compatMode == 'CSS1Compat'){
+//                pageWidth  = document.documentElement.clientWidth;
+//                pageHeight = document.documentElement.clientHeight;
+//            }else{
+//                pageWidth  = document.body.clientWidth;
+//                pageHeight = document.body.clientHeight;
+//            }
+//        }
+//        return console.log("宽-" + pageWidth + ",高-" +pageHeight);
+//    }
+//    windowClientXY();
+//
+//    //分别封装
+//    function windowClientX(){
+//        var pageWidth  = window.innerWidth;
+//        if(typeof pageWidth != 'number'){
+//            if(document.compatMode == 'CSS1Compat'){
+//                pageWidth  = document.documentElement.clientWidth;
+//            }else{
+//                pageWidth  = document.body.clientWidth;
+//            }
+//        }
+//        return windowClientX = pageWidth
+//    }
+//    console.log(windowClientX());
+//
+//    function windowClientY(){
+//        var pageHeight = window.innerHeight;
+//        if(typeof pageWidth != 'number'){
+//            if(document.compatMode == 'CSS1Compat'){
+//                pageHeight = document.documentElement.clientHeight;
+//            }else{
+//                pageHeight = document.body.clientHeight;
+//            }
+//        }
+//        return windowClientY = pageHeight
+//    }
+//    console.log(windowClientY());
+
+    //window.open();        //不会更改地址头的端口
+    //obj.close();          //只使用于open打开的窗口
+
+//    function testOpen(){
+//        window.open('baidu.com')
+//    }
+//    testOpen();
+//
+//    var obj = window.open('baidu.com','命名',
+//            "width=500,height=500,top=0;left=0");
+//    obj.close();            //即时关闭窗口的引用还在.
+//                            //可以检测 obj.closed 返回true
+//
+//    window.location.href="http://www.baidu.com";//改变当前窗口并改变端口
+
+    //window位置操作
+
+//    window.location = "www.baidu.com"  直接改变当前url    //效果一样
+//    location.href = "www.baidu.com";
+//    location.assign('www.baidu.com');
+
+    //系统对话框
+
+//    alert(1);
+//
+//    confirm()
+//    if(confirm('y or n')){
+//        alert('y?')
+//    }else{
+//        alert('n?')
+//    }
+//
+//    prompt()
+//    var result = prompt('who','');
+//    if(result !== null){
+//        alert(result + '???')
+//    }else{
+//        alert('...')
+//    }
+//    console.log(result);
+
+    //遍历console
+
+//    var i = 0;
+//    for(var key in console){
+//        i++;
+//        if(i<10){
+//            document.write('0' + i + '---' + key + '<br/>')
+//        }else{
+//            document.write(i + '---' + key + '<br/>')
+//        }
+//    }
+
+    //其他
+
+//    window.print();         //打印出来
+//    window.find();          //无效果
+
+//    console.log(new String());
+
+
+//    var a = [[x11,y11],[x12,y12]];
+//    var b = [[x21,y21],[x22,y22]];
+
+
+</script>
+</body>
+</html>

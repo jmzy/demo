@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Q test DOM_CSS 3 && test BOM_CSS</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+		<style>
+			*{margin:0;paddin:0;}
+			p{font-size:16px;}
+			div:last{position: relative;}
+		</style>
+	</head>
+	<body>
+		<p>Hello</p>
+		<p>2nd Paragraph</p>
+		<script>
+			$("p:last").html( "left: " + $("p:last").offset().left +
+				", top: " + $("p:last").offset().top );
+//			console.log($("p:last").offset());
+//			console.log($("p:last").offset($(this)));
+			$("p:last").offset({left: 30 , top: 10});
+			//预设置position：relative
+			//p 默认
+			//font-size 16px;
+			//padding top和buttom 各2.5px //chrome
+			//height 21px;
+			//所以此时p：last的top为-11px;
+		</script>
+		<hr />
+		<div>Hello</div>
+		<div>2nd Paragraph</div>
+		<script>
+			$("div:last").html( "left: " + $("div:last").position().left + 
+				", top: " + $("div:last").position().top );
+//			console.log($("div:last").position());//返回JSON
+			$("div:last").position({ left: 10, top: 20});//没效果
+//			console.log($("div:last").position(1));//返回JSON
+//			console.log($("div:last").position(true));//返回JSON
+		</script>
+		<hr />
+		<h5>111111</h5>
+		<h5>222222</h5>
+		<h5>333333</h5>
+		<h5>444444</h5>
+		<h5>555555</h5>
+		<h5>666666</h5>
+		<script>
+			$("h5:eq(1)").text( "scrollLeft:" + $(this).scrollLeft() );
+			$("h5:eq(2)").text( "scrollTop:" + $(this).scrollTop() );
+			
+			$("h5:first").scrollLeft(-10000);
+			$("h5:eq(5)").scrollTop(3000);
+			
+			$("h5:eq(3)").text( "scrollLeft:" + $(this).scrollLeft() );
+			$("h5:eq(4)").text( "scrollTop:" + $(this).scrollTop() );
+		</script>
+	</body>
+</html>

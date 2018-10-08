@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE2 computed get 和 set 方法</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{fullName}}</p>
+    <button @click="deal">click</button>
+</div>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data:{
+            firstName: 'li',
+            lastName: 'lei'
+        },
+        methods: {
+            deal(){
+                this.fullName = 'hello world!'
+            }
+        },
+        computed: {
+            fullName: {
+                get(){
+                    return this.firstName + ' ' + this.lastName
+                },
+                set(str){
+                    const strArr = str.split(' ')
+                    this.firstName = strArr[0]
+                    this.lastName = strArr[1]
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

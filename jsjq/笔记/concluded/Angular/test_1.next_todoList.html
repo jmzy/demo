@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="todoList">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>todoList</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		.list-group-item{position:relative}
+		#li-a{position:absolute;right:10px}
+	</style>
+	<script src="../../js/angular.min.js"></script>
+</head>
+<body ng-controller="TaskCtrl">
+    <div class="input-group">
+        <input ng-model="task" type="text" class="form-control"/>
+        <span class="input-group-btn">
+            <button class="btn btn-default" ng-click="addList()">提交</button>
+        </span>
+    </div>
+   	<h1 style='color:red;text-align:center;'>{{error}}</h1>
+    <h4 ng-if="tasks.length>0">任务列表</h4>
+    <ul class="list-group">
+        <li ng-repeat="item in tasks" class="list-group-item">
+        	{{item}}
+        	<a id="li-a" ng-click="tasks.splice($index,1)">删除</a>
+        </li>
+    </ul>
+</body>
+
+<script type="text/javascript">
+    angular.module('todoList',[])
+    .controller('TaskCtrl',function($scope){
+        $scope.task = "";
+        $scope.tasks = [];
+        $scope.addList = function(){
+            for(var i=0;i<$scope.tasks.length;i++){
+            	if($scope.task == $scope.tasks[i]){
+            		$scope.error = '不能重复添加';
+            		$scope.task = "";
+            		return;
+            	}
+            }
+            $scope.tasks.push($scope.task);
+            $scope.task = "";
+            $scope.error = "";
+        }
+        $scope.a = function(e){
+        	alert(e);
+        }
+    })
+</script>
+</html>

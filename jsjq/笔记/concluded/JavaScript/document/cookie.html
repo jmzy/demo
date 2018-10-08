@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>cookie</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //cookie 用户储存在用户本地终端(客户端/浏览器)上的数据
+    //百度百科摘要
+
+//    //Cookie 在网络系统中几乎无处不在，当我们浏览以前访问过的网站时，网页中可能会出现 ：
+//    //你好 XXX，这会让我们感觉很亲切，这其实是通过访问主机中的一个文件来实现的，
+//    //这个文件就是 Cookie
+//
+//    //Cookie 在计算机中是个存储在浏览器目录中的文本文件，当浏览器运行时，存储在 RAM 中发挥作用
+//    //（此种 Cookies 称作 Session Cookies），一旦用户从该网站或服务器退出，Cookie
+//    //可存储在用户本地的硬盘上 （此种 Cookies 称作 Persistent Cookies） 。
+//
+//    //通常情况下，当用户结束浏览器会话时，系统将终止所有的 Cookie。当 Web 服务器创建了Cookies
+//    //后，只要在其有效期内，当用户访问同一个 Web 服务器时，浏览器首先要检查本地的Cookies，
+//    //并将其原样发送给 Web 服务器。这种状态信息称作“Persistent Client State HTTP Cookie” ，
+//    //简称为 Cookies
+//
+//    //技术简介
+//
+//    //目前有些 Cookie 是临时的，有些则是持续的。临时的 Cookie 只在浏览器上保存一段规定的时间，
+//    //一旦超过规定的时间，该 Cookie 就会被系统清除
+//
+//    //持续的 Cookie 则保存在用户的 Cookie 文件中，下一次用户返回时，仍然可以对它进行调用。
+//    //在 Cookie 文件中保存 Cookie，有些用户担心 Cookie 中的用户信息被一些别有用心的人窃取，
+//    //而造成一定的损害。其实，网站以外的用户无法跨过网站来获得 Cookie 信息。如果因为这种担心而屏蔽
+//    //Cookie，肯定会因此拒绝访问许多站点页面。因为，当今有许多 Web 站点开发人员使用 Cookie
+//    //技术，例如 Session 对象的使用就离不开 Cookie 的支持
+//
+//    //功能特点
+//    //在同一个页面中设置 Cookie，实际上是按从后往前的顺序进行的。如果要先删除一个 Cookie，
+//    //再写入一个 Cookie，则必须先写写入语句，再写删除语句，否则会出现错误
+//
+//    //Cookie是面向路径的。缺省路径 (path) 属性时，Web 服务器页会自动传递当前路径给浏览器，
+//    //指定路径强制服务器使用设置的路径。在一个目录页面里设置的 Cookie 在另一个目录的页面里是看不到的
+//
+//    //Cookie 必须在 HTML 文件的内容输出之前设置；不同的浏览器 (Netscape Navigator、Internet Explorer)
+//    //对 Cookie 的处理不一致，使用时一定要考虑；客户端用户如果设置禁止 Cookie，则 Cookie
+//    //不能建立。 并且在客户端，一个浏览器能创建的 Cookie 数量最多为 300 个，并且每个不能超过 4KB，
+//    //IE下每个domain最多只能有50条cookie（IE6是20条）
+
+
+    //定义 cookie 值
+
+//    document.cookie = 'abc';        //定义
+//
+
+    //设置 cookie 多个内容
+
+//    document.cookie = 1;
+//    document.cookie = 2;
+//    document.cookie = 'a';
+//    document.cookie = 'b';
+//    console.log(document.cookie);         //这样只能查看1个
+//    //cookie存放非赋值(a=b)会自动覆盖
+
+
+    //将cookie对象到处并转为json
+
+//    document.cookie = 'userID = 1';
+//    document.cookie = 'userName = abc';
+//    document.cookie = 'asq = vv';
+//    document.cookie = 'asw = abc';
+//    document.cookie = 'ase = abc';          //这样等于多条信息
+//    var cookie = document.cookie;
+//    console.log(cookie);                    //userID=1; userName=abc
+//    console.log(typeof cookie);             //string
+//
+//    function strToJson(str){
+//        var arr = str.split(';');
+//        var json = {};
+//        arr.map(function(val){
+//            var arr = val.split('=');
+//            json[arr[0]] = arr[1]
+//        });
+//        return str = json
+//    }
+//    var json = strToJson(cookie);
+//    console.log(json);
+//        //{userID: "1", " userName": "abc", " asq": "vv", " asw": "abc", " ase": "abc"}
+//        //想通字母它还会给你排序
+//    console.log(typeof json);
+//
+//    ----------------------------
+//    function strToJson(str){
+//        var arr = str.split(';');
+//        var json = {};
+//        arr.forEach(function(val,index){
+//            var arr = val.trim().split('=');
+//            json[arr[0]] = arr[1];
+//        });
+//        return json
+//    }
+//    var json = strToJson(cookie);
+//    console.log(json);
+//
+//    ----------------------------
+//    var json = {};
+//    var temp = str.split(';');
+//    temp.forEach(function(val,index){
+//        var temp = val.trim().split('=');
+//        json[temp[0]] = temp[1]
+//    });
+//    console.log(json);
+
+    //删除cookie--删除cookie只能讲其时间设置成过去的时间
+    //参考 : https://www.cnblogs.com/sy270321/p/4248961.html
+    //作者 : 阿伟~
+
+//    document.cookie = 'a=' + "b";
+//    //记录信息是1条记录;删除信息得1条1条删除
+//    console.log(document.cookie);
+//    var date = new Date();
+//    date.setTime(date.getTime()-1000);
+//    document.cookie += "; expires=" + date.toGMTString();
+//    //GMT_String是以GMT格式表示的时间字符串
+//    if(document.cookie){
+//        //alert(1);
+//        console.log(document.cookie);       //单独输出会为(空)
+//    }
+//
+//    如果要将cookie设置为1天后过期，可以这样实现：
+//    var date = new Date();
+//    var expiresDays = 1;        //将date设置为10天以后的时间
+//    date.setTime(date.getTime()+expiresDays*24*3600*1000);
+//    //将userId和userName两个cookie设置为10天后过期
+//    document.cookie="userId=828;userName=abc;expires="+date.toGMTString();
+//
+//    //删除所有cookie
+//    document.cookie?deleteAllCookie():false;
+//    function deleteAllCookie(){
+//        if(document.cookie){
+//            var date = new Date();
+//            date.setTime(date.getTime()-1000);
+//            document.cookie = document.cookie +"; expires=" + date.toGMTString();
+//            //return deleteAllCookie();
+//            return arguments.callee()
+//        };
+//    }
+//    console.log(document.cookie);
+
+
+    //cookie 访问的路径,亦可设置可访问的主机名
+
+//    在页面创建了一个cookie，那么该页面所在目录中的其他页面也可以访问该cookie,包括子目录
+//    例子 : www.a.com/xxx.html 的 cookie 可被www.a.com/xxx123.html & www.b.a.com/xxx.html 访问
+//    参考 : https://www.cnblogs.com/sy270321/p/4248961.html
+//    作者 : 阿伟~
+//
+//    //控制cookie可访问的目录,需要使用path参数设置cookie
+//
+//    document.cookie="name=value; path=cookieDir";
+//    其中cookieDir表示可访问cookie的目录。例如：
+//
+//    document.cookie="userId=320; path=/shop";
+//    就表示当前cookie仅能在shop目录下使用。
+//
+//    如果要使cookie在整个网站下可用，可以将cookie_dir指定为根目录，例如：
+//    document.cookie="userId=320; path=/";
+//
+//    指定可访问cookie的主机名
+//    例：www.google.com 和 gmail.google.com就是两个不同的主机名。
+//    一个主机中创建的cookie在另一个主机下是不能被访问的，但可以通过domain参数来实现对其的控制，
+//
+//    document.cookie = "name=value;domain=cookieDomain";
+//    以google为例，要实现跨主机访问，可以写为：
+//
+//    document.cookie = "name=value;domain=.google.com";
+//    这样，所有google.com下的主机都可以访问该cookie。
+//
+//    //个人感觉有点奇怪,这不就可以在控制台修改domain
+
+    //检测 cookie 是否存在
+
+//    document.cookie?alert('have cookie'):alert('not cookie');
+//    console.log(document.cookie);
+
+
+    //实现判断是否第1次登录页面
+
+//    if(document.cookie){
+//      alert('初次登录')
+//    }else{
+//        document.cookie = null;
+//        console.log(document.cookie);
+//        alert('2次登录')
+//    }
+
+
+</script>
+</body>
+</html>

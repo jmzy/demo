@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<script src="../../js/angular.min.js"></script>
+		<style>
+			.mobile{border:1px solid #999;height:500px;display:flex}
+			.mobile dl{margin:0;padding:0;display:flex;flex:1;flex-direction:column-reverse;}
+			.mobile dl dt{background:#999;color:#fff;height:30px;text-align:center;border:1px solid #f3f3f3;line-height:2em}
+			.mobile dl dd{display:flex;flex-direction:column}
+			.mobile dl dd a{border:solid 1px #f3f3f3;text-align:center;padding:6px;text-decoration:none}
+		</style>
+	</head>
+	<body ng-app='hd' ng-controller='myCtrl'>
+		<from class="form-horizontal" role="form">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-4 app">
+						<div class="mobile">
+							<dl ng-repeat="v in data.button">
+								<dt ng-bind="v.name">
+									
+								</dt>
+								<dd>
+									<a href="" ng-repeat="b in v.sub_button" ng-bind="b.name"></a>
+								</dd>
+							</dl>
+						</div>
+					</div>	
+					<div class="col-xs-8">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">编辑</h3>
+							</div>
+							<div class="panel-body">
+								<!--一级菜单-->
+								<div class="panel panel-default" ng-repeat="v in data.button">
+									<div class="panel-body">
+										<div class="form-group">
+											<label class="col-sm-2 control-label">标题</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" ng-model="v.name"/>
+											</div>
+										</div>
+										<div class="form-group" ng-hide="v.sub_button">
+											<label for="" class="col-sm-2 control-label">类型</label>
+											<div class="col-sm-10">
+												<div class="radio">
+													<label for="" class="radio-inline">
+														<input type="radio" ng-model="v.type" value="click"/>关键词
+													</label>
+													<label for="" class="radio-inline">
+														<input type="radio" ng-model="v.type" value="view"/>网址
+													</label>
+												</div>
+											</div>
+										</div>
+										<div class="form-group" ng-if="v.type == 'click'">
+											<label for="" class="col-sm-2 control-label">关键词</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" ng-model="v.key"/>
+											</div>
+										</div>
+										<div class="form-group" ng-if="v.type == 'view' && !v.sub_button">
+											<label for="" class="col-sm-2 control-label">连接</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" ng-model="v.url"/>
+											</div>
+										</div>
+										<!--二级表单-->
+										<div class="panel panel-default" ng-repeat="b in v.sub_button">
+											<h3 class="panel-title">二级菜单</h3>
+											<div class="panel-body">
+												<div class="form-group">
+													<label class="col-sm-2 control-label">标题</label>
+													<div class="col-sm-10">
+														<input type="text" class="form-control" ng-model="b.name"/>
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="" class="col-sm-2 control-label">类型</label>
+													<div class="col-sm-10">
+														<div class="radio">
+															<label for="" class="radio-inline">
+																<input type="radio" ng-model="b.type" value="click"/>关键词
+															</label>
+															<label for="" class="radio-inline">
+																<input type="radio" ng-model="b.type" value="view"/>网址
+															</label>
+														</div>
+													</div>
+												</div>
+												<div class="form-group" ng-if="b.type == 'click'">
+													<label for="" class="col-sm-2 control-label">关键词</label>
+													<div class="col-sm-10">
+														<input type="text" class="form-control" ng-model="b.key"/>
+													</div>
+												</div>
+												<div class="form-group" ng-if="b.type == 'view'">
+													<label for="" class="col-sm-2 control-label">连接</label>
+													<div class="col-sm-10">
+														<input type="text" class="form-control" ng-model="b.url"/>
+													</div>
+												</div>
+											</div>
+										</div>
+										<button type="button" ng-click="secendButton(v)" class="btn btn-info">添加二级菜单</button>
+									</div>
+								</div>
+								<button type="button" ng-click="oneButton()" class="btn btn-success">添加一级菜单</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</from>
+		<script>
+			var app = angular.module('hd',[])
+			app.controller('myCtrl',function($scope){
+				$scope.data = {
+					"button":[
+						{
+							'type':'click',
+							'name':'歌曲',
+							'key':'V1001_TODAY_MUSIC'
+						},
+						{
+							'type':'view',
+							'name':'菜单',
+							'url':'qq.com',
+							'sub_button':[
+								{
+									'type':'view',
+									'name':'搜索',
+									'url':'baidu.com'
+								},
+								{
+									'type':'view',
+									'name':'视频',
+									'url':'v.qq.com'
+								}
+							]
+						}
+					]
+				},
+				$scope.oneButton = function(){
+					var menu = {
+						'type':'click',
+						'name':'新建菜单',
+						'key':'baidu.com'
+					};
+					if($scope.data.button.length == 3){
+						alert("一级菜单最多只能为3个");
+					}else{$scope.data.button.push(menu)};
+				}
+				$scope.secendButton = function(item){
+					var menu = {
+						'type':'click',
+						'name':'新建菜单',
+						'key':'baidu.com'
+					};
+					if(!item.sub_button){
+						item.sub_button = [];
+					}
+					if(item.sub_button.length == 5){
+						alert("二级菜单最多只能为5个");
+					}else{item.sub_button.push(menu)};
+				}
+			})
+				
+			function removeArrayValue(arr,val){
+				arr.splice(arr.indexOf(val),1);
+			}
+			var arr = ["a",2,'c',3,'g'];
+			var val = removeArrayValue(arr,'c')
+			console.log(arr);//"a,2,3,g"
+		</script>
+	</body>
+</html>

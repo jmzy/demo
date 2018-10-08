@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="a b c d e" id="q"></div>
+		
+		<script>
+			var q = document.getElementById('q');
+//			console.log(q.className);
+			
+		///DOM
+			function removeClassName(obj,attr){
+				if(obj.className){
+					var arr = obj.className.split(' ');
+					for(var i=0;i<arr.length;i++){
+						for(var o=0;o<arguments.length;o++){
+							if(arr[i] == arguments[o])
+							arr.splice(arr.indexOf(arguments[o]),1);
+//							if(arr[i] == arguments[o]){
+//						  		arr.splice(arr.indexOf(arguments[o]),1);
+//				  			}
+						}
+					}
+					obj.className = arr.join(' ');
+				}
+		  	};
+
+//		  	removeClassName(q,'c','d','a');
+//		  	console.log(q.className);
+
+			function addClassName(obj,attr){
+				if(obj && arguments.length>1){
+					var arr = obj.className.split(' ');
+					for(var i=1;i<arguments.length;i++){
+						arr.push(arguments[i]);
+					};
+					obj.className = arr.join(' ');
+				}
+		  	};
+		  	
+//		  	addClassName(q,'c','d','a');
+//		  	console.log(q.className);
+
+			function hasClassName(obj,attr){
+				if(obj && arguments.length>1){
+					var arr = obj.className.split(' ');
+					for(var i=1;i<arguments.length;i++){
+						if(arr.indexOf(arguments[i]) >= 0){
+							return true
+						}else{return false}
+					}
+				}
+			};
+			
+//			if(hasClassName(q,'a','c')){
+//				console.log(true)
+//			}else{console.log(false)};
+			
+			function hasClass(obj, cls) {
+				var obj_class = obj.className;
+				var obj_class_list = obj_class.split(" ");
+				var x = 0;
+				for(x in obj_class_list) {
+					if(obj_class_list[x] == cls) {
+						return false;
+					} else{
+						return true
+					}
+				}  
+			};
+			
+//			if(hasClass(q,'a')){
+//				console.log(1)
+//			}else{console.log(2)}
+
+		//数值
+			//number  传参返回 0-number 中任意数、包括小数点两位、即 0.00 -0.99 
+			//star    传参返回 number-start 中任意数 | start-number 中任意数   含有0不能用
+			//barring 传参返回 start-number 中任意数、不包括 barring的值  	      含有0不能用
+			function getRandom(number,start,barring){
+				if(arguments.length > 2){
+					var result = (Math.random() * ( number - start ) + start).toFixed(0);
+					if( barring == result && barring != undefined){
+						return getRandom(number,start,barring)
+					}else{
+						return result 
+					}
+				}else if(arguments.length == 2){
+					return result
+				}else if( Math.floor(number) ){
+					if( Math.random() * number ){
+						return Math.floor( Math.random() * number + 1) 
+					}else{
+						return 0
+					}
+				}else{
+					return Math.random().toFixed(2)
+				}
+			}
+			
+			
+//			var i=0;
+//			var timer = setInterval(function(){
+//				var a = getRandom(3,1,2);
+//				i++;
+//				console.log(a);
+//				if(i == 100){
+//					clearInterval(timer);
+//				};
+//			},100);
+
+
+		//数组
+		function inArr(son,father) {
+			for (s = 0; s < father.length; s++) {
+				var result = father[s].toString();
+				if (result == son.toString()) {
+					return true;
+				}
+			}
+			return false;
+		};
+		
+//		var arrA = [
+//			[1,1],
+//			[2,2],
+//			[3,3]
+//		];
+//		var arrB = [3,3];
+//		var arrC = [1,2];
+//		console.log(inArr(arrB,arrA) +'---' + inArr(arrC,arrA));
+
+		
+		//定时器
+//		var a = function(){
+//			console.log(1);
+//		}
+//		function setTime(obj,n){
+//			var i = 0;
+//			for(i;i<n;i++){
+//				var timer = setTimeout(function(){
+//
+//
+//				},1000)
+//			}
+//		}
+//
+//		
+//		setTime(a(),3);
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

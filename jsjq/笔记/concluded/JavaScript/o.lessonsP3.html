@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>+运算符和在字符串的作用</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                +
+            </h1>
+            <section>
+                <h5>
+                    算术运算符 + 的运用延伸、""字符串的+运算
+                </h5>
+                <p>
+                    若数字以字符串形式进行+法运算时、就是把数字转换成字符串<br/>
+                    &nbsp;&nbsp;即：字符串 + 数字 = 字符串数<br/>
+                    &nbsp;&nbsp;例：alert("122"+1);//1221 <!--不会进行数字间的换算--><br/>
+                    &nbsp;&nbsp;alert("a"+1);//a1<br/><br/>
+
+                    &nbsp;&nbsp;★但若数值若数字以字符串形式进行非+法运算时、<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;就会[若数字以字符串形]转换成数字、结果为数值<br/><br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;即：字符串 + 数字 = 字符串数<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;例：alert("2"-1);//1<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;alert("2"*2);//4<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;alert("2"/2);//1<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;alert("2"%2);//0<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;因为 alert(typeof("2"-1));//number、只有+在这用作连接符<br/><br/>
+
+                    若多个数字在运算式前，并进行运算、<br/>
+                    会先进行运算再以单独数字形式和字符串进行运算<br/>
+                    &nbsp;&nbsp;<i class="color4">即：</i>数字 + 数字 + 字符串 = 字符串,<br/><br/>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;当进行-法运算的时候,就是正常的运算了<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;alert(1+3+"123");//4123 <!--不会进行数字间的换算--><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;alert(1+3+"a");//4a
+                </p>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>

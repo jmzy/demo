@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery DOM CSS Attribute1</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<input id="btn" type="button" value="按钮"/>
+		<h1 id="title" class="title" test="test1">test1</h1>
+		
+		<script>
+			$(function(){
+				$('#btn').click(function(){
+					//attr
+					var a = $('#title').attr('class');//获得class
+					var b = $('#title').attr('test');//获得自定义Attribute
+					
+					$('#title').attr('class','class');//更改class
+					var c = $('#title').attr('class');
+					
+					$('#title').attr({'class':'class',test:'test1'});
+					var d = $('#title').attr('class');
+					var e = $('#title').attr('test');
+					//多个自定义Attribute属性更改
+					//场景：可用在img更改属性上
+					
+					$('#title').attr('class',function(){
+						return 'aaa';
+					});
+					var f = $('#title').attr('class');
+					
+					console.log(a);//title
+					console.log(b);//test1
+					console.log(c);//class
+					console.log(d + '---' + e);//class---test1
+					console.log(f);//aaa
+				});
+			})
+		</script>
+		<p> </p>
+		<script>
+			var $para = $("p");
+			$para.prop("luggageCode", 1234);//可以添加但不展示、可以获得
+			$para.append("The secret luggage code is: ", String($para.prop("luggageCode")), ". ");
+			$para.removeProp("luggageCode");
+			$para.append("Now the secret luggage code is: ", String($para.prop("luggageCode")), ". ");
+		</script>
+	</body>
+</html>

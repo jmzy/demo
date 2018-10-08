@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <style>
+        #all{margin:50px;width:400px;height:300px;border:1px dashed #1a3e8a}
+        #left{width:300px;height:300px;float:left}
+        #leftT{width:300px;height:100px;background:yellowgreen;text-align: center;border-bottom:1px dashed #1a3e8a}
+        #leftT a{margin:10px;line-height:100px}
+        #leftB{width:300px;height:199px;background:skyblue}
+        #leftB span{width:100px;line-height:40px;padding:0 10px;float:left;
+            margin:13px;background:seagreen;border-radius:5px}
+        #leftB span a{padding:15px;color:white}
+        #right{width:99px;height:300px;background:#dca7a7;float:left;border-left:1px dashed #1a3e8a;}
+        #right span{width:80px;line-height:48px;text-align:center;color:white;display:block;margin:10px;background:saddlebrown;border-radius:5px}
+    </style>
+</head>
+<body>
+<div id="all">
+    <div id="left">
+        <div id="leftT">
+            <a href="javascript:void(0)">AAA</a>
+            <a href="javascript:void(0)">BBB</a>
+            <a href="javascript:void(0)">CCC</a>
+            <a href="javascript:void(0)">DDD</a>
+            <a href="javascript:void(0)">EEE</a>
+            <!--补充1下void(0)页面不跳转-->
+        </div>
+        <div id="leftB">
+        </div>
+    </div>
+    <div id="right">
+    </div>
+</div>
+<script>
+    var arr = [];
+    window.onload = function(){
+        var leftT = document.getElementById("leftT");
+        var leftB = document.getElementById("leftB");
+        var right = document.getElementById("right");
+        var leftTC = leftT.children;
+        for(var i=0;i<leftTC.length;i++){
+            leftTC[i].onclick = function(){
+                var text = this.innerText;
+                if(arr.indexOf(text) == -1){//数组中若已经存在就不会再次添加
+                    leftB.innerHTML += "<span>" + text + "<a href='javascript:void(0)' onclick='removeItem(this)'>X</a></span>";
+                    right.innerHTML += "<span>" + text + "</span>";
+                    arr.push(text);//把获得的text加进数组
+                };
+            };
+        };
+    };
+    function removeItem(obj){
+        //删除this、a的元素、并包括自己
+        var parentTagN = obj.parentNode;
+        var perentDom = parentTagN.parentElement;//通过获得父辈标签获得爷辈
+        //var perentDom = obj.parentElement.parentElement;//同上的意义1样、通过获得父辈元素再获得爷辈元素
+        perentDom.removeChild(parentTagN);//通过获得父辈的标签获得爷辈、再用爷辈删除父辈、把this自己也删除
+
+        //把数组arr里面的text也删除、就可以再次判断没有存在而再次添加
+        var txt = parentTagN.innerText||parentTagN.textContent;// 包含了同父辈的子元素的文本
+        //var txt = obj.parentElement.innerText||obj.parentElement.textContent;//1样的意思
+        txt = txt.replace("X","");//因为包含所以得去掉
+        arr.splice(txt,1);
+
+        //然后删除右边
+        var rightC = right.children;
+        for(var i=0;i< rightC.length;i++){
+            var rText = rightC[i].innerText;//获得右边的文本内容
+            if(rText == txt){//如果想通就可以remove
+                //oRight.removeChild(oRight.children[i]);
+                right.removeChild(rightC[i]);
+            }
+        }
+    };
+
+
+</script>
+</body>
+</html>

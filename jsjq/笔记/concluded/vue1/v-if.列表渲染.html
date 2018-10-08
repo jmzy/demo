@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="https://unpkg.com/vue"></script>
+<style>
+    li{list-style:none}
+    a{text-decoration:none}
+</style>
+<div id="app-vue">
+    <li v-for="item in items" v-if="!isNaN(item)"><a href="javascript:void(0)" >{{item}}</a></li>
+    <li v-else><span >{{item}}</span></li>
+</div>
+<script type="text/javascript">
+    var myApp = new Vue({
+        el:'#app-vue',
+        data:{
+            items:[1,2,'abc',3,4,5,'efg',7]
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AnuglarJS 变量调节器/过滤器</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				AnuglarJS 变量调节器/过滤器
+            </h1>
+            <section>
+                <h5>
+					AnuglarJS 变量调节器/过滤器 (翻译不同)
+                </h5>
+                <pre>
+顾名思义、指的就是对变量进行处理
+
+使用场景、数据从后台调用的时候可以对数据变量进行完善
+例：转换大小写等等
+
+代码事例
+&lt;script&gt;
+	var app = angular.module('app',[])
+	app.controller('myCtrl',function($scope){
+		$scope.filter = 12345.1255;
+		$scope.filter1 = "12345.12567";
+		$scope.filter2 = "BAIDU";
+		$scope.str = "百度一下你就知道";
+		$scope.time = new Date().getTime();
+		$scope.data = [
+					{id:1,title:"百度"},
+					{id:2,title:"淘宝"},
+					{id:3,title:"腾讯"},
+				];
+	})
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					currency(货币处理)
+                </h5>
+                <pre>
+{{filter|currency}} &lt;!-- $12,345.13 --&gt;
+&lt;!-- 货币转换、默认千位，(逗号)分割、只带两个小数点、默认四舍五入--&gt;
+&lt;hr/&gt;
+{{filter|currency:'@'}} &lt;!-- @12,345.13 --&gt;
+&lt;!-- 可更换最前的符号、其他不变 --&gt;
+&lt;hr/&gt;
+{{filter|currency:'￥':3}} &lt;!-- ￥12,345.126 --&gt;
+&lt;!-- 对小数点位可以控制位数、亦四舍五入 --&gt;
+&lt;hr/&gt;
+{{filter1|currency:'￥':3}} &lt;!-- ￥12,345.126 --&gt;
+&lt;!-- 数字和字符串结果1样 --&gt;
+                </pre>
+            </section>
+        <section>
+                <h5>
+					number(格式化数字)
+                </h5>
+                <pre>
+{{filter|number}} &lt;!-- 12,345.126  --&gt;
+&lt;br/&gt;
+{{filter1|number}} &lt;!-- 12,345.126 --&gt;
+&lt;!-- 默认千位，(逗号)分割、只带3个小数点、默认四舍五入 --&gt;
+&lt;hr/&gt;
+{{filter1|number:2}} &lt;!-- 12,345.13 --&gt;
+&lt;!-- 默认千位，(逗号)分割、默认四舍五入、可控制小数位数 --&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					lowercase(小写) uppercase(大写)
+                </h5>
+                <pre>
+{{filter2|lowercase}} &lt;!-- baidu  --&gt;
+&lt;!--切换小写--&gt;
+&lt;br /&gt;
+{{filter2|uppercase}} &lt;!-- BAIDU --&gt;
+&lt;!--切换大写--&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					limitTo(限制数组长度或字符串长度)
+                </h5>
+                <pre>
+{{str|limitTo:2}} &lt;!-- 百度  --&gt;
+&lt;br /&gt;
+{{str|limitTo:-2}} &lt;!-- 知道  --&gt;
+&lt;!-- 对字符串截取、负数值为倒截取 --&gt;
+&lt;br /&gt;
+{{str.slice(0,5)}} &lt;!-- 百度一下你 --&gt;
+&lt;!--js原生方法--&gt;
+&lt;hr class="dashed" /&gt;
+多数据合并只能使用js原生&lt;br /&gt;
+只用ng调用过滤器会报错&lt;br /&gt;
+ng和原生1起写不报错但实现不了效果&lt;br /&gt;
+&lt;br /&gt;
+{{str.slice(0,5)+filter1|number}} &lt;!-- 无效果 --&gt;
+&lt;!--{{filter|number+filter1|number}} 报错--&gt;
+{{str.slice(0,5) + "+" + str.slice(5,8)}} &lt;!-- 百度一下你+就知道  --&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					date(日期)
+                </h5>
+                <pre>
+{{time|date:'yy年MM月dd日 HH:mm:ss'}}&lt;br/&gt;
+ &lt;!-- 17年04月03日 22:30:50 --&gt;
+{{time|date:'yyyy年mm月dd日  hh时MM分SS秒 EEEE'}}&lt;br/&gt;
+ &lt;!-- 2017年30月03日 10时04分SS秒 EEEE为星期英文 --&gt;
+{{time|date:'yy年  hh:mm h:mma'}} &lt;!-- 7年 --&gt;
+&lt;!--大小写莫名、小写稳妥、yy|yyyy使用、可自加字符、根据需要提取
+hh:mm形式是24小时制、h:mma--12小时制带PM/AM 
+--&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					orderBy(升降续)
+                </h5>
+                <pre>
+{{data|orderBy:'id'}}&lt;br/&gt;&lt;!-- 定制条件、默认false(升序)、true(降序) --&gt;
+&lt;!--[{"id":1,"title":"百度"},{"id":2,"title":"淘宝"},{"id":3,"title":"腾讯"}]--&gt;
+{{data|orderBy:'id':true}}&lt;br/&gt;
+&lt;!--[{"id":3,"title":"腾讯"},{"id":2,"title":"淘宝"},{"id":1,"title":"百度"}]--&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					filter(筛选)
+                </h5>
+                <pre>
+{{data|filter:1}}&lt;!-- [{"id":1,"click":100,"title":"百度"}] --&gt;
+&lt;br /&gt;
+{{data|filter:'title'}}&lt;!-- [] 空--&gt;
+&lt;!-- 匹配注意对应是否字符串、返回带[] --&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					在控制器中使用过滤器
+                </h5>
+                <pre>
+&lt;body ng-app="app"&gt;
+	&lt;div ng-controller='myCtrl'&gt;
+		{{data1}}
+		&lt;button ng-click='orberBy()'&gt;触发&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;script&gt;
+		var app = angular.module('app',[])
+		app.controller('myCtrl',function($scope,$filter){//注入
+		  $scope.data1 = [
+		    {id:1,title:"百度"},
+		    {id:2,title:"淘宝"},
+		    {id:3,title:"腾讯"},
+		  ];
+		  $scope.orberBy = function(){
+		    $scope.data1 = $filter('filter')($scope.data1,1);
+		  }
+		})
+	&lt;/script&gt;
+&lt;/body&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					自定义filter过滤器
+                </h5>
+                <pre>
+//自定义filter
+app.filter('changeAddress',function(){过滤器的名字
+	return function(address,len){//相应的对象和:后的判断
+		len = len?len:0;//是否纯在
+		//len === len?len:len=0;//1样的意思
+		return address.substr(0,0+len) +  new String('***');
+	}
+})
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

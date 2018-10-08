@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JQuery Ajax</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				JQuery Ajax
+            </h1>
+            <section>
+                <h5>
+					ajax 请求
+                </h5>
+                <pre>
+$.ajax(url,[settings])
+url (String) : 请求的HTML页的URL地址
+[data] (Map) : 发送至服务器的 key/value 数据
+[callback] (Callback) : 请求完成时(不需要是success的)的回调函数
+这个方法默认使用 GET 方式来传递的，如果[data]参数有传递数据进去、
+  就会自动转换为POST方式的。
+
+load(url,[data],[callback])
+$.get(url,[data],[fn],[type])
+$.getJSON(url,[data],[fn])
+$.getScript(url,[callback])
+$.post(url,[data],[fn],[type])
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ajax 事件
+                </h5>
+                <pre>
+配合load使用、<i class="color4">$(document).</i>、指定元素document
+
+ajaxComplete(callback) //当 AJAX 请求正在进行时
+http://www.runoob.com/try/try.php?filename=tryjquery_ajax_ajaxcomplete
+
+ajaxError(callback) //当 AJAX  请求发生错误时
+http://www.runoob.com/try/try.php?filename=tryjquery_ajax_ajaxerror
+
+ajaxSend(callback) //AJAX 请求发送前执行函数
+  //单独使用、发送请求稍瞬即逝
+http://www.w3school.com.cn/tiy/t.asp?f=jquery_ajax_ajaxsend
+
+ajaxStart(callback) //当 AJAX 请求开始时
+  //单独使用、发送请求稍瞬即逝
+http://www.runoob.com/try/try.php?filename=tryjquery_ajax_ajaxstart
+
+ajaxStop(callback) //当AJAX 请求结束时执行
+http://www.runoob.com/try/try.php?filename=tryjquery_ajax_ajaxstop
+
+ajaxSuccess(callback) //当 AJAX 请求成功时执行
+http://www.runoob.com/try/try.php?filename=tryjquery_ajax_ajaxsuccess
+                </pre>
+            </section>
+            <section>
+                <h5>
+					其它
+                </h5>
+                <pre>
+$.ajaxPrefilter([type],fn)
+
+$.ajaxSetup([options])
+http://www.runoob.com/try/try.php?filename=tryjquery_ajax_ajaxsetup
+http://hemin.cn/jq/jQuery.ajaxSetup.html
+
+<i class="color4">★</i>serialize() //例：form提交数据序列化、以name+值&
+http://www.runoob.com/try/try.php?filename=tryjquery_ajax_serialize
+
+<i class="color4">★</i>serializearray() //：form提交数据以数组形式序列化、以name:值 (空格)
+http://www.runoob.com/try/try.php?filename=tryjquery_ajax_serializearray
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

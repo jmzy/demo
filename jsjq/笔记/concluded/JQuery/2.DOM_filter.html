@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JQuery 筛选器</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				JQuery 筛选器
+            </h1>
+            <section>
+                <h5>
+					过滤
+                </h5>
+                <pre>
+<i class="color4">$('DOM')</i>.eq(index|-index) // int 包括0 
+<i class="color4">eq()</i>传参值等于索引的起始值、0起
+&lt;div id="a" class="b" &gt;&lt;/div&gt;
+$("b").eq(0).html(1111);
+
+&lt;style&gt;
+    #ul{width:100px;height:100px}
+    li{width:50px;height:50px}
+&lt;/style&gt;
+&lt;ul id="ul"&gt;
+    &lt;li id="li1"&gt;&lt;/li&gt;
+    &lt;li id="li2"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+    function $(id){
+        var dom = document.getElementById(id);
+        var childs = dom.children;
+        var index = -1;
+        var json = {
+            obj:null,
+            eq:function(i){
+                this.index = i;
+                this.obj = childs[i];
+                return this.mix(this,childs[i])
+            },
+            mix:function(target,source){
+                var len = arguments.length;
+                if(len == 1){return target}
+                else{
+                    var i = 1;
+                    while(source = arguments[i++]){
+                        for(var key in source){
+                            target[key] = source[key];
+                        }
+                    };
+                    return target;
+                }
+            }
+        };
+        return json;
+    }
+    $("div").eq(1).style.background = "red";
+
+&lt;/script&gt;
+
+<i class="color4">$('DOM')</i>.first() //0
+<i class="color4">$('DOM')</i>.last() //length-1
+<i class="color4">$('DOM')</i>.hasClass(class) //多个以，分隔
+<i class="color4">$('DOM')</i>.filter(expr|obj|ele|fn) //筛选
+<i class="color4">$('DOM')</i>.is(expr|obj|ele|fn)<sup class="color4">1.6*</sup><i class="color0">★</i>
+<i class="color4">$('DOM')</i>.map(callback) 
+  //将一组元素转换成其他数组（不论是否是元素数组）
+  //<i class="color0">★</i>不知道应该场景、不能双向绑定
+<i class="color4">$('DOM')</i>.has(expr|ele) 
+  //保留包含特定后代的元素，去掉那些不含有指定后代的元素。
+<i class="color4">$('DOM')</i>.not(expr|ele|fn)
+  //排除匹配元素的集合中指定匹配的元素
+  //<i class="color0">★</i>fn
+<i class="color4">$('DOM')</i>.slice(start,[end])//集元素剪切子元素、由1开始
+
+<i class="color4">$('DOM')</i><i class="color0">.filter(expr|obj|ele|fn)★</i>
+&lt;div id="filter"&gt;
+  &lt;p&gt;Hello&lt;/p&gt;
+  &lt;p class="a"&gt;Hello Again&lt;/p&gt;
+  &lt;p class="selected"&gt;And Again&lt;/p&gt;
+  &lt;p&gt;&lt;i&gt;and Again 2&lt;/i&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  $("#filter p").filter(".selected").css('color','skyblue');
+  $("#filter p").filter(".a, :first").css('color','red');//可筛选多个
+  $("#filter p").filter(function(){
+    return $("i", this).length == '1';//指定元素、this该元素/父元素
+    //0代表不包含、1表示包含、字符串和数字都可以
+  }).css('color','gold');
+  <i class="color4">//obj ele cls</i>
+  <i class="color0">//expr、fn待研究</i>
+&lt;/script&gt;
+
+<i class="color4">$('DOM')</i><i class="color0">.is(expr|obj|ele|fn)<sup>1.6*</sup></i><i class="color0">★</i>
+如果提供了复杂的表达式，比如层级选择器（比如 + , ~ 和 > ），
+始终会返回true<i class="color0">★</i>
+<i class="color0">//expr|obj|ele|fn★</i>
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;list&lt;/strong&gt; item 1 - one strong tag&lt;/li&gt;
+  &lt;li&gt;
+    &lt;strong&gt;list&lt;/strong&gt;
+    item 
+    &lt;strong&gt;2&lt;/strong&gt; 
+    - two 
+    &lt;span&gt;strong tags&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li&gt;list item 3&lt;/li&gt;
+  &lt;li&gt;list item 3&lt;/li&gt;
+  &lt;li&gt;list item 3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+//console.log($("input[type='checkbox']").parent().is("form"));//true
+  $("li").click(function() {
+    var $li = $(this),
+      isWithTwo = $li.is(function() {//赋值this含有两个
+          return $('strong', this).length === 2;
+      });
+    if ( isWithTwo ) {
+      $li.css("background-color", "green");
+    } else {
+      $li.css("background-color", "red");
+    }
+  });
+&lt;/script&gt;
+
+<i class="color4">$('DOM')</i>.has(expr|ele) 
+&lt;p id="pp"&gt;&lt;span&gt;$('#pp')&lt;/span&gt;&lt;/p&gt;
+&lt;p id="ppp"&gt;&lt;strong&gt;$('#ppp')&lt;/strong&gt;&lt;/p&gt;
+&lt;script&gt;
+  $('#pp').has('span').css('color','red');
+  $('#ppp').has('strong').css('color','skyblue');
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					查找
+                </h5>
+                <pre>
+<i class="color4">$('DOM')</i>.children([expr]) //匹配元素集合中的子元素或元素集合
+closest(e|o|e)1.7*<i class="color0">★</i>
+<i class="color4">$('DOM')</i>.find(e|o|e) //匹配元素的指定子元素或元素集合
+<i class="color4">$('DOM')</i>.next([expr]) //匹配元素往后第1个元素
+<i class="color4">$('DOM')</i>.prev([expr]) //匹配元素往前第1个元素
+<i class="color4">$('DOM')</i>.nextAll([expr]) //匹配元素往后所有同辈元素、不包含自己
+<i class="color4">$('DOM')</i>.prevAll([expr]) //匹配元素往前所有同辈元素、不包含自己
+<i class="color4">$('DOM')</i>.siblings([expr]) //匹配元素同级其他元素、不包含自己
+<i class="color4">$('DOM')</i>.nextUntil([e|e][,f]) .
+  //执行元素后同级元素或到指定元素、或到指定元素的指定子元素
+<i class="color4">$('DOM')</i>.prevUntil([e|e][,f])
+  //执行元素前同级元素或到指定元素、或到指定元素的指定子元素
+  
+<i class="color4">$('DOM')</i>.offsetParent()
+  //返回第一个匹配元素用于<i class="color0">定位的父节点。</i>
+  //这返回父元素中第一个其position设为relative或者absolute的元素。
+  //此方法仅对可见元素有效。
+  
+<i class="color4">$('DOM')</i>.parent([expr]) //匹配元素的父元素
+<i class="color4">$('DOM')</i>.parents([expr]) //匹配元素的所有父元素
+<i class="color4">$('DOM')</i>.parentsUntil([e|e][,f]) //匹配元素的所有父元素筛选
+                </pre>
+            </section>
+            <section>
+                <h5>
+					串联
+                </h5>
+                <pre>
+<i class="color4">$('DOM')</i>.add(e|e|h|o[,c])<sup>1.9*</sup> //匹配元素和指定元素
+<i class="color4">$('DOM')</i>.aaddBack()<sup>1.9+</sup> //匹配包括自己
+<i class="color4">$('DOM')</i>.contents() //匹配元素内的元素或内的指定元素
+<i class="color4">$('DOM')</i>.end()
+//<i class="color0">★</i>差不多拼接的意思
+//好像只能是同辈元素
+http://www.w3school.com.cn/tiy/t.asp?f=jquery_traversing_end_2
+
+andSelf()<sup>1.8-</sup> //未能测试
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

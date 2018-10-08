@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE2 components</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/Classroom.css"/>
+    <script src="../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                components 组件
+            </h1>
+            <section>
+                <h5>
+                    定义组件
+                </h5>
+                <pre>
+1.可直接在类Vue里定义
+var app = Vue({
+  el: '#app',
+  data: {},
+  components: {}
+})
+
+2.全局注册
+Vue.component('name',{
+  template: `&lt;div></div&gt;`,
+  data () {
+    return {
+
+    }
+  }
+})
+
+注意:组件下的data是函数形式
+1.
+data () {
+  return () {}
+}
+
+2.
+data: function () {
+  return {
+
+  }
+}
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    组件命名规范
+                </h5>
+                <pre>
+
+
+
+
+
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    template 元素编辑方法
+                </h5>
+                <pre>
+1.' \ \ \' ( 单引号 + \)
+&lt;script&gt;
+  var app = Vue({
+    el: '#app',
+    data: {},
+    components:{
+      'my-components':{
+        template:'&lt;div&gt;\
+                    &lt;h2&gt;111&lt;/h2&gt;\
+                 &lt;/div&gt;',
+        data:function(){
+          return{
+            message:'hello v-head'
+          }
+        }
+      }
+    }
+  })
+&lt;/script&gt;
+
+2.`` (键盘 tab 上的键)
+&lt;script&gt;
+  var app = Vue({
+    el: '#app',
+    data: {},
+    components:{
+      'my-components':{
+        template: `&lt;div&gt;
+                    &lt;h2&gt;111&lt;/h2&gt;
+                  &lt;/div&gt;`,
+        data:function(){
+          return{
+            message:'hello v-head'
+          }
+        }
+      }
+    }
+  })
+&lt;/script&gt;
+
+3.components 对象引入
+&lt;script&gt;
+  var app = Vue({
+    el: '#app',
+    data: {},
+    components:{
+      obj1, obj2
+    }
+  })
+&lt;/script&gt;
+
+4,外置(html)template元素
+&lt;template&gt;
+  &lt;div id="app"&gt;
+    &lt;div id="nav"&gt;&lt;/div&gt;
+    &lt;tempalte id="content"&gt;
+      &lt;div&gt;
+        &lt;h2&gt;123&lt;/h2&gt;
+      &lt;/div&gt;
+    &lt;/tempalte&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  var app = new Vue({
+    el: '#app',
+    data: {},
+    components: {
+      'myComponents' : {
+        template: '#content'
+      }
+    }
+  })
+&lt;/script&gt;
+
+注意:template下必须有1个跟容器
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;div id="nav"&gt;&lt;/div&gt;
+    &lt;div id="content"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+不能直接写成
+&lt;template&gt;
+  &lt;div id="nav"&gt;&lt;/div&gt;
+  &lt;div id="content"&gt;&lt;/div&gt;
+&lt;/template&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    组件之间传值 父传子 和 子传父
+                </h5>
+                <pre>
+组件与组件之间是单项数据流
+
+父传子
+父
+data: { msg: '111'}
+子元素挂载 :msg='msg'
+子
+props: ['msg']
+
+子传父
+子
+methods: {
+  change () {
+    this.$emit('name',content(父接受内容)) // 以方法传
+  }
+}
+(子)根元素挂载方法 @name='eventName(随意订事件名)'
+父
+methods: {
+  eventName (content) { // 传递的为实参
+
+  }
+}
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    父传子 props 检测类型和默认值
+                </h5>
+                <pre>
+props: {
+  'name': {
+    type: String, // 若非字符串会报错当不影响运行
+    dafult: function(){
+       return 'aaa'
+    }
+  }
+}
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    组件与组件之间的通信 (非父子)
+                </h5>
+                <pre>
+创建空实例 var a = new vue();
+a.$emit
+a.$on
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    组件名词 is 赋名
+                </h5>
+                <pre>
+&lt;template&gt;
+  &lt;div id="app"&gt;
+    &lt;el-nav @click.native="event"&gt;&lt;/el-nav&gt;
+    &lt;div is="myComponents"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  var app = Vue({
+    el: '#app',
+    components: {
+      'myComponents': {
+        template: `&lt;div&gt;123&lt;/div&gt;`
+      }
+    }
+  })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    动态组件
+                </h5>
+                <pre>
+DEMO
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    组件根添加原生事件需添加 .native  @event.native
+                </h5>
+                <pre>
+&lt;template&gt;
+  &lt;div id="app"&gt;
+    &lt;el-nav @click.native="event"&gt;&lt;/el-nav&gt;
+    &lt;el-content&gt;&lt;/el-content&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+
+                </h5>
+                <pre>
+
+
+
+
+
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+
+                </h5>
+                <pre>
+
+
+
+
+
+
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

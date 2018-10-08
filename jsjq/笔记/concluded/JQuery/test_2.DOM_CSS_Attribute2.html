@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<title>JQuery DOM CSS Attribute1</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<ul>
+		    <li>Hello</li>
+		    <li>Hello</li>
+		    <li>Hello</li>
+		</ul>
+		
+		<script>
+			$('ul li:last').addClass(function() {
+			  return 'i-' + $(this).index();
+			});
+			console.log($('ul li:last').attr('class'))//i-2
+		</script>
+	</body>
+</html>

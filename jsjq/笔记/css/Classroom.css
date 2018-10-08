@@ -1,0 +1,47 @@
+*{margin:0;padding:0}
+li{list-style-type:none}
+i{font-style:normal}
+a{text-decoration:none;color:black}
+
+#c_left,#c_right{float:left}
+
+#Grooveshark{width:600px;border-radius:10px;box-shadow:3px 3px 3px black}
+#Grooveshark h1{padding:10px;color:#3e5974;font-size:16px;font:"微软雅黑";border-radius:10px 10px 0 0;
+    background-image:linear-gradient(to bottom,#d4dde6,#a7c9e2);border-bottom:1px solid #557397}
+#Grooveshark h5{padding:10px;color:#3e5974;font-size:13px;font:"微软雅黑";border-bottom:1px solid #557397;background:#f7fbfe;}
+#Grooveshark p,#Grooveshark div,#Grooveshark pre{font-family:"黑体";color:#8080c0;padding:15px;padding-bottom:0px;background:#f7fbfe;
+    border-bottom:1px solid #97b7d0;word-spacing:3px;line-height:20px;}
+#Grooveshark span{display:block;height:20px;border-radius: 0 0 10px 10px;border-top:1px solid #e2eefa;
+    background-image:linear-gradient(to bottom,#d2deea,#b3c5db);}
+#Grooveshark a{color:violet;font-weight:600}
+/*#Grooveshark table{border-collapse: collapse;border: 0px solid #999;}*/
+/*#Grooveshark table th{border-bottom:0;}*/
+/*#Grooveshark table th,#Grooveshark table td{width:150px;height:30px;text-align:center;*/
+    /*border-left:0;border-right:0;border-top:0;}*/
+
+#c_right{width:295px;border-radius:10px;margin-left:30px;box-shadow:3px 3px 3px black;display:none}
+#c_right h2{padding:10px;color:#3e5974;font: 16px "微软雅黑";border-radius:10px 10px 0 0;
+    background-image:linear-gradient(to bottom,#f5e6d3,#d7bcc1);border-bottom:1px solid #a89197}
+#c_right h5{padding:10px;color:#3e5974;font: 13px "微软雅黑";border-bottom:1px solid #a89197;background:#f7fbfe;}
+#c_right p{font: 13px "黑体";color:#293438;padding:15px;background:#f7fbfe;
+    border-bottom:1px solid #a89197;word-spacing:3px;line-height:20px;}
+#c_right span{display:block;height:20px;border-radius: 0 0 10px 10px;border-top:1px solid #a89197;
+    background-image:linear-gradient(to bottom,#d7bcc1,#f5e6d3);}
+#c_right a{color:violet;font-weight:600}
+
+.bgc1{background:silver}
+.bgc2{background:#f5f5f5}
+.bgc3{background:indianred}
+.bgc4{background:slateblue}
+.bgc5{background:seagreen}
+.bgc6{background:palevioletred}
+.bgc7{background:tan}
+.bgc8{background:#c8dae8}
+.color0{color: red;font-weight:600}
+.color1{color: #4bcd86;font-weight:600}
+.color2{color: rgba(27, 19, 20, 0.47);font-weight:600}
+.color3{color: rgba(14, 29, 48, 0.58);font-weight:600}
+.color4{color:violet;font-weight:600}
+.color5{color:#c0c0c0;font-weight:600}
+.color6{color:#F6F6F6;font-weight:600}
+.color7{color:palevioletred;font-weight:600}

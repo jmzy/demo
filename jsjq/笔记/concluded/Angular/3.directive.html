@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Angular 指令</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				Angular 指令
+            </h1>
+            <section>
+                <h5>
+                	什么是 AngularJS 指令
+					<i class="color0"><出处 菜鸟教程></i>
+                    <a href="http://www.runoob.com/angularjs/angularjs-directives.html" class="color4" style="float:right">更详细</a>
+                </h5>
+                <pre>
+AngularJS 指令是扩展的 HTML 属性
+通过内置的指令来为应用添加功能、带有前缀、ng-
+
+部分常见指令
+ng-app 指令初始化一个 AngularJS 应用程序。
+ng-controller 指令用于为你的应用添加控制器。
+在控制器中，你可以编写代码，制作函数和变量，并使用 scope 对象来访问。
+ng-model 指令把元素值（比如输入域的值）绑定到应用程序。
+
+<i class="color4">★</i>AngularJS 允许你自定义指令。
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-cloak 和 ng-bind 指令处理在页面未成功加载AngularJS 未能解释表达式{{}}
+                </h5>
+                <pre>
+页面在刚开始加载会出现angular 的{{}} 、这会影响页面展示效果(不美观)
+去掉表达式{{}} 可以使用 ng-cloak 和 ng-bind
+
+1.元素中添加ng-bind可以省略{{}}、同样的效果
+&lt;p ng-bind="msg"&gt;&lt;/p&gt;
+
+2.元素中添加ng-cloak 并class="ng-cloak"
+&lt;div ng-cloak class="ng-chlock"&gt;{{aaa}}&lt;/div&gt;
+原理是刚加载的时候、class类ng-cloak隐藏{{}}两个大括号、然后再删除class
+
+<i class="color4">★</i>它们的区别、什么时候该使用 ng-cloak 或 ng-bind
+从AngularJS库加载上考虑、一般在首页Index引入AngularJS库、
+ng-bind就在首页上使用、若加载不成功也只会不显示AngularJS的内容、
+而不会出现{{}}
+                </pre>
+            </section>
+            <section>
+                <h5>
+					<i class="color0">★</i>ng-bind-html
+                </h5>
+                <pre>
+绑定 HTML 元素的 innerHTML 到应用程序数据，
+并移除 HTML 字符串中危险字符
+----------------------------------------------------------------
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-bind-template 指令用于告诉 AngularJS 将给定表达式的值替换 HTML 元素的内容
+                </h5>
+                <pre>
+&lt;div ng-app="myApp" ng-bind-template="{{a}} {{b}}" 
+  ng-controller="myCtrl"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  var app = angular.module("myApp", []);
+  app.controller("myCtrl", function($scope) {
+    $scope.a = "hello";
+    $scope.b = "Angular";
+  });
+&lt;/script&gt;
+                </pre>
+            </section>
+        	<section>
+                <h5>
+					ng-value	规定 input 元素的值
+                </h5>
+                <pre>
+&lt;div ng-app="" ng-init="msg='Hello AngularJS'"&gt;
+ &lt;input ng-value="msg"&gt;
+&lt;/div&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-minlength 和 ng-maxlength
+                </h5>
+                <pre>
+&lt;input type="number" required 
+	ng-model="number" ng-minlength="6" ng-maxlength="12"  /&gt;
+&lt;span ng-show="number"&gt;正确、6-12位数字&lt;/span&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-style	指定元素的 style 属性
+                </h5>
+                <pre>
+&lt;div ng-app="myApp" ng-init="a = {'color' : 'white' ,
+	'background-color' : 'skyblue' , 'padding' : '50px'}"&gt;
+  &lt;h1 ng-style="a"&gt;测试专用&lt;/h1&gt;
+&lt;/div&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-class 指令用于给 HTML 元素动态绑定一个或多个 CSS 类
+                	<i class="color0"><出处 菜鸟教程></i>
+                    <a href="http://www.runoob.com/angularjs/ng-ng-class.html" class="color4" style="float:right">更详细</a>
+                </h5>
+                <pre>
+&lt;body ng-app=""&gt;
+&lt;p&gt;选择一个类:&lt;/p&gt;
+	
+&lt;style&gt;
+.sky{color:white;background-color:lightblue;padding:10px;}
+.tomato{color:white;background-color:coral;padding:20px;}
+.red{color:white;background-color:red;padding:30px;}
+&lt;/style&gt;
+
+&lt;select ng-model="home"&gt;
+&lt;option value="sky"&gt;天空色&lt;/option&gt;
+&lt;option value="tomato"&gt;番茄色&lt;/option&gt;
+&lt;option value="red"&gt;红色&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;div ng-class="home"&gt;
+  &lt;h1&gt;Welcome Home!&lt;/h1&gt;
+  &lt;p&gt;I like it!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-class-odd(奇数) 和 ng-class-even(偶数)<i class="color0"><出处 菜鸟教程></i><br/>
+					指令用于为 HTML 元素动态的绑定一个或多个 CSS 类，但只作用于奇数/偶数行。
+                    <a href="http://www.runoob.com/angularjs/ng-ng-class-odd.html" class="color4" style="float:right">更详细</a>
+                </h5>
+                <pre>
+&lt;style&gt;
+.a{color:yellow;background:red}
+.b {color:white;background-color:black;}
+&lt;/style&gt;
+	
+&lt;table ng-app="myApp" ng-controller="myCtrl"&gt;
+&lt;tr ng-repeat="x in records" 
+  ng-class-odd="'a'" ng-class-even="'b'"&gt;
+  &lt;td&gt;{{x.Name}}&lt;/td&gt;
+  &lt;td&gt;{{x.Country}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;script&gt;
+var app = angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
+  $scope.records = [
+    {"Name" : "Alfreds Futterkiste","Country" : "Germany"},
+    {"Name" : "Berglunds snabbk","Country" : "Sweden"},
+    {"Name" : "Centro comercial Moctezuma","Country" : "Mexico"},
+    {"Name" : "Ernst Handel","Country" : "Austria"}
+  ]
+});
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-hide、ng-show和ng-if
+                </h5>
+                <pre>
+这3个指令作用都是判断其内容是否为 true 和 false
+ng-show 和 ng-if 内容为 true 其内容显示、false 隐藏
+ng-hide ture 隐藏、false 显示
+★ng-if 与 ng-show ng-hide 区别在于false会让其 HTML 消失
+
+事例
+&lt;div ng-app="appT"&gt;
+    &lt;div ng-controller="firstCtrl"&gt;
+        &lt;h1 ng-bind="1+2" ng-show="false"&gt;&lt;/h1&gt;&lt;!-- HTML代码存在--&gt;
+        &lt;h1 ng-cloak ng-hide="true"&gt;{{1+2}}&lt;/h1&gt;&lt;!-- HTML代码存在--&gt;
+        &lt;h1 ng-cloak ng-if="false"&gt;{{1+1}}&lt;/h1&gt;&lt;!-- ngIf: false --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('appT',[])
+    .controller('firstCtrl',function($scope){
+    })
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                	ng-init  ★不常用  指令为 AngularJS 应用程序定义了 初始值<br/>
+					ng-repeat  指令会重复一个 HTML 元素<i class="color0"><出处 菜鸟教程></i>
+                    <a href="http://www.runoob.com/angularjs/angularjs-directives.html" class="color4" style="float:right">更详细</a>
+                </h5>
+                <pre>
+&lt;ul data-ng-app="" 
+  data-ng-init="names=['Apple','Banana','Cat']"&gt;
+  &lt;li data-ng-repeat="a in names"&gt;{{ a }}&lt;/li&gt;
+&lt;/ul&gt;
+
+<i class="color0">★</i>ng-repeat出现的问题
+http://www.cnblogs.com/iovec/p/5286132.html
+                </pre>
+            </section>
+            <section>
+                <h5>
+					<i class="color0">★</i> ng-jq 定义应用必须使用到的库，如：jQuery
+                </h5>
+                <pre>
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-href 指令覆盖了原生的 &lt;a&gt; 元素 href 属性。<br/>
+					ng-src 指令覆盖了 &lt;img&gt; 元素的 src 属性。<i class="color4">意思跟 ng-href 一样</i>
+                </h5>
+                <pre>
+&lt;div ng-app="" ng-init="a = 'http://www.baidu.com'"&gt;
+  &lt;p&gt;访问 &lt;a href="taobao.com" ng-href="{{a}}"&gt;taobao&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-srcset	指定 &lt;img&gt; 元素的 srcset 属性
+                </h5>
+                <pre>
+http://www.runoob.com/angularjs/ng-ng-srcset.html
+                </pre>
+            </section>
+        	<section>
+                <h5>
+					ng-list 将文本转换为列表 (数组)
+					<i class="color0"><出处 菜鸟教程></i>
+                    <a href="http://www.runoob.com/angularjs/ng-ng-list.html" class="color4" style="float:right">更详细</a>
+                </h5>
+                <pre>
+<i class="color0">★</i>思考? 这的使用场景
+                	
+&lt;div ng-app=""&gt;
+  &lt;p&gt;在输入框中，输入一些文本，并使用逗号分隔它们：&lt;/p&gt;
+  &lt;input ng-model="customers" ng-list/&gt;
+  &lt;p&gt;当使用 ng-list 指令时，你的输入信息会转换为数组，如下所示：&lt;/p&gt;
+  &lt;pre&gt;{{customers}}&lt;/pre&gt;
+&lt;/div&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-csp 修改内容的安全策略
+                </h5>
+                <pre>
+<i class="color0">★</i>思考? 这的使用场景
+
+ng-csp 指令用于修改 AngularJS 的安全策略。
+如果使用了 ng-csp 指令， AngularJS 将不会执行eval 函数，
+  这样就无法注入内联样式。
+设置 ng-csp 指令为 no-unsafe-eval, 将阻止 AngularJS 执行 eval 函数，
+  但允许注入内联样式。
+设置 ng-csp 指令为 no-inline-style, 将阻止 AngularJS 注入内联样式，
+  但允许 执行 eval 函数。
+如果开发 Google Chrome 扩展或 Windows 应用 ng-csp 指令是必须的。
+注意:ng-csp 指令不会影响 JavaScript,但会修改 AngularJS 的工作方式，
+这就意味着: 你仍然可以编写 eval 函数, 且也可以正常执行, 但是 AngularJS 
+不能执行它自己的 eval 函数。如果采用兼容模式，会降低 30% 的性能。
+
+扩展
+当开发如google浏览器的扩展时候这个就必须使用。
+
+CSP禁止应用程序使用eval和Function(string)生成的函数。如果我们需要兼容，
+我们只需要使用$parse执行getterfn而不违反这些限制。
+
+AngularJs使用Function(string)以最佳的速度生成功能。使用ngScp指令会导致
+Angular使用SCP兼容模式。
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-disabled 规定一个元素是否被禁用 true 或  false 不可以提交
+					<br />
+					ng-readonly 规定一个元素是否被禁用 true 或  false
+                </h5>
+                <pre>
+<i class="color0">★</i>http://www.runoob.com/try/try.php?filename=try_ng_ng-disabled
+&lt;div&gt;&lt;!-- bg-disabled --&gt;
+  agreement：
+  &lt;input type="checkbox" ng-model='copyright'/&gt;i agree
+  &lt;input type="submit" value='submit' ng-disabled='!copyright'/&gt;
+&lt;/div&gt;
+
+&lt;div&gt;&lt;!-- ng-disabled readonly --&gt;
+  &lt;form action="test_ng-disable_ng-readonly.php" method="post"&gt;
+    &lt;input type="text" name='a' readonly='readonly' value='11111' /&gt;
+	&lt;!--不能使用但可以提交--&gt;
+	&lt;br /&gt;
+	&lt;input type="text" name='b' ng-disabled='true' value='22222' /&gt;
+	&lt;!--不能使用也不能提交--&gt;
+	&lt;input type="submit" value='submit'/&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+
+ng-readonly判断元素是否可以使用、
+使用场景、在已注册的情况下、有的数据不可以编辑、可以展示给客户看
+ng-readonly为true的时候、元素会增加readonly="readonly"
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-include 在应用中包含 HTML 文件
+                </h5>
+                <pre>
+<i class="color0">★</i>http://www.runoob.com/angularjs/ng-ng-include.html
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-route 和 ng-view 和 ui-route
+                </h5>
+                <pre>
+参考路由指令
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-non-bindable 规定元素或子元素不能绑定数据
+                </h5>
+                <pre>
+
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-open 	指定元素的 open 属性
+                </h5>
+                <pre>
+
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+					
+                </h5>
+                <pre>
+
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+					
+                </h5>
+                <pre>
+
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-selected	指定元素的 selected 属性 选装 true 或 false
+                </h5>
+                <pre>
+&lt;select ng-model='user.sex'&gt;
+	&lt;!--注意绑定不能写要&lt;select&gt;因为app root--&gt;
+	&lt;option value=''&gt;sex&lt;/option&gt;
+	&lt;option ng-value='1' ng-selected='user.sex == 1'&gt;boy&lt;/option&gt;
+	&lt;option ng-value='2' ng-selected='user.sex == 2'&gt;girl&lt;/option&gt;
+&lt;/select&gt;
+&lt;input type="radio" name='sex' ng-value="1" ng-model='user.sex'/&gt;boy
+&lt;input type="radio" name='sex' ng-value="2" ng-model='user.sex'/&gt;girl
+&lt;script&gt;
+	var app = angular.module('app',[]);
+	app.controller('Ctrl',function($scope){
+//		$scope.user = {sex:1}
+	})
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					ng-options 在 &lt;select&gt; 列表中指定 &lt;options&gt;
+                </h5>
+                <pre>
+
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+					
+                </h5>
+                <pre>
+ng-pluralize	根据本地化规则显示信息
+ng-readonly	指定元素的 readonly 属性
+ng-submit	规定 onsubmit 事件发生时执行的表达式
+ng-transclude	规定填充的目标位置
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>flex布局</title>
+    <style>
+        p{height:15px}
+        .box{margin:20px;width:80px;height:80px;box-shadow:5px 5px #999;
+            border:1px solid black;border-radius:10px;}
+        span{margin:5px;width:16px;height:16px;border-radius:50%;background:black}
+
+        .box1 div{float:left}
+        .clear:after{content:'';clear:both;display:block}
+        /*1*/
+        .box11{display:flex}
+        .box12{display:flex;justify-content:center}
+        .box13{display:flex;justify-content:flex-end}
+        .box14{display:flex;align-items:center}
+        .box15{display:flex;justify-content:center;align-items:center}
+        .box16{display:flex;justify-content:flex-end;align-items:center}
+        .box17{display:flex;align-items:flex-end;}
+        .box18{display:flex;justify-content:center;align-items:flex-end;}
+        .box19{display:flex;justify-content:flex-end;align-items:flex-end;}
+        /*2*/
+        .box21{display:flex;justify-content:space-between}
+        .box22{display:flex;justify-content:space-between;align-items:center}
+        .box23{display:flex;justify-content:space-between;align-items:flex-end;}
+        .box24{display:flex;justify-content:space-between;flex-direction:column}
+        .box25{display:flex;justify-content:space-between;flex-direction:column;align-items:center}
+        .box26{display:flex;justify-content:space-between;flex-direction:column;align-items:flex-end}
+        .box27{display:flex;justify-content:space-between;}
+            .box27>.item:nth-child(2){align-self:flex-end}
+        .box28{display:flex;}
+            .box28>.item:nth-child(2){align-self:center}
+        /*3*/
+        .box31{display:flex}
+        .box32{display:flex;align-items:center}
+        .box33{display:flex;align-items:flex-end}
+        .box34{display:flex;flex-direction:column}
+        .box35{display:flex;flex-direction:column;align-items:center}
+        .box36{display:flex;flex-direction:column;align-items:flex-end}
+        /*3.1*/
+        .box311{display:flex}
+            .box311 .item:nth-child(3){align-self:center}
+        .box312{display:flex}
+            .box312 .item:nth-child(3){align-self:flex-end}
+        .box313{display:flex;align-items:center}
+            .box313 .item:nth-child(3){align-self:flex-start}
+        .box314{display:flex;align-items:center}
+            .box314 .item:nth-child(3){align-self:flex-end}
+        .box315{display:flex;align-items:flex-end}
+            .box315 .item:nth-child(3){align-self:center}
+        .box316{display:flex;align-items:flex-end}
+            .box316 .item:nth-child(3){align-self:flex-start}
+        /*3.1*/
+        .box321{display:flex;flex-direction:column}
+            .box321 .item:nth-child(3){align-self:center}
+        .box322{display:flex;flex-direction:column}
+            .box322 .item:nth-child(3){align-self:flex-end}
+        .box323{display:flex;flex-direction:column;align-items:center}
+            .box323 .item:nth-child(3){align-self:flex-start}
+        .box324{display:flex;flex-direction:column;align-items:center}
+            .box324 .item:nth-child(3){align-self:flex-end}
+        .box325{display:flex;flex-direction:column;align-items:flex-end}
+            .box325 .item:nth-child(3){align-self:flex-start}
+        .box326{display:flex;flex-direction:column;align-items:flex-end}
+            .box326 .item:nth-child(3){align-self:center}
+        /*4-5-6-9*/
+        .box41{display:flex;flex-wrap:wrap;align-content:space-between}
+            .box41 .column{flex-basis:100%;display:flex;justify-content:space-between}
+        .box42{display:flex;flex-wrap:wrap;align-content:space-between}
+        .box43{display:flex;flex-wrap:wrap;align-content:space-between;flex-direction:row-reverse}
+        .box44{display:flex;flex-wrap:wrap;}
+            .box44 .row{flex-basis:100%;display:flex;justify-content:space-between}
+            .box44 .row:nth-child(2){justify-content:center}
+            /*.box44 .row:nth-child(3){display:flex;justify-content:space-between}*/
+        .box45{display:flex;flex-wrap:wrap;align-content:space-between}
+        .box46{display:flex;flex-direction:column;flex-wrap:wrap;align-content:space-between}
+        .box47{display: flex;flex-wrap: wrap}
+    </style>
+</head>
+<body>
+<div class="box1">
+    <p>单项目</p>
+    <div class="box box11"><span class="item"></span></div>
+    <div class="box box12"><span class="item"></span></div>
+    <div class="box box13"><span class="item"></span></div>
+    <div class="box box14"><span class="item"></span></div>
+    <div class="box box15"><span class="item"></span></div>
+    <div class="box box16"><span class="item"></span></div>
+    <div class="box box17"><span class="item"></span></div>
+    <div class="box box18"><span class="item"></span></div>
+    <div class="box box19"><span class="item"></span></div>
+</div>
+<div class="clear"></div>
+<div class="box1">
+    <p>双项目</p>
+    <div class="box box21"><span class="item"></span><span class="item"></span></div>
+    <div class="box box22"><span class="item"></span><span class="item"></span></div>
+    <div class="box box23"><span class="item"></span><span class="item"></span></div>
+    <div class="box box24"><span class="item"></span><span class="item"></span></div>
+    <div class="box box25"><span class="item"></span><span class="item"></span></div>
+    <div class="box box26"><span class="item"></span><span class="item"></span></div>
+    <div class="box box27"><span class="item"></span><span class="item"></span></div>
+    <div class="box box28"><span class="item"></span><span class="item"></span></div>
+</div>
+<div class="clear"></div>
+<div class="box1">
+    <p>3项目</p>
+    <div class="box box31"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box32"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box33"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box34"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box35"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box36"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+</div>
+<div class="clear"></div>
+<div class="box1">
+    <p>3.1</p>
+    <div class="box box311"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box312"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box313"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box314"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box315"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box316"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+</div>
+<div class="clear"></div>
+<div class="box1">
+    <p>3.2</p>
+    <div class="box box321"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box322"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box323"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box324"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box325"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+    <div class="box box326"><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+</div>
+<div class="clear"></div>
+<div class="box1">
+    <p>4-5-6-9</p>
+    <div class="box box41">
+        <div class="column"><span class="item"></span><span class="item"></span></div>
+        <div class="column"><span class="item"></span><span class="item"></span></div>
+    </div>
+    <div class="box box42"><span class="item"></span><span class="item"></span><span class="item"></span><span class="item"></span></div>
+    <div class="box box43"><span class="item"></span><span class="item"></span><span class="item"></span><span class="item"></span></div>
+    <div class="box box44">
+        <div class="row"><span class="item"></span><span class="item"></span></div>
+        <div class="row"><span class="item"></span></div>
+        <div class="row"><span class="item"></span><span class="item"></span></div>
+    </div>
+    <div class="box box45">
+        <span class="item"></span><span class="item"></span><span class="item"></span>
+        <span class="item"></span><span class="item"></span><span class="item"></span>
+    </div>
+    <div class="box box46">
+        <span class="item"></span><span class="item"></span><span class="item"></span>
+        <span class="item"></span><span class="item"></span><span class="item"></span>
+    </div>
+    <div class="box box47"><span class="item"></span><span class="item"></span><span class="item"></span><span class="item"></span><span class="item"></span><span class="item"></span><span class="item"></span><span class="item"></span></span><span class="item"></span></div>
+</div>
+</body>
+</html>

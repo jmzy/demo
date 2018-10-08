@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+
+
+<script>
+    var a =[1,2,3,4,5];
+    var b =['a','b','c','d','e'];
+    var c =['e1','是1','22w','3是'];
+
+    //arr
+
+//    console.log(typeof null);               //object
+//    console.log(typeof a.join());           //string
+//    console.log(a.join('-'));               //1-2-3-4-5
+//    //--------------------------
+//    console.log(typeof b);                  //object
+//    console.log(a.push());                  //5
+//    console.log(typeof a.push());           //number
+//    console.log(b.push());                  //5
+//    console.log(typeof b.push());           //number
+//    console.log(b.push('a'));               //6
+//    console.log(a.push());                  //5
+//    console.log(a.length);                  //5
+//    document.write(b + '<br/>');            //a,b,c,d,e,a
+//    console.log(b + '<br/>');               //a,b,c,d,e,a<br/>
+//    console.log(typeof b);                  //object
+//    document.write(b.push());               //6
+//    console.log(b instanceof Array)         //true
+//    //------------------------
+//    console.log(a.pop());
+//    console.log(a);
+//    console.log(a.pop(1));
+//    console.log(a);
+//    //-------------
+//    a.reverse(1);
+//    a.reverse(2);
+//    console.log(a);
+//    console.log(a.indexOf(1));
+//    console.log(a.indexOf(2));
+//    //--------------------------
+//    console.log(typeof a.join());               //string
+//    console.log(typeof b.toString());           //string
+//    console.log(a.join());                      //1,2,3,4,5
+//    console.log(b.toString());                  //a,b,c,d,e
+//    //------
+//    console.log(a);                             //[1, 2, 3, 4, 5]
+//    var aa = a.concat([6]);
+//    console.log(aa);                            //[1, 2, 3, 4, 5, 6]
+//    console.log(a);                             //[1, 2, 3, 4, 5]
+//    var bb = a.push(6);
+//    console.log(bb);                            //6
+//    console.log(a);                             //[1, 2, 3, 4, 5, 6]
+//    //--------------
+//    console.log(a);
+//    console.log(typeof a.valueOf());
+//    var bb = a.valueOf();
+//    console.log(bb instanceof Array);
+//    console.log(a.valueOf(0));
+//    console.log(a.valueOf(6));
+//    //------------
+//    console.log(a);
+//    a.slice(1,3);
+//    console.log(a);
+//    console.log(a.slice(1));
+//    console.log(a.slice(1),2);
+//    console.log(a.length);
+//    //-------------
+//    console.log(a);                             //[1, 2, 3, 4, 5]
+//    console.log(a.splice(1,2));                 //[2, 3]
+//    console.log(a);                             //[1, 4, 5]
+//    //----------------
+//    var a =[1,2,3,4,5];
+//    console.log(a);                             //[1, 2, 3, 4, 5]
+//    console.log(a.splice(1,1,'a','b'));        //[2]
+//    console.log(a);                             //[1, "a", "b", 3, 4, 5]
+//    var a =[1,2,3,4,5];
+//    console.log(a.splice(2,1,'a'));             //[3]
+//    console.log(a);
+//    var a =[1,2,3,4,5];
+//    console.log(a.splice(3,1,'a'));             //[4]
+//    console.log(a);                             //[1, "a", "b", 3, 4, 5]
+//    var a =[1,2,3,4,5];
+//    console.log(a.splice(0,1,'a'));             //[1]
+//    console.log(a);                             //["a", 2, 3, 4, 5]
+//    //------------
+//    var aa = [1,2,3,{1:"a"}];
+//    var aa = JSON.stringify(aa);
+//    console.log(aa);                            //[1,2,3,{"1":"a"}]
+//    console.log(typeof aa);                     //string
+//    var json1 = {1:'a',2:'b',3:'c'};
+//    console.log(json1);                         //Object {1: "a", 2: "b", 3: "c"}
+//    console.log(typeof JSON.stringify(a));
+//    var arr = JSON.stringify(a);                //string
+//    console.log(arr);                           //[1,2,3,4,5]
+//    console.log(typeof arr);                    //string
+//    ///////////////////////////////////////
+//    var arr = new Array();
+//    arr[0]=["标题1",'12:10',"type","内容1"];
+//    arr[1]=["标题2",'12:10',"type","内容2"];
+//    arr[2]=["标题3",'12:10',"type","内容3"];
+//    arr[3]=["标题4",'12:10',"type","内容4"];
+//    arr[4]=["标题5",'12:10',"type","内容5"];
+//    console.log(arr);                           //[Array[4], Array[4], Array[4], Array[4], Array[4]]
+//    console.log(arr instanceof Array);         //true
+//    var aa = JSON.stringify(arr);
+//    console.log(typeof aa);                    //string
+//    console.log(aa instanceof Array);          //false
+//    ////////////////////////////////////
+//    var a = [];
+//    a[0]='a';
+//    a[1]='b';
+//    var str = "{";
+//    for(var i=0;i<a.length;i++){
+////        str +=  i + ":" + "\"" + a[i] + "\",";                  //numkey
+//        str +=  a[i] + ":" + "\"" + a[i] + "\",";               //num
+//        str += "\"" + a[i] + "\"" + ":" + "\"" + a[i] + "\",";  //str
+//    }
+//    str = str.substring(0,str.lastIndexOf(','));
+//    str += "}";
+//    console.log(str);                                //{"a":"a","b":"b"}
+//    console.log(typeof str);                        //string
+//    ///1
+//    var jsonstr = JSON.parse(str);
+//    ///2
+//    //    var jsonstr = eval('(' + str + ')');
+//    ///3
+//    var jsonstr;
+//    ~(function strToJson(str){
+//        jsonstr = (new Function("return " + str))();
+////        return jsonstr;
+//    })(str);
+//    console.log(typeof jsonstr);                    //object
+//    console.log(jsonstr);                           //Object {a: "a", b: "b"}
+//    var jsona = {1:'a',2:'b'};
+//    console.log(typeof jsonstr);                    //object
+//    console.log(jsona);                              //Object {1: "a", 2: "b"}
+//
+//    var str = '{"a":"a","b":"b"}';
+//    var jsonstr;
+//    ~(function strToJson(str){
+//        jsonstr = (new Function("return " + str))();
+////        return jsonstr;
+//    })(str);
+//
+//    console.log(typeof jsonstr);                    //object
+//    console.log(jsonstr);                           //Object {a: "a", b: "b"}
+//
+//    //-------------------
+//    console.log(a);
+//    console.log(a.indexOf(2));                      //1
+//    console.log(a.indexOf(1));                      //0
+//    console.log(a.indexOf(3));                      //2
+//
+//    arr.concat();
+//    arr.shift();
+//    arr.unshift();
+//    arr.sort();
+//    arr.pop();
+//    arr.reverser();
+//    arr.length;
+//    arr.push('a');
+//        var arrLength = arr.push();
+//    arr.slice();
+//    arr.splice();
+//    arr.toString();
+//    arr.join(',');
+//        var arrToString = arr.join();
+//    arr.valueOf(2);
+//    arr.map(val,index,thisArr);
+//        arr.map(function(arrI){});
+//    var arrIsArray = arr instanceof Array;
+//
+//    //localeCompare
+//    var array = ['白鸽', '麻雀', '大象', '狗', '猫', "鸡"];
+//    array = array.sort(
+//            function compareFunction(item1, item2) {
+//                console.log(1 + '---' +item1);
+//                console.log(item2);
+//                return item1.localeCompare(item2);
+//            }
+//    );
+//    console.log(array)
+
+
+//-----JQuery
+
+//    var arrA =[1,2,3,4,5,0];
+//    var arrB =['a','b','c','d','e'];
+//    var arrC =['e1','是1','22w','3是'];
+
+//    $.match(arrA,function(i,n){
+//        console.log(i + '---' + n);
+//    })
+
+
+
+
+
+    //map邝展 -- Array.prototype扩展可以让IE6-IE8浏览器也支持map方法：
+
+//    if (typeof Array.prototype.map != "function") {
+//        Array.prototype.map = function (fn, context) {
+//            var arr = [];
+//            if (typeof fn === "function") {
+//                for (var k = 0, length = this.length; k < length; k++) {
+//                    arr.push(fn.call(context, this[k], k, this));
+//                }
+//            }
+//            return arr;
+//        };
+//    }
+
+
+    //array应用
+
+    //把数组内转为num
+
+//    var arr = ['111',"111a",'111',"111a",'111',"111a",'111',"111a",'111',"111a"];
+//    var newArr = arr.map(function(value){
+//        return parseFloat(value);
+//    });
+//    console.log(newArr);
+//    console.log(typeof newArr[0]);
+
+    //判断a数组在b数组中
+
+//    var arrA = [1,2];
+//    var arrB = [1,2,3,4,5];
+//    var arrC = [111,222];
+//
+//    function inArr(arr1,arr2){
+//        for(var i=0;i<arr1.length;i++){
+//            for(var o=0;o<arr2.length;o++){
+//                if(arr1[i] == arr2[0]){
+//                    return true
+//                }else{
+//                    return false
+//                }
+//            }
+//        }
+//    }
+//    console.log(inArr(arrA,arrB));      //ture
+//    console.log(inArr(arrC,arrB));      //fale
+
+    //两个数组中的重复值
+
+    function check(arr1, arr2){
+        var result = [];
+        var arr = arr1.concat(arr2);
+        arr.forEach(function(d,i){
+            if(arr.indexOf(d) != i) result.push(d);
+        });
+        return result;
+    }
+
+    console.log(check([1,2,3,4],[8,9,7,2,3,4,1]));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>CSS Hack</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                CSS Hack
+            </h1>
+            <section>
+                <h5>
+                    简单了解Hack
+                </h5>
+                <p>
+                    Hack是CSS上的1种机制、是让不同的浏览器兼容css的样式、主要应用在IE上<br/>
+                    不同厂商的浏览器或者某浏览器的不同版本<br/>
+                    (例如IE6-11、Firefox、Safari、Opera、Chrome)<br/><br/>
+
+                    对CSS的支持，解析不一样，导致在不同浏览器的环境中呈现出不一样的页面展现<br/>
+                    效果、获得统一的页面效果，就需要针对不同的浏览器或不同的版本写特定的CSS<br/>
+                    样式针对不同的浏览器/不同的版本写的响应的CSS code的过程、称为CSS Hack
+                </p>
+            </section>
+            <section>
+                <h5>
+                    Hack 类型
+                </h5>
+                <p>
+                    Hack是CSS上的1种机制、是让不同的浏览器兼容css的样式、主要应用在IE上<br/>
+
+                    不同厂商的浏览器或者某浏览器的不同版本<br/>
+                    (例如IE6-11、Firefox、Safari、Opera、Chrome)<br/><br/>
+                    对CSS的支持，解析不一样，导致在不同浏览器的环境中呈现出不一样的页面展现效<br/>
+                    果、获得统一的页面效果，就需要针对不同的浏览器或不同的版本写特定的CSS样式<br/>
+                    针对不同的浏览器/不同的版本写的响应的CSS code的过程、称为CSS Hack！<br/><br/>
+
+                    Hack 类型<br/>
+                    条件注释法:<br/>
+                    &nbsp;&nbsp;&lt;!--[if IE 6]><[endif]>--><br/>
+                    &nbsp;&nbsp;&lt;!--[if IE 6]><br/>
+                    &nbsp;&nbsp;//指定只能在IE6上才能渲染<br/>
+                    &nbsp;&nbsp;可以写html标签<br/>
+                    &nbsp;&nbsp;可以写script代码<br/>
+                    &nbsp;&nbsp;<i class="color0">注：</i>如果写script会遵守从上再下的原则<br/>
+                    &nbsp;&nbsp;&lt;![endif]>--><br/>
+                    &nbsp;&nbsp;&lt;!--[if IE]><![endif]>-->//指定只能在IE上才能渲染<br/>
+                    &nbsp;&nbsp;&lt;!--[if ! IE8]><![endif]>-->//指定非在IE8上才能渲染、也只能是在IE8下<br/><br/>
+
+                    类内属性前缀法<br/>
+                    &nbsp;&nbsp;css样式属性名前加上一些浏览器特定才能识别前缀<br/>
+                    &nbsp;&nbsp;_.box{}  ie6<br/><br/>
+
+                    &nbsp;&nbsp;<i class="color0">注：</i><br/>
+                    &nbsp;&nbsp;_.box{background-color:red;}<br/>
+                    &nbsp;&nbsp;.box{background-color:blue;}<br/>
+                    &nbsp;&nbsp;如果希望DIV在IE6上是红色，其它是绿色，这样写是不行的<br/>
+                    &nbsp;&nbsp;因为在IE6解析的时候，第一句能够识别，背景设为红色<br/>
+                    &nbsp;&nbsp;但是第二句所有浏览器都识别，IE6也不例外<br/>
+                    &nbsp;&nbsp;背景颜色又被设为绿色，所以得反过来写<br/>
+                    &nbsp;&nbsp;<i class="color0">正确写法</i><br/>
+                    &nbsp;&nbsp;<i class="color1">.box{background-color:red;}</i><br/>
+                    &nbsp;&nbsp;<i class="color1">_.box{background-color:red;}</i><br/>
+                    &nbsp;&nbsp;<i class="color0">总结出的规律就是：先一般，再特殊</i><br/><br/>
+                    &nbsp;&nbsp;出处<br/>
+                    &nbsp;&nbsp;http://www.cnblogs.com/dolphinX/p/3292630.html<br/>
+                    &nbsp;&nbsp;这个也可以参考参考<br/>
+                    &nbsp;&nbsp;http://www.w3cplus.com/css/browser-hacks.html<br/><br/>
+
+                    标注法<br/>
+                    &nbsp;&nbsp;<i class="color0">注：</i>IE都能识别 * ； 标准浏览器不能识别 *；<br/>
+                    &nbsp;&nbsp;IE6能识别 * ; 不能识别 ！important;<br/>
+                    &nbsp;&nbsp;IE7能识别 * ；但不能识别 ！important;<br/>
+                    &nbsp;&nbsp;主流浏览器 能识别 ！important; 但不能识别 * ；<br/>
+                    &nbsp;&nbsp;浏览器优先级 FF(火狐)&lt;IE&lt;IE6  所以一般的书写顺序为FF IE7 IE6<br/>
+                    &nbsp;&nbsp;\0 IE8/9都认识  \9 所有IE都认识<br/>
+                    &nbsp;&nbsp;.css:*+background:; [FOR ie7]   ps:*使用性更高<br/>
+                </p>
+            </section>
+            <section>
+                <h5>
+                    待补充
+                </h5>
+                <p>
+                    出之锤爷：QQ1621515868<br/>
+                    er、以前看过、没时间11总结、有时间补、sosorry<br/>
+                    <img src="../../images/css/hack.png" style="margin:10px 0 0 20px;width:560px;height:280px" alt=""/>
+                    <br/><br/>
+                    以后也补这个<br/>
+                    扩充：<br/>
+                    CSS内部属性级Hack<br/>
+                    语法：selector{<hack>?property:value<hack>?;}<br/>
+                </p>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

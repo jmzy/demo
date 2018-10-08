@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Vue TEST 01-07 data传入全局对象</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue"></script>
+    <div id="app-vue">
+        <p>{{data.b}}</p><!--//2-->
+    </div>
+    <script type="text/javascript">
+        var data = {b:1};
+        var vm = new Vue({
+            el:'#app-vue',
+            data:{
+                data:data
+            }
+        })
+
+//    var a = {
+//        b:1
+//    };
+//    var vm = new Vue({
+//        el:'#app-vue',
+//        data:{
+//            data:a
+//        }
+//    })
+        var a = 2;
+        var qq = function() {
+            var a = 1;
+            console.log(typeof this);
+            console.log(this.a);
+        }
+        qq();
+
+//        var data = {a:1};
+//        var vm = new Vue({
+//            el:'#app-vue',
+//            data:data
+//        });
+//        vm.$data === data;//  - > true
+//        vm.$el === document.getElementById('app-vue');//  - > true
+//        // $ watch是一个实例方法
+//        vm.$watch('a',function(newVal,oldVal) {
+//            //当`vm.a`更改时，这个回调函数将被调用
+//        })
+
+//        var vm = new Vue({
+//            data: {
+//                a: 1
+//            },
+//            created: function () {
+//                // `this` points to the vm instance
+//                console.log('a is: ' + this.a)//this指向
+//            }
+//        })
+
+    </script>
+</body>
+</html>

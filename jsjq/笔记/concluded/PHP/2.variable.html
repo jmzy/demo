@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>PHP 变量</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				PHP 变量
+            </h1>
+            <section>
+                <h5>
+					变量定义
+                </h5>
+                <pre>
+$url = 'www.baidu.com';
+  可变类型
+$url = 123;
+  变量前面必须是$符号
+//必须以字母或下划线开头、可以包含数字、字母、下划线
+//区分大小写、(vbscript)
+//可以中文命名、最好不用中文
+
+var_dump($url);//int(123) 获得类型和值
+echo $url;//输出
+
+$a = 'aaaaa';
+function fn1(){
+  echo $a;
+};
+fn1();//不会输出
+
+function fn2(){
+  $b = 'bbbbb';
+  echo $b;
+};
+fn2();//bbbbb
+                </pre>
+            </section>
+            <section>
+                <h5>
+					给变量赋值
+                </h5>
+                <pre>
+
+                </pre>
+            </section>
+            <section>
+                <h5>
+					可变变量&外部变量
+                </h5>
+                <pre>
+$abc = 'efg';
+$$efg = 'bcd';//把变量值作为变量名、即为可变变量
+echo $$efg."----".$efg;//bcd----bcd
+                </pre>
+            </section>
+            <section>
+                <h5>
+					外部变量
+                </h5>
+                <pre>
+$_GET[]  通过地址栏传输、传送数据量少、不够安全
+$_POST[] 相对来说安全  
+$_REQUEST[]  相当于同时接受GET POST、比起单独使用GET 
+
+POST 要慢1些
+
+上传文件是通过 $_POST[]上传 20min
+php -- ini  修改上传
+upload_max_filesize = 2M
+要小于
+post_max_size
+
+&lt;php
+    echo $_GET['webname']; 
+    echo $_REQUEST['uname'];
+    echo $_POST['uname'];
+?&gt;
+&lt;a href = "2.php?webname=123&uname=测试"&gt;
+    点击提交站点
+&lt;/a&gt;
+&lt;form action="index.php" method="post"&gt;
+    &lt;input type="text" name="uname"&gt;&lt;br/&gt;
+    &lt;input type="submit" value="提交表单"&gt;
+&lt;/from&gt;
+
+传值赋值
+$abc = "qq";
+$bcd = $abc;
+echo $bcd."---".$abc;//qq---qq
+$abc = "ww";
+echo $bcd."---".$abc;//ww---qq
+$bcd = &$abc;//传值赋值 方式+上连接符
+echo $bcd."---".$abc;//ww---ww
+                </pre>
+            </section>
+            <section>
+                <h5>
+					常量:值始终保持不变的单元
+                </h5>
+                <pre>
+defined('a','aaaaa');//define('常量名称','值')
+echo a;//区分大小写//aaaaa 建议大写
+echo A;//为命名直接显示A
+进行修改
+define('a','bbbbb');
+echo a;//aaaaa 不可以修改
+//常量值的范围、标量：字符串(string)、整形(int)、
+    浮点型(float)、布尔(boolean)
+
+define('a','aaaaa');
+function fn1(){
+  echo a;
+};
+fn1();//aaaaa //与变量不同
+                </pre>
+            </section>
+            <section>
+                <h5>
+					系统默认常量
+                </h5>
+                <pre>
+echo M_PI;
+echo PHP_OS;
+echo PHP_VERSION;//输出版本号
+                </pre>
+            </section>
+            <section>
+                <h5>
+					魔法常量：在不同环境下会返回不同的值
+                </h5>
+                <pre>
+echo __LINE__;//显示当前的行号
+echo __FILE__;//返回当前文件的路径
+
+function fn3(){
+  echo __FUNCTION__;//返回函数名
+};
+fn1();
+
+class qqq{
+  function fun(){
+    echo __CLASS__;
+    echo '<hr/>';
+    echo __METHOD__;
+  }
+};
+$qa = new qqq();
+$qa->fun();
+//返回类名 qqq
+//qqq::fun
+                </pre>
+            </section>
+            <section>
+                <h5>
+					检测变量是否存在的函数
+                </h5>
+                <pre>
+isset($abc)
+                </pre>
+            </section>
+            <section>
+                <h5>
+					检测常量是否存在的函数
+                </h5>
+                <pre>
+defined('ABC')
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery animation 1</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<!--.show()-->
+		<p style="display: none">Hello</p>
+		
+		<button id="go"> Run</button>
+		<div id="block">Hello!</div>
+		
+		<script>
+//			.show()
+			$("p").show(4000,function(){
+				$(this).text("Animation Done...");
+			});
+			
+//			.animate()
+			$("#go").click(function(){
+				$("#block").animate({ 
+					width: "90%",
+					height: "100%", 
+					fontSize: "10em", 
+					borderWidth: 10
+				}, 1000 );
+			});
+			
+			
+			
+			
+			
+		</script>
+		
+		
+		<style>
+	    	#div{ width:50px; height:30px; margin:5px; float:left;
+	        	background:green; }
+	    </style>
+		<p><input type="button" value="Run"/></p>
+		<div id="div"></div>
+		<script>
+		jQuery.fx.interval = 100;
+		
+		$("input").click(function(){
+			$("div").toggle( 3000 );
+		});
+		</script>
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

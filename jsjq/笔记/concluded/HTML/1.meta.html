@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>HTML <meta>标签</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				HTML &lt;meta&gt;标签
+				<i class="color0"><出处 W3School></i>
+                <a href="http://www.w3school.com.cn/tags/tag_meta.asp" class="color4" style="float:right">更详细</a>
+            </h1>
+            <section>
+                <h5>
+					定义和用法
+                </h5>
+                <pre>
+&lt;meta&gt; 元素可提供有关页面的元信息（meta-information），
+  比如针对搜索引擎和更新频度的描述和关键词。
+&lt;meta&gt; 标签位于文档的头部，不包含任何内容。
+&lt;meta&gt; 标签的属性定义了与文档相关联的名称/值对。
+                </pre>
+            </section>
+            <section>
+                <h5>
+					HTML 与 XHTML 之间的差异
+                </h5>
+                <pre>
+在 HTML 中，&lt;meta&gt; 标签没有结束标签。
+在 XHTML 中，&lt;meta&gt; 标签必须被正确地关闭。
+                </pre>
+            </section>
+            <section>
+                <h5>
+					常见事例
+                </h5>
+                <pre>
+&lt;meta charset="UTF-8"&gt;
+charset="UTF-8"用以说明主页制作所使用的文字以及语言
+ 
+还可以
+&lt;meta http-equiv="Content-Type" contect="text/html";charset=gb_2312-80"&gt;
+&lt;meta http-equiv="Content-Language" contect="zh-CN"&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+					content 必需的属性
+                </h5>
+                <pre>
+定义与 http-equiv 或 name 属性相关的元信息
+<i class="color0">★</i>现在也有不用、不知道原因
+                </pre>
+            </section>
+            <section>
+                <h5>
+					name 属性<i class='color0'>*</i>需配合content使用
+                	<i class="color0"><出处 haorooms></i>
+                    <a href="http://www.haorooms.com/post/html_meta_ds" class="color4" style="float:right">更详细</a>
+                </h5>
+                <pre>
+name属性主要用于描述网页，与之对应的属性值为content，content中的内容主要
+是便于搜索引擎机器人查找信息和分类信息用的。
+                	
+<i class="color0">1、</i>.&lt;meta name="viewport" contect=""&gt;
+   name="viewport"规定页面缩放
+
+2、&lt;meta name="KEYWords" contect=""&gt;
+   name="KEYWords"向搜索引擎说明你的网页的关键词
+   content标识网页的关键词；
+
+3、&lt;meta name="DEscription" contect=""&gt;
+   name="DEscription"告诉搜索引擎你的站点的主要内容；
+   content标识内容体;
+
+4、&lt;meta name="Author" contect="你的姓名"&gt;
+   name="Author"告诉搜索引擎你的站点的制作的作者；
+
+5、&lt;meta name="Robots" contect= "多个值"&gt;
+   name="Robots"判断是否被检索
+   信息参数为all：文件将被检索，且页面上的链接可以被查询；
+   信息参数为none：文件将不被检索，且页面上的链接不可以被查询；
+   信息参数为index：文件将被检索；
+   信息参数为follow：页面上的链接可以被查询；
+   信息参数为noindex：文件将不被检索，但页面上的链接可以被查询；
+   信息参数为nofollow：文件将被检索，但页面上的链接不可以被查询；
+   
+6、&lt;meta name="COPYRIGHT" contect=""&gt;
+   NAME="COPYRIGHT"说明网站版权信息
+   content标识版权信息;
+   
+7、&lt;meta name="revisit-after" contect="7days"&gt;
+   name="revisit-after"代表网站重访,7days代表7天，依此类推;
+
+8、&lt;meta name="Generator" contect=""&gt;
+   name="Generator"说明网站的采用的什么软件制作。
+   content标识采用的什么软件制作；
+   
+9、&lt;meta name="apple-mobile-web-app-capable" contect="yes"&gt;
+   作用删除默认的苹果工具栏和菜单栏。
+   content有两个值”yes”和”no”,当我们需要显示工具栏和菜单栏时，
+   默认就是显示。
+   
+10、&lt;meta name="apple-mobile-web-app-status-bar-style" content="black"&gt;
+   在web app应用下状态条（屏幕顶部条）的颜色；
+   默认值为default（白色），可以定为black（黑色）
+   和black-translucent（灰色半透明）。
+                </pre>
+            </section>
+            <section>
+                <h5>
+					http-equiv属性
+                </h5>
+                <pre>
+http-equiv顾名思义，相当于http的文件头作用，它可以向浏览器传回一些有用
+的信息，以帮助正确和精确地显示网页内容，与之对应的属性值为content，
+content中的内容其实就是各个参数的变量值。
+
+1.&lt;meta http-equiv="expires"content="Fri,12Jan200118:18:18GMT"&gt; 
+   说明：可以用于设定网页的到期时间。一旦网页过期必须到服务器上重新传输。   
+   注意：必须使用GMT的时间格式
+   
+2.&lt;meta http-equiv="Pragma" content="no-cache"&gt; 
+   http-equiv="Pragma"说明：禁止浏览器从本地计算机的缓存中访问页面内容。
+   
+3.&lt;meta http-equiv="Refresh" content="2;URL=http://www.haorooms.com"&gt; 
+   http-equiv="Refresh"说明：自动刷新并指向新页面。
+   注意：其中的2是指停留2秒钟后自动刷新到URL网址。
+
+4.&lt;meta http-equiv="Set-Cookie" 
+   content="cookie value=xxx; expires=Friday, 
+   12-Jan-200118:18:18GMT；path=/"&gt;
+   http-equiv="Set-Cookie"如果网页过期，那么存盘的cookie将被删除。
+   注意：必须使用GMT的时间格式。
+
+5.&lt;meta http-equiv="Window-target" content="_top"&gt;
+   http-equiv="Window-target"说明：强制页面在当前窗口以独立页面显示。
+   注意：用来防止别人在框架里调用自己的页面。
+
+6.&lt;meta http-equiv="content-Type" content="text/html;charset=gb2312"&gt; 
+   说明：设定页面使用的字符集。
+   meta标签的charset的参数GB2312时，代表说明网站是采用的编码是简体中文；
+   meta标签的charset的参数BIG5时，代表说明网站是采用的编码是繁体中文；
+   meta标签的charset的参数iso-2022-jp时，代表说明网站是采用的编码是日文；
+   meta标签的charset的参数ks_c_5601时，代表说明网站是采用的编码是韩文；
+   meta标签的charset的参数ISO-8859-1时，代表说明网站是采用的编码是英文；
+   meta标签的charset的参数UTF-8时，代表世界通用的语言编码；
+
+7.&lt;meta http-equiv="Content-Language" content="zh-cn"/&gt; 
+   http-equiv="Content-Language" content="zh-cn"显示语言的设定
+   
+8.Cache-Control指定请求和响应遵循的缓存机制。
+   Cache-Control指定请求和响应遵循的缓存机制。在请求消息或响应消息中
+   设置Cache-Control并不会修改另一个消息处理过程中的缓存处理过程。请求
+   时的缓存指令包括no-cache、no-store、max-age、max-stale、min-fresh、
+   only-if-cached，响应消息中的指令包括public、private、no-cache、
+   no-store、no-transform、must-revalidate、proxy-revalidate、
+   max-age。各个消息中的指令含义如下
+
+   Public指示响应可被任何缓存区缓存
+   Private指示对于单个用户的整个或部分响应消息，不能被共享缓存处理。这
+   允许服务器仅仅描述当用户的部分响应消息，此响应消息对于其他用户的请求
+   无效
+   no-cache指示请求或响应消息不能缓存
+   no-store用于防止重要的信息被无意的发布。在请求消息中发送将使得请求和
+   响应消息都不使用缓存。
+   max-age指示客户机可以接收生存期不大于指定时间（以秒为单位）的响应
+   min-fresh指示客户机可以接收响应时间小于当前时间加上指定时间的响应
+   max-stale指示客户机可以接收超出超时期间的响应消息。如果指定max-stale
+   消息的值，那么客户机可以接收超出超时期指定值之内的响应消息。
+   
+9.&lt; meta http-equiv="imagetoolbar"content="false"/&gt; 
+   http-equiv="imagetoolbar"指定是否显示图片工具栏，当为false代表不显示
+   ，当为true代表显示。
+
+10.&lt;Meta http-equiv="Content-Script-Type" Content="text/javascript"&gt;
+   W3C网页规范，指明页面中脚本的类型。
+                </pre>
+            </section>
+            <section>
+                <h5>
+					大网站都是怎么写？
+					<i class="color0"><出处 海角在眼前></i>
+                	<a href="http://www.cnblogs.com/lovesong/p/5745893.html" class="color4" style="float:right">更详细</a>
+            	</h5>
+                <pre>
+<i class='color0'>★</i>记录于凌晨1点、所以懒得番直接抄
+京东
+&lt;meta charset="gbk"&gt;
+&lt;meta name="description" content="京东JD.COM-专业的综合网上购物商城,
+销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、
+食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!"&gt;
+&lt;meta name="Keywords" content="网上购物,网上商城,手机,笔记本,电脑,
+MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,京东"&gt;
+
+淘宝
+&lt;meta charset="utf-8"&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;
+&lt;meta name="renderer" content="webkit"&gt;
+&lt;meta name="spm-id" content="a21bo"&gt;
+&lt;meta name="description" content="淘宝网 - 亚洲最大、
+最安全的网上交易平台，提供各类服饰、美容、家居、数码、话费/点卡充值… 
+8亿优质特价商品，同时提供担保交易(先收货后付款)、先行赔付、假一赔三、
+七天无理由退换货、数码免费维修等安全交易保障服务，
+让你全面安心享受网上购物乐趣！"&gt;
+&lt;meta name="keyword" content=""&gt;
+
+youku
+&lt;meta charset="utf-8"&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=Edge"&gt;
+&lt;meta name="title" content="优酷-中国领先视频网站,提供视频播放,
+视频发布,视频搜索 - 优酷视频" /&gt;
+&lt;meta name="keywords" content="视频,视频分享,视频搜索,视频播放,
+优酷视频" /&gt;
+&lt;meta name="description" content="视频服务平台,提供视频播放,
+视频发布,视频搜索,视频分享" /&gt;
+
+腾讯
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="renderer" content="webkit" /&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge,
+chrome=1"&gt;
+&lt;meta name="keywords" content="新闻 新闻中心 事实派 新闻频道,
+时事报道"&gt;
+&lt;meta name="description" content="腾讯新闻，事实派。新闻中心,
+包含有时政新闻、国内新闻、国际新闻、社会新闻、时事评论、新闻图片、
+新闻专题、新闻论坛、军事、历史、的专业时事报道门户网站"&gt;
+&lt;meta name="author" content="skeetershi" /&gt;
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+<script>
+
+</script>
+</body>
+</html>
+

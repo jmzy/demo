@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    //参考:http://blog.csdn.net/pangqiandou/article/details/53117090
+    //作者:pangqiandou
+
+
+    function mySum(x,y) {
+        x = Number(x);
+        y = Number(y);
+        if(isNaN(x) || isNaN(y)){
+            throw new Error("两个数相加前提两个数必须都是数字");
+        }
+        else{
+            return x+y;
+        }
+    }
+    document.write(mySum(1,3));
+    document.write(mySum('a',3));
+
+
+</script>
+</body>
+</html>

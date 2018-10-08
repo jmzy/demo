@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>String字符串类型</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                String字符串类型
+            </h1>
+            <section>
+                <h5>
+                    String的一些简单方法
+                </h5>
+                <pre>
+&lt;script&gt;
+
+//声明对象、赋值引号形式、不带引号赋值为该对象(英文)
+    var str = "efsfs";
+
+//字符串对象的长度
+    var str = "abcdefg";
+    console.log(str.length);//7 <i class="color4">★</i>从1开始
+    
+//去掉字符串两边的空格
+	var a = "  aaa a  ";
+	console.log(a.trim());//aaa a 中间的空格不能取消
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    charAt()返回在指定位置的字符。
+                </h5>
+                 <pre>
+&lt;script&gt;
+var str = "abcdefg";
+console.log(str.charAt(0));//a、从0开始
+
+    //获得每1个字符
+    for(var i=0;i&lt;str.length;i++){
+        console.log(str.charAt(i));//a b c d e f g
+    };
+
+    //获得字符串指定的1个字符
+    console.log(str.charAt(0-n));//n(Num)获得指定的1个字符
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    indexOf()方法可返回某个指定的字符串值在字符串中首次出现的位置。
+                </h5>
+                <pre>
+&lt;script&gt;
+var str="Hello world!"
+console.log(str.indexOf("Hello"));//0  从0开始算、存在
+console.log(str.indexOf("World"));//-1 不存在、大小写区分
+console.log(str.indexOf("world"));//6  正数代表存在、负数只有-1
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    concat() 连接两个或多个字符串。<i class="color4">★</i>该方法对数组也有效果
+                </h5>
+                <pre>
+&lt;script&gt;
+strObj1.concat(strObj2);
+
+var str1 = "abc";
+var str2 = "efg";
+var str3 = str1.concat(str2);
+console.log(str3);//abcefg
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+            <h5>
+                replace() 寻找指定字符串并把它替换
+            </h5>
+                <pre>
+&lt;script&gt;
+var str="Hello world!"
+var a = str.replace("H",1);
+document.write(a);//1ello world!
+&lt;script&gt;
+            </pre>
+            </section>
+            <section>
+                <h5>
+                    slice() 抽出字符串对应的字符
+                </h5>
+                <pre>
+slice() 1个传参值为切割、两个传参值为保留第1个和第2个传参应之间的对象
+<i class="color4">★</i>这方法也对数组、返回对象string为string、Array为Array
+
+&lt;script&gt;
+//string
+var a = "123456789";
+var b = a.slice(1);
+var c = a.slice(1,5);
+document.write(b + "&lt;br/&gt;");//23456789
+document.write(c + "&lt;br/&gt;");//2345 //<i class="color4">★</i>从1开始
+document.write(typeof b + "-" + typeof c + "&lt;br/&gt;");//string-string
+
+//Array
+var arr = new Array("abc",111,"bcd",222);
+var arr1 = arr.slice(1);
+var arr2 = arr.slice(2,4);
+document.write(arr1 + "&lt;br/&gt;");//111,bcd,222
+document.write(arr2 + "&lt;br/&gt;");//bcd,222 //<i class="color4">★</i>从1开始、数组不包括自己本身
+document.write(typeof arr1 + "-" + typeof arr2 + "&lt;br/&gt;");
+//object-object
+document.write((arr.constructor === Array)+ "&lt;br/&gt;");//true
+document.write((arr1.constructor === Array)+ "&lt;br/&gt;");//true
+document.write(arr2.constructor === Array);//true
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    substr() 剪切(往后)、指定的子串的开始位置和长度进行切割、0开始
+                	<br />
+                	substring() 剪切(往前)、指定的子串的开始位置和-长度进行切割、0开始
+                </h5>
+                <pre>
+单独1个传参无区别、
+两个参数、substr()是往后剪切、substring()是往前剪切
+
+&lt;script&gt;
+var str1 = "abcdefghijk";
+console.log(str1.substr(2));//"cdefghijk"
+console.log(str1.substr(3));//"defghijk"
+console.log(str1.substr(3,2));//de"
+console.log(str1.substr(3,3));//"def"
+
+var str2 = "abcdefghijk";
+console.log(str2.substring(2));//"cdefghijk"
+console.log(str2.substring(3));//"defghijk"
+console.log(str2.substring(3,2));//"c"
+console.log(str2.substring(3,1));//"bc"
+&lt;script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    split() 切割将字符串转化成数组
+                </h5>
+                <pre>
+&lt;script&gt;
+//第1个参数对字符串对应字符进行数组切割
+//第两个参数返回对字符串对应长度
+
+var a = "hey man,what happened";
+var b = a.split("");
+var c = a.split(" ",2);
+document.write(b + "&lt;br/&gt;");//h,e,y, ,m,a,n,,,w,h,a,t, ,h,a,p,p,e,n,e,d
+document.write(c + "&lt;br/&gt;");//h,e
+document.write((b.constructor  === Array) + "&lt;br/&gt;");//true
+document.write((c.constructor  === Array) + "&lt;br/&gt;");//true
+
+//分割字符
+var d = "abcdefg".split("");
+document.write(d + "&lt;br/&gt;");//a,b,c,d,e,f,g
+var e = "abcdefg".split("",3);
+document.write(e + "&lt;br/&gt;);//a,b,c
+
+    //slice() 对数组的方法
+    //slice() 分离出数组对应的数值、
+    var a = [1,2,3,4,5,6,7];
+    document.write(a.slice(1) + "<br />");//2,3,4,5,6,7
+    document.write(a.slice(2) + "<br />");//3,4,5,6,7
+    document.write(a + "<br />");//1,2,3,4,5,6,7
+    document.write(a.slice(1,3) + "<br />");//2,3
+    document.write(a.slice(2,5) + "<br />");//3,4,5
+    document.write(a + "<br />");//1,2,3,4,5,6,7
+&lt;script&gt;
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

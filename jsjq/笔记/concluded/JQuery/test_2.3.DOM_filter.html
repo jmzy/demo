@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery DOM filter 3</title>
+		<script src="../../js/jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<!--.add()-->
+		<h6>11111</h6>
+		<p>Hello</p>
+		<h6>22222</h6>
+		<span>Hello Again</span>
+		
+		<!--.addBack()-->
+		<ul>
+			<li>list item 1</li>
+			<li>list item 2</li>
+			<li class="third-item">list item 3</li>
+			<li>list item 4</li>
+			<li>list item 5</li>
+		</ul>
+		
+		<!--.contents()-->
+		<p id="p">
+			<span>Hello</span>
+			<a href="http://ejohn.org/">John</a>, 
+			how are you doing?
+		</p>
+		<script>
+//			.add()
+			$("p").add("span").css('color','red');
+			
+//			.addBack()
+			$('li.third-item').prevAll().css('background-color', 'red');//12
+			$('li.third-item').nextAll().addBack().css('background-color', 'skyblue');
+
+			//.contents()
+			$("#p").contents().not("[nodeType=1]").css('background-color', 'gold');
+			$("#p").contents('span').css('background-color', 'seagreen');
+			
+			
+		</script>
+	</body>
+</html>

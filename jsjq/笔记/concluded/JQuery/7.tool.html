@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JQuery 工具</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+				JQuery 工具
+            </h1>
+            <section>
+                <h5>
+					浏览器及特性检测
+                </h5>
+                <pre>
+$.support //用于展示不同浏览器各自特性和bug的属性集合
+http://www.runoob.com/try/try.php?filename=tryjquery_prop_jq_support
+检测的对象http://jquery.cuishifeng.cn/jQuery.support.html
+
+$.browser.version //在jQuery 1.3中不建议使用。浏览器渲染引擎版本号
+
+$.boxModel
+
+$.browser<sup class='color0'>1.9-</sup>
+                </pre>
+            </section>
+            <section>
+                <h5>
+					数组和对象操作
+                </h5>
+                <pre>
+$.each(object,[callback]) //遍历arr json
+//遍历、需要遍历的obj、函数参数、index、和值 value
+
+$.extend([d],tgt,obj1,[objN]) 
+<i class="color4">$.extend(item)</i>
+//将obj合并到Jquery的全局对象中去、相当于为JQ全局对象添加了一个静态方法
+//多用在编写插件、本身也有一些重载原型
+
+<i class="color4">$.extend(target,obj)</i>//这方法主要用来合并
+//将所有的参数项都合并target中，并返回target、是这样就会破坏target的结构
+
+<i class="color4">$.extend({},obj1,[objN])</i>
+//这方法将所得的结果全部合并在{}中、并返回、而且还不会破坏原有的项的结构
+
+<i class="color4">$.extend(bool,{},obj1,[objN])</i>//Extend方法还有带bool型参数的重载
+//bool型参数为true表示深拷贝、为false时表示浅拷贝
+//http://blog.csdn.net/xuemoyao/article/details/19021659
+
+$.grep(array,fn,[invert]) //过滤函数过滤数组元素
+//[invert] 为 bool 、默认 false 、 true 为反转
+
+$.map(arr|obj,callback) //对数组进行转换
+http://jquery.cuishifeng.cn/jQuery.map.html
+
+$.inArray(val,arr,[from]) //查找value在数组中的位置
+http://jquery.cuishifeng.cn/jQuery.inArray.html
+
+$.toArray()//把DOM元素集合恢复成一个数组
+//不知道场景 http://jquery.cuishifeng.cn/jQuery.toArray.html
+
+$.merge(first,second) //合并两个数组
+
+$.uniqueSort(array)<sup>3.0+</sup>
+//在jQuery 3.0之前, 这个方法叫做 jQuery.unique()
+http://jquery.cuishifeng.cn/jQuery.uniqueSort.html
+
+
+$.sub()<sup class='color0'>1.9-</sup>
+
+$.unique(array)<sup class='color0'>3.0-</sup>
+
+$.parseJSON(json)<sup class='color0'>3.0-</sup>
+
+<i class="color0">★$.parseXML(data)</i> //解析一个字符串到一个XML文件
+
+<i class="color0">★$.when(deferreds)</i> //表示不懂
+
+<i class="color0">★$.makeArray(obj)</i> //将类数组对象转换为数组对象
+http://jquery.cuishifeng.cn/jQuery.makeArray.html
+                </pre>
+            </section>
+            <section>
+                <h5>
+					函数操作
+                </h5>
+                <pre>
+$.noop //一个空函数
+当你仅仅想要传递一个空函数的时候，就用他吧。这对一些插件作者很有用，
+当插件提供了1个可选的回调函数接口，那么如果调用的时候没有传递这个回调函数，
+就用jQuery.noop来代替执行。
+<i class="color0">★</i>$.proxy(function,context) //看不懂挺好用的
+//http://www.365mini.com/page/jquery_proxy.htm
+                </pre>
+            </section>
+            <section>
+                <h5>
+					测试操作
+                </h5>
+                <pre>
+$.contains(c,c) //检测一个元素是否包含另一个元素 返回ture、false
+$.type(obj) //检测类型
+$.isArray(obj)<sup class='color0'>3.2-</sup> //检测obj是否arr
+$.isFunction(obj) //检测obj是否isFunction
+//浏览器提供的函数比如'alert'
+//还有 DOM 元素的方法比如 'getAttribute' 将不认为是函数
+$.isEmptyObject(obj) //检测obj是否空对象(不包含任何属性)、返回ture/false
+$.isPlainObject(obj) 
+//检测对象是否纯粹的对象(通过'{}'或 'new Object'创建的)、返回ture/false
+$.isWindow(obj) //检测对象是否是窗口（有可能是Frame）
+$.isNumeric(value)<sup>1.7+</sup> //检测参数是否数字类型
+                </pre>
+            </section>
+            <section>
+                <h5>
+					字符串操作
+                </h5>
+                <pre>
+$.trim(str) //去掉字符串起始和结尾的空格、跟js1样
+                </pre>
+            </section>
+            <section>
+            	<h5>
+            		URL
+            	</h5>
+            	<pre>
+<i class="color0">★</i>$.param(obj,[traditional]) //将JS数组或纯粹的对象序列化为字符串值
+如果传入的不是数组或"纯粹的对象"，则返回空字符串("")
+如果传入的是null、undefined等无法访问属性的值，则直接报错
+http://www.365mini.com/page/jquery_param.htm
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+               		插件编写     		
+            	</h5>
+            	<pre>
+$.error(message)
+//http://www.365mini.com/page/jquery_error.htm
+$.fn.jquery //获得页面上当前使用的 jQuery 的版本号
+            	</pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+           		 练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>location</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    //location属性
+
+//
+//    //location.hash 性是一个可读可写的字符串，该字符串是 URL 的锚部分（从 # 号开始的部分）
+//    console.log(location.host);     //获得location的端口
+//        //或www.xxx.com止            //[[设置或返回]]当前 URL 的主机名称和端口号
+//
+//    console.log(location.hostname); //返回服务域名
+//        //www.xxx.com:80            //[[设置或返回]]当前 URL 的主机名
+//
+//    console.log(location.href);     //返回该页面的url
+//        //www.xxx.com:              //[[设置或返回]]当前显示的文档的完整 URL
+//        //location.href = 'baidu.com'; 调用改变当前url
+//
+//    console.log(location.port);     //端口:后的内容
+//        //"8080"                    //[[设置或返回]]或返回当前 URL 的端口部分
+//
+//    console.log(location.protocol); //http://[[设置或返回]]当前 URL 的协议
+//
+//    console.log(location.search);   //?后的内容
+//        //有待研究吧,没效果           //[[设置或返回]]当前 URL 的查询部分（问号 ? 之后的部分）
+//        //我猜这个功能可能可以了解用户的网内轨迹
+//
+//    //decodeURIComponent() 对编码后的 URI 进行解码：
+//    //就1个转码函数,转的码的作用有待研究
+
+
+
+    //方法
+
+//    //location.assign()
+//    window.location = "www.baidu.com"  直接改变当前url    //效果一样
+//    location.href = "www.baidu.com";
+//    location.assign('www.baidu.com');
+//
+//    //location.replace
+//    //不会在 History 对象中生成一个新的记录。当使用该方法时，新的 URL 将覆盖 History 对象中的当前记录
+//    setTimeout(function(){
+//        console.log(1);
+//        location.replace("baidu.com")//p209 阻止用户返回上1页面
+//    },1000)
+//
+//      //str.replace必须两个参数,这里的 replace 是 location 的方法
+//    var str = "abcdefghijklnm";
+//    console.log(str.replace("abcd",''));
+//
+//    //location.reload()             //这个方法会一直load,慎用
+//    location.reload();            //重新加载,有可能是从缓存中加载
+//    location.reload(true);        //重新加载,从服务器重新加载
+//
+//    setTimeout(function(){
+//        location.reload();
+//          //并且reload()调用之后的代码可能也不会执行,网络原因系统资源等因素,
+//          //最好放在最后一行
+//        return false;             //没效果
+//    },5000)
+//    个人认为这个真没必要用,reload()是会把整个文档从新加载
+//
+//    若需要部分组件定时更新数据,用ajax就好
+//    这是写的简单定时更新数据
+
+    //history
+//    history.go(-1);             //后退
+//    history.go(1);              //前进1页
+//    history.go(2);              //前进2页
+//
+//    history.go("baidu.con");    //跳转到最近的baidu.com页面
+//
+//    history.back();           //后退一页;
+//    history.forward();        //前进一页;
+//    hiseory.length;           //下标0开始第1页
+
+    //实现路由封装
+    function Router(){
+        this.routes = {};
+        this.currentUrl = '';
+    };
+    Router.prototype.route = function(path,callback){
+        this.routes[path] = callback || function(){};
+    };
+    Router.prototype.refresh = function(){
+        this.currentUrl = location.hash.slice(1) || '/';
+        this.routes[this.currentUrl]();
+    };
+    Router.prototype.init = function(){
+        window.addEventListener('load',this.refresh.bind(this),false);
+        window.addEventListener('hashchange',this.refresh.bind(this),false)
+    };
+
+    window.Router = new Router();
+    window.router.init();
+</script>
+</body>
+</html>

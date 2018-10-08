@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>多视图操作</title>
+		<script src="../../js/angular.min.js"></script>
+		<script src="https://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+		<style>
+			*{margin:0;padding:0;}
+			ul,ol,li{list-style:none;}
+			div[ui-view=top]{background:skyblue;border-bottom:1px solid cadetblue;}
+			div[ui-view=left]{width:200px;border:1px solid firebrick;float:left}
+			div[ui-view=right]{position:absolute;width:100%;left:201px;border:1px solid firebrick}
+		</style>
+	</head>
+	<body ng-app='app'>
+		<div ui-view='top'></div>
+		<div ui-view='left'></div>
+		<div ui-view='right'></div>
+		<script>
+			var app = angular.module('app',['ui.router']);
+			app.config(function($stateProvider,$urlRouterProvider){
+				$urlRouterProvider.otherwise('/my');
+				$stateProvider
+					.state('my',{
+						url:'/my',
+						views:{
+							'top':{
+								templateUrl:'view/5.5top.html'
+							},
+							'left':{
+								templateUrl:'view/5.5my.html'
+							},
+							'right':{
+								templateUrl:'view/5.5about.html'
+							}
+						}
+					})
+					.state('video',{
+						url:'/video',
+						views:{
+							'top':{ 
+								templateUrl:'view/5.5top.html'
+							},
+							'left':{
+								templateUrl:'view/5.5video.html'
+							},
+							'right':{
+								templateUrl:'view/5.5video_list.html'
+							}
+						}
+					})
+			})
+		</script>
+	</body>
+</html>

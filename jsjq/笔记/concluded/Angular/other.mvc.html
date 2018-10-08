@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS的前端MVC的设计与搭建</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+                AngularJS的前端MVC的设计与搭建
+            </h1>
+            <section>
+                <h5>
+                    AngularJS的前端MVC的设计与搭建
+                </h5>
+                <pre>
+MVC全名是Model View Controller，
+是模型(model)－视图(view)－控制器(controller)的缩写
+
+1.在文档绑定 ng-app=""
+2.输入表达式
+
+一、不绑定模块变量的情况
+&lt;body ng-app=""&gt;//ng-app 值为 null
+{{2+2}}//页面输出为4
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+
+&lt;/script&gt;
+&lt;/body&gt;
+
+二、绑定模块变量、并指向
+&lt;body ng-app="app"&gt; //绑定模块变量
+&lt;div ng-controller="MyCtrl"&gt;
+    &lt;h1&gt;{{msg}}&lt;/h1&gt;//输出为angular
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('app',[])
+    .controller('MyCtrl',function($scope){
+        $scope.msg = "angular";
+    });
+&lt;/script&gt;
+&lt;/body&gt;
+在这里.controller 为C 控制器
+&scope 为M 模型 module
+div里面的内容为V 视图
+
+div视图演示
+&lt;body ng-app=""&gt;
+&lt;div ng-controller="MyCtrl"&gt;
+    &lt;input type="text" ng-model="msg"/&gt;//input的内容为angular
+    &lt;h1&gt;{{msg}}&lt;/h1&gt;//输出为angular
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('app',[])
+    .controller('MyCtrl',function($scope){
+        $scope.msg = "angular";
+    });
+&lt;/script&gt;
+&lt;/body&gt;
+同样在input内容里更改msg、&lt;h1&gt;显示也会跟随
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    Controllers的使用
+                </h5>
+                <pre>
+1.定义 Controller //定义 controller 的作用域
+2.在 Controller 中声明变量
+3.使用 ng-bind 绑定数据并显示 controller 的作用域
+
+简单事例
+&lt;div ng-app="app"&gt;&lt;!-- ng-app="app" 模块变量--&gt;
+    &lt;div ng-controller="firstCtrl"&gt;
+        &lt;h1&gt;{{msg}}&lt;/h1&gt;
+        &lt;h1 ng-bind="msg"&gt;&lt;/h1&gt;&lt;!--效果1样、加载的时候不出现{{}}--&gt;
+    &lt;/div&gt;
+    &lt;div ng-controller="nextCtrl"&gt;
+        &lt;h1&gt;{{msg}}&lt;/h1&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('app',[])
+    .controller('firstCtrl',function($scope){
+        $scope.msg = "hello angular";
+    })//这里不能用分号、用了会报错
+    .controller('nextCtrl',function($scope){
+        $scope.msg = "hello world";
+    });
+    //firstCtrl 和 nextCtrl 两个不同的作用域、同样的变量也不影响
+&lt;/script&gt;
+                </pre>
+            </section>
+            <section>
+                <h5>
+                    在$scope中变量和方法的使用
+                </h5>
+                <pre>
+1.在&srope上定义方法并在页面上进行绑定调用
+2.在&srope上定义变量并在方法中使用
+
+事例一：简单的事事字符串调转
+&lt;div n&lt;g-app="app"&gt;
+&lt;div ng-controller="MyCtrl"&gt;
+    &lt;input type="text" ng-model="msg"/&gt;
+    &lt;h1 ng-cloak class="ng-cloak"&gt;{{reverse()}}&lt;/h1&gt;
+    &lt;!--函数立即调用()--&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    angular.module('app',[])//app绑定元素块
+    .controller('MyCtrl',function($scope){
+    //consroller 绑定元素的 MyCtrl 、函数传参&scope为视图
+        $scope.msg = "";//视图变量绑定
+        $scope.reverse = function(){//视图变量绑定赋值匿名函数
+            return $scope.msg.split("").reverse().join("");
+            //实现输入反转
+        };
+    });
+&lt;/script&gt;
+&lt;/body&gt;
+
+事例二：简单的登录页面
+&lt;div ng-app="app"&gt;
+ &lt;div ng-controller="MyCtrl"&gt;
+  &lt;input type="text" ng-model="user.uname"/&gt;
+  &lt;input type="text" ng-model="user.pwd"/&gt;
+  &lt;button ng-click="login()"&gt;登录&lt;/button&gt;
+  &lt;!-- ng-click 点击事件--&gt;
+  &lt;div ng-show="errormsg.length&gt;0" class="alert-box"&gt;{{errormsg}}&lt;/div&gt;
+  &lt;!-- ng-show 条件若为真则show、、alert-box angular命令中的alert--&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="../../js/angular.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+angular.module('app',[])
+.controller('MyCtrl',function($scope){
+    $scope.uesr = {uname:"",pwd:""};
+    $scope.errormsg = "";
+    $scope.login =function(){
+        console.log($scope.user);//简单调试是否正确绑定
+        if($scope.user.uname == "admin" && $scope.user.pwd == "123"){
+            alert("登录成功")
+        }else{
+            $scope.errormsg = "用户名或密码错误";
+        }
+    };
+});
+&lt;/script&gt;
+                </pre>
+            </section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+

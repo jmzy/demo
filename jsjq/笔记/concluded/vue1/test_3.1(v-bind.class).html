@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE v-bind:class</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        .active{color:red}
+    </style>
+    <div id="app-vue">
+        <p v-bind:class="{active:isActive}">红色文本1</p>
+        <p :class="{active:isActive}">红色文本2</p>
+        <button @click="btnClick">改变Class:变颜色</button>
+    </div>
+    <hr/>
+    <style>
+        .activeOne{color:#ff6600}
+        .fontStyle{font-weight:bolder;font-size:30px}
+    </style>
+    <div id="app-vue2">
+        <p :class="myClass">测试文本</p>
+        <button @click="btn2Click">改变Class:变大</button>
+    </div>
+    <script type="text/javascript">
+        var myApp = new Vue({
+            el:'#app-vue',
+            data:{
+                isActive:true
+            },
+            methods:{
+                btnClick:function(){
+                    this.isActive = !this.isActive
+                }
+            }
+        });
+
+        //----------------
+        var myApp2 = new Vue({
+            el:'#app-vue2',
+            data:{
+                myClass:{
+                    activeOne:true,
+                    fontStyle:false
+                }
+            },
+            methods:{
+                btn2Click:function(){
+                    this.myClass.fontStyle = !this.myClass.fontStyle
+                }
+            }
+        });
+    </script>
+</body>
+</html>

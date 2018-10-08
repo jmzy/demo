@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue"></script>
+    <div id="app-vue">
+        <input type="text" id="name" v-on:keyup="txtKeyup($event)"/>
+        <button id="btn" v-on:click="btnClick($event)">按下</button>
+    </div>
+    <script type="text/javascript">
+        var myApp = new Vue({
+            el:'#app-vue',
+            data:{},
+            methods:{
+                txtKeyup:function(event){
+                    this.debuglog(event);
+                },
+                btnClick:function(event){
+                    this.debuglog(event);
+                },
+                debuglog:function(event){
+                    console.log(
+                        event.srcElement.tagName,'----',
+                        event.srcElement.id,'----',
+                        event.srcElement.innerHTML,'----',
+                        event.key?event.key:''
+                    )
+                }
+            }
+        })
+    </script>
+</body>
+</html>

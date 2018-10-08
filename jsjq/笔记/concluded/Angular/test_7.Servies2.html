@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Service</title>
+</head>
+<body>
+<!--<div ng-app="app">-->
+    <!--<div ng-controller="MyCtrl">-->
+        <!--<h1 ng-bind="realname"></h1>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!--<script src="../../js/angular.min.js"></script>-->
+<!--<script>-->
+    <!--angular.module('app',[])-->
+<!--//    value constant factory service provider-->
+    <!--.value('realname','abc')//angular 的变量 value 可改变-->
+    <!--.value('realname','111')-->
+    <!--.controller("MyCtrl",function($scope,realname){//注入变量、注入为实参-->
+        <!--$scope.msg = "hello world";-->
+        <!--$scope.realname = realname;//111重复变量改变成-->
+    <!--})-->
+<!--</script>-->
+
+
+
+
+<!--<div ng-app="appS">-->
+    <!--<div ng-controller="secendCtrl">-->
+        <!--<h1 ng-cloak class="ng-cloak" >{{http}}</h1>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<script src="../../js/angular.min.js"></script>-->
+<!--<script>-->
+    <!--angular.module('appS',[])-->
+    <!--.constant('http',"www.baidu.com")//angular 的常量 constant-->
+    <!--.constant('http','www.taobao.com')-->
+    <!--.controller("secendCtrl",function($scope,http){//注入-->
+        <!--$scope.http = http;//绑定 ★ 不可更改-->
+    <!--})-->
+<!--</script>-->
+
+
+<!--<div ng-app="appThree">-->
+    <!--<div ng-controller="thirdCtrl">-->
+        <!--<h1 ng-cloak class="ng-cloak">{{date.msg}}</h1>-->
+        <!--<h1 ng-cloak class="ng-cloak">{{dateT.msg}}</h1>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<script src="../../js/angular.min.js"></script>-->
+<!--<script>-->
+    <!--angular.module('appThree',[])-->
+    <!--.factory("date",function(){//声明-->
+        <!--return {-->
+            <!--msg:"hello world",-->
+            <!--setMsg:function(){-->
+                <!--this.msg = "hey man";-->
+            <!--}-->
+        <!--}-->
+    <!--})-->
+    <!--.factory("dateT",function(){-->
+        <!--return new fn();//外置函数 实名匿名各种-->
+        <!--// 外置函数和service就1个道理-->
+    <!--})-->
+    <!--.controller("thirdCtrl",function($scope,date,dateT){//注入controller-->
+        <!--$scope.date = date;//进行调用-->
+        <!--date.setMsg();-->
+        <!--$scope.dateT = dateT;-->
+    <!--})-->
+    <!--function fn(){-->
+        <!--this.msg = "hey girl";-->
+    <!--}-->
+<!--</script>-->
+
+
+<div ng-app="appFour">
+    <div ng-controller="fourthCtrl">
+        <h1 ng-cloak>{{username.getName()}}</h1>
+        <h1 ng-cloak >{{uName}}</h1>
+    </div>
+</div>
+<script src="../../js/angular.min.js"></script>
+<script>
+    angular.module('appFour',[])
+    .service('username',function(){
+        this.firstname = "藤原";
+        this.lastname = "拓海";
+        this.getName = function(){
+            return this.firstname + this.lastname;
+        };
+    })
+    .controller('fourthCtrl',function($scope,username){
+        $scope.username = username;
+        $scope.uName = username.getName();//定义key来获取
+    })
+</script>
+
+
+</body>
+</html>

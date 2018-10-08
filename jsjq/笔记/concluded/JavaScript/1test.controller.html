@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="../../js/angular.min.js"></script>
+		<div ng-app="app" ng-controller="myCtrl">
+			<p>商品：{{msg.name}}(最多买10个)</p>
+			<p>价格：{{msg.price}}个/元</p>
+			<p>数量：{{msg.num}}个</p>
+			<p>总和：{{msg.price * msg.num}}元</p>
+			<button ng-click="add()">增加</button>
+			<button ng-click="reduce()">减少</button>
+		</div>
+		<script>
+			var app = angular.module("app",[]);
+			app.controller("myCtrl",function($scope){
+				$scope.msg = {"name":"苹果","price":20,"num":0};
+				$scope.add = function(){
+					$scope.msg.num = Math.min(++$scope.msg.num,10)
+				}
+				$scope.reduce = function(){
+					$scope.msg.num = Math.max(--$scope.msg.num,0)
+				}
+			})
+		</script>
+	</body>
+</html>

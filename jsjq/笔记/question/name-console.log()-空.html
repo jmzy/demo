@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>console.log() 打印为空</title>
+</head>
+<body>
+<script type="text/javascript">
+    function oneFn(name){
+        var name = 'oneFn name';
+        this.name = 'one fn name';
+        this.showName = function(){
+            console.log(this.name);
+            console.log(name);
+        }
+    }
+    var one = new oneFn();
+
+    function twoFn(name){
+        var name = 'oneFn name';
+        this.name = 'two fn name'
+    }
+    var two = new twoFn();
+
+
+    one.showName.call(twoFn,'two');     //twoFn         //oneFn name
+    one.showName.call(two,'two');       //two fn name   //oneFn name
+    //    oneFn.showName.call(twoFn,'two');       //TypeError
+    //    oneFn().showName.call(twoFn,'two');     //TypeError
+    //    oneFn.showName().call(twoFn,'two');     //TypeError
+    //    oneFn().showName().call(twoFn,'two');   //TypeError
+
+    console.log('name---' + name);
+</script>
+</body>
+</html>

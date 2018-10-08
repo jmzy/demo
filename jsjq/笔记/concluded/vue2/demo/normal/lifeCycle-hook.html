@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>3 demo</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <br/>
+        <input type="text" v-model="msg"/>
+        <ul>
+            <li v-for="item in arr">{{item}}</li>
+        </ul>
+    </div>
+    <script>
+        let app = new Vue({
+//            el: '#app',
+            data: {
+                msg: 1,
+                arr: [1,2,3]
+            },
+            methods:{
+                fn(){
+                    return 'fn'
+                }
+            },
+            beforeCreate(){//data和mothods都读不到
+                console.log('beforeCreate || msg = ',this.msg)
+//                console.log('beforeCreate || fn = ',this.fn()) //报错
+            },
+            created(){//经常用 //实例常见完成,能读到数据
+                console.log('create || msg = ',this.msg)
+                console.log('create || fn = ',this.fn())
+                //dom没渲染成功
+                console.log('create  -- dom',document.querySelectorAll('li').length)
+//                this.arr = [1,2,3,4,5]//但可以修改数据
+            },
+            beforeMount(){
+//                console.log('beforeMount || msg = ',this.msg) //额外测试
+//                console.log('beforeMount || fn = ',this.fn()) //额外测试
+                //dom没渲染成功
+                console.log('beforeMount  -- dom',document.querySelectorAll('li').length)
+            },
+            mounted(){//经常用
+//                console.log('mounted || msg = ',this.msg) //额外测试
+//                console.log('mounted || fn = ',this.fn()) //额外测试
+                //dom没渲染成功
+                console.log('mounted  -- dom',document.querySelectorAll('li').length)
+            },
+            beforeUpdate(){//数据data发生改变前
+//                alert(1)// 可以观察到
+                console.log('beforeUpdate || msg = ',this.msg)
+            },
+            updata(){//对数据更新做全局处理,具体属性更新可以用watch
+                console.log('updata || msg = ',this.msg)
+            },
+            beforeDestroy(){
+
+            },
+            destroyed(){
+
+            },
+            activated(){
+
+            },
+            deactivated(){
+
+            }
+        }).$mount('#app');
+
+    </script>
+</body>
+</html>

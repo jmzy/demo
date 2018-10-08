@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>面试测试题</title>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+    <script>
+        //获取此URL的json数据 解析并遍历输出
+        //http://app.yatiku.com/app/XhlGetSubjectTypeList
+        //[{"Name":"初级","Id":"1"},{"Name":"中级","Id":"2"},{"Name":"高级","Id":"3"},{"Name":"三基","Id":"15"},{"Name":"招聘","Id":"16"}]
+
+        //根据第一个列表的ID查询第二个数据列表 解析并遍历输出
+        //http://app.yatiku.com/app/gettypeexercisesubject?typeId=1
+        //[{"Id":1,"List":[{"OnlineUsers":"10647","Name":"护士执业资格考试","Id":"74"}],"Name":"护士执业资格考试"}]
+
+        //输出样式
+        //图1 是第一个json 输出
+        //图2 为第二个json 输出
+        //样式不限输出即可
+
+
+
+        var cont = document.createElement("script");
+        cont.type="text/javascript";
+        cont.src="http://app.yatiku.com/app/XhlGetSubjectTypeList";
+
+        function jsonpCallback(result) {
+//            for(var i in result) {
+//                document.write(i+":"+result[i]+'<br/>');//循环输出a:1,b:2,etc.
+//            }
+//            for(var i=0;i<result.length;i++){
+//                document.write(i+":"+result[i]+'<br/>');//循环输出a:1,b:2,etc
+//            }
+
+            cont.onload = function(){
+                var doc = ifr.contentDocument || ifr.contentWindow.document;
+                // 在这里操纵b.html
+                document.write(doc.nodeValue);
+            };
+        }
+        jsonpCallback(cont);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Anuglar2 组件</title>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/Classroom.css"/>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div id="c_left">
+        <section id="Grooveshark">
+            <h1>
+Anuglar2 组件
+            </h1>
+            <section>
+                <h5>
+					什么是 Anuglar2 组件
+                </h5>
+                <pre>
+组件是对数据和方法的简单封装
+                </pre>
+            </section>
+            <section>
+                <h5>
+					根组件
+                </h5>
+                <pre>
+根组件在src文件夹下app文件夹下
+一般情况下、包含ts(逻辑)、html(视图)、css(样式) 组成
+                </pre>
+            </section>
+            <section>
+                <h5>
+					创建新组件
+                </h5>
+                <pre>
+创建命令 ng generate component component-name
+src文件夹下app文件夹里的文件夹就是创建新的组件
+                </pre>
+            </section>
+            <section>
+                <h5>
+					初识组件当中内容
+                </h5>
+                <pre>
+src文件夹下的app.component.ts
+@Component({
+  selector: 'app-root',<i class="color1">//接口</i>
+  templateUrl: './app.component.html',
+  <i class="color1">//template为文件下的html内容、templateUrl为连接</i>
+  styleUrls: ['./app.component.css']<i class="color1">//同上为css的文件</i>
+})
+
+export class AppComponent {<i class="color1">//json类集</i>
+  title = 'app';<i class="color1">//绑定数据:自定义对象和值</i>
+}
+
+src文件夹下的app.component.html下使用数据就可以了
+<i class="color0">例：</i>&lt;h1&gt;{{title}}&lt;/h1&gt;
+更改内容需要启动服务在根localhost：4200查看更改的内容
+                </pre>
+            </section>
+            <section>
+                <h5>
+					数据绑定
+                </h5>
+                <pre>
+模版绑定：
+src文件夹下的app.component.html下
+绑定需要对象的新组件、
+若组建名为home、绑定的标签则为 &lt;app-home&gt;&lt;/app-home&gt;
+绑定的新组件全部内容都会导入
+
+属性绑定：
+在模版绑定的基础下 HTML 使用了数据后
+<i class="color0">例：</i>
+模版绑定：&lt;input value={{title}} /&gt;
+属性绑定：&lt;input [value]="title" /&gt;
+                </pre>
+            </section>
+            <section>
+            	<h5>
+            		模版班定和属性绑定的区别
+            	</h5>
+            	<pre>
+模版绑定只能使用字符串、属性绑定字符串和表达式
+模版绑定使用得更多
+            	</pre>
+            </section>
+            <section>
+            	<h5>
+            		双向绑定 two way binding
+            	</h5>
+            	<pre>
+首先得注入服务
+在 app文件夹下 app.module.ts
+注入服务 import { FormsModule } from '@angular/forms';
+另外component里面定义 model对象 json的key得加上""
+            	</pre>
+            </section>
+           	<section>
+           		<h5>
+           			根文件里的 README.md 的命令
+           		</h5>
+           		<pre>
+开启ng2服务 <i class="color0">Run `ng serve` </i>
+创建component <i class="color0">Run `ng generate component component-name`  </i>
+
+
+
+## Build
+Run `ng build` to build the project. The build artifacts will 
+be stored in the `dist/` directory. Use the `-prod` flag for a 
+production build.
+
+## Running unit tests
+Run `ng test` to execute the unit tests via [Karma]
+(https://karma-runner.github.io).
+
+## Running end-to-end tests
+Run `ng e2e` to execute the end-to-end tests via [Protractor]
+(http://www.protractortest.org/).
+Before running the tests make sure you are serving the app via 
+`ng serve`.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check 
+out the [Angular CLI README]
+(https://github.com/angular/angular-cli/blob/master/README.md)
+           		</pre>
+           	</section>
+            <span></span>
+        </section>
+    </div>
+    <div id="c_right">
+        <section>
+            <h2>
+                练习
+            </h2>
+            <section>
+                <h5>
+                    111111111
+                </h5>
+                <p>
+                    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                    为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+                    在1995年时，由Netscape公司的Brendan Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+                </p>
+            </section>
+        </section>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+
