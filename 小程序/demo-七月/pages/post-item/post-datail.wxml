@@ -1,0 +1,20 @@
+<view class='container' >
+  <image class='hand-img' src='{{postData.postImg}}'></image>
+  <image class='audio' src='../img/icon/music.png'></image>
+  <view class='author-data'>
+    <image class='avater' src='{{postData.author}}'></image>
+    <text class='author'>发表于</text>
+    <text class='const-text'>{{postData.date}}</text>
+    <text class='data'>333</text>
+  </view>
+  <text class='title'>{{postData.title}}</text>
+  <view class='tool'>
+    <view class='circle-img'>
+      <image class='storeUp' src='../img/icon/storeUp2.png'></image>
+      <image class='share' src='../img/icon/share.png'></image>
+    </view>
+    <view class='horizon'></view>
+  </view>
+  <view class='clear'></view>
+  <text class='datail'>{{postData.content}}</text>
+</view>

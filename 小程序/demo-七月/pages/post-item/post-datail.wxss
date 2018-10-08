@@ -1,0 +1,93 @@
+.container{
+  position: absolute;
+}
+
+.hand-img{
+  width:750rpx;
+  height:400rpx;
+}
+
+.audio{
+  position: absolute;
+  left:50%;
+  top:140rpx;
+  z-index: 1;
+  margin-left: -60rpx;
+  width: 120rpx;
+  height: 120rpx;
+  opacity: 0.3;
+}
+
+.author-data{
+  margin-left: 20px;
+  margin-top: 20px;
+  height: 60rpx;
+  margin-bottom: 20rpx;
+}
+
+.author-data image{
+  width:60rpx;
+  height:60rpx;
+  vertical-align: middle;
+}
+
+.author-data text{
+  vertical-align: middle;
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 20rpx
+}
+
+.title{
+  margin-left: 40rpx;
+  font-size: 36rpx;
+  margin-top: 50rpx;
+  letter-spacing: 2px;
+  color:#4b556c;
+  height:40rpx;
+}
+
+.circle-img{
+  float: right;
+  margin-right: 40rpx;
+  vertical-align: middle;
+}
+
+.circle-img image{
+  width: 68rpx;
+  height: 68rpx;
+}
+
+.share{
+  margin-left: 5px;
+  margin-right: 15rpx;
+} 
+
+.horizon{
+  width: 660rpx;
+  height: 1px;
+  background: #e5e5e5;
+  vertical-align: middle;
+  position: relative;
+  top: 34rpx;
+  margin: 0 auto;
+  z-index: -1;
+  opacity: 0.4
+}
+
+.clear{
+  width: 100%;
+  height: 80rpx;
+  display: block
+}
+
+.clear::after{
+  display: block;
+}
+
+.datail{
+  /* margin-left: 20rpx; */
+  font-size: 30rpx;
+  width: 720rpx;
+  margin: 0 auto;
+}
