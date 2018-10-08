@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>瀑布流</title>
+    <style>
+        *{padding:0;margin:0}
+        .waterfall{width:1080px;margin:20px auto;height:auto;position:relative}
+        /*.waterfall div{margin:20px 0;font-size:13px;}*/
+        /*.waterfall div p{display:inline-block;}*/
+        /*.waterfall div input{padding-left:10px;width:80px}*/
+        #ulDom li{padding:5px;width:205px;float:left;list-style:none;}
+        #ulDom li img{width:100%;height:auto;vertical-align:middle}
+        #ulDom li p{height:20px;line-height:20px;background:#f2f2f2;color:black;text-align:center}
+    </style>
+</head>
+<body>
+<!--<div>-->
+<!--<p>每行放多少张图片</p>-->
+<!--<input id="inpDom" type="text" placeholder="默认5张每行"/>-->
+<!--</div>-->
+<div class="waterfall">
+    <ul id="ulDom">
+        <li><img src="../img/1.png" alt=""/><p>标题1</p></li>
+        <li><img src="../img/2.png" alt=""/><p>标题2</p></li>
+        <li><img src="../img/3.png" alt=""/><p>标题3</p></li>
+        <li><img src="../img/4.png" alt=""/><p>标题4</p></li>
+        <li><img src="../img/5.png" alt=""/><p>标题5</p></li>
+        <li><img src="../img/6.png" alt=""/><p>标题6</p></li>
+        <li><img src="../img/7.png" alt=""/><p>标题7</p></li>
+        <li><img src="../img/8.png" alt=""/><p>标题8</p></li>
+        <li><img src="../img/9.png" alt=""/><p>标题9</p></li>
+        <li><img src="../img/10.png" alt=""/><p>标题10</p></li>
+        <li><img src="../img/11.png" alt=""/><p>标题11</p></li>
+        <li><img src="../img/12.png" alt=""/><p>标题12</p></li>
+        <li><img src="../img/13.png" alt=""/><p>标题13</p></li>
+    </ul>
+</div>
+<script>
+    window.onload = function(){
+        function Dom(id){
+            return document.getElementById(id);
+        }
+        var ulDom = Dom("ulDom");
+        var liDom = ulDom.children;
+        var liW = liDom[0].offsetWidth;
+//        var HMP = Dom("ipDom").value || 5;
+//        console.log(Dom("ipDom").value);
+
+        function waterfall(){
+            var imgArr = [];
+            for(var i=0;i<liDom.length;i++){
+                if( i < 5 ){
+                    imgArr.push(liDom[i].offsetHeight);
+                }else{
+                    //求出数组里面的最少值
+                    //apply 针对 OBJ 合拼、并传参值为数组
+                    var minH = Math.min.apply(null,imgArr);
+
+                    //求出最少高值的在liDom索引的位置、为了确认left
+                    var minH_Li = imgArr.indexOf(minH);
+
+                    liDom[i].style.position = "absolute";
+                    liDom[i].style.top = minH + "px";
+                    liDom[i].style.left = liW * minH_Li + "px";
+
+                    //把当前的li新增的高度的数据再添加到数据里在进行计算
+                    imgArr[minH_Li] += liDom[i].offsetHeight;
+                }
+            }
+        }
+        waterfall();
+
+        //判断什么时候添加数据
+        function scrollSlide(){
+            var lastLi = liDom[liDom.length - 1];
+            //求出最后1个元素距离顶部的位置
+            var lasrLi_H = lastLi.offsetTop + lastLi.offsetHeight;
+            //求出滚动的高度和当前文档的高度
+            var winH = document.body.clientHeight || document.documentElement.clientHeight;
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+
+//            if((winH + winScroll) >= lasrLi_H){
+//                return turn;
+//            }else{
+//
+//            };
+            return (winH + winScroll) >= lasrLi_H  ? true : false;
+        };
+
+        window.onscroll = function(){
+            if(scrollSlide()){
+                //添加数据
+                var html = "";
+                for(var i =0;i<arrNewImg.length;i++){
+                    html += '<li><img src="'+ arrNewImg[i].src +'" /><p>'+ arrNewImg[i].title +'</p></li>';
+                }
+                ulDom.innerHTML += html;
+                waterfall();
+            }
+        }
+    };
+
+    var arrNewImg = [
+        {"src" :"../img/1.png","title":"标题1"},
+        {"src" :"../img/2.png","title":"标题2"},
+        {"src" :"../img/3.png","title":"标题3"},
+        {"src" :"../img/4.png","title":"标题4"},
+        {"src" :"../img/5.png","title":"标题5"},
+        {"src" :"../img/6.png","title":"标题6"},
+        {"src" :"../img/7.png","title":"标题7"},
+        {"src" :"../img/8.png","title":"标题8"},
+        {"src" :"../img/9.png","title":"标题9"},
+        {"src" :"../img/10.png","title":"标题10"},
+        {"src" :"../img/11.png","title":"标题11"},
+        {"src" :"../img/12.png","title":"标题12"},
+        {"src" :"../img/13.png","title":"标题13"}
+    ];
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

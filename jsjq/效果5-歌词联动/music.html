@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>歌曲</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			a{
+				text-decoration:none;
+				color:black;
+			}
+			textarea{
+				display:none;
+			}
+			li{
+				list-style:none;
+			}	
+			#m{
+				margin:50px;
+				width:300px;
+			}
+			#btn{
+				margin:10px auto;
+				text-align:center;
+			}
+			#myLrc{
+				width:100%;
+				height:105px;
+				line-height: 20px;
+				background: cornsilk;
+				overflow:hidden
+			}
+			#lrcDom{
+				font-size: 12px;
+				padding:2px 5px ;
+			}
+			#lrcDom li{
+				text-align: center;
+			}
+			.liselect{
+				color:deepskyblue;
+				font-size: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="m">
+			<audio id="music" src="mp3/01.mp3" controls></audio>
+			<textarea id="lrc" name="" id="" cols="30" rows="10">
+				[00:01.15]感恩的心
+				[00:08.75]作词：陈乐融　作曲：陈志远　
+				[00:11.87]演唱：欧阳菲菲
+				[00:18.36]
+				[00:32.84]我来自偶然　像一颗尘土
+				[00:39.74]有谁看出我的脆弱
+				[00:46.52]我来自何方　我情归何处
+				[00:53.93]谁在下一刻呼唤我
+				[01:01.06]
+				[01:01.38]天地虽宽　这条路却难走
+				[01:07.68]我看遍这人间坎坷辛苦
+				[01:15.14]我还有多少爱　我还有多少泪
+				[01:21.84]要苍天知道　我不认输
+				[01:28.00]
+				[01:28.99]感恩的心　感谢有你
+				[01:35.99]伴我一生　让我有勇气做我自己
+				[01:43.03]感恩的心　感谢命运
+				[01:50.06]花开花落　我一样会珍惜
+				[02:01.00]
+				[02:22.03]我来自偶然　像一颗尘土
+				[02:29.42]有谁看出我的脆弱
+				[02:36.04]我来自何方　我情归何处
+				[02:43.04]谁在下一刻呼唤我
+				[02:49.39]
+				[02:50.28]天地虽宽　这条路却难走
+				[02:57.10]我看遍这人间坎坷辛苦
+				[03:04.24]我还有多少爱　我还有多少泪
+				[03:11.36]要苍天知道　我不认输
+				[03:17.78]
+				[03:18.41]感恩的心　感谢有你
+				[03:25.41]伴我一生　让我有勇气做我自己
+				[03:32.44]感恩的心　感谢命运
+				[03:39.46]花开花落　我一样会珍惜
+				[03:46.57]感恩的心　感谢有你
+				[03:53.67]伴我一生　让我有勇气做我自己
+				[04:00.82]感恩的心　感谢命运
+				[04:07.66]花开花落　我一样会珍惜
+				[04:14.62]花开花落　我一样会珍惜
+				[04:26.59]
+			</textarea>
+			<div id="myLrc">
+				<ul id="lrcDom"></ul>
+			</div>
+			<!--<div id="btn">
+				<h2>
+					<span id="total">00:00</span>
+					<span id="cur">00:00</span>
+				</h2>
+				<a href="javascipr:void(0)" onclick='playMusic()'>播放</a>
+				<a href="javascipr:void(0)" onclick='pauseMusic()'>暂停</a>-->
+			</div>
+		</div>
+		<script>
+			function id(id){
+				return document.getElementById(id);
+			}
+			
+			var musicDom = id('music');
+			var totalTime;
+			
+			function playMusic(){
+				musicDom.play();
+			}
+			
+			function pauseMusic(){
+				musicDom.pause();
+			}
+			
+			//监听音乐播放
+			musicDom.ontimeupdate = function(){
+				//获取总进度
+				var total = this.duration;
+				//获取当前进度
+				var cur = this.currentTime;
+				//歌词时间
+				var lrcTime = parseInt(cur);
+				
+				//匹配歌词
+				var liDom = id('lrcDom').children;
+				for(var i=0;i<liDom.length;i++){
+					var value = liDom[i].innerHTML;
+//					var liDom[i].index = i;
+					if(liDom[i].id == lrcTime){
+						liDom[i].innerHTML = "<span class='liselect'>"+ value +"</span>";
+//						liDom[i].siblings = "<span'>"+ value +"</span>";
+						
+						if(i>2){
+							id('lrcDom').style.marginTop = (i-2) * -21 +'px';
+						}
+					}
+					
+					//封装同级元素
+					function siblings(cur,callback){
+						var parents = cur.parentNode;
+						var pChilds = parents.children;
+						for(var i=0;i<pChilds.length;i++){
+							if(cur!=pChilds[i])callback.apply(pChilds[i]);
+						}
+					};
+				}
+				
+//				//写入span
+//				id('total').innerHTML = formatTime(total);
+//				id('cur').innerHTML = formatTime(cur);
+
+				//时间格式化
+				function formatTime( time ){
+					var min = parseInt( time / 60 );
+					var sec = parseInt( time % 60 );
+					return (min < 10 ? '0' + min : min) + ':' + (sec <10 ? '0' + sec : sec);
+				}
+			};
+
+			
+			//解析歌词
+			~function parseLrc(){
+				var lrcArr = (id('lrc').value).split('\n');
+				var lrcTimeArr =[];
+				for(var i=0;i<lrcArr.length;i++){
+					//去掉左侧时间编列歌词
+					var lrc = (lrcArr[i].trim()).split(']');//歌词去空格左右分开
+					//存在于时间上含有歌词的添加上li
+					if(lrc[1]){
+						var liDom = document.createElement('li');			
+						liDom.innerHTML = lrc[1];
+						lrcDom.appendChild(liDom);
+						
+						//歌词时间
+						var lrcTimeArr = lrc[0].replace("[",'').slice(0,5).split(':');
+						var min = parseInt(lrcTimeArr[0]) * 60;
+						var sec = parseInt(lrcTimeArr[1]);
+						
+						//写进id做匹配使用
+						liDom.id = min + sec;
+					}		
+				}				
+			}();
+
+		</script>
+	</body>
+</html>
