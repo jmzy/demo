@@ -1,0 +1,16 @@
+.conteiner{
+  background: #FAFAFA;
+  font-family: PingFangSC-regular;
+  font-size: 16rpx;
+  line-height: 23rpx;
+  color:#333333;
+  padding: 13rpx 19rpx 12rpx 15rpx;
+}
+
+.conteiner view{
+  width:750rpx;
+}
+
+.wrap{
+  background:#FFFFFF;
+} 

@@ -1,0 +1,124 @@
+.conteiner{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  background: #FAFAFA;
+  font-family: PingFangSC-regular;
+  font-size: 32rpx;
+  line-height: 23rpx;
+  color:#333333;
+}
+
+form{
+  width:100%;
+}
+
+.wrap-font1{
+  flex-direction: row;
+  color:#999999;
+  line-height:86rpx;
+  padding-left: 30rpx;
+}
+
+.wrap-font1 text:nth-of-type(2){
+  margin-left: 38rpx
+}
+
+.wrap{
+  background:#FFFFFF;
+  line-height: 94rpx;
+}
+
+.wrap view{
+  margin-left: 32rpx;
+  border-bottom: 2rpx solid #F0F0F0;
+}
+
+.wrap view text{
+  color:red
+}
+
+.wrap view input{
+  margin-left: 36rpx;
+  padding: 1rpx;
+  vertical-align: middle
+}
+
+.font2{
+  color:#CCCCCC;
+  font-size: 25rpx;
+}
+
+.phoneInput{
+  width: 480rpx
+}
+
+.fontMargin{
+  margin-left: 56rpx;
+}
+
+.wrap:nth-of-type(2){
+  margin-bottom: 20rpx
+}
+
+.font3{
+  font-family: Microsoft Yahei;
+  line-height: 20rpx;
+  color:#101010;
+}
+
+.clientRuquire{
+  float: right;
+  margin-right: 540rpx;
+  width: 580rpx;
+  height:58rpx;
+  border: 1px solid red;
+}
+
+.clientRuquire button{
+  text-align: center;
+  margin:20rpx 15rpx;
+  width:156rpx;
+  height:58rpx;
+  line-height:58rpx;
+  border-radius: 8rpx;
+  font-family: Microsoft Yahei;
+  font-size: 28rpx;
+  color: #C8C8C8
+}
+
+.attention{
+  margin-left: 32rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.font5{
+  margin-top: 4rpx;
+  margin-bottom: 4rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color:#999999;
+}
+
+.textarea{
+  width: 100%;
+  height: 500rpx;
+  padding: 24rpx 32rpx;
+  width:750rpx;
+  height:250rpx;
+}
+
+.button-font6{
+  margin:32rpx;;
+  width: 686rpx;
+  height: 96rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  line-height: 18px;
+  font-family: Microsoft Yahei;
+  font-size:36rpx;
+  line-height: 96rpx;
+  color:#FFFFFF;
+  background:#3296FA;
+}

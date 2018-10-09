@@ -1,0 +1,143 @@
+<view>
+  <view class="datailWrap wrap">
+    <!-- for -->
+  </view>
+  <view class="wrap2">
+    <view class="wrap2-left">
+      <view>业务员</view>
+      <view>王六</view>
+    </view>
+    <view class="wrap2-right">
+      <view>跟进时间</view>
+      <view>2018-10-13</view>
+    </view>
+  </view>
+  <!--  -->
+  <view>
+    <view class="title">
+      <view>客户背景信息（必填）</view>
+      <view></view>
+    </view>
+    <view>
+      <label for="">客户类别</label>
+      <!--  -->
+    </view>
+    <view>
+      <label for="">客户类型</label>
+      <!--  -->
+    </view>
+    <view class="">
+      <label for="user.from">客户来自</label>
+      <input id="user.from" class="" type="text" placeholder="请输入地区（必填）"/>
+    </view>
+    <view>
+      <view>客户需求</view>
+      <view>自动获取</view>
+    </view>
+    <view class="">
+      <label for="user.need">需求数量</label>
+      <input id="user.need" class="" type="text" placeholder="请输入需求数量（必填)"/>
+    </view>
+    <view>
+      <view>紧急度</view>
+      <view class="flexWrap">
+        <view>
+          <view>半个月</view>
+          <view>1个月内</view>
+          <view>3个月内</view>
+        </view>
+        <view>
+          <label for="user.otherTimeChoose">其他</label>
+          <input id="user.otherTimeChoose" class="" type="text" placeholder="请输入时间"/>
+        </view>
+      </view>
+    </view>
+    <view class="">
+      <label for="user.stopStyle">店铺类型</label>
+      <input id="user.stopStyle" class="" type="text" placeholder="请输入店铺类型（必填)"/>
+    </view>
+    <view class="">
+      <label for="user.stopTaste">店铺/展柜档次</label>
+      <input id="user.stopTaste" class="" type="text" placeholder="店铺/展柜档次"/>
+    </view>
+    <view>
+      <view>店铺位置</view>
+      <view class="flexWrap">
+        <view>
+          <view>中庭</view>
+          <view>中岛区</view>
+          <view>地铺店</view>
+        </view>
+        <view>
+          <view>商场边厅店</view>
+          <view>
+            <label for="user.stopLocation">楼层</label>
+            <input id="user.stopLocation" class="" type="text" placeholder="楼"/>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="">
+      <label for="user.stopTaste">品牌定位</label>
+      <!-- SELECT -->
+    </view>
+    <view class="">
+      <label for="user.stopTaste">是否提供平面图</label>
+      <!-- radio -->
+    </view>
+    <view>
+      <image src="" mode="" />
+      <image src="" mode="" />
+      <image src="" mode="" />
+      <image src="" mode="" />
+      <image src="" mode="" />
+      <image src="" mode="" />
+      <image src="" mode="" />
+      <!-- + -->
+    </view>
+    <view>
+      <label for="user.address">工程地址</label>
+      <input id="user.address" class="" type="text" placeholder="请输入地址"/>
+    </view>
+    <view>
+      <label for="user.size">场地大小</label>
+      <input id="user.size" class="" type="text" placeholder="请输入场地大小"/>
+    </view>
+    <view>客户产品类型（必填）</view>
+    <view>珠宝-----------------</view>
+    <view>
+      <view>客户产品类型（必填）</view>
+      <view></view>
+    </view>
+    <view>
+      <label for="user.companyName">公司名称</label>
+      <input id="user.companyName" class="" type="text" placeholder="选填"/>
+    </view>
+    <view>
+      <label for="user.companyStartTime">公司成立时间</label>
+      <!-- select -->
+    </view>
+    <view>
+      <label for="user.companyCapital">公司注册资本</label>
+      <input id="user.companyCapital" class="" type="text" placeholder="选填"/>
+    </view>
+    <view>
+      <view>公司规模</view>
+      <!-- select -->
+    </view>
+    <view>
+      <view>企业类型</view>
+      <!-- select -->
+      <input type="" placeholder="其他请输入"/>
+    </view>
+    <view>
+      <view>目前公司名下的店铺情况大体为</view>
+      <textarea placeholder="请输入店铺情况（选填）" />
+    </view>
+    <view>
+      <label for="user.otherReports">其他情况</label>
+      <input id="user.otherReports" class="" type="text" placeholder="选填"/>
+    </view>
+    <button type="default" onTap="defaultTap">保存</button>
+  </view>
+</view>

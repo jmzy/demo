@@ -1,0 +1,60 @@
+<view class="container">
+  <form onSubmit="" onReset="">
+    <view class="wrap-font1">
+      <text>首次接触人</text>
+      <text>张贤（业务部）</text>
+    </view>
+    <view class="wrap">
+      <view>
+        <label for="user.name">姓名                    
+          <text>*</text>
+        </label>
+        <input id="user.name" class="font2" type="text" placeholder="请输入联系人姓名（必填）"/>
+      </view>
+      <view>
+        <label for="user.phone">电话                    
+          <text>*</text>
+        </label>
+        <input id="user.phone" class="font2 phoneInput" type="text" placeholder="请输入手机号或固定号码（必填）"/>
+      </view>
+      <view>
+        <label for="user.otherContact">其他联系方式                    
+          <text>*</text>
+        </label>
+        <input id="user.otherContact" class="font2" type="text" placeholder="QQ/微信/邮箱或其他"/>
+      </view>
+      <view>
+        <label for="user.otherContact">公司</label>
+        <input id="user.otherContact" class="font2 fontMargin" type="text" placeholder="选填"/>
+      </view>
+    </view>
+    <!--  -->
+    <view class="wrap">
+      <view class="font1">第一次洽谈情况</view>
+      <view>
+        <label for="">洽谈方式</label>
+        <!-- class="font3" -->
+      </view>
+      <view>
+        <label for="">洽谈时间</label>
+        <!-- class="font2"  -->
+      </view>
+      <view>
+        <label for="">客户需求</label>
+        <view class="clientRuquire">
+          <button type="default" onTap="defaultTap">装饰</button>
+          <button type="default" onTap="defaultTap">设计</button>
+          <button type="default" onTap="defaultTap">掌柜设计</button>
+        </view>
+      </view>
+      <view>洽谈内容</view>
+    </view>
+    <view class="attention">
+      <text clsss="font5">注意：先了解对方背景，了解对方需求，注意同行</text>
+    </view>
+    <view>
+      <textarea class="font2 textarea" placeholder="请输入您的洽谈内容" />
+    </view>
+    <button type="default" class="button-font6" onTap="defaultTap">保存</button>
+  </form>
+</view>
