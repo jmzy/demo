@@ -1,0 +1,101 @@
+.top {
+	padding: 0;
+	margin: 0;
+	height: 2.15rem;
+}
+
+.top p {
+	height: 2.15rem;
+	margin: 0.6rem 0.55rem;
+}
+
+.top span {
+	padding: 0;
+	margin: 0;
+	margin-right: 0.95rem;
+	font-size: 0.8rem;
+}
+
+.list-block {
+	margin: 0;
+}
+
+.clientTop {
+	margin-top: 2.15rem;
+}
+
+.clientBottom {
+	margin-top: 0.5rem;
+	margin-bottom: 0;
+}
+
+.requireRow{
+	width: 100%;
+	display: inline；
+}
+
+.requireRow .col33{
+	margin-right: 0.2rem;
+	width:3.5rem;
+	height:1.45rem;
+	border:1px solid #c8c8c8;
+	border-radius: 0.2rem;
+	text-align:center;
+	font-size: 0.7rem;
+	line-height: 1.45rem;
+	color:#c8c8c8;
+	float: left;
+}
+
+.postionDiv{
+	position: absolute;
+}
+
+.dropDown{
+	position: absolute;
+	top:0.75rem;
+	left:11rem;
+	width: 0.6rem;
+	height:1rem;
+}
+
+.addBorder{
+	text-align: right
+}
+
+.right-arrow{
+	position: absolute;
+	top:0.7rem;
+	left:16.5rem;
+	width: 0.6rem;
+	height:1rem;
+}
+
+.requireRow .col33:nth-of-type(1){
+	background: #3296FA;
+	color:#fff;
+}
+
+
+.line{
+	padding: 0;
+	padding-left: 0.6rem;
+	margin-top: -0.5rem;
+	margin-bottom: 0;
+	height: 1.25rem;
+	line-height:1.25rem;
+	font-size: 0.6rem
+}
+
+.textarea {
+	margin:0;
+	resize: none;
+	border: 0;
+	border-style: solid;
+	border-color: #FFFFFF
+}
+
+.btn-bg {
+	color: #FFFFFF;
+	background: #3296FA
+}
