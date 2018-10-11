@@ -1,0 +1,65 @@
+* {
+	font-size: 9px;
+}
+
+.bg {
+	border: 1px solid #E8E8E8;
+}
+
+#bg_l_zt {
+	padding: 0px;
+}
+
+/*时间框*/
+
+.ssj {
+	width: 150px;
+	height: 30px;
+	float: left;
+}
+
+.zbt {
+	width: 50px;
+	height: 30px;
+	float: left;
+	text-align: center;
+}
+
+.z_nr {
+	line-height: 30px;
+}
+
+.bt_dx {
+	height: 25px;
+	line-height: 15px;
+	font-size: 10px;
+}
+
+.sj_input {
+	height: 25px;
+	border: 1px solid #E8E8E8;
+	border-radius: 5px;
+	background: white;
+}
+
+.ybt {
+	width: 100px;
+	height: 30px;
+	float: left;
+}
+
+.y_nr {
+	line-height: 25px;
+	padding: 0px;
+}
+
+.qfd {
+	clear: both;
+}
+
+
+/*居中*/
+
+.jz {
+	text-align: center;
+}

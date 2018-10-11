@@ -1,0 +1,20 @@
+.right-arrow {
+    position: absolute;
+    top: 0.7rem;
+    left: 16.5rem;
+    width: 0.6rem;
+    height: 1rem;
+}
+
+.btn-bg {
+    color: #FFFFFF;
+    background: #3296FA
+}
+
+.postionDiv{
+	position: absolute;
+}
+
+.addBorder{
+	text-align: right
+}

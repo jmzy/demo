@@ -1,0 +1,138 @@
+/*边距*/
+
+body {
+	font-size: 10px;
+}
+
+.bianju {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+
+/*流程框*/
+
+.lck {
+	width: 100%px;
+	height: 60px;
+	background: white;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+
+/*头像框*/
+
+.txk {
+	width: 60px;
+	float: left;
+}
+
+
+/*文本框*/
+
+.wbk {
+	width: 70%;
+	float: left;
+}
+
+
+/*图片*/
+
+.tu {
+	width: 40px;
+	height: 40px;
+	border-radius: 100px;
+	border: 2px solid #CFCFCF;
+	margin-left: 15px;
+	float: left;
+}
+
+
+/*文本框*/
+
+.wbk {
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	margin-left: 20px;
+}
+
+
+/*天数框*/
+
+.tsk {
+	width: 30px;
+	border: 0px;
+	background: #F0F0F0;
+	border-radius: 10px;
+	border: 1px solid #E0E0E0;
+	text-align: center;
+}
+
+
+/*箭头框*/
+
+.jtk {
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	margin-left: 30px;
+}
+
+
+/*名字职位框*/
+
+.mz_zw {
+	height: 60px;
+	width: auto;
+	float: left;
+	padding: 0px;
+	margin-left: 15px;
+	margin-top: 4px;
+	padding: 0px;
+}
+
+
+/*流程名称大小*/
+
+.mz {
+	font-weight: 100;
+	font-size: 10px;
+	margin: 0px;
+	margin-top: 8px;
+}
+
+
+/*流程职位名字大小*/
+
+.zwmz {
+	font-size: 10px;
+	font-weight: 100;
+	color: #989898;
+}
+
+
+/*上距离*/
+
+.top_jl {
+	margin-top: 15px;
+}
+
+
+/*修改加号框*/
+
+.xg_jhk {
+	width: 40px;
+	height: 40px;
+	margin-left: 15px;
+}
+
+
+/*修改加号*/
+
+.xg_jh {
+	line-height: 40px;
+}

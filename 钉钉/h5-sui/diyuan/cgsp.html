@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8" />
+
+		<title>采购审批</title>
+		<!--css-->
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+		<link href="res/assets/css/font-awesome.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="res/fonts/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/tongyi.css" />
+	</head>
+
+	<body>
+
+		<form id="form_bd" action="" method="post" enctype ="multipart/form-data">
+
+			<div id="app" class="page-group">
+
+				<div id="page-layout" class="page page-current">
+
+					<div class="content native-scroll">
+
+						<div class="list-block" style="margin-top: 15px;margin-bottom: 0px;">
+
+							<ul>
+
+								<li>
+
+									<div class="item-content">
+
+										<div class="item-inner">
+
+											<div class="item-title label biao_zhun">采购类型</div>
+
+											<div class="item-input">
+
+												<select name="" style="font-size: 0.65rem;">
+
+													<option>==请选择==</option>
+
+													<option>1</option>
+
+													<option>2</option>
+
+												</select>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</li>
+
+								<!-- 申请日期 -->
+
+								<li>
+
+									<div class="item-content">
+
+										<div class="item-inner">
+
+											<div class="item-title label biao_zhun">申请日期</div>
+
+											<div class="item-input">
+
+												<input name="" style="font-size: 13px;" placeholder="申请日期" value="2014-04-30" type="date">
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</li>
+
+								<!-- 期望交付日期 -->
+
+								<li>
+
+									<div class="item-content">
+
+										<div class="item-inner">
+
+											<div class="item-title label biao_zhun">期望交付日期</div>
+
+											<div class="item-input">
+
+												<input name="" style="font-size: 13px;" placeholder="期望交付日期" value="2014-04-30" type="date">
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<div class="item-content">
+
+										<div class="item-inner">
+
+											<div class="item-title label biao_zhun">支付方式</div>
+
+											<div class="item-input">
+
+												<select name="" style="font-size: 13px;">
+
+													<option>==请选择==</option>
+
+													<option>支付宝</option>
+
+													<option>微信</option>
+
+													<option>银行卡</option>
+
+												</select>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</li>
+
+							</ul>
+
+						</div>
+
+						<div class="list-block" style="margin-bottom: 0px;margin-top: 15px;">
+
+							<ul>
+
+								<!-- Text inputs -->
+
+								<li>
+
+									<div class="item-content">
+
+										<div class="item-inner">
+
+											<div class="item-title label biao_zhun">车型</div>
+
+											<div class="item-input">
+
+												<input name="" style="font-size: 13px;" placeholder="请输入车型" type="text">
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<div class="item-content">
+
+										<div class="item-inner">
+
+											<div class="item-title label biao_zhun">名称</div>
+
+											<div class="item-input">
+
+												<input name="" style="font-size: 13px;" placeholder="请输入名称" type="text">
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<div class="item-content">
+
+										<div class="item-inner">
+
+											<div class="item-title label biao_zhun">材质</div>
+
+											<div class="item-input">
+
+												<input name="" style="font-size: 13px;" placeholder="请输入材质" type="text">
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</li>
+
+								</li>
+
+								<li>
+
+									<div class="item-content">
+
+										<div class="item-inner">
+
+											<div class="item-title label biao_zhun">品牌</div>
+
+											<div class="item-input">
+
+												<input name="" style="font-size: 13px;" placeholder="请输入品牌" type="text">
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</li>
+
+							</ul>
+
+						</div>
+
+						<div class="list-block" style="margin-bottom: 0px;margin-top: 15px;">
+
+							<ul>
+
+								<li>
+
+									<div class="item-content">
+
+										<div class="item-inner">
+
+											<div class="item-title label biao_zhun">规格</div>
+
+											<div class="item-input">
+
+												<input name="" style="font-size: 13px;" placeholder="请输入规格" type="text">
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<div class="item-content">
+
+										<div class="item-inner">
+
+											<div class="item-title label biao_zhun">数量</div>
+
+											<div class="item-input">
+
+												<input name="" style="font-size: 13px;" placeholder="请输入数量" type="text">
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<div class="item-content">
+
+										<div class="item-inner">
+
+											<div class="item-title label biao_zhun">单位</div>
+
+											<div class="item-input">
+
+												<input name="" style="font-size: 13px;" placeholder="请输入单位" type="text">
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<div class="item-content">
+										<div class="item-inner">
+
+											<div class="item-title label biao_zhun">预估价</div>
+
+											<div class="item-input">
+
+												<input name="" style="font-size: 13px;" placeholder="请输入预估价" type="text">
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</li>
+
+								<li id="ding">
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-input" style="text-align: center;">
+												<a class="col-sm-3" onclick="mx()"><span class="biao_zhun">+&nbsp;添加明细</span></a>
+											</div>
+										</div>
+
+									</div>
+
+								</li>
+
+							</ul>
+
+						</div>
+
+						<div class="row" style="background: white;margin-top: 15px;">
+							<div class="card-header"><span class="biao_zhun" style="margin-left: 15px;">图片&nbsp;&nbsp;<i class="tpsc-ts-xz">(只支持<b>&nbsp;jpg,png</b>)</i></span></div>
+							<div class="card-content">
+								<div class="card-content-inner">
+									<div style="float: left;margin-left: 20px;">
+										<div v-for="tu in tus" class="tpsc-xh-k">
+											<div class="tpsc-img-k">
+												<i :id="tu.id" class="icon icon-roundclosefill delete-icon" onclick="detect_img(this)"></i>
+												<img class="tpsc-img" :src="tu.img_path" />
+											</div>
+											<div class="tpsc-img-kuai">
+											</div>
+										</div>
+
+										<a class="zd" href="javascript: tu_btn();">
+											<div class="tj_tbk">
+												<i class="icon icon-add tj_tb_jh"></i>
+											</div>
+										</a>
+										<div class="qfd" style="height: 20px;">
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row" style="background: white;margin-top: 15px;">
+							<div class="card-header"><span class="biao_zhun" style="margin-left: 15px;">附件&nbsp;&nbsp;<i class="tpsc-ts-xz">(只支持<b>&nbsp;txt</b>及<b>word,excel,ppt</b>)</i></span></div>
+							<div class="card-content">
+								<div class="card-content-inner zd" v-for="file in files" :id="file.id" onclick="detect_file(this)">
+									<div class="wjsc-wk">
+										<div class="wjsc-nk">
+											<i class="icon icon-tixian1 wjsc-tb-icon"></i>
+											<span class="wjsc-z-wz">{{ file.name }}</span>
+											<i class="icon icon-delete2 wjsc-delect-icon"></i>
+										</div>
+										<div class="qfd" style="height: 10px;"></div>
+									</div>
+								</div>
+								<div class="card-content-inner">
+									<div style="float: left;margin-left: 20px;width: 100%;">
+										<a class="zd" href="javascript: file_btn();">
+											<div class="tj_tbk">
+												<i class="icon icon-add tj_tb_jh"></i>
+											</div>
+										</a>
+										<div class="qfd" style="height: 20px;">
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="list-block media-list" style="margin-top: 15px;margin-bottom: 0px;">
+							<ul>
+								<li>
+									<div class="item-content">
+										<div class="item-inner">
+											<div class="item-title-row">
+												<div class="item-title srk_bt"><span class="biao_zhun">描述</span></div>
+											</div>
+											<div class="item-subtitle-row" style="margin-top: 10px;margin-bottom: 10px;"><textarea id="msk" placeholder="请输入描述内容"></textarea></div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+						<div class="row" style="background: white;margin-top: 15px; height: 140px;">
+							<div class="card-header"><span class="biao_zhun" style="margin-left: 15px;">抄送人</span></div>
+							<div class="card-content">
+								<div class="card-content-inner">
+									<div class="jiahao" style="float: left;margin-left: 20px;">
+										<a href="#">
+											<div class="tj_tbk">
+												<i class="icon icon-add tj_tb_jh"></i>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row" style="background: white;height: 170px;">
+							<div class="card-header"><span class="biao_zhun" style="margin-left: 15px;">转送人</span></div>
+							<div class="card-content">
+								<div class="card-content-inner">
+									<div class="jiahao" style="float: left;margin-left: 20px;">
+										<a href="#">
+											<div class="tj_tbk">
+												<i class="icon icon-add tj_tb_jh"></i>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="content-block">
+
+							<div class="row">
+
+								<div class="col-100">
+									<a id="submit_btn" class="button button-big button-fill button-facebook">提交</a>
+								</div>
+
+							</div>
+
+							<div class="row" style="height: 50px;">
+
+							</div>
+
+						</div>
+
+						<input id="img_jz" hidden="hidden" type="file" onchange="getImg(this)" multiple />
+
+						<input id="files_jz" hidden="hidden" type="file" onchange="getFile(this)" multiple />
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</form>
+		
+		<!--js-->
+		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+		<script src="js/cgsp.js" type="text/babel" charset="utf-8"></script>
+	</body>
+
+</html>

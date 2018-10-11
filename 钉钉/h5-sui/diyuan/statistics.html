@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>统计</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link href="res/assets/css/font-awesome.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="res/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="res/fonts/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/statistics.css" />
+
+	</head>
+
+	<body style="width: 1200px;overflow-x: scroll;">
+		<div id="app" class="page-group">
+			<div id="page-layout" class="page page-current" style="overflow-y: hidden;">
+				<div id="bg" class="card">
+					<div class="card-content" style="height: 400px;">
+						<div class="card-content-inner">
+							<div class="ssj">
+								<div class="zbt">
+									<span class="z_nr">开始时间</span>
+								</div>
+								<div class="ybt">
+									<input class="sj_input" type="date" placeholder="Birth day" value="">
+								</div>
+								<div class="qfd">
+
+								</div>
+							</div>
+							<div class="ssj">
+								<div class="zbt">
+									<span class="z_nr">结束时间</span>
+								</div>
+								<div class="ybt">
+									<input class="sj_input" type="date" placeholder="Birth day" value="">
+								</div>
+								<div class="qfd">
+
+								</div>
+							</div>
+							<div class="ssj">
+								<div class="zbt">
+									<a href=""><span class="btn btn-success bt_dx">本季度</span></a>
+								</div>
+								<div class="ybt">
+									<a href=""><span class="btn btn-danger bt_dx">本年度</span></a>
+								</div>
+								<div class="qfd">
+
+								</div>
+							</div>
+						</div>
+						<div class="card-content-inner" style="margin-top: 30px;">
+							<table class="table table-striped" border='1' style="border: 1px solid #E8E8E8;">
+								<thead>
+									<tr>
+										<th class="jz" v-for="todo in todos" :colspan="todo.zb">{{todo.name}}</th>
+									</tr>
+								</thead>
+								<tbody class="jz">
+									<tr v-for="ds_row in ds_rows">
+										<td class="">{{ds_row.name1}}</td>
+										<td class="bg_sj">{{ds_row.name2}}</td>
+										<td class="">{{ds_row.name3}}</td>
+										<td class="bg_sj">{{ds_row.name4}}</td>
+										<td class="bg_sj">{{ds_row.name5}}</td>
+										<td class="bg_sj">{{ds_row.name6}}</td>
+										<td class="bg_sj">{{ds_row.name7}}</td>
+										<td class="bg_sj">{{ds_row.name8}}</td>
+										<td class="bg_sj">{{ds_row.name9}}</td>
+										<td class="bg_sj2">{{ds_row.name10}}</td>
+										<td class="bg_sj2">{{ds_row.name11}}</td>
+										<td class="bg_sj2">{{ds_row.name12}}</td>
+										<td class="bg_sj">{{ds_row.name13}}</td>
+										<td class="bg_sj">{{ds_row.name14}}</td>
+										<td class="bg_sj">{{ds_row.name15}}</td>
+										<td class="bg_sj">{{ds_row.name16}}</td>
+										<td class="">{{ds_row.name17}}</td>
+										<td class="">{{ds_row.name18}}</td>
+									</tr>
+									<tr v-for="row in rows">
+										<td class="">{{row.name1}}</td>
+										<td class="">{{row.name2}}</td>
+										<td class="">{{row.name3}}</td>
+										<td class="">{{row.name4}}</td>
+										<td class="">{{row.name5}}</td>
+										<td class="">{{row.name6}}</td>
+										<td class="">{{row.name7}}</td>
+										<td class="">{{row.name8}}</td>
+										<td class="">{{row.name9}}</td>
+										<td class="">{{row.name10}}</td>
+										<td class="">{{row.name11}}</td>
+										<td class="">{{row.name12}}</td>
+										<td class="">{{row.name13}}</td>
+										<td class="">{{row.name14}}</td>
+										<td class="">{{row.name15}}</td>
+										<td class="">{{row.name16}}</td>
+										<td class="">{{row.name17}}</td>
+										<td class="">{{row.name18}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="card-content-inner">
+							<a href="statistics2.html">切换另一种展现方式</a>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="card">
+
+				</div>
+			</div>
+		</div>
+
+		<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="js/statistics.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

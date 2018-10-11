@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content">
+        <div class="list-block">
+            <ul>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <ul>
+                            <li>
+                                <span>客户姓名</span>
+                                <span>自动获取</span>
+                            </li>
+                            <li>
+                                <span>客户来自</span>
+                                <span>自动获取</span>
+                            </li>
+                            <li>
+                                <span>客户来源</span>
+                                <span>自动获取</span>
+                            </li>
+                            <li>
+                                <span>客户类别</span>
+                                <span>自动获取</span>
+                            </li>
+                            <li>
+                                <span>职 位</span>
+                                <span>自动获取</span>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- /////////////////////////////////////////// -->
+                <li class="item-content">
+                    <div class="item-content">
+                        <div class="item-inner postionDiv">
+                            <div class="item-title">洽谈时间</div>
+                            <div class="item-input">
+                                <input type="text" id='datetime-picker' class="addBorder" placeholder="请选择" style="padding-right:1.5rem;" />
+                                <img src="../img/icon/right-arrow.png" class="right-arrow">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <script>
+                    $("#picker").picker({
+                        toolbarTemplate: '<header class="bar bar-nav">\
+    <button class="button button-link pull-left"></button>\
+    <button class="button button-link pull-right close-picker">确定</button>\
+    <h1 class="title">请输入</h1>\
+    </header>',
+                        cols: [{
+                            textAlign: 'center',
+                            values: ['请选择', '首次开店', '开分店', '其他']
+                        }]
+                    });
+                </script>
+
+                <style>
+                    .right-arrow {
+                        position: absolute;
+                        top: 0.7rem;
+                        left: 16.5rem;
+                        width: 0.6rem;
+                        height: 1rem;
+                    }
+                </style>
+                <!-- /////////////////////////////////////////// -->
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">备注信息</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-input">
+                        <textarea placeholder="请输入备注信息" style="width:100%;height:6rem;border:0;padding:0.8rem 0.1rem;font-size: 0.8rem"></textarea>
+                    </div>
+                </li>
+                <!-- /////////////////////////////////////////// -->
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">业务员</div>
+                        <div class="item-title">自动获取</div>
+                    </div>
+                </li>
+                <!-- /////////////////////////////////////////// -->
+                <div class="content-block" style="margin-top:-0.33rem;margin-bottom:0;padding-top:0.15rem;padding-bottom:0.25rem;background:#FFFFFF;">
+                    <p><a href="#" class="button button-big btn-bg">保存</a></p>
+                </div>
+                <style>
+                    .btn-bg {
+                        color: #FFFFFF;
+                        background: #3296FA
+                    }
+                </style>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

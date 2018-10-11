@@ -1,0 +1,43 @@
+.tou_top {
+	margin-top: 20%;
+}
+
+.jiange {
+	margin-top: 30px;
+}
+
+.andx {
+	width: 50%;
+	height: 40px;
+	padding: 0px;
+	margin-left: 25%;
+	margin-right: 25%;
+	line-height: 40px;
+}
+
+.ztdx {
+	font-size: 15px;
+}
+
+#tishi {
+	height: 20px;
+	width: auto;
+	padding: 0px;
+	background: red;
+	position: absolute;
+	border-radius: 100px;
+	margin-top: -15px;
+	margin-left: 40px;
+	text-align: center;
+	line-height: 20px;
+}
+
+#tishi_zi {
+	height: 100%;
+	width: 100%;
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 10px;
+	font-weight: bold;
+	color: white;
+}

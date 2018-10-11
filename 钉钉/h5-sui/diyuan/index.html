@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="res/fonts/iconfont.css" />
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+
+	<body style="overflow: scroll;">
+		<div class="page-group">
+			<div id="app" class="content">
+				<div class="row">
+					<img class="tu" src="img/cs.jpg" />
+				</div>
+				<div class="row gd">
+					<div class="row bt_top">
+
+					</div>
+					<h4 class="bt_zt_jj">{{ bt }}</h4>
+					<span class="bt_xz">{{ bt_xz }}</span>
+				</div>
+				<div class="row ank">
+					<div class="content-block">
+						<p v-for="todo in todos">
+							<a :href="todo.path" class="button button-fill an" :style="{background:todo.ys}"><span class="h">{{ todo.name }}</span></a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+
+	</body>
+
+</html>

@@ -1,0 +1,43 @@
+.red {
+	color: red;
+}
+
+
+/*提示圆圈 绿*/
+
+.yql {
+	width: 30px;
+	height: 30px;
+	background: green;
+	border-radius: 100px;
+	margin-left: 35%;
+	margin-right: 35%;
+}
+
+
+/*提示圆圈 红*/
+
+.yqh {
+	width: 30px;
+	height: 30px;
+	background: red;
+	border-radius: 100px;
+	margin-left: 35%;
+	margin-right: 35%;
+}
+
+
+/*居中*/
+
+.jz {
+	text-align: center;
+}
+
+/*表格字体*/
+.bg_zt {
+	font-size: 10px;
+}
+
+#bg_btzt {
+	font-size: 10px;
+}

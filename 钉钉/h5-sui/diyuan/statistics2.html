@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>统计2</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link href="res/assets/css/font-awesome.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="res/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="res/fonts/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/statistics2.css" />
+	</head>
+
+	<body>
+		<div id="app" class="page-group">
+			<div class="page page-current" style="overflow: scroll;">
+				<div class="card qfd">
+					<div class="card-content">
+						<div class="card-content-inner">
+							<div style="margin-top: 15px;">
+
+							</div>
+							<div class="ssj">
+								<div class="zbt">
+									<span class="z_nr">开始时间</span>
+								</div>
+								<div class="ybt">
+									<input class="sj_input" type="date" placeholder="Birth day" value="">
+								</div>
+								<div class="qfd">
+
+								</div>
+							</div>
+							<div class="ssj">
+								<div class="zbt">
+									<span class="z_nr">结束时间</span>
+								</div>
+								<div class="ybt">
+									<input class="sj_input" type="date" placeholder="Birth day" value="">
+								</div>
+								<div class="qfd">
+
+								</div>
+							</div>
+						</div>
+						<div style="margin-top: 30px;">
+
+						</div>
+						<div class="card-content-inner">
+							<div style="margin-left: 7px;">
+								<span>请选择需要的季度</span>
+								<a href=""><span class="btn btn-success bt_dx" style="margin-left: 15px;">本季度</span></a>
+								<a href=""><span class="btn btn-danger bt_dx" style="margin-left: 15px;">本年度</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="card-content" style="margin-top: 10px;">
+						<div class="card-content-inner" style="text-align: center;">
+							<table class="table table-striped bg" border='1'>
+								<thead>
+									<tr>
+										<th class="jz" v-for="todo in todos" :colspan="todo.zb" :style="{'color':todo.ys}" style="background: #F5F5DC;">{{todo.name}}</th>
+									</tr>
+								</thead>
+								<tbody class="jz">
+									<tr v-for="ds_row in ds_rows">
+										<td class="bg_l_zt">{{ds_row.name1}}</td>
+										<td class="bg_l_zt">{{ds_row.name2}}</td>
+										<td class="bg_l_zt">{{ds_row.name3}}</td>
+										<td class="bg_l_zt">{{ds_row.name4}}</td>
+										<td class="bg_l_zt">{{ds_row.name5}}</td>
+										<td class="bg_l_zt">{{ds_row.name6}}</td>
+										<td class="bg_l_zt">{{ds_row.name7}}</td>
+										<td class="bg_l_zt">{{ds_row.name8}}</td>
+									</tr>
+									<tr v-for="row in rows">
+										<td class="bg_l_zt">{{row.name1}}</td>
+										<td class="bg_l_zt">{{row.name2}}</td>
+										<td class="bg_l_zt">{{row.name3}}</td>
+										<td class="bg_l_zt">{{row.name4}}</td>
+										<td class="bg_l_zt">{{row.name5}}</td>
+										<td class="bg_l_zt">{{row.name6}}</td>
+										<td class="bg_l_zt">{{row.name7}}</td>
+										<td class="bg_l_zt">{{row.name8}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<div class="card-content-inner" style="text-align: center;">
+							<table class="table table-striped bg" border='1'>
+								<thead>
+									<tr>
+										<th class="jz" v-for="todo2 in todos2" :colspan="todo2.zb" :style="{'color':todo2.ys}" style="background: #FFEFDB;">{{todo2.name}}</th>
+									</tr>
+								</thead>
+								<tbody class="jz">
+									<tr v-for="ds_row2 in ds_rows2">
+										<td class="bg_l_zt">{{ds_row2.name1}}</td>
+										<td class="bg_l_zt">{{ds_row2.name2}}</td>
+										<td class="bg_l_zt">{{ds_row2.name3}}</td>
+										<td class="bg_l_zt">{{ds_row2.name4}}</td>
+										<td class="bg_l_zt">{{ds_row2.name5}}</td>
+										<td class="bg_l_zt">{{ds_row2.name6}}</td>
+										<td class="bg_l_zt">{{ds_row2.name7}}</td>
+										<td class="bg_l_zt">{{ds_row2.name8}}</td>
+									</tr>
+									<tr v-for="row2 in rows2">
+										<td class="bg_l_zt">{{row2.name1}}</td>
+										<td class="bg_l_zt">{{row2.name2}}</td>
+										<td class="bg_l_zt">{{row2.name3}}</td>
+										<td class="bg_l_zt">{{row2.name4}}</td>
+										<td class="bg_l_zt">{{row2.name5}}</td>
+										<td class="bg_l_zt">{{row2.name6}}</td>
+										<td class="bg_l_zt">{{row2.name7}}</td>
+										<td class="bg_l_zt">{{row2.name8}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<div class="card-content-inner" style="text-align: center;">
+							<table class="table table-striped bg" border='1'>
+								<thead>
+									<tr>
+										<th class="jz" v-for="todo3 in todos3" :colspan="todo3.zb" :style="{'color':todo3.ys}" style="background: #FFFFF0;">{{todo3.name}}</th>
+									</tr>
+								</thead>
+								<tbody class="jz">
+									<tr v-for="ds_row3 in ds_rows3">
+										<td class="bg_l_zt">{{ds_row3.name1}}</td>
+										<td class="bg_l_zt">{{ds_row3.name2}}</td>
+										<td class="bg_l_zt">{{ds_row3.name3}}</td>
+										<td class="bg_l_zt">{{ds_row3.name4}}</td>
+										<td class="bg_l_zt">{{ds_row3.name5}}</td>
+										<td class="bg_l_zt">{{ds_row3.name6}}</td>
+										<td class="bg_l_zt">{{ds_row3.name7}}</td>
+										<td class="bg_l_zt">{{ds_row3.name8}}</td>
+									</tr>
+									<tr v-for="row3 in rows3">
+										<td class="bg_l_zt">{{row3.name1}}</td>
+										<td class="bg_l_zt">{{row3.name2}}</td>
+										<td class="bg_l_zt">{{row3.name3}}</td>
+										<td class="bg_l_zt">{{row3.name4}}</td>
+										<td class="bg_l_zt">{{row3.name5}}</td>
+										<td class="bg_l_zt">{{row3.name6}}</td>
+										<td class="bg_l_zt">{{row3.name7}}</td>
+										<td class="bg_l_zt">{{row3.name8}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<div class="card-content-inner" style="text-align: center;">
+							<table class="table table-striped bg" border='1'>
+								<thead>
+									<tr>
+										<th class="jz" v-for="todo4 in todos4" :colspan="todo4.zb" :style="{'color':todo4.ys}" style="background: #F0FFF0;">{{todo4.name}}</th>
+									</tr>
+								</thead>
+								<tbody class="jz">
+									<tr v-for="ds_row4 in ds_rows4">
+										<td class="bg_l_zt">{{ds_row4.name1}}</td>
+										<td class="bg_l_zt">{{ds_row4.name2}}</td>
+										<td class="bg_l_zt">{{ds_row4.name3}}</td>
+										<td class="bg_l_zt">{{ds_row4.name4}}</td>
+										<td class="bg_l_zt">{{ds_row4.name5}}</td>
+										<td class="bg_l_zt">{{ds_row4.name6}}</td>
+									</tr>
+									<tr v-for="row4 in rows4">
+										<td class="bg_l_zt">{{row4.name1}}</td>
+										<td class="bg_l_zt">{{row4.name2}}</td>
+										<td class="bg_l_zt">{{row4.name3}}</td>
+										<td class="bg_l_zt">{{row4.name4}}</td>
+										<td class="bg_l_zt">{{row4.name5}}</td>
+										<td class="bg_l_zt">{{row4.name6}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						
+					</div>
+				</div>
+
+				<div style="height: 50px;clear: both;">
+
+				</div>
+			</div>
+		</div>
+
+		<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+		<script src="js/statistics2.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

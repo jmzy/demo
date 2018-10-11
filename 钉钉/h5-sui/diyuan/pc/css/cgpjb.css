@@ -1,0 +1,28 @@
+.ssj {
+	width: 250px;
+	height: 30px;
+	float: left;
+}
+
+.zbt {
+	width: 100px;
+	height: 30px;
+	float: left;
+	text-align: center;
+}
+
+.z_nr {
+	line-height: 35px;
+}
+
+.ybt {
+	width: 150px;
+	height: 30px;
+	float: left;
+}
+
+.y_nr {
+	padding: 0px;
+	height: 25px;
+	margin-top: 3px;
+}

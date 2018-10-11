@@ -1,0 +1,38 @@
+.tabWrap{
+    height:1.5rem;
+    display: flex;
+    border:1px solid #c8c8c8;
+	border-radius: 0.2rem;
+}
+
+.tabWrap .addColror{
+    background: #3296FA;
+    color:#fff
+}
+
+.tabItem{
+    width: 2.7rem;  
+}
+
+.tabWrap span{
+    padding:0 0.5rem;
+    height:1.5rem;
+    border-right: 1px solid #ccc;
+	text-align:center;
+	font-size: 0.6rem;
+	line-height: 1.5rem;
+	color:#ccc;
+	float: left;
+}
+
+.tabWrap span:nth-of-type(3){
+    border:0
+}
+
+.dropDown{
+	position: absolute;
+	top:0.75rem;
+	left:11rem;
+	width: 0.6rem;
+	height:1rem;
+}

@@ -1,0 +1,322 @@
+body {
+	font-weight: 400;
+	color: #000;
+	font-family: "微软雅黑";
+	font-size: 0.75rem;
+	margin: 0px;
+	padding: 0px;
+	overflow-x: hidden;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+address,
+li {
+	margin: 0px;
+	padding: 0px;
+}
+
+
+/*头部搜索栏集合*/
+
+.hhg {
+	height: 70px;
+}
+
+.hhg_qx {
+	margin-top: 0.65rem;
+}
+
+
+/*输入框文字大小*/
+
+.srk_wzdx {
+	font-size: 0.65rem;
+	font-weight: 400;
+}
+
+
+/*文本固定框*/
+
+#textarea_ys {
+	height: 120px;
+	width: 100%;
+	margin-right: 9%;
+	margin-left: 5%;
+	border-style: dashed;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	font-size: 0.65rem;
+	padding: 0.5rem;
+}
+
+
+/*细致边框*/
+
+#xzbk {
+	border-top: 1px solid red;
+	border-left: 1px solid red;
+	border-right: 1px solid red;
+	border-bottom: 1px solid red;
+	transform: scaleY(0.5);
+}
+
+
+/*添加图标*/
+
+.tj_tbk {
+	width: 50px;
+	height: 50px;
+	background: #F8F8F8;
+	border: 1px solid #BEBEBE;
+	border-radius: 10px;
+	border-style: dashed;
+	text-align: center;
+	float: left;
+	padding: 0px;
+}
+
+
+/*添加图标里的加号*/
+
+.tj_tb_jh {
+	line-height: 50px;
+	color: #696969;
+}
+
+.biao_zhun {
+	font-weight: 400;
+	font-size: 0.75rem;
+}
+
+.srk_zt {
+	font-weight: 400;
+	font-size: 0.65rem;
+}
+
+.red {
+	color: red;
+}
+
+.deepskyblue {
+	color: deepskyblue;
+}
+
+#input_ztdx {
+	font-size: 0.65rem;
+	font-weight: 400;
+}
+
+
+/*输入框标准*/
+
+.srk_bz {
+	width: 50%;
+	height: 1.5rem;
+	font-weight: 400;
+	margin-top: 0px;
+}
+
+#srk_wz {
+	font-size: 0.75rem;
+}
+
+#msk {
+	font-size: 0.65rem;
+	background: #F5F5F5;
+	border: 1px solid #E8E8E8;
+	border-radius: 0.25rem;
+}
+
+
+/* 输入框字体右偏*/
+
+.srk_yp {
+	text-align: right;
+}
+
+
+/*添加明细-左边输入框*/
+
+#zb_srk {
+	padding: 0px;
+	margin-top: -0.25rem;
+	font-size: 0.75rem;
+	font-weight: 400;
+}
+
+
+/*添加明细-左边输入框*/
+
+#yb_srk {
+	font-size: 0.65rem;
+	font-weight: 400;
+	margin-left: 2px;
+	margin-top: -7px;
+}
+
+
+/*去除padding*/
+
+.q_padding {
+	padding: 0;
+}
+
+
+/*图片上传-循环样式*/
+
+
+/*图片上传-循环框*/
+
+.tpsc-xh-k {
+	float: left;
+}
+
+
+/*图片上传-框*/
+
+.tpsc-img-k {
+	width: 45px;
+	height: 45px;
+	float: left;
+}
+
+
+/*图片上传-图*/
+
+.tpsc-img {
+	width: 100%;
+	height: 100%;
+	margin-top: 2.5px;
+	border: 1px solid #FFEBCD;
+	border-radius: 10px;
+}
+
+
+/*图片上传-空白块*/
+
+.tpsc-img-kuai {
+	height: 50px;
+	width: 10px;
+	float: left;
+}
+
+
+/*图片上传-删除图标*/
+
+.delete-icon {
+	font-size: 15px;
+	margin-top: -7px;
+	margin-left: 37px;
+	position: absolute;
+}
+
+
+/*清除浮动*/
+
+.qfd {
+	clear: both;
+}
+
+
+/*图片上传-提示的小字*/
+
+.tpsc-ts-xz {
+	font-size: 10px;
+	color: #9D9D9D;
+}
+
+
+/*文件上传区域*/
+
+
+/*文件上传-外框*/
+
+.wjsc-wk {
+	float: left;
+	margin-left: 20px;
+	width: 94%;
+}
+
+
+/*文件上传-内框*/
+
+.wjsc-nk {
+	width: 100%;
+	height: 50px;
+	background: #FFFAF4;
+	border: 1px solid #F0F0F0;
+	border-radius: 10px;
+}
+
+
+/*文件上传-标题-图标*/
+
+.wjsc-tb-icon {
+	float: left;
+	width: 30px;
+	margin-left: 15px;
+	font-size: 25px;
+	line-height: 50px;
+	color: #FF8040;
+}
+
+
+/*文件上传-文字*/
+
+.wjsc-z-wz {
+	line-height: 50px;
+	margin-left: 15px;
+}
+
+
+/*文件上传-右-文字*/
+
+.wjsc-y-wz {
+	line-height: 50px;
+	margin-left: 15px;
+}
+
+
+/*文件上传-删除-图标*/
+
+.wjsc-delect-icon {
+	float: right;
+	font-size: 25px;
+	line-height: 50px;
+	color: red;
+	margin-right: 15px;
+	z-index: 999;
+}
+
+
+/*置顶*/
+
+.zd {
+	z-index: 999;
+}
